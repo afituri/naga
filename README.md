@@ -7,10 +7,11 @@ open /etc/hosts for edit using sudo
 add these lines at the end 
 
 
-127.0.0.1       user\n
-127.0.0.1       admin\n
-127.0.0.1       seller\n
+127.0.0.1       user
 
+127.0.0.1       admin
+
+127.0.0.1       seller
 
 note to leave an empty line at the end
 

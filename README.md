@@ -19,5 +19,7 @@ npm install
 npm start
 
 user:3000/user to get to the user routes
+
 admin:3000/admin to get to the admin routes
+
 seller:3000/seller to get to the user routes

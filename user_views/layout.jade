@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-rtl.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-editable.css')
+    link(rel='stylesheet', href='/css/bootstrap-datetimepicker.min.css')
+    link(rel='stylesheet', href='/css/jumbotron-narrow.css')
+    link(rel='stylesheet', href='/css/jasny-bootstrap.min.css')
+  body
+    block content
+      block navigation
+        nav#myNavmenu.navmenu.navmenu-default.navmenu-fixed-left.offcanvas(role='navigation')
+          a.navmenu-brand(href='#') Brand
+          ul.nav.navmenu-nav
+            li.active
+              a(href='#') Home
+            li
+              a(href='#') llll
+            li
+              a(href='#') Link
+        .navbar.navbar-default.navbar-fixed-top
+          button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='#myNavmenu', data-canvas='body')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar

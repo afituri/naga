@@ -1,21 +1,21 @@
 $(document).ready(function(){
-    alert("Inside function hhhhhhhhhhhhh");
-    $('.navmenu').offcanvas();
-    // $('.navmenu').canvas-slid();
-   
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
 
-    $("#input-702").fileinput({
-        uploadUrl: "' . Url::to(['#']) . '"
-        maxFileCount: 10,
-        overwriteInitial: false,
-        initialPreview: [
-            '<img src="http://www.kodyaz.com/photos/windows_8/images/34677/secondarythumb.aspx " class="file-preview-image">',
-            '<img src="http://www.kodyaz.com/photos/windows_8/images/34676/secondarythumb.aspx " class="file-preview-image">',
-        ],
-        initialPreviewConfig: [
-        {caption: "Desert.jpg", width: "120px", url:"/site/file-delete", key:1},
-        {caption: "Tulips.jpg", width: "120px", url:"/site/file-delete", key:2}
-        ],
-    });
+      // $('#carousel-example-generic').on('slide.bs.carousel', function () {
+  //     // do something…
+  // })
 
+  $('#carousel13').carousel({
+    interval: 3000,
+    // cycle: true
+  })
 });

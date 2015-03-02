@@ -1,0 +1,175 @@
+
+#intro { color: red }
+.foo { color: blue }
+
+.navbar{
+  background-image: url('/img/1.jpg');
+}
+/*//////////////////////////////*/
+
+/*----------------------------
+  Carousel
+  ----------------------------*/
+
+/*#carousel13 {
+  margin-top: 70;
+}
+
+.carousel-caption {
+  font-size: 23px;
+}
+
+.carousel-caption h4 {
+  font-size: 32;
+}*/
+
+#carousel13 .item{ height:300px; }
+
+#slide1{
+  background: url('/img/111.jpg') top center no-repeat;
+}
+#slide2{
+  background: url('/img/112.jpg') top center no-repeat;
+}
+#slide3{
+  background: url('/img/113.jpg') top center no-repeat;
+}
+#slide4{
+  background: url('/img/114.jpg') top center no-repeat;
+}
+/* Porttait & landscape phone */
+/*@media (max-width: 480px) {
+  #carousel13 .item{ height:300px; }
+  .carousel-caption {
+    font-size: 23px;
+  }
+
+  .carousel-caption h4 {
+    font-size: 32;
+  }
+}
+*/
+/*  landscape phone to Porttait tablet */
+/*@media (max-width: 768px) {
+  #carousel13 .item{ height:400px; }
+}
+*/
+/* Large desktop */
+/*@media (min-width: 1200px) {
+  #carousel13 .item{ height:500px; }
+}
+*/
+/*@media(max-width:767px){}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+*/
+/*//////////////////////////////*/
+
+.basketImg { 
+  width: 130px;
+  height: 50px;
+  background: url('/img/2.svg') no-repeat center center;
+  background-size: 200px;  
+}
+
+.navbar-brand { 
+  width: 130px;
+  height: 70px;
+  background: url('/img/naga.png') no-repeat center center;
+  background-size: 200px;
+  /*position: left;*/
+  /*position: absolute;*/
+  /*margin-left: 300px;*/
+  /*margin-right: auto;*/
+  /*text-align: left;*/
+
+}
+
+.nav-tabs {
+  display: inline-block;
+  border-bottom: none;
+  padding-top: 15px;
+  font-weight: bold;
+}
+.nav-tabs > li > a, 
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus, 
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: none;
+  border-radius: 0;
+}
+
+.nav-list { 
+  border-bottom: 1px solid #eee; 
+}
+.nav-list > li { 
+  padding: 20px 15px 15px;
+  border-left: 1px solid #eee; 
+}
+.nav-list > li:last-child { border-right: 1px solid #eee; }
+.nav-list > li > a:hover { text-decoration: none; }
+.nav-list > li > a > span {
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mega-dropdown { position: static !important; }
+.mega-dropdown-menu {
+  padding: 20px 15px 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+#tooltip_container {
+  color: #fff;
+  padding: 20px;
+  position: absolute;
+  max-width: 200px;
+  background-color: rgba(0,0,0,.85);
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius: 12px;
+  display: none;
+}
+
+.tooltip-source-html{
+  display: none;
+}

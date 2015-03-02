@@ -6,7 +6,7 @@ var i18n = require('../app/i18n');
 /* GET home page. */
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
-  res.render('index', { title: 'User' });
+  res.render('homeUser', { title: 'homeUser' });
 });
 
 // set a cookie to requested locale

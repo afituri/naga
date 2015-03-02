@@ -1,0 +1,322 @@
+extends layout
+
+block content  
+  #wrapper
+    //- Navigation
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      //- Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='/adminLogin/adminPage') Admin Page
+      //- Top Menu Items
+      ul.nav.navbar-right.top-nav
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-envelope
+            b.caret
+          ul.dropdown-menu.message-dropdown
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong Admin Name
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong Admin Name
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong Admin Name
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-footer
+              a(href='#') Read All New Messages
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-bell
+            b.caret
+          ul.dropdown-menu.alert-dropdown
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-default Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-primary Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-success Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-info Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-warning Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-danger Alert Badge
+            li.divider
+            li
+              a(href='#') View All
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-user
+            |  Admin Name 
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-user
+                |  Profile
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-envelope
+                |  Inbox
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-gear
+                |  Settings
+            li.divider
+            li
+              a(href='/adminLogin')
+                i.fa.fa-fw.fa-power-off
+                |  Log Out
+      // Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        ul.nav.navbar-nav.side-nav
+          li
+            a(href='/adminLogin/adminPage')
+              i.fa.fa-fw.fa-dashboard
+              |  Dashboard
+          li
+            a(href='javascript:;', data-toggle='collapse', data-target='#demo')
+              i.fa.fa-fw.fa-arrows-v
+              |  Users Manger 
+              i.fa.fa-fw.fa-caret-down
+            ul#demo.collapse
+              li
+                a(href='/adminLogin/adminRegUsers') Register User
+              li
+                a(href='adminLogin/adminShowUsers') Show Users    
+      // /.navbar-collapse
+    #page-wrapper
+      .container-fluid
+        // Page Heading
+        .row
+          .col-lg-12
+            h1.page-header  Users Manger
+              small  Show Users
+            ol.breadcrumb
+              li
+                i.fa.fa-dashboard
+                a(href='/adminPage')  Dashboard
+              li.active
+                i.fa.fa-user  Show Users
+            // show users
+            .well.col-xs-8.col-sm-8.col-md-8.col-lg-8.col-xs-offset-2.col-sm-offset-2.col-md-offset-2.col-lg-offset-2
+              .row.user-row
+                .col-xs-3.col-sm-2.col-md-1.col-lg-1
+                  img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                .col-xs-8.col-sm-9.col-md-10.col-lg-10
+                  strong User 1
+                  br
+                  span.text-muted User level: Administrator
+                .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.cyruxx')
+                  i.glyphicon.glyphicon-chevron-down.text-muted
+              .row.user-infos.cyruxx
+                .col-xs-12.col-sm-12.col-md-10.col-lg-10.col-xs-offset-0.col-sm-offset-0.col-md-offset-1.col-lg-offset-1
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title User information
+                    .panel-body
+                      .row
+                        .col-md-3.col-lg-3.hidden-xs.hidden-sm
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        .col-xs-2.col-sm-2.hidden-md.hidden-lg
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        .col-xs-10.col-sm-10.hidden-md.hidden-lg
+                          strong User 1
+                          br
+                          dl
+                            dt User level:
+                            dd Administrator
+                            dt Registered since:
+                            dd 11/12/2013
+                            dt Topics
+                            dd 15
+                            dt Warnings
+                            dd 0
+                        .col-md-9.col-lg-9.hidden-xs.hidden-sm
+                          strong User 1
+                          br
+                          table.table.table-user-information
+                            tbody
+                              tr
+                                td User level:
+                                td Administrator
+                              tr
+                                td Registered since:
+                                td 11/12/2013
+                              tr
+                                td Topics
+                                td 15
+                              tr
+                                td Warnings
+                                td 0
+                    .panel-footer
+                      button.btn.btn-sm.btn-primary(type='button', data-toggle='tooltip', data-original-title='Send message to user')
+                        i.glyphicon.glyphicon-envelope
+                      span.pull-right
+                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                          i.glyphicon.glyphicon-edit
+                        button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-original-title='Remove this user')
+                          i.glyphicon.glyphicon-remove
+              .row.user-row
+                .col-xs-3.col-sm-2.col-md-1.col-lg-1
+                  img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                .col-xs-8.col-sm-9.col-md-10.col-lg-10
+                  strong User 2
+                  br
+                  span.text-muted User level: Registered
+                .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user2')
+                  i.glyphicon.glyphicon-chevron-down.text-muted
+              .row.user-infos.user2
+                .col-xs-12.col-sm-12.col-md-10.col-lg-10.col-xs-offset-0.col-sm-offset-0.col-md-offset-1.col-lg-offset-1
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title User information
+                    .panel-body
+                      .row
+                        .col-md-3.col-lg-3.hidden-xs.hidden-sm
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        .col-xs-2.col-sm-2.hidden-md.hidden-lg
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        .col-xs-10.col-sm-10.hidden-md.hidden-lg
+                          strong User 2
+                          br
+                          dl
+                            dt User level:
+                            dd Administrator
+                            dt Registered since:
+                            dd 11/12/2013
+                            dt Topics
+                            dd 15
+                            dt Warnings
+                            dd 0
+                        .col-md-9.col-lg-9.hidden-xs.hidden-sm
+                          strong User 2
+                          br
+                          table.table.table-user-information
+                            tbody
+                              tr
+                                td User level:
+                                td Administrator
+                              tr
+                                td Registered since:
+                                td 11/12/2013
+                              tr
+                                td Topics
+                                td 15
+                              tr
+                                td Warnings
+                                td 0
+                    .panel-footer
+                      button.btn.btn-sm.btn-primary(type='button', data-toggle='tooltip', data-original-title='Send message to user')
+                        i.glyphicon.glyphicon-envelope
+                      span.pull-right
+                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                          i.glyphicon.glyphicon-edit
+                        button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-original-title='Remove this user')
+                          i.glyphicon.glyphicon-remove
+              .row.user-row
+                .col-xs-3.col-sm-2.col-md-1.col-lg-1
+                  img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                .col-xs-8.col-sm-9.col-md-10.col-lg-10
+                  strong User 3
+                  br
+                  span.text-muted User level: Administrator
+                .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user3')
+                  i.glyphicon.glyphicon-chevron-down.text-muted
+              .row.user-infos.user3
+                .col-xs-12.col-sm-12.col-md-10.col-lg-10.col-xs-offset-0.col-sm-offset-0.col-md-offset-1.col-lg-offset-1
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title User information
+                    .panel-body
+                      .row
+                        .col-md-3.col-lg-3.hidden-xs.hidden-sm
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        .col-xs-2.col-sm-2.hidden-md.hidden-lg
+                          img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        .col-xs-10.col-sm-10.hidden-md.hidden-lg
+                          strong User 3
+                          br
+                          dl
+                            dt User level:
+                            dd Administrator
+                            dt Registered since:
+                            dd 11/12/2013
+                            dt Topics
+                            dd 15
+                            dt Warnings
+                            dd 0
+                        .col-md-9.col-lg-9.hidden-xs.hidden-sm
+                          strong User 3
+                          br
+                          table.table.table-user-information
+                            tbody
+                              tr
+                                td User level:
+                                td Administrator
+                              tr
+                                td Registered since:
+                                td 11/12/2013
+                              tr
+                                td Topics
+                                td 15
+                              tr
+                                td Warnings
+                                td 0
+                    .panel-footer
+                      button.btn.btn-sm.btn-primary(type='button', data-toggle='tooltip', data-original-title='Send message to user')
+                        i.glyphicon.glyphicon-envelope
+                      span.pull-right
+                        button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
+                          i.glyphicon.glyphicon-edit
+                        button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-original-title='Remove this user')
+                          i.glyphicon.glyphicon-remove
+  
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/adminShowUsers.js')  

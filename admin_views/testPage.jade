@@ -1,0 +1,51 @@
+extends layout
+input#1input-702.file-loading(name='kartik-input-702', type='file', multiple='true', data-upload-url='/site/file-upload', data-max-file-count='10')
+br
+br  
+br
+span.file-input.has-error
+  .file-preview
+    .close.fileinput-remove
+      | ×
+    .file-drop-zone
+      .file-preview-thumbnails
+        #uploaded-1424674341913.file-preview-frame.file-preview-initial(data-fileindex='-1')
+          img.file-preview-image(src='http://www.kodyaz.com/photos/windows_8/images/34677/secondarythumb.aspx')
+          .file-thumbnail-footer
+            .file-caption-name
+              | Desert.jpg
+            .file-actions
+              .file-footer-buttons
+                button.kv-file-remove.btn.btn-xs.btn-default(data-index='0', data-key='1', data-url='/site/file-delete', title='Remove file', type='button')
+                  i.glyphicon.glyphicon-trash.text-danger
+                    | ::before
+              .file-upload-indicator(title='', tabindex='-1')
+              .clearfix
+                | ::before
+                | ::after
+        #uploaded-1424674341895.file-preview-frame.file-preview-initial(data-fileindex='-1')
+          img.file-preview-image(src='http://www.kodyaz.com/photos/windows_8/images/34676/secondarythumb.aspx')
+          .file-thumbnail-footer
+            .file-caption-name
+              | Tulips.jpg
+            .file-actions
+              .file-footer-buttons
+                button.kv-file-remove.btn.btn-xs.btn-default(data-index='1', data-key='2', data-url='/site/file-delete', title='Remove file', type='button')
+                  i.glyphicon.glyphicon-trash.text-danger
+                    | ::before
+              .file-upload-indicator(title='', tabindex='-1')
+              .clearfix
+                | ::before
+                | ::after
+        #preview-1424674268353-0.file-preview-frame(data-fileindex='0')
+      .clearfix
+      .file-preview-status.text-center.text-success
+      .kv-fileinput-error.file-error-message(style='display: block;')
+
+
+
+script(src="/javascripts/bootstrap.min.js")
+script(src='/javascripts/jquery-1.11.2.min.js')
+script(src="/javascripts/jasny-bootstrap.min.js")
+script(src="/javascripts/jquery.form.js")
+script(src="/javascripts/testPage.js")

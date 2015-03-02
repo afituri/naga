@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+        a(href="/adminLogin")
+          img.img-responsive(src="../img/nagaLogo.png")
+        h4#h4
+          i.glyphicon.glyphicon-user
+          |     Admin Access
+        #form-olvidado
+          form#loginForm(accept-charset='UTF-8' , name='login-form' , action='/adminLogin/adminPage', role='form', method='post')
+            fieldset
+              .form-group.input-group
+                span.input-group-addon @
+                input.form-control(placeholder='Email', name='email', type='email', autofocus='')
+              .form-group.input-group
+                span.input-group-addon
+                  i.glyphicon.glyphicon-lock
+                input.form-control(placeholder='Password', name='password', type='password')
+              .form-group
+                button#btnLogin.btn.btn-block(type='submit') Log in
+                p.help-block
+                  a#olvidado.pull-right.text-muted(href='#')
+                    small Forgot your password ?     
+        #form-olvidado(style='display: none;')
+          h4(style='color:#F49B23;') Forgot your password? 
+          form#loginReset(accept-charset='UTF-8' , name='login-reset' , role='form', method='post' , action='')
+            fieldset
+              span.help-block  Email address you use to log in to your account
+                br
+                |            We'll send you an email with instructions to choose a new password.
+              .form-group.input-group
+                span.input-group-addon @
+                input.form-control(placeholder='Email', name='email', type='email')
+              button#btn-olvidado.btn.btn-success.btn-block(type='submit') Reset Password
+              p.help-block
+                a#acceso.text-muted(href='#')
+                  small Admin Access
+        div.navbar-fixed-bottom#navbar-fixed-bottom
+          p.pull-right © 2015 Naga
+          a.pull-left(href="#" target="_blank",style='color:#F49B23;')
+            i.glyphicon.glyphicon-share-alt
+            |      Go to site home page.   
+  script(src='/js/jquery-1.11.2.min.js') 
+  script(src="/js/jquery.validate.min.js")            
+  script(src='/js/adminLogin.js')                  

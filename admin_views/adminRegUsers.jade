@@ -1,0 +1,217 @@
+extends layout
+
+block content  
+  #wrapper
+    //- Navigation
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      //- Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='/adminLogin/adminPage') Admin Page
+      //- Top Menu Items
+      ul.nav.navbar-right.top-nav
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-envelope
+            b.caret
+          ul.dropdown-menu.message-dropdown
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong John Smith
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong John Smith
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-preview
+              a(href='#')
+                .media
+                  span.pull-left
+                    img.media-object(src='http://placehold.it/50x50', alt='')
+                  .media-body
+                    h5.media-heading
+                      strong John Smith
+                    p.small.text-muted
+                      i.fa.fa-clock-o
+                      |  Yesterday at 4:32 PM
+                    p Lorem ipsum dolor sit amet, consectetur...
+            li.message-footer
+              a(href='#') Read All New Messages
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-bell
+            b.caret
+          ul.dropdown-menu.alert-dropdown
+            li#email
+              a(href='#')
+                | Alert Name 
+                span.label.label-default Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-primary Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-success Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-info Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-warning Alert Badge
+            li
+              a(href='#')
+                | Alert Name 
+                span.label.label-danger Alert Badge
+            li.divider
+            li
+              a(href='#') View All
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            i.fa.fa-user
+            |  John Smith 
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-user
+                |  Profile
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-envelope
+                |  Inbox
+            li
+              a(href='#')
+                i.fa.fa-fw.fa-gear
+                |  Settings
+            li.divider
+            li
+              a(href='/adminLogin')
+                i.fa.fa-fw.fa-power-off
+                |  Log Out
+      // Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        ul.nav.navbar-nav.side-nav
+          li
+            a(href='/adminLogin/adminPage')
+              i.fa.fa-fw.fa-dashboard
+              |  Dashboard
+          li
+            a(href='javascript:;', data-toggle='collapse', data-target='#demo')
+              i.fa.fa-fw.fa-arrows-v
+              |  Users Manger 
+              i.fa.fa-fw.fa-caret-down
+            ul#demo.collapse
+              li
+                a(href='/adminLogin/adminRegUsers') Register User
+              li
+                a(href='/adminLogin/adminShowUsers') Show Users    
+      // /.navbar-collapse
+    #page-wrapper
+      .container-fluid
+        // Page Heading
+        .row
+          .col-lg-12
+            h1.page-header  Users Manger
+              small  Register User
+            ol.breadcrumb
+              li
+                i.fa.fa-dashboard
+                a(href='/adminPage')  Dashboard
+              li.active
+                i.fa.fa-user  Register User
+            // Users Register              
+            .col-xs-12.col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+              form(role='form')
+                hr.colorgraph
+                .row
+                  .col-xs-12.col-sm-6.col-md-6
+                    .form-group
+                      input#first_name.form-control.input-lg(type='text', name='first_name', placeholder='First Name', tabindex='1')
+                  .col-xs-12.col-sm-6.col-md-6
+                    .form-group
+                      input#last_name.form-control.input-lg(type='text', name='last_name', placeholder='Last Name', tabindex='2')
+                .form-group
+                  input#display_name.form-control.input-lg(type='text', name='display_name', placeholder='Display Name', tabindex='3')
+                .form-group
+                  input#email.form-control.input-lg(type='email', name='email', placeholder='Email Address', tabindex='4')
+                .form-group
+                  .form-group.multiple-form-group.input-group
+                    .input-group-btn.input-group-select
+                      button.btn.btn-default.dropdown-toggle.input-lg(type='button', data-toggle='dropdown')
+                        span.concept Phone
+                        span.caret
+                      ul.dropdown-menu(role='menu')
+                        li
+                          a(href='#Libyana',value='Libyana') Libyana
+                        li
+                          a(href='#Madar',value='Madar') Madar
+                      input.input-group-select-val(type='hidden', name="contacts['type'][]", value='phone')
+                    input#phone.form-control.input-lg(type='text', name="contacts['value'][]",placeholder='Phone Number')
+                    span.input-group-btn
+                      button.btn.btn-success.btn-add.input-lg(type='button') +
+                .row
+                  .col-xs-4.col-sm-3.col-md-3
+                    span.button-checkbox
+                      button.btn(type='button', data-color='info', tabindex='7') I Agree
+                      input#t_and_c.hidden(type='checkbox', name='t_and_c', value='1')
+                  .col-xs-8.col-sm-9.col-md-9
+                    | By clicking 
+                    strong.label.label-primary Register
+                    | , you agree to the 
+                    a(href='#', data-toggle='modal', data-target='#t_and_c_m') Terms and Conditions
+                    |  set out by this site, including our Cookie Use.
+                hr.colorgraph
+                .row
+                  .col-xs-12.col-md-6
+                    input.btn.btn-primary.btn-block.btn-lg(type='submit', value='Register', tabindex='7')
+          // Modal
+          #t_and_c_m.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                  h4#myModalLabel.modal-title Terms & Conditions
+                .modal-body
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+                .modal-footer
+                  button.btn.btn-primary(type='button', data-dismiss='modal') I Agree      
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/adminRegUsers.js')  

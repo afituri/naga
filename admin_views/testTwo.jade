@@ -1,0 +1,56 @@
+extends layout
+block navigation
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        button.btn.btn-navbar.collapsed(data-target='.nav-collapse', data-toggle='collapse', type='button')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        .nav-collapse
+          ul#navbar.nav
+            li.active(ng-class="{active:section=='plunks'}")
+              a(href='/plunks/trending')
+                i.icon-home
+                | Home
+            li
+              a(target='_self', href='/edit/')
+                i.icon-calendar
+                | General Election 2014
+            li.divider-vertical
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.icon-eye-open
+                | Assembly Elections
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='#/HTML5Apps') Assembly Elections 2013
+            li.divider-vertical
+            li(ng-class="{active:section=='tags'}")
+              a(href='/tags')
+                i.icon-th
+                | Constituecy
+            li(ng-class="{active:section=='discuss'}")
+              a(href='/discuss')
+                i.icon-time
+                | Election News
+            li.divider-vertical
+            li
+              a(href='https://github.com/filearts/plunker')
+                i.icon-bell
+                | Candidate
+    .container
+      ul.nav.nav-pills
+        li.active
+          a(href='#') Popular
+        li
+          a(href='#') Trending
+        li
+          a(href='#') Latest
+
+
+  script(src="/javascripts/bootstrap.min.js")
+  script(src="/javascripts/jquery-1.11.2.min.js")
+  script(src="/javascripts/jasny-bootstrap.min.js")
+  script(src="/javascripts/testPage.js")

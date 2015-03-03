@@ -8,6 +8,13 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Seller' });
 });
 
+
+router.get('/homePage', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('homePage', { title: 'Seller' });
+});
+
+
 router.get('/:locale', function (req, res) {
   i18n.setdeflan(req,res);
   res.redirect("/seller");

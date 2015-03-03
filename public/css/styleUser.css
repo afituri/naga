@@ -29,13 +29,16 @@
   background: url('/img/111.jpg') top center no-repeat;
 }
 #slide2{
-  background: url('/img/112.jpg') top center no-repeat;
+  background: url('/img/116.jpg') top center no-repeat;
 }
 #slide3{
   background: url('/img/113.jpg') top center no-repeat;
 }
 #slide4{
-  background: url('/img/114.jpg') top center no-repeat;
+  background: url('/img/112.jpg') top center no-repeat;
+}
+#slide5{
+  background: url('/img/116.jpg') top center no-repeat;
 }
 /* Porttait & landscape phone */
 /*@media (max-width: 480px) {

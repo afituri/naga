@@ -3,6 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/css/styleUser.css')
+    link(rel='stylesheet', href='/css/listUser.css')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/bootstrap-rtl.min.css')
     link(rel='stylesheet', href='/css/bootstrap-editable.css')
@@ -168,42 +169,169 @@ html
                           .col-lg-12
                             p
                               a.btn.btn-danger.btn-block(href='#') Cerrar Sesion
-              ul.nav.navbar-nav.navbar-right
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Iasmani Pinazo 
-                    span.glyphicon.glyphicon-user.pull-left
-                  ul.dropdown-menu
-                    li
-                      a(href='#')
-                        | Account Settings 
-                        span.glyphicon.glyphicon-cog.pull-right
-                    li.divider
-                    li
-                      a(href='#')
-                        | User stats 
-                        span.glyphicon.glyphicon-stats.pull-right
-                    li.divider
-                    li
-                      a(href='#')
-                        | Messages 
-                        span.badge.pull-right  42 
-                    li.divider
-                    li
-                      a(href='#')
-                        | Favourites Snippets 
-                        span.glyphicon.glyphicon-heart.pull-right
-                    li.divider
-                    li
-                      a(href='#')
-                        | Sign Out 
-                        span.glyphicon.glyphicon-log-out.pull-right                  
+                 
             
         .panel.panel-warning(style='margin-bottom: 0;')
           .panel-body
-            .pull-right.basketImg
+            .row
+              .col-xs-3.col-sm-3.col-md-3.col-lg-3
+                .btn-group
+                  button.btn.btn-labeled.btn-success(type='button')
+                    span.btn-label
+                      i.glyphicon.glyphicon-shopping-cart
+                  button.btn.btn-info(type='button') Cart
+                  button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='#') Action
+                    li
+                      a(href='#') Another action
+                    li
+                      a(href='#') Something else here
+                    li.divider
+                    li
+                      button.btn.btn-warning.btn-block(type='button') View Cart
+                .btn-group
+                  ul.nav.navbar-nav
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown')
+                        | Iasmani 
+                        span.glyphicon.glyphicon-user.pull-left
+                      ul.dropdown-menu
+                        li
+                          a(href='#')
+                            | Account Settings 
+                            span.glyphicon.glyphicon-cog.pull-right
+                        li.divider
+                        li
+                          a(href='#')
+                            | User stats 
+                            span.glyphicon.glyphicon-stats.pull-right
+                        li.divider
+                        li
+                          a(href='#')
+                            | Messages 
+                            span.badge.pull-right  42 
+                        li.divider
+                        li
+                          a(href='#')
+                            | Favourites Snippets 
+                            span.glyphicon.glyphicon-heart.pull-right
+                        li.divider
+                        li
+                          a(href='#')
+                            | Sign Out 
+                            span.glyphicon.glyphicon-log-out.pull-right               
+              .col-xs-10.col-sm-6.col-md-6.col-lg-6
+                form
+                  .input-group
+                    span.input-group-btn
+                      button.btn.btn-default(type='button') Go
+                    //- input.form-control(type='text') .input-lg .btn-lg
+                    input.form-control.text-left(type='text', placeholder='Searsh')  
+                    .input-group-btn
+                      button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                        | All
+                        span.caret
+                      ul.dropdown-menu.pull-right
+                        li
+                          a(href='#') Department one
+                        li
+                          a(href='#') Sony
+                        li
+                          a(href='#') Vaio
+                        li.divider
+                        li
+                          a(href='#') Department Two
+
+            //- .pull-right.basketImg
       block sellerPage
       block home
+      block listOnLeft
+        .row
+          .col-md-3.col-md-push-9
+            #accordion.panel-group
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title.text-left
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+                      span.glyphicon.glyphicon-folder-close.text-left
+                      | Content
+                #collapseOne.panel-collapse.collapse.in
+                  ul.list-group
+                    li.list-group-item
+                      span.glyphicon.glyphicon-pencil.text-primary.text-left
+                      a(href='http://fb.com/moinakbarali') Articles
+                      ul.list-group
+                        li.list-group-item
+                          span.glyphicon.glyphicon-pencil.text-primary.text-left
+                          a(href='http://fb.com/moinakbarali') Articles
+                        li.list-group-item
+                          span.glyphicon.glyphicon-flash.text-success.text-left
+                          a(href='http://fb.com/moinakbarali') News
+                        li.list-group-item
+                          span.glyphicon.glyphicon-file.text-info.text-left
+                          a(href='http://fb.com/moinakbarali') Newsletters
+                        li.list-group-item
+                          span.glyphicon.glyphicon-comment.text-success.text-left
+                          a(href='http://fb.com/moinakbarali') Comments
+                          span.badge 42
+                    li.list-group-item
+                      span.glyphicon.glyphicon-flash.text-success.text-left
+                      a(href='http://fb.com/moinakbarali') News
+                    li.list-group-item
+                      span.glyphicon.glyphicon-file.text-info.text-left
+                      a(href='http://fb.com/moinakbarali') Newsletters
+                    li.list-group-item
+                      span.glyphicon.glyphicon-comment.text-success.text-left
+                      a(href='http://fb.com/moinakbarali') Comments
+                      span.badge 42
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
+                      span.glyphicon.glyphicon-file
+                      | Reports
+                #collapseFour.panel-collapse.collapse
+                  .list-group
+                    a.list-group-item(href='#')
+                      | Cras justo odio
+                    .list-group
+                      a.list-group-item(href='#')
+                        | Cras justo odio
+                      a.list-group-item(href='#') Dapibus ac facilisis in
+                      a.list-group-item(href='#') Morbi leo risus
+                      a.list-group-item(href='#') Porta ac consectetur ac
+                      a.list-group-item(href='#') Vestibulum at eros
+                    a.list-group-item(href='#') Dapibus ac facilisis in
+                    a.list-group-item(href='#') Morbi leo risus
+                    a.list-group-item(href='#') Porta ac consectetur ac
+                    a.list-group-item(href='#') Vestibulum at eros
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseFive')
+                      span.glyphicon.glyphicon-heart
+                      | Reports
+                #collapseFive.panel-collapse.collapse
+                  .list-group
+                    a.list-group-item(href='#')
+                      h4.list-group-item-heading List group item heading
+                      p.list-group-item-text
+                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                  .list-group
+                    a.list-group-item.active(href='#')
+                      h4.list-group-item-heading List group item heading
+                      p.list-group-item-text
+                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                  .list-group
+                    a.list-group-item(href='#')
+                      h4.list-group-item-heading List group item heading
+                      p.list-group-item-text
+                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+            
 
 
   script(src="/js/jquery-1.11.2.min.js")

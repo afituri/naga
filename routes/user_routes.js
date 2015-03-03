@@ -9,6 +9,10 @@ router.get('/', function(req, res) {
   res.render('homeUser', { title: 'homeUser' });
 });
 
+router.get('/test', function(req, res) {
+  res.render('test', { title: ' test' });
+});
+
 // set a cookie to requested locale
 router.get('/:locale', function (req, res) {
   i18n.setdeflan(req,res);

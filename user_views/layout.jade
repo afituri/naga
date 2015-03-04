@@ -144,34 +144,34 @@ html
                         a(href='#kids', role='tab', data-toggle='tab') Kids
                       li
                         a(href='#sports', role='tab', data-toggle='tab') Sports
-              
-              ul.nav.navbar-nav.navbar-right
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    span.glyphicon.glyphicon-user
-                    strong Nombre
-                    span.glyphicon.glyphicon-chevron-down
-                  ul.dropdown-menu
-                    li
-                      .navbar-login
-                        .row
-                          .col-md-4
-                            p.text-center
-                              span.glyphicon.glyphicon-user.icon-size
-                          .col-md-8
-                            p.text-left
-                              strong Nombre Apellido
-                            p.text-left.small correoElectronico@email.com
-                            p.text-left
-                              a.btn.btn-primary.btn-block.btn-sm(href='#') Actualizar Datos
-                    li.divider
-                    li
-                      .navbar-login.navbar-login-session
-                        .row
-                          .col-lg-12
-                            p
-                              a.btn.btn-danger.btn-block(href='#') Cerrar Sesion
-                 
+              .mainmenu
+                ul.nav.navbar-nav.navbar-right
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      span.glyphicon.glyphicon-user
+                      strong Nombre
+                      span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu
+                      li
+                        .navbar-login
+                          .row
+                            .col-md-4
+                              p.text-center
+                                span.glyphicon.glyphicon-user.icon-size
+                            .col-md-8
+                              p.text-left
+                                strong Nombre Apellido
+                              p.text-left.small correoElectronico@email.com
+                              p.text-left
+                                a.btn.btn-primary.btn-block.btn-sm(href='#') Actualizar Datos
+                      li.divider
+                      li
+                        .navbar-login.navbar-login-session
+                          .row
+                            .col-lg-12
+                              p
+                                a.btn.btn-danger.btn-block(href='#') Cerrar Sesion
+                   
             
         .panel.panel-warning(style='margin-bottom: 0;')
           .panel-body
@@ -229,27 +229,28 @@ html
                               span.glyphicon.glyphicon-log-out.pull-right    
               .col-xs-10.col-sm-6.col-md-6.col-lg-6
                 form
-                  .input-group
-                    span.input-group-btn
-                      button.btn.btn-default(type='button') Go
-                    //- input.form-control(type='text') .input-lg .btn-lg
-                    input.form-control.text-left(type='text', placeholder='Searsh')  
-                    .input-group-btn
-                      button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                        | All
-                        span.caret
-                      ul.dropdown-menu.pull-right
-                        li
-                          a(href='#') Department one
-                        li
-                          a(href='#') Sony
-                        li
-                          a(href='#') Vaio
-                        li.divider
-                        li
-                          a(href='#') Department Two
+                  .mainmenu
+                    .input-group
+                      span.input-group-btn
+                        button.btn.btn-default(type='button') Go
+                      //- input.form-control(type='text') .input-lg .btn-lg
+                      input.form-control.text-left(type='text', placeholder='Searsh')  
+                      .input-group-btn
+                        button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                          | All
+                          span.caret
+                        ul.dropdown-menu.pull-right
+                          li
+                            a(href='#') Department one
+                          li
+                            a(href='#') Sony
+                          li
+                            a(href='#') Vaio
+                          li.divider
+                          li
+                            a(href='#') Department Two
 
-            //- .pull-right.basketImg
+              //- .pull-right.basketImg
       block sellerPage
       block home
       block listOnLeft

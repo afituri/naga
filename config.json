@@ -2,5 +2,12 @@
 {
 "admin" : "admin",
 "user" : "user",
-"seller" : "seller"
+"seller" : "seller",
+"sqlcofig":
+{
+	"host" : "localhost",
+	"user" : "root",
+	"password" : "102030",
+	"database" : "naga"
+}
 }

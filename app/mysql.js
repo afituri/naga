@@ -1,7 +1,7 @@
 
 /************************************************************************/
 var mysql = require('mysql');
-var config = require('../configsql.json');
+var config = require('../config.json').sqlconfig;
 var pool = mysql.createPool({
   host     : config.host,
   user     : config.user,

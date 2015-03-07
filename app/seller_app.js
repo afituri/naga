@@ -95,7 +95,7 @@ exports.sellerMgr = {
   UpdateFirstName : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `first_name` = ?,`modify_date`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company_seller` SET `first_name` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -109,7 +109,7 @@ exports.sellerMgr = {
   UpdateLastName : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `last_name` = ?,`modify_date`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company_seller` SET `last_name` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -123,7 +123,7 @@ exports.sellerMgr = {
   UpdateEmail : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `email` = ?,`modify_date`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company_seller` SET `email` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -137,7 +137,7 @@ exports.sellerMgr = {
   UpdateLevel : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `level` = ?,`modify_date`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company_seller` SET `level` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -151,7 +151,7 @@ exports.sellerMgr = {
   DeleteSeller : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `status` = ?,`modify_date`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company_seller` SET `status` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);

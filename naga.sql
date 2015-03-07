@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `area` (
 `idarea` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `city_idcity` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `city` (
 `idcity` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `logo` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `admin_idadmin` int(11) NOT NULL,
   `tob_idtob` int(11) NOT NULL
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `company_address` (
   `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL,
   `school_idschool` int(11) NOT NULL
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `company_seller` (
   `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `customer_address` (
   `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `customer_idcustomer` int(11) NOT NULL,
   `school_idschool` int(11) NOT NULL
@@ -192,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `tob_idtob` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `mahalla` (
 `idmahalla` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `area_idarea` int(11) NOT NULL,
   `link` int(11) NOT NULL
@@ -292,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `school` (
   `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `latit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `mahalla_idmahalla` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=273 ;
@@ -586,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `tob` (
   `name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 

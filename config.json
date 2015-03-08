@@ -3,11 +3,11 @@
 "admin" : "admin",
 "user" : "user",
 "seller" : "seller",
-"sqlcofig":
+"sqlconfig":
 {
 	"host" : "localhost",
 	"user" : "root",
-	"password" : "102030",
+	"password" : "1314ff",
 	"database" : "naga"
 }
 }

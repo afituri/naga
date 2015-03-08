@@ -12,8 +12,8 @@ router.get('/', function(req, res) {
   res.render('homeUser', { title: 'homeUser' });
 });
 
-router.get('/test', function(req, res) {
-  res.render('test', { title: ' test' });
+router.get('/department', function(req, res) {
+  res.render('department', { title: ' department' });
 });
 
     

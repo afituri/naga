@@ -17,6 +17,10 @@ router.get('/adminPage', function(req, res) {
   res.render('adminPage', { title: 'Admin Page' });
 });
 
+router.get('/testBlockPage', function(req, res) {
+  res.render('testBlockPage', { title: 'test Block Page' });
+});
+
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Page' });
 });

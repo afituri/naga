@@ -1,4 +1,79 @@
 extends layout
+block listOnLeft
+block itemSlide
+  br
+  .recommended_items
+    // recommended_items
+    h2.title.text-center recommended items
+    #recommended-item-carousel.carousel.slide(data-ride='carousel')
+      .carousel-inner
+        .item.active
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend1.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend2.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend3.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+        .item
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend1.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend2.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+          .col-sm-4
+            .product-image-wrapper
+              .single-products
+                .productinfo.text-center
+                  img(src='/img/recommend3.jpg', alt='')
+                  h2 $56
+                  p Easy Polo Black Edition
+                  button.btn.btn-default.add-to-cart(type='button')
+                    i.fa.fa-shopping-cart
+                    | Add to cart
+      a.left.recommended-item-control(href='#recommended-item-carousel', data-slide='prev')
+        i.fa.fa-angle-left
+      a.right.recommended-item-control(href='#recommended-item-carousel', data-slide='next')
+        i.fa.fa-angle-right
+
 block home
   #carousel13.carousel.slide(data-ride='carousel')
     // Indicators
@@ -20,7 +95,7 @@ block home
       #slide3.item
         .carousel-caption
           h4 Hello world greater than
-          p good hhhhh jdvl fsjlvnfjls jndvnsdfkjfv  kdlsv kpdsjv kjdv ndskjv  jdsv kdsjp ds
+          p good hhhhh jdvl fsjlvnfjls jndvnsdfkjfv
       #slide4.item
         a(href='https://www.google.com.ly/?gws_rd=cr&ei=4xPzVNChOsnUaqLagbAN')
         .carousel-caption
@@ -29,6 +104,10 @@ block home
             | yyyyy
             a  rrrrrrrrrrrrrr 
             | yyyyyyyyy
+      #slide5.item
+        .carousel-caption
+          h4 Hello world greater than
+          p good hhhhh jdvl fsjlvnfjls jndvnsdfkjfv
     // Controls
     a.left.carousel-control(href='#carousel13', role='button', data-slide='prev')
       span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
@@ -48,3 +127,4 @@ block home
 //-             | yyyyy
 //-             a  rrrrrrrrrrrrrr 
 //-             | yyyyyyyyy
+block homeTest

@@ -1,0 +1,658 @@
+extends layout
+block content
+  html
+  body
+    #header
+      .container
+        #welcomeLine.row
+          .span6
+            | Welcome!
+            strong  User
+          .span6
+            .pull-right
+              a(href='product_summary.html')
+                span Fr
+              a(href='product_summary.html')
+                span Es
+              span.btn.btn-mini En
+              a(href='product_summary.html')
+                span £
+              span.btn.btn-mini $155.00
+              a(href='product_summary.html')
+                span $
+              a(href='product_summary.html')
+                span.btn.btn-mini.btn-primary
+                  i.icon-shopping-cart.icon-white
+                  |  [ 3 ] Itemes in your cart
+        // Navbar ==================================================
+        #logoArea.navbar
+          a#smallScreen.btn.btn-navbar(data-target='#topMenu', data-toggle='collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .navbar-inner
+            a.brand(href='/seller/homePage')
+              img(src='/themes/images/Logoo.png', alt='Bootsshop', width='300 px ;')
+      
+            form.form-inline.navbar-search(method='post', action='/seller/products')
+              input#srchFld.srchTxt(type='text')
+              select.srchTxt
+                option All
+                option CLOTHES 
+                option FOOD AND BEVERAGES 
+                option HEALTH & BEAUTY 
+                option SPORTS & LEISURE 
+                option BOOKS & ENTERTAINMENTS 
+              button#submitButton.btn.btn-primary(type='submit') Go
+            ul#topMenu.nav.pull-right
+              li
+                a(href='/seller/special_offer') Specials Offer
+              li
+                a(href='normal.html') Delivery
+              li
+                a(href='contact.html') Contact
+              li
+                a(href='#login', role='button', data-toggle='modal', style='padding-right:0')
+                  span.btn.btn-large.btn-success Login
+                #login.modal.hide.fade.in(tabindex='-1', role='dialog', aria-labelledby='login', aria-hidden='false')
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                    h3 Login Block
+                  .modal-body
+                    form.form-horizontal.loginFrm
+                      .control-group
+                        input#inputEmail(type='text', placeholder='Email')
+                      .control-group
+                        input#inputPassword(type='password', placeholder='Password')
+                      .control-group
+                        label.checkbox
+                          input(type='checkbox')
+                          |  Remember me
+                    button.btn.btn-success(type='submit') Sign in
+                    button.btn(data-dismiss='modal', aria-hidden='true') Close
+    // Header End======================================================================
+    #mainBody
+      .container
+        .row
+          // Sidebar ==================================================
+          #sidebar.span3
+            .well.well-small
+              a#myCart(href='product_summary.html')
+                img(src='/themes/images/ico-cart.png', alt='cart')
+                | 3 Items in your cart  
+                span.badge.badge-warning.pull-right $155.00
+            ul#sideManu.nav.nav-tabs.nav-stacked
+              li.subMenu.open
+                a  ELECTRONICS [230]
+                ul
+                  li
+                    a.active(href='/seller/products')
+                      i.icon-chevron-right
+                      | Cameras (100)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Computers, Tablets & laptop (30)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Mobile Phone (80)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Sound & Vision (15)
+              li.subMenu
+                a  CLOTHES [840] 
+                ul(style='display:none')
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Women's Clothing (45)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Women's Shoes (8)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Women's Hand Bags (5)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Men's Clothings  (45)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Men's Shoes (6)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Kids Clothing (5)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Kids Shoes (3)
+              li.subMenu
+                a FOOD AND BEVERAGES [1000]
+                ul(style='display:none')
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Angoves  (35)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Bouchard Aine & Fils (8)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | French Rabbit (5)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Louis Bernard  (45)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | BIB Wine (Bag in Box) (8)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Other Liquors & Wine (5)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Garden (3)
+                  li
+                    a(href='/seller/products')
+                      i.icon-chevron-right
+                      | Khao Shong (11)
+              li
+                a(href='/seller/products') HEALTH & BEAUTY [18]
+              li
+                a(href='/seller/products') SPORTS & LEISURE [58]
+              li
+                a(href='/seller/products') BOOKS & ENTERTAINMENTS [14]
+            br
+            .thumbnail
+              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
+              .caption
+                h5 Panasonic
+                h4(style='text-align:center')
+                  a.btn(href='/seller/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
+              .caption
+                h5 Kindle
+                h4(style='text-align:center')
+                  a.btn(href='/seller/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
+              .caption
+                h5 Payment Methods
+          // Sidebar end===============================================
+          .span9
+            ul.breadcrumb
+              li
+                a(href='/seller/homePage') Home
+                span.divider /
+              li.active Special offers
+            h4
+              | 20% Discount Special offer
+              small.pull-right  40 products are available 
+            hr.soft
+            form.form-horizontal.span6
+              .control-group
+                label.control-label.alignL Sort By 
+                select
+                  option Priduct name A - Z
+                  option Priduct name Z - A
+                  option Priduct Stoke
+                  option Price Lowest first
+            #myTab.pull-right
+              a(href='#listView', data-toggle='tab')
+                span.btn.btn-large
+                  i.icon-list
+              a(href='#blockView', data-toggle='tab')
+                span.btn.btn-large.btn-primary
+                  i.icon-th-large
+            br.clr
+            .tab-content
+              #listView.tab-pane
+                .row
+                  .span2
+                    img(src='/themes/images/products/b1.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $110.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+                .row
+                  .span2
+                    img(src='/themes/images/products/b2.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $110.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+                .row
+                  .span2
+                    img(src='/themes/images/products/b3.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $110.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+                .row
+                  .span2
+                    img(src='/themes/images/products/b4.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $110.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+                .row
+                  .span2
+                    img(src='/themes/images/products/6.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $222.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+                .row
+                  .span2
+                    img(src='/themes/images/products/7.jpg', alt='')
+                  .span4
+                    h3 New | Available
+                    hr.soft
+                    h5 Product Name 
+                    p
+                      | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s ...
+                    a.btn.btn-small.pull-right(href='/seller/product_details') View Details
+                    br.clr
+                  .span3.alignR
+                    form.form-horizontal.qtyFrm
+                      h3  $222.00
+                      label.checkbox
+                        input(type='checkbox')
+                        |   Adds product to compair
+                      br
+                      a.btn.btn-large.btn-primary(href='/seller/product_details')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-large(href='/seller/product_details')
+                        i.icon-zoom-in
+                hr.soft
+              #blockView.tab-pane.active
+                ul.thumbnails
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/b1.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €110.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/b2.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €110.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/b3.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €110.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/b4.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €110.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/9.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €222.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/4.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €222.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/6.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €222.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/7.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €222.00
+                  li.span3
+                    .thumbnail
+                      a(href='/seller/product_details')
+                        img(src='/themes/images/products/8.jpg', alt='')
+                      .caption
+                        h5 Manicure & Pedicure
+                        p
+                          | Lorem Ipsum is simply dummy text.
+                        h4(style='text-align:center')
+                          a.btn(href='/seller/product_details')
+                            i.icon-zoom-in
+                          a.btn(href='#')
+                            | Add to 
+                            i.icon-shopping-cart
+                          a.btn.btn-primary(href='#') €222.00
+                hr.soft
+            a.btn.btn-large.pull-right(href='compair.html') Compair Product
+            .pagination
+              ul
+                li
+                  a(href='#') ‹
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') ...
+                li
+                  a(href='#') ›
+            br.clr
+    // MainBody End =============================
+    // Footer ==================================================================
+    #footerSection
+      .container
+        .row
+          .span3
+            h5 ACCOUNT
+            a(href='login.html') YOUR ACCOUNT
+            a(href='login.html') PERSONAL INFORMATION
+            a(href='login.html') ADDRESSES
+            a(href='login.html') DISCOUNT
+            a(href='login.html') ORDER HISTORY
+          .span3
+            h5 INFORMATION
+            a(href='contact.html') CONTACT
+            a(href='register.html') REGISTRATION
+            a(href='legal_notice.html') LEGAL NOTICE
+            a(href='tac.html') TERMS AND CONDITIONS
+            a(href='faq.html') FAQ
+          .span3
+            h5 OUR OFFERS
+            a(href='#') NEW PRODUCTS
+            a(href='#') TOP SELLERS
+            a(href='/seller/special_offer') SPECIAL OFFERS
+            a(href='#') MANUFACTURERS
+            a(href='#') SUPPLIERS
+          #socialMedia.span3.pull-right
+            h5 SOCIAL MEDIA 
+            a(href='#')
+              img(width='60', height='60', src='/themes/images/facebook.png', title='facebook', alt='facebook')
+            a(href='#')
+              img(width='60', height='60', src='/themes/images/twitter.png', title='twitter', alt='twitter')
+            a(href='#')
+              img(width='60', height='60', src='/themes/images/youtube.png', title='youtube', alt='youtube')
+        p.pull-right © Bootshop
+      // Container End
+    // Placed at the end of the document so the pages load faster =============================================
+    script(src='/themes/js/jquery.js', type='text/javascript')
+    script(src='/themes/js/bootstrap.min.js', type='text/javascript')
+    script(src='/themes/js/google-code-prettify/prettify.js')
+    script(src='/themes/js/bootshop.js')
+    script(src='/themes/js/jquery.lightbox-0.5.js')
+    // /themes switcher section =============================================================================================
+    #secectionBox
+      link(rel='stylesheet', href='/themes/switch//themeswitch.css', type='text/css', media='screen')
+      script(src='/themes/switch/theamswitcher.js', type='text/javascript', charset='utf-8')
+      #themeContainer
+        #hideme.themeTitle Style Selector
+        .themeName Oregional Skin
+        .images.style
+          a(href='/themes/css/#', name='bootshop')
+            img.active(src='/themes/switch/images/clr/bootshop.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='businessltd')
+            img.active(src='/themes/switch/images/clr/businessltd.png', alt='bootstrap business templates')
+        .themeName Bootswatch Skins (11)
+        .images.style
+          a(href='/themes/css/#', name='amelia', title='Amelia')
+            img(src='/themes/switch/images/clr/amelia.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='spruce', title='Spruce')
+            img(src='/themes/switch/images/clr/spruce.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='superhero', title='Superhero')
+            img(src='/themes/switch/images/clr/superhero.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='cyborg')
+            img(src='/themes/switch/images/clr/cyborg.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='cerulean')
+            img(src='/themes/switch/images/clr/cerulean.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='journal')
+            img(src='/themes/switch/images/clr/journal.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='readable')
+            img(src='/themes/switch/images/clr/readable.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='simplex')
+            img(src='/themes/switch/images/clr/simplex.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='slate')
+            img(src='/themes/switch/images/clr/slate.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='spacelab')
+            img(src='/themes/switch/images/clr/spacelab.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='united')
+            img(src='/themes/switch/images/clr/united.png', alt='bootstrap business templates')
+          p(style='margin:0;line-height:normal;margin-left:-10px;display:none;')
+            small These are just examples and you can build your own color scheme in the backend.
+        .themeName Background Patterns 
+        .images.patterns
+          a(href='/themes/css/#', name='pattern1')
+            img.active(src='/themes/switch/images/pattern/pattern1.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern2')
+            img(src='/themes/switch/images/pattern/pattern2.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern3')
+            img(src='/themes/switch/images/pattern/pattern3.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern4')
+            img(src='/themes/switch/images/pattern/pattern4.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern5')
+            img(src='/themes/switch/images/pattern/pattern5.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern6')
+            img(src='/themes/switch/images/pattern/pattern6.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern7')
+            img(src='/themes/switch/images/pattern/pattern7.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern8')
+            img(src='/themes/switch/images/pattern/pattern8.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern9')
+            img(src='/themes/switch/images/pattern/pattern9.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern10')
+            img(src='/themes/switch/images/pattern/pattern10.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern11')
+            img(src='/themes/switch/images/pattern/pattern11.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern12')
+            img(src='/themes/switch/images/pattern/pattern12.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern13')
+            img(src='/themes/switch/images/pattern/pattern13.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern14')
+            img(src='/themes/switch/images/pattern/pattern14.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern15')
+            img(src='/themes/switch/images/pattern/pattern15.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern16')
+            img(src='/themes/switch/images/pattern/pattern16.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern17')
+            img(src='/themes/switch/images/pattern/pattern17.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern18')
+            img(src='/themes/switch/images/pattern/pattern18.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern19')
+            img(src='/themes/switch/images/pattern/pattern19.png', alt='bootstrap business templates')
+          a(href='/themes/css/#', name='pattern20')
+            img(src='/themes/switch/images/pattern/pattern20.png', alt='bootstrap business templates')
+    span#/themesBtn
+
+

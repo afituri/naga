@@ -2,5 +2,12 @@
 {
 "admin" : "admin",
 "user" : "user",
-"seller" : "seller"
+"seller" : "seller",
+"sqlconfig":
+{
+	"host" : "localhost",
+	"user" : "root",
+	"password" : "1314ff",
+	"database" : "naga"
+}
 }

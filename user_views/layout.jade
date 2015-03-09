@@ -2,6 +2,8 @@ doctype html
 html
   head
     title= title
+    
+    link(rel='stylesheet', href='/css/price-rangeUser.css')
     link(rel='stylesheet', href='/css/styleUser.css')
     link(rel='stylesheet', href='/css/listUser.css')
     //- link(rel='stylesheet', href='/css/animateUser.css')
@@ -176,8 +178,20 @@ html
         .panel.panel-warning(style='margin-bottom: 0;')
           .panel-body
             .row
+              #J_MCartTrigger.head-cart
+                a.cart-inner(href='http://www.dhgate.com/cart/cart.do?source=1#hp1403-cart', rel='nofollow')
+                  span#cartcnt.cart-nub 0
+                  span.cart-text Cart
+                #J_MCart.head-cart-pro.head-cart-prompt(style='display: none;')
+                  .js-loading(style='display: none;') loading
+                  .js-empty(style='')
+                    strong Your Shopping Cart is empty.
+                    p
+                      | If you already have an account, 
+                      a(rel='nofollow', href='https://secure.dhgate.com/usr/signin.do#hp1403-signin-cart') sign in
+                      | .
+                  .js-list(style='display:none')
               .col-xs-3.col-sm-3.col-md-3.col-lg-3
-<<<<<<< HEAD
                 .btn-group
                   button.btn.btn-labeled.btn-success(type='button')
                     span.btn-label
@@ -200,7 +214,7 @@ html
                   ul.nav.navbar-nav
                     li.dropdown
                       a.dropdown-toggle(href='#', data-toggle='dropdown')
-                        | Your Account
+                        | My Account
                         span.glyphicon.glyphicon-user.pull-left
                       ul.dropdown-menu
                         li
@@ -227,58 +241,6 @@ html
                           a(href='#')
                             | Sign Out 
                             span.glyphicon.glyphicon-log-out.pull-right               
-=======
-                .mainmenu
-                  .btn-group
-                    button.btn.btn-labeled.btn-success(type='button')
-                      span.btn-label
-                        i.glyphicon.glyphicon-shopping-cart
-                    button.btn.btn-info(type='button') Cart
-                    button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
-                      span.caret
-                      span.sr-only Toggle Dropdown
-                    ul.dropdown-menu(role='menu')
-                      li
-                        a(href='#') Action
-                      li
-                        a(href='#') Another action
-                      li
-                        a(href='#') Something else here
-                      li.divider
-                      li
-                        button.btn.btn-warning.btn-block(type='button') View Cart
-                  .btn-group
-                    ul.nav.navbar-nav
-                      li.dropdown
-                        a.dropdown-toggle(href='#', data-toggle='dropdown')
-                          | Iasmani 
-                          span.glyphicon.glyphicon-user.pull-left
-                        ul.dropdown-menu
-                          li
-                            a(href='#')
-                              | Account Settings 
-                              span.glyphicon.glyphicon-cog.pull-right
-                          li.divider
-                          li
-                            a(href='#')
-                              | User stats 
-                              span.glyphicon.glyphicon-stats.pull-right
-                          li.divider
-                          li
-                            a(href='#')
-                              | Messages 
-                              span.badge.pull-right  42 
-                          li.divider
-                          li
-                            a(href='#')
-                              | Favourites Snippets 
-                              span.glyphicon.glyphicon-heart.pull-right
-                          li.divider
-                          li
-                            a(href='#')
-                              | Sign Out 
-                              span.glyphicon.glyphicon-log-out.pull-right    
->>>>>>> 05aae03479fc7b893605de044daefb3254f29a20
               .col-xs-10.col-sm-6.col-md-6.col-lg-6
                 form
                   .input-group
@@ -307,6 +269,7 @@ html
       block listOnLeft
         .row
           .col-md-3.col-md-push-9
+
             .alert.alert-warning.text-left(style='margin-bottom: 0;')
               strong.text-danger CATEGORY
             #accordion.panel-group
@@ -431,10 +394,28 @@ html
                       h4.list-group-item-heading List group item heading
                       p.list-group-item-text
                         | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+            block hhh
+              .well.text-center
+                .slider.slider-horizontal(style='width: 180px;')
+                  .slider-track
+                    .slider-selection(style='left: 5.83333%; width: 60.8333%;')
+                    .slider-handle.round.left-round(style='left: 5.83333%;')
+                    .slider-handle.round(style='left: 66.6667%;')
+                  .tooltip.top(style='top: -30px; left: 35.25px;')
+                    .tooltip-arrow
+                    .tooltip-inner 35 : 485
+                  input#sl2.span2(style='', value='', data-slider-min='0', data-slider-max='600', data-slider-step='5', data-slider-value='[250,450]', type='text')
+                br
+                b.pull-left $ 0
+                b.pull-right $ 600
+                              
           .col-md-9.col-md-pull-3
             block items
-              
+            
+                        
   //- script(src="/js/jquery-1.11.2.min.js")
   script(src="/js/jquery-2.1.3.min.js")
   script(src="/js/bootstrap.min.js")
+  script(src="/js/range-priceUser.js")
   script(src="/js/testPage.js")
+

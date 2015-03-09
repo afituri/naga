@@ -13,6 +13,10 @@ router.get('/test', function(req, res) {
   res.render('test', { title: ' test' });
 });
 
+router.get('/account', function(req, res) {
+  res.render('account', { title: ' my account' });
+});
+
 // set a cookie to requested locale
 router.get('/:locale', function (req, res) {
   i18n.setdeflan(req,res);

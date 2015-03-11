@@ -5,9 +5,9 @@
 "seller" : "seller",
 "sqlconfig":
 {
-	"host" : "localhost",
-	"user" : "root",
-	"password" : "102030",
-	"database" : "naga"
+  "host" : "localhost",
+  "user" : "root",
+  "password" : "102030",
+  "database" : "naga"
 }
 }

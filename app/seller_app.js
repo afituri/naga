@@ -100,7 +100,7 @@ exports.sellerMgr = {
         if(err) {
           util.log(err);
         } else {
-          cb(rec); 
+          cb(result); 
         }
       });
     });
@@ -114,7 +114,7 @@ exports.sellerMgr = {
         if(err) {
           util.log(err);
         } else {
-          cb(rec); 
+          cb(result); 
         }
       });
     });
@@ -128,7 +128,7 @@ exports.sellerMgr = {
         if(err) {
           util.log(err);
         } else {
-          cb(rec); 
+          cb(result); 
         }
       });
     });
@@ -142,7 +142,7 @@ exports.sellerMgr = {
         if(err) {
           util.log(err);
         } else {
-          cb(rec); 
+          cb(result); 
         }
       });
     });
@@ -156,7 +156,7 @@ exports.sellerMgr = {
         if(err) {
           util.log(err);
         } else {
-          cb(rec); 
+          cb(result); 
         }
       });
     });

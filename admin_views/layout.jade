@@ -31,7 +31,7 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='/adminLogin/adminPage') 
+              a.navbar-brand(href='/adminPage') 
                 //| Admin Page
                 img(style='height:20px;witd:20px;',src="../img/nagaLogo.png")
             // Top Menu Items
@@ -48,7 +48,7 @@ html
                           img.media-object(src='http://placehold.it/50x50', alt='')
                         .media-body
                           h5.media-heading
-                            strong John Smith
+                            strong Admin Name
                           p.small.text-muted
                             i.fa.fa-clock-o
                             |  Yesterday at 4:32 PM
@@ -60,7 +60,7 @@ html
                           img.media-object(src='http://placehold.it/50x50', alt='')
                         .media-body
                           h5.media-heading
-                            strong John Smith
+                            strong Admin Name
                           p.small.text-muted 
                             i.fa.fa-clock-o
                             |  Yesterday at 4:32 PM
@@ -72,7 +72,7 @@ html
                           img.media-object(src='http://placehold.it/50x50', alt='')
                         .media-body
                           h5.media-heading
-                            strong John Smith
+                            strong Admin Name
                           p.small.text-muted
                             i.fa.fa-clock-o
                             |  Yesterday at 4:32 PM
@@ -114,7 +114,7 @@ html
               li.dropdown
                 a.dropdown-toggle(href='#', data-toggle='dropdown')
                   i.fa.fa-user
-                  |  John Smith 
+                  |  Admin Name 
                   b.caret
                 ul.dropdown-menu
                   li
@@ -131,14 +131,14 @@ html
                       |  Settings
                   li.divider
                   li
-                    a(href='/adminLogin')
+                    a(href='/')
                       i.fa.fa-fw.fa-power-off
                       |  Log Out
             // Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
             .collapse.navbar-collapse.navbar-ex1-collapse
               ul.nav.navbar-nav.side-nav
                 li.active
-                  a(href='/adminLogin/adminPage')
+                  a(href='/adminPage')
                     i.fa.fa-fw.fa-dashboard
                     |  Dashboard
                 li
@@ -148,7 +148,7 @@ html
                     i.fa.fa-fw.fa-caret-down
                   ul#demo.collapse
                     li
-                      a(href='/adminLogin/adminRegUsers') Register User
+                      a(href='/adminRegUsers') Register User
                     li
-                      a(href='/adminLogin/adminShowUsers') Show Users
+                      a(href='/adminShowUsers') Show Users
           block dashBord

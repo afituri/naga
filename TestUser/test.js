@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
-var userMgr= require('../app/user_app').userMgr;
+var userMgr= require('../app/user').userMgr;
 var should = require('should');
 var  supertest=require('supertest');
 var test =require('./testjson');

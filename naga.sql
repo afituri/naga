@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2015 at 04:31 PM
+-- Generation Time: Mar 15, 2015 at 05:43 PM
 -- Server version: 5.6.23
 -- PHP Version: 5.5.14
 
@@ -28,15 +28,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `admin` (
   `idadmin` int(11) NOT NULL,
-  `name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,12 +46,12 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 CREATE TABLE IF NOT EXISTS `area` (
   `idarea` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `city_idcity` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `area`
@@ -70,16 +70,60 @@ INSERT INTO `area` (`idarea`, `name`, `name_en`, `create_time`, `update_time`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `balance`
+--
+
+CREATE TABLE IF NOT EXISTS `balance` (
+  `idbalance` int(11) NOT NULL,
+  `prepaid_live_idprepaid` bigint(8) NOT NULL,
+  `customer_idcustomer` int(11) NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE IF NOT EXISTS `cart` (
+  `idcart` bigint(8) NOT NULL,
+  `customer_idcustomer` int(11) NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart_has_item`
+--
+
+CREATE TABLE IF NOT EXISTS `cart_has_item` (
+  `cart_idcart` bigint(8) NOT NULL,
+  `customer_idcustomer` int(11) NOT NULL,
+  `item_iditem` bigint(11) NOT NULL,
+  `price` double DEFAULT NULL,
+  `item_name` varchar(500) DEFAULT NULL,
+  `company_idcompany` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `city`
 --
 
 CREATE TABLE IF NOT EXISTS `city` (
   `idcity` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `city`
@@ -96,12 +140,12 @@ INSERT INTO `city` (`idcity`, `name`, `name_en`, `create_time`, `update_time`) V
 
 CREATE TABLE IF NOT EXISTS `color` (
   `idcolor` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -111,15 +155,15 @@ CREATE TABLE IF NOT EXISTS `color` (
 
 CREATE TABLE IF NOT EXISTS `company` (
   `idcompany` int(11) NOT NULL,
-  `name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `logo` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `logo` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `admin_idadmin` int(11) NOT NULL,
   `tob_idtob` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -129,15 +173,16 @@ CREATE TABLE IF NOT EXISTS `company` (
 
 CREATE TABLE IF NOT EXISTS `company_address` (
   `idcompany_address` int(11) NOT NULL,
-  `latit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latit` varchar(100) DEFAULT NULL,
+  `longit` varchar(100) DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL,
-  `school_idschool` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `school_idschool` int(11) NOT NULL,
+  `address_desc` tinytext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -147,17 +192,17 @@ CREATE TABLE IF NOT EXISTS `company_address` (
 
 CREATE TABLE IF NOT EXISTS `company_seller` (
   `idcompany_seller` int(11) NOT NULL,
-  `first_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -167,16 +212,17 @@ CREATE TABLE IF NOT EXISTS `company_seller` (
 
 CREATE TABLE IF NOT EXISTS `customer` (
   `idcustomer` int(11) NOT NULL,
-  `first_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `update_time` datetime DEFAULT NULL,
+  `balance` double DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -186,15 +232,16 @@ CREATE TABLE IF NOT EXISTS `customer` (
 
 CREATE TABLE IF NOT EXISTS `customer_address` (
   `idcustomer_address` int(11) NOT NULL,
-  `latit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latit` varchar(100) DEFAULT NULL,
+  `longit` varchar(100) DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `customer_idcustomer` int(11) NOT NULL,
-  `school_idschool` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `school_idschool` int(11) NOT NULL,
+  `address_desc` tinytext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -204,13 +251,13 @@ CREATE TABLE IF NOT EXISTS `customer_address` (
 
 CREATE TABLE IF NOT EXISTS `genre` (
   `idgenre` int(11) NOT NULL,
-  `name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `name_en` varchar(150) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `tob_idtob` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -220,15 +267,17 @@ CREATE TABLE IF NOT EXISTS `genre` (
 
 CREATE TABLE IF NOT EXISTS `item` (
   `iditem` bigint(11) NOT NULL,
-  `name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `name_en` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(500) NOT NULL,
+  `name_en` varchar(500) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
-  `color_idcolor` int(11) NOT NULL,
+  `price` float DEFAULT NULL,
+  `discount` float DEFAULT NULL,
+  `discount_exp` datetime DEFAULT NULL,
   `company_seller_idcompany_seller` int(11) NOT NULL,
-  `company_seller_company_idcompany` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `company_idcompany` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -239,8 +288,9 @@ CREATE TABLE IF NOT EXISTS `item` (
 CREATE TABLE IF NOT EXISTS `item_has_size` (
   `item_iditem` bigint(11) NOT NULL,
   `size_idsize` int(11) NOT NULL,
-  `size_measure_idmeasure` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `measure_idmeasure` int(11) NOT NULL,
+  `color_idcolor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -250,13 +300,13 @@ CREATE TABLE IF NOT EXISTS `item_has_size` (
 
 CREATE TABLE IF NOT EXISTS `mahalla` (
   `idmahalla` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `area_idarea` int(11) NOT NULL,
-  `link` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `link` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `mahalla`
@@ -333,12 +383,64 @@ INSERT INTO `mahalla` (`idmahalla`, `name`, `name_en`, `create_time`, `update_ti
 
 CREATE TABLE IF NOT EXISTS `measure` (
   `idmeasure` int(11) NOT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE IF NOT EXISTS `order` (
+  `idorder` bigint(8) NOT NULL,
+  `cart_idcart` bigint(8) NOT NULL,
+  `cart_customer_idcustomer` int(11) NOT NULL,
+  `customer_address_idcustomer_address` int(11) NOT NULL,
+  `customer_address_school_idschool` int(11) NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prepaid`
+--
+
+CREATE TABLE IF NOT EXISTS `prepaid` (
+  `idprepaid` bigint(8) NOT NULL,
+  `prepaid` bigint(8) NOT NULL,
+  `perpaid_hash` varchar(500) NOT NULL,
+  `serial_no` bigint(8) NOT NULL,
+  `salt` varchar(500) NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prepaid_live`
+--
+
+CREATE TABLE IF NOT EXISTS `prepaid_live` (
+  `idprepaid` bigint(8) NOT NULL,
+  `perpaid_hash` varchar(500) NOT NULL,
+  `serial_no` bigint(8) NOT NULL,
+  `salt` varchar(500) NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -348,14 +450,14 @@ CREATE TABLE IF NOT EXISTS `measure` (
 
 CREATE TABLE IF NOT EXISTS `school` (
   `idschool` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `latit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `longit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
+  `latit` varchar(100) DEFAULT NULL,
+  `longit` varchar(100) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `mahalla_idmahalla` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `school`
@@ -643,13 +745,13 @@ INSERT INTO `school` (`idschool`, `name`, `name_en`, `latit`, `longit`, `create_
 
 CREATE TABLE IF NOT EXISTS `size` (
   `idsize` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `measure_idmeasure` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -659,12 +761,12 @@ CREATE TABLE IF NOT EXISTS `size` (
 
 CREATE TABLE IF NOT EXISTS `tob` (
   `idtob` int(11) NOT NULL,
-  `name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_en` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `name_en` varchar(150) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -681,6 +783,24 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `area`
   ADD PRIMARY KEY (`idarea`,`city_idcity`), ADD KEY `fk_area_city1_idx` (`city_idcity`);
+
+--
+-- Indexes for table `balance`
+--
+ALTER TABLE `balance`
+  ADD PRIMARY KEY (`idbalance`,`prepaid_live_idprepaid`,`customer_idcustomer`), ADD KEY `fk_balance_prepaid_live1_idx` (`prepaid_live_idprepaid`), ADD KEY `fk_balance_customer1_idx` (`customer_idcustomer`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`idcart`,`customer_idcustomer`), ADD KEY `fk_cart_customer1_idx` (`customer_idcustomer`);
+
+--
+-- Indexes for table `cart_has_item`
+--
+ALTER TABLE `cart_has_item`
+  ADD PRIMARY KEY (`cart_idcart`);
 
 --
 -- Indexes for table `city`
@@ -734,13 +854,13 @@ ALTER TABLE `genre`
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
-  ADD PRIMARY KEY (`iditem`,`color_idcolor`,`company_seller_idcompany_seller`,`company_seller_company_idcompany`), ADD KEY `fk_item_color1_idx` (`color_idcolor`), ADD KEY `fk_item_company_seller1_idx` (`company_seller_idcompany_seller`,`company_seller_company_idcompany`);
+  ADD PRIMARY KEY (`iditem`,`company_seller_idcompany_seller`,`company_idcompany`), ADD KEY `fk_item_company_seller1_idx` (`company_seller_idcompany_seller`,`company_idcompany`);
 
 --
 -- Indexes for table `item_has_size`
 --
 ALTER TABLE `item_has_size`
-  ADD PRIMARY KEY (`item_iditem`,`size_idsize`,`size_measure_idmeasure`), ADD KEY `fk_item_has_size_size1_idx` (`size_idsize`,`size_measure_idmeasure`), ADD KEY `fk_item_has_size_item1_idx` (`item_iditem`);
+  ADD PRIMARY KEY (`item_iditem`,`size_idsize`,`measure_idmeasure`,`color_idcolor`), ADD KEY `fk_item_has_size_size1_idx` (`size_idsize`,`measure_idmeasure`), ADD KEY `fk_item_has_size_item1_idx` (`item_iditem`), ADD KEY `fk_item_has_size_color1_idx` (`color_idcolor`);
 
 --
 -- Indexes for table `mahalla`
@@ -753,6 +873,24 @@ ALTER TABLE `mahalla`
 --
 ALTER TABLE `measure`
   ADD PRIMARY KEY (`idmeasure`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`idorder`);
+
+--
+-- Indexes for table `prepaid`
+--
+ALTER TABLE `prepaid`
+  ADD PRIMARY KEY (`idprepaid`), ADD UNIQUE KEY `idprepaid_UNIQUE` (`idprepaid`), ADD UNIQUE KEY `prepaid_no_UNIQUE` (`prepaid`), ADD UNIQUE KEY `serial_no_UNIQUE` (`serial_no`);
+
+--
+-- Indexes for table `prepaid_live`
+--
+ALTER TABLE `prepaid_live`
+  ADD PRIMARY KEY (`idprepaid`), ADD UNIQUE KEY `idprepaid_UNIQUE` (`idprepaid`), ADD UNIQUE KEY `serial_no_UNIQUE` (`serial_no`);
 
 --
 -- Indexes for table `school`
@@ -786,6 +924,16 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `area`
   MODIFY `idarea` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `balance`
+--
+ALTER TABLE `balance`
+  MODIFY `idbalance` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `idcart` bigint(8) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `city`
 --
@@ -837,6 +985,21 @@ ALTER TABLE `mahalla`
 ALTER TABLE `measure`
   MODIFY `idmeasure` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `idorder` bigint(8) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `prepaid`
+--
+ALTER TABLE `prepaid`
+  MODIFY `idprepaid` bigint(8) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `prepaid_live`
+--
+ALTER TABLE `prepaid_live`
+  MODIFY `idprepaid` bigint(8) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
@@ -860,6 +1023,19 @@ ALTER TABLE `tob`
 --
 ALTER TABLE `area`
 ADD CONSTRAINT `fk_area_city1` FOREIGN KEY (`city_idcity`) REFERENCES `city` (`idcity`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `balance`
+--
+ALTER TABLE `balance`
+ADD CONSTRAINT `fk_balance_customer1` FOREIGN KEY (`customer_idcustomer`) REFERENCES `customer` (`idcustomer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_balance_prepaid_live1` FOREIGN KEY (`prepaid_live_idprepaid`) REFERENCES `prepaid_live` (`idprepaid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+ADD CONSTRAINT `fk_cart_customer1` FOREIGN KEY (`customer_idcustomer`) REFERENCES `customer` (`idcustomer`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `company`
@@ -898,15 +1074,15 @@ ADD CONSTRAINT `fk_genre_tob1` FOREIGN KEY (`tob_idtob`) REFERENCES `tob` (`idto
 -- Constraints for table `item`
 --
 ALTER TABLE `item`
-ADD CONSTRAINT `fk_item_color1` FOREIGN KEY (`color_idcolor`) REFERENCES `color` (`idcolor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_item_company_seller1` FOREIGN KEY (`company_seller_idcompany_seller`, `company_seller_company_idcompany`) REFERENCES `company_seller` (`idcompany_seller`, `company_idcompany`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_item_company_seller1` FOREIGN KEY (`company_seller_idcompany_seller`, `company_idcompany`) REFERENCES `company_seller` (`idcompany_seller`, `company_idcompany`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `item_has_size`
 --
 ALTER TABLE `item_has_size`
+ADD CONSTRAINT `fk_item_has_size_color1` FOREIGN KEY (`color_idcolor`) REFERENCES `color` (`idcolor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_item_has_size_item1` FOREIGN KEY (`item_iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_item_has_size_size1` FOREIGN KEY (`size_idsize`, `size_measure_idmeasure`) REFERENCES `size` (`idsize`, `measure_idmeasure`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_item_has_size_size1` FOREIGN KEY (`size_idsize`, `measure_idmeasure`) REFERENCES `size` (`idsize`, `measure_idmeasure`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `mahalla`

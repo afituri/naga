@@ -6,6 +6,7 @@ var should = require('should');
 var  supertest=require('supertest');
 
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
@@ -19,7 +20,6 @@ router.get('/department', function(req, res) {
     
     router.get('/abdo', function(req,res){
       userMgr.deleteById(1,function(result){
-         //console.log(result);
          res.render('abdo',{title: 'abdo'});
          });
       });

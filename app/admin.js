@@ -1,10 +1,10 @@
 var mysqlMgr = require('./mysql').mysqlMgr,
     util=require('util');
-exports.sellerMgr = {
+exports.AdminMgr = {
   /* adding a new user to the system */
-  GetAllSeller : function(cb){
+  GetAllAdmin : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `company_seller` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT * FROM `admin` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -17,7 +17,7 @@ exports.sellerMgr = {
     
   GetSellerByCompanyId : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `company_seller` WHERE `status` <> 0 AND `company_idcompany` = ?',id,function(err, result) {
+      conn.query('SELECT * FROM `admin` WHERE `status` <> 0 AND `idadmin` = ?',id,function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -30,7 +30,7 @@ exports.sellerMgr = {
 
   GetNameById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `first_name`,`last_name` FROM `company_seller` WHERE `status` <> 0 AND`idcompany_seller` = ? ',id,  function(err, result) {
+      conn.query('SELECT `name` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -43,7 +43,7 @@ exports.sellerMgr = {
 
   GetEmailById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `email` FROM `company_seller` WHERE `status` <> 0 AND`idcompany_seller` = ? ',id,  function(err, result) {
+      conn.query('SELECT `email` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -55,7 +55,7 @@ exports.sellerMgr = {
   },
   GetLevelById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `level` FROM `company_seller` WHERE `status` <> 0 AND`idcompany_seller` = ? ',id,  function(err, result) {
+      conn.query('SELECT `level` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -68,7 +68,7 @@ exports.sellerMgr = {
 
   GetStatusById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `status` FROM `company_seller` WHERE `status` <> 0 AND`idcompany_seller` = ? ',id,  function(err, result) {
+      conn.query('SELECT `status` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -79,9 +79,9 @@ exports.sellerMgr = {
     });
   },
 
-  checkEmailSaller : function(email,cb){
+  checkEmailAdmin : function(email,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `status` FROM `company_seller` WHERE `status` = 1 AND`email` = ? ',email,  function(err, result) {
+      conn.query('SELECT `status` FROM `admin` WHERE `status` = 1 AND`email` = ? ',email,  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -92,24 +92,10 @@ exports.sellerMgr = {
     });
   },
 
-  UpdateFirstName : function(body,cb){
+  UpdateName : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `first_name` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
-        conn.release();
-        if(err) {
-          util.log(err);
-        } else {
-          cb(result); 
-        }
-      });
-    });
-  },
-
-  UpdateLastName : function(body,cb){
-    mysqlMgr.connect(function (conn) {
-      var date = new Date();
-      conn.query('UPDATE `company_seller` SET `last_name` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `admin` SET `name` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -123,7 +109,7 @@ exports.sellerMgr = {
   UpdateEmail : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `email` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `admin` SET `email` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -137,7 +123,7 @@ exports.sellerMgr = {
   UpdateLevel : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `level` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `admin` SET `level` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -148,10 +134,10 @@ exports.sellerMgr = {
     });
   },
   
-  DeleteSeller : function(body,cb){
+  DeleteAdmin : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `company_seller` SET `status` = ?,`update_time`=? WHERE `idcompany_seller` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `admin` SET `status` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);

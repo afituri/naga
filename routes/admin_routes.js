@@ -29,5 +29,11 @@ router.get('/adminShowUsers', function(req, res) {
   res.render('adminShowUsers', { title: 'Admin Page' });
 });
 
+
+router.get('/adminSerialNumber', function(req, res) {
+  res.render('adminSerialNumber', { title: 'Admin Page' });
+});
+
+
 module.exports = router;
 

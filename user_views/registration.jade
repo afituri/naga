@@ -1,0 +1,81 @@
+extends layout
+.col-xs-9.col-xs-pull-3.col-sm-9.col-sm-pull-3.col-md-9.col-md-pull-3.col-ls-9.col-ls-pull-3
+  block items
+    h5  Reservation
+    .panel-body
+      form.form-horizontal(role="form")
+
+                
+        .form-group    
+          label.control-label.col-md-2.col-md-offset-2(for: "id_adults") NAME       
+          .col-md-8
+            .col-md-4
+              .form-group.internal
+                input.form-control(id: "id_adults", type ="text", placeholder = "First Name")
+            .col-md-4.indent-small
+              .form-group.internal
+                input.form-control(id: "id_children", type = "text", placeholder ="Last Name")          
+
+        .form-group    
+          label.control-label.col-md-2.col-md-offset-2(for: "id_email") Email
+          .col-md-6
+            .form-group
+              .col-md-11
+                input.form-control(id: "id_email", type = "email", placeholder = "Email")
+                  
+        .form-group    
+          label.control-label.col-md-2.col-md-offset-2(for: "id_email")  Password
+          .col-md-6
+            .form-group
+              .col-md-11
+                input.form-control(id: "id_email", type = "Password", placeholder = "Password")    
+            .form-group.internal
+              .col-md-11
+                input.form-control(id: "id_phone", type: "text", placeholder = "confirm Password")  
+        .form-group    
+          label.control-label.col-md-2.col-md-offset-2(for: "id_email") Phone Namber
+          .col-md-6
+            .form-group
+              .col-md-11
+                input.form-control(id = "id_email", type = "Namber", placeholder = "Phone: {xxx} - xxx xxxx")  
+        .form-group                      
+            label.control-label.col-md-2.col-md-offset-2(for= "id_checkin") city
+            .col-md-8
+              .col-md-3
+                .form-group
+                  select.form-control(id="id_equipment")
+                    option Travel trailer
+              label.control-label.col-md-1(for= "id_checkout" ) area
+              .col-md-4
+                .form-group
+                  select.form-control(id = "id_equipment" , placeholder = "area")
+                    option Travel trailer
+          .form-group           
+            label.control-label.col-md-2.col-md-offset-2(for= "id_checkout") mahalla
+            .col-md-8
+              .col-md-6
+                .form-group.internal
+                  select.form-control(id = "id_equipment")
+                    option Travel trailer      
+          .form-group          
+            label.control-label.col-md-2.col-md-offset-2(for = "id_equipment") The nearest school
+            .col-md-8
+              .col-md-6         
+                .form-group.internal
+                  select.form-control(id = "id_equipment")
+                    option Travel trailer
+        .form-group    
+          label.control-label.col-md-2.col-md-offset-2(for= "id_comments") Comments
+          .col-md-6
+            textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
+        .form-group         
+          .col-md-offset-4.col-md-3
+            button(type= "submit") Request Reservation
+          .col-md-3
+            button(type= "submit", style= "float:right") Cancel
+
+  script(src="/js/jquery-2.1.3.min.js")
+  script(src="/js/bootstrap.min.js")
+  script(src="/js/jquery.scrollUp.min.js")
+  script(src="/js/layoutUser.js")
+  script(src="/js/range-priceUser.js")  

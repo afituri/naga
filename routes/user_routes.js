@@ -21,6 +21,11 @@ router.get('/account', function(req, res) {
   res.render('account', { title: ' my account' });
 });
 
+router.get('/registration', function(req, res) {
+  res.render('registration', { title: 'registration' });
+});
+
+
     
     router.get('/abdo', function(req,res){
       userMgr.deleteById(1,function(result){

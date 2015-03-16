@@ -27,5 +27,11 @@ $(document).ready(function(){
   // var RGBChange = function() {
   //   $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
   // };  
+  $(document).ready(function() {  
+  $('.multiselect').multiselect();
+  $('.datepicker').datepicker();  
+});
+
 
 });
+

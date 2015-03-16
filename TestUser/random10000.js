@@ -7,20 +7,17 @@ var  supertest=require('supertest');
 var test =require('./testjson');
 var rand= require('../app/randomQuary').rand;
 
-
-
-
 var InsertCount = function(count){
   for(var i=1 ; i<=count ;i++){
-    InsertRandomNumber(i);
+    InsertRandomNumber();
   }
 }
 
-var InsertRandomNumber = function(i){
+var InsertRandomNumber = function(){
   var random = getRandomNumber();
   rand.getRandomNumber(random,function(result){
     if(result[0] == undefined ){
-      saveRandomNumber(random,i);
+      saveRandomNumber(random,y++);
     } else {
       console.log("number is Exist ");
     }
@@ -28,10 +25,9 @@ var InsertRandomNumber = function(i){
   return 0; 
 }
 
-
 var getRandomNumber = function(){
   var concatenate="";
-  for(var i=0;i<13;i++){
+  for(var i=0;i<=13;i++){
     var random1 = Math.floor(Math.random() * 9) + 1;
     concatenate=concatenate+random1; 
   }

@@ -27,6 +27,11 @@ block dashBord
               .form-group
                 input#display_name.form-control.input-lg(type='text', name='display_name', placeholder='Display Name', tabindex='3')
               .form-group
+                select#level.form-control.input-lg
+                  option(value='',selected='', disabled='', style='color: grey; display:none;') Please Select Level
+                  option(value='1') Administration
+                  option(value='2') Seller 
+              .form-group
                 input#email.form-control.input-lg(type='email', name='email', placeholder='Email Address', tabindex='4')
               .form-group
                 .form-group.multiple-form-group.input-group

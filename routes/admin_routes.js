@@ -1,19 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
+var users = require('../TestUser/testjson');
 
-/* GET home page. */
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Admin Login' });
 });
 
-// router.get('/:locale', function (req, res) {
-//   i18n.setdeflan(req,res);
-//   res.redirect("/admin");
-// });
-
 router.get('/adminPage', function(req, res) {
+	console.log("test");
   res.render('adminPage', { title: 'Admin Page' });
 });
 
@@ -26,7 +23,7 @@ router.get('/adminRegUsers', function(req, res) {
 });
 
 router.get('/adminShowUsers', function(req, res) {
-  res.render('adminShowUsers', { title: 'Admin Page' });
+  res.render('adminShowUsers', { title: 'Admin Page' ,username:users });
 });
 
 module.exports = router;

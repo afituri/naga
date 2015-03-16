@@ -7,21 +7,53 @@ $(document).ready(function() {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
-  // $("#loginForm").validate({
-  //   rules:{
-  //     email:{
-  //       required: true,
-  //       email: true,
-  //     },
-  //   },
-  //   messages:{
-  //     email:{
-  //       required: "الرجاء ادخال البريد الالكتروني",
-  //       email: "خطأ هذا ليس بريد الكتروني"
-  //     },
-  //   },
-  //   // errorPlacement: function (error, element) {
-  //   //         alert(error.text());
-  //   //     },   
-  // });      
+  $("#loginForm").validate({
+    rules:{
+      email:{
+        required: true,
+        email: true,
+      },
+    },
+    messages:{
+      // email:{
+      //   required: "الرجاء ادخال البريد الالكتروني",
+      //   email: "خطأ هذا ليس بريد الكتروني"
+      // },
+    },
+    errorPlacement: function(error, element) {
+      if (element.attr("name") == "email") {
+          error.insertAfter("#form-group");
+      } else {
+          error.insertAfter(element);
+      }
+    }  
+  });
+  // $('body').on("click","#btnLogin",function(){
+  //   alert("test2222");
+  //   $("#loginForm").submit();
+  // });
+
+  // $('body').on("submit","#loginForm",function(data){
+  //   alert(data);
+  //   var obj=$('#loginForm').serializeObject();
+  //   if (obj.email)
+  //   {
+  //     $.post("/adminPage",obj,function(date){
+  //       alert("تم الدخول بنجاح");
+  //     });
+  //   }
+  //   else
+  //   {
+  //     alert("خطأأأأأأأأأأأأ");
+  //   }
+  // });  
+});
+$(".reveal").mousedown(function() {
+    $(".pwd").replaceWith($('.pwd').clone().attr('type', 'text'));
+})
+.mouseup(function() {
+  $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+})
+.mouseout(function() {
+  $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });

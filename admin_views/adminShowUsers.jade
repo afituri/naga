@@ -19,9 +19,9 @@ block dashBord
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
                 img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 1
+                strong #{username.user1}
                 br
-                span.text-muted User level: Administrator
+                span.text-muted User level: Root
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.cyruxx')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.cyruxx
@@ -36,7 +36,7 @@ block dashBord
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
                         img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 1John Smith
+                        strong #{username.user1}
                         br
                         dl
                           dt User level:
@@ -48,13 +48,13 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 1
+                        strong #{username.user1}
                         br
                         table.table.table-user-information
                           tbody
                             tr
                               td User level:
-                              td Administrator
+                              td Root
                             tr
                               td Registered since:
                               td 11/12/2013
@@ -76,9 +76,9 @@ block dashBord
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
                 img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 2
+                strong #{username.user2}
                 br
-                span.text-muted User level: Registered
+                span.text-muted User level: Administrator
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user2')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.user2
@@ -93,7 +93,7 @@ block dashBord
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
                         img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 2
+                        strong #{username.user2}
                         br
                         dl
                           dt User level:
@@ -105,7 +105,7 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 2
+                        strong #{username.user2}
                         br
                         table.table.table-user-information
                           tbody
@@ -133,9 +133,9 @@ block dashBord
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
                 img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 3
+                strong #{username.user3}
                 br
-                span.text-muted User level: Administrator
+                span.text-muted User level: Regular
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user3')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.user3
@@ -150,11 +150,11 @@ block dashBord
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
                         img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 3
+                        strong #{username.user3}
                         br
                         dl
                           dt User level:
-                          dd Administrator
+                          dd Regular
                           dt Registered since:
                           dd 11/12/2013
                           dt Topics
@@ -162,13 +162,13 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 3
+                        strong #{username.user3}
                         br
                         table.table.table-user-information
                           tbody
                             tr
                               td User level:
-                              td Administrator
+                              td Regular
                             tr
                               td Registered since:
                               td 11/12/2013

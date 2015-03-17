@@ -146,9 +146,43 @@ html
                     i.fa.fa-fw.fa-arrows-v
                     |  Users Manger 
                     i.fa.fa-fw.fa-caret-down
-                  ul#demo.collapse
-                    li
+                  ul#demo.collapse(class=collapseIn)
+                    li(class=chosenRU)
                       a(href='/adminRegUsers') Register User
+                    li(class=chosenSU)
+                      a(href='/adminShowUsers') Show Users    
+                li
+                  a(href='javascript:;', data-toggle='collapse', data-target='#demo1')
+                    i.glyphicon.glyphicon-shopping-cart
+                    |  Order Manger
+                    i.fa.fa-fw.fa-caret-down
+                  ul#demo1.collapse
                     li
-                      a(href='/adminShowUsers') Show Users
+                      a(href='/adminShowOrder') Show Order
+                li
+                  a(href='javascript:;', data-toggle='collapse', data-target='#demo2')
+                    i.glyphicon.glyphicon-map-marker
+                    |  locations Manger
+                    i.fa.fa-fw.fa-caret-down
+                  ul#demo2.collapse
+                    li
+                      a(href='#') Schools
+                    li
+                      a(href='#') Cities
+                    li
+                      a(href='#') Areas
+                    li
+                      a(href='#') Mahala
+                li
+                  a(href='javascript:;', data-toggle='collapse', data-target='#demo3')
+                    i.glyphicon.glyphicon-gift
+                    |  Product Manger
+                    i.fa.fa-fw.fa-caret-down
+                  ul#demo3.collapse
+                    li
+                      a(href='#') Metrics
+                    li
+                      a(href='#') Sizes
+                    li
+                      a(href='#') Colors     
           block dashBord

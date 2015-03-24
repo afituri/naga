@@ -7,182 +7,280 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='stylesheet', href='/css/admin_style.css')  
-    // Bootstrap Core CSS
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    // Custom CSS
-    link(href='/css/sb-admin.css', rel='stylesheet')
-    // Morris Charts CSS
-    link(href='/css/plugins/morris.css', rel='stylesheet')
-    // Custom Fonts
-    link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(rel='stylesheet', href='/css/bootstrap-editable.css')
-    link(rel='stylesheet', href='/css/bootstrap-datetimepicker.min.css')
+    link(href="/css/admin_style.css" rel="stylesheet")
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    <!-- MetisMenu CSS -->
+    link(href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet")
+    <!-- Custom CSS -->
+    link(href="/css/sb-admin-2.css" rel="stylesheet")
+    <!-- Custom Fonts -->
+    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css")
   body
     block content
       block navigation
         #wrapper
-          // Navigation
-          nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
-            // Brand and toggle get grouped for better mobile display
+          nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+              button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
                 span.sr-only Toggle navigation
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='/adminPage') 
-                //| Admin Page
-                img(style='height:20px;witd:20px;',src="../img/nagaLogo.png")
-            // Top Menu Items
-            ul.nav.navbar-right.top-nav
+              a.navbar-brand(href="/adminPage")
+                img(style='height:35px;witd:50px;',src="../img/nagaLogo1.png")
+            <!-- /.navbar-header -->
+            ul.nav.navbar-top-links.navbar-right
               li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  i.fa.fa-envelope
-                  b.caret
-                ul.dropdown-menu.message-dropdown
-                  li.message-preview
-                    a(href='#')
-                      .media
-                        span.pull-left
-                          img.media-object(src='http://placehold.it/50x50', alt='')
-                        .media-body
-                          h5.media-heading
-                            strong Admin Name
-                          p.small.text-muted
-                            i.fa.fa-clock-o
-                            |  Yesterday at 4:32 PM
-                          p Lorem ipsum dolor sit amet, consectetur...
-                  li.message-preview
-                    a(href='#')
-                      .media
-                        span.pull-left
-                          img.media-object(src='http://placehold.it/50x50', alt='')
-                        .media-body
-                          h5.media-heading
-                            strong Admin Name
-                          p.small.text-muted 
-                            i.fa.fa-clock-o
-                            |  Yesterday at 4:32 PM
-                          p Lorem ipsum dolor sit amet, consectetur...
-                  li.message-preview
-                    a(href='#')
-                      .media
-                        span.pull-left
-                          img.media-object(src='http://placehold.it/50x50', alt='')
-                        .media-body
-                          h5.media-heading
-                            strong Admin Name
-                          p.small.text-muted
-                            i.fa.fa-clock-o
-                            |  Yesterday at 4:32 PM
-                          p Lorem ipsum dolor sit amet, consectetur...
-                  li.message-footer
-                    a(href='#') Read All New Messages
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  i.fa.fa-bell
-                  b.caret
-                ul.dropdown-menu.alert-dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-envelope.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-messages
                   li
                     a(href='#')
-                      | Alert Name 
-                      span.label.label-default Alert Badge
-                  li
-                    a(href='#')
-                      | Alert Name 
-                      span.label.label-primary Alert Badge
-                  li
-                    a(href='#')
-                      | Alert Name 
-                      span.label.label-success Alert Badge
-                  li
-                    a(href='#')
-                      | Alert Name 
-                      span.label.label-info Alert Badge
-                  li
-                    a(href='#')
-                      | Alert Name 
-                      span.label.label-warning Alert Badge
-                  li
-                    a(href='#')
-                      | Alert Name 
-                      span.label.label-danger Alert Badge
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
                   li.divider
                   li
-                    a(href='#') View All
+                    a(href='#')
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong Read All Messages
+                      i.fa.fa-angle-right
               li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  i.fa.fa-user
-                  |  Admin Name 
-                  b.caret
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-tasks.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-tasks
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 1
+                          span.pull-right.text-muted 40% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                            span.sr-only 40% Complete (success)
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 2
+                          span.pull-right.text-muted 20% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                            span.sr-only 20% Complete
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 3
+                          span.pull-right.text-muted 60% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                            span.sr-only 60% Complete (warning)
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 4
+                          span.pull-right.text-muted 80% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%')
+                            span.sr-only 80% Complete (danger)
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong See All Tasks
+                      i.fa.fa-angle-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-bell.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-alerts
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-comment.fa-fw
+                        |  New Comment
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-twitter.fa-fw
+                        |  3 New Followers
+                        span.pull-right.text-muted.small 12 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-envelope.fa-fw
+                        |  Message Sent
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-tasks.fa-fw
+                        |  New Task
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-upload.fa-fw
+                        |  Server Rebooted
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong See All Alerts
+                      i.fa.fa-angle-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-user.fa-fw
+                  i.fa.fa-caret-down
                 ul.dropdown-menu
                   li
                     a(href='#')
-                      i.fa.fa-fw.fa-user
-                      |  Profile
+                      i.fa.fa-user.fa-fw
+                      |  User Profile
                   li
                     a(href='#')
-                      i.fa.fa-fw.fa-envelope
-                      |  Inbox
-                  li
-                    a(href='#')
-                      i.fa.fa-fw.fa-gear
+                      i.fa.fa-gear.fa-fw
                       |  Settings
                   li.divider
                   li
                     a(href='/')
-                      i.fa.fa-fw.fa-power-off
-                      |  Log Out
-            // Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
-            .collapse.navbar-collapse.navbar-ex1-collapse
-              ul.nav.navbar-nav.side-nav
-                li.active
-                  a(href='/adminPage')
-                    i.fa.fa-fw.fa-dashboard
-                    |  Dashboard
-                li
-                  a(href='javascript:;', data-toggle='collapse', data-target='#demo')
-                    i.fa.fa-fw.fa-arrows-v
-                    |  Users Manger 
-                    i.fa.fa-fw.fa-caret-down
-                  ul#demo.collapse(class=collapseIn)
-                    li(class=chosenRU)
-                      a(href='/adminRegUsers') Register User
-                    li(class=chosenSU)
-                      a(href='/adminShowUsers') Show Users    
-                li
-                  a(href='javascript:;', data-toggle='collapse', data-target='#demo1')
-                    i.glyphicon.glyphicon-shopping-cart
-                    |  Order Manger
-                    i.fa.fa-fw.fa-caret-down
-                  ul#demo1.collapse
-                    li
-                      a(href='/adminShowOrder') Show Order
-                li
-                  a(href='javascript:;', data-toggle='collapse', data-target='#demo2')
-                    i.glyphicon.glyphicon-map-marker
-                    |  locations Manger
-                    i.fa.fa-fw.fa-caret-down
-                  ul#demo2.collapse
-                    li
-                      a(href='#') Schools
-                    li
-                      a(href='#') Cities
-                    li
-                      a(href='#') Areas
-                    li
-                      a(href='#') Mahala
-                li
-                  a(href='javascript:;', data-toggle='collapse', data-target='#demo3')
-                    i.glyphicon.glyphicon-gift
-                    |  Product Manger
-                    i.fa.fa-fw.fa-caret-down
-                  ul#demo3.collapse
-                    li
-                      a(href='#') Metrics
-                    li
-                      a(href='#') Sizes
-                    li
-                      a(href='#') Colors     
-          block dashBord
+                      i.fa.fa-sign-out.fa-fw
+                      |  Logout          
+            .navbar-default.sidebar(role="navigation")
+              .sidebar-nav.navbar-collapse
+                ul.nav#side-menu
+                  li.sidebar-search
+                    .input-group.custom-search-form
+                      input.form-control(type="text", placeholder="Search...")
+                      span.input-group-btn
+                        button.btn.btn-default(type="button")
+                          i.fa.fa-search
+                  li
+                    a(href="/adminPage")
+                      i.fa.fa-dashboard.fa-fw
+                      |  Dashboard
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                      |  User Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/adminRegUsers") Register User
+                      li
+                        a(href="adminShowUsers") Show User 
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-map-marker
+                      |  Locations Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/adminCities") Cities
+                      li
+                        a(href="/adminAreas") Areas
+                      li
+                        a(href="/adminMahala") Mahala    
+                      li
+                        a(href="/adminSchools") Schools
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-gift
+                      |  Product Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Metrics
+                      li
+                        a(href="#") Sizes
+                      li
+                        a(href="#") Colors        
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-briefcase
+                      |  Business Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Type of Business 
+                      li
+                        a(href="#") Business Genre
+                          span.fa.arrow
+                        ul.nav.nav-third-level
+                          li
+                            a(href="#") Genre
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                      |  Admin Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Admin
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-usd
+                      |  Company Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Company 
+                      li
+                        a(href="#") Seller Manger
+                          span.fa.arrow
+                        ul.nav.nav-third-level
+                          li
+                            a(href="#") Sellers
+                  li
+                    a(href="/adminSerialNumber")
+                      i.glyphicon.glyphicon-check
+                      |  Prepaid Card Manger
+                  li
+                    a(href="#")
+                      i.fa.fa-sitemapfa-fw Multi-Level Dropdown
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Second Level Item
+                          span.fa.arrow
+                        ul.nav.nav-third-level
+                          li
+                            a(href="#") Third Level Item
+                              span.fa.arrow
+                            ul.nav.nav-fourth-level
+                              li
+                                a(href="#") Third Level Item
+                              li
+                                a(href="#") Third Level Item  
+          block dashBord                                           

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2015 at 05:43 PM
+-- Generation Time: Mar 23, 2015 at 06:17 PM
 -- Server version: 5.6.23
 -- PHP Version: 5.5.14
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `naga`
+-- Database: `naga5`
 --
 
 -- --------------------------------------------------------
@@ -108,7 +108,8 @@ CREATE TABLE IF NOT EXISTS `cart_has_item` (
   `item_iditem` bigint(11) NOT NULL,
   `price` double DEFAULT NULL,
   `item_name` varchar(500) DEFAULT NULL,
-  `company_idcompany` int(11) NOT NULL
+  `company_idcompany` int(11) NOT NULL,
+  `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -269,14 +270,18 @@ CREATE TABLE IF NOT EXISTS `item` (
   `iditem` bigint(11) NOT NULL,
   `name` varchar(500) NOT NULL,
   `name_en` varchar(500) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` datetime DEFAULT NULL,
   `price` float DEFAULT NULL,
   `discount` float DEFAULT NULL,
   `discount_exp` datetime DEFAULT NULL,
+  `discount_flag` tinyint(1) DEFAULT '0',
   `company_seller_idcompany_seller` int(11) NOT NULL,
-  `company_idcompany` int(11) NOT NULL
+  `company_idcompany` int(11) NOT NULL,
+  `tog_idtog` int(11) NOT NULL,
+  `genre_idgenre` int(11) NOT NULL,
+  `tob_idtob` int(11) NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -305,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `mahalla` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL,
   `area_idarea` int(11) NOT NULL,
-  `link` int(11) DEFAULT NULL
+  `link` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
@@ -405,6 +410,23 @@ CREATE TABLE IF NOT EXISTS `order` (
   `status` tinyint(1) DEFAULT '1',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photos`
+--
+
+CREATE TABLE IF NOT EXISTS `photos` (
+  `idphotos` bigint(8) NOT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `path` varchar(500) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
+  `default` tinyint(1) DEFAULT '0',
+  `item_iditem` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -768,6 +790,23 @@ CREATE TABLE IF NOT EXISTS `tob` (
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tog`
+--
+
+CREATE TABLE IF NOT EXISTS `tog` (
+  `idtog` int(11) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `name_en` varchar(150) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
+  `genre_idgenre` int(11) NOT NULL,
+  `genre_tob_idtob` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -854,7 +893,7 @@ ALTER TABLE `genre`
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
-  ADD PRIMARY KEY (`iditem`,`company_seller_idcompany_seller`,`company_idcompany`), ADD KEY `fk_item_company_seller1_idx` (`company_seller_idcompany_seller`,`company_idcompany`);
+  ADD PRIMARY KEY (`iditem`,`company_seller_idcompany_seller`,`company_idcompany`,`tog_idtog`,`genre_idgenre`,`tob_idtob`), ADD KEY `fk_item_company_seller1_idx` (`company_seller_idcompany_seller`,`company_idcompany`), ADD KEY `fk_item_tog1_idx` (`tog_idtog`,`genre_idgenre`,`tob_idtob`);
 
 --
 -- Indexes for table `item_has_size`
@@ -879,6 +918,12 @@ ALTER TABLE `measure`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`idorder`);
+
+--
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`idphotos`,`item_iditem`), ADD KEY `fk_photos_item1_idx` (`item_iditem`);
 
 --
 -- Indexes for table `prepaid`
@@ -909,6 +954,12 @@ ALTER TABLE `size`
 --
 ALTER TABLE `tob`
   ADD PRIMARY KEY (`idtob`);
+
+--
+-- Indexes for table `tog`
+--
+ALTER TABLE `tog`
+  ADD PRIMARY KEY (`idtog`,`genre_idgenre`,`genre_tob_idtob`), ADD KEY `fk_tog_genre1_idx` (`genre_idgenre`,`genre_tob_idtob`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -990,6 +1041,11 @@ ALTER TABLE `measure`
 ALTER TABLE `order`
   MODIFY `idorder` bigint(8) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `idphotos` bigint(8) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `prepaid`
 --
 ALTER TABLE `prepaid`
@@ -1014,6 +1070,11 @@ ALTER TABLE `size`
 --
 ALTER TABLE `tob`
   MODIFY `idtob` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tog`
+--
+ALTER TABLE `tog`
+  MODIFY `idtog` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -1074,7 +1135,8 @@ ADD CONSTRAINT `fk_genre_tob1` FOREIGN KEY (`tob_idtob`) REFERENCES `tob` (`idto
 -- Constraints for table `item`
 --
 ALTER TABLE `item`
-ADD CONSTRAINT `fk_item_company_seller1` FOREIGN KEY (`company_seller_idcompany_seller`, `company_idcompany`) REFERENCES `company_seller` (`idcompany_seller`, `company_idcompany`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_item_company_seller1` FOREIGN KEY (`company_seller_idcompany_seller`, `company_idcompany`) REFERENCES `company_seller` (`idcompany_seller`, `company_idcompany`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_item_tog1` FOREIGN KEY (`tog_idtog`, `genre_idgenre`, `tob_idtob`) REFERENCES `tog` (`idtog`, `genre_idgenre`, `genre_tob_idtob`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `item_has_size`
@@ -1091,6 +1153,12 @@ ALTER TABLE `mahalla`
 ADD CONSTRAINT `fk_mahalla_area1` FOREIGN KEY (`area_idarea`) REFERENCES `area` (`idarea`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `photos`
+--
+ALTER TABLE `photos`
+ADD CONSTRAINT `fk_photos_item1` FOREIGN KEY (`item_iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `school`
 --
 ALTER TABLE `school`
@@ -1101,6 +1169,12 @@ ADD CONSTRAINT `fk_school_mahalla1` FOREIGN KEY (`mahalla_idmahalla`) REFERENCES
 --
 ALTER TABLE `size`
 ADD CONSTRAINT `fk_size_measure1` FOREIGN KEY (`measure_idmeasure`) REFERENCES `measure` (`idmeasure`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `tog`
+--
+ALTER TABLE `tog`
+ADD CONSTRAINT `fk_tog_genre1` FOREIGN KEY (`genre_idgenre`, `genre_tob_idtob`) REFERENCES `genre` (`idgenre`, `tob_idtob`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

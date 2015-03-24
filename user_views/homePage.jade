@@ -1,78 +1,14 @@
 extends layout
-    #header
-      .container
-        #welcomeLine.row
-          .span6
-            | Welcome!
-            strong  User
-          .span6
-            .pull-right
-              a(href='/seller/product_summary')
-                span Fr
-              a(href='/seller/product_summary')
-                span Es
-              span.btn.btn-mini En
-              a(href='/seller/product_summary')
-                span £
-              span.btn.btn-mini $155.00
-              a(href='/seller/product_summary')
-                span $
-              a(href='/seller/product_summary')
-                span.btn.btn-mini.btn-primary
-                  i.icon-shopping-cart.icon-white
-                  |  [ 3 ] Itemes in your cart
-        // Navbar ==================================================
-        #logoArea.navbar
-          a#smallScreen.btn.btn-navbar(data-target='#topMenu', data-toggle='collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          .navbar-inner
-            a.brand(href='/seller/homePage')
-              img(src='/themes/images/Logoo.png', alt='Bootsshop', width='300 px ;')
-            form.form-inline.navbar-search(method='post', action='/seller/products')
-              input#srchFld.srchTxt(type='text')
-              select.srchTxt
-                option All
-                option CLOTHES 
-                option FOOD AND BEVERAGES 
-                option HEALTH & BEAUTY 
-                option SPORTS & LEISURE 
-                option BOOKS & ENTERTAINMENTS 
-              button#submitButton.btn.btn-primary(type='submit') Go
-            ul#topMenu.nav.pull-right
-              li
-                a(href='/seller/special_offer') Specials Offer
-              li
-                a(href='normal.html') Delivery
-              li
-                a(href='contact.html') Contact
-              li
-                a(href='#login', role='button', data-toggle='modal', style='padding-right:0')
-                  span.btn.btn-large.btn-success Login
-                #login.modal.hide.fade.in(tabindex='-1', role='dialog', aria-labelledby='login', aria-hidden='false')
-                  .modal-header
-                    button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                    h3 Login Block
-                  .modal-body
-                    form.form-horizontal.loginFrm
-                      .control-group
-                        input#inputEmail(type='text', placeholder='Email')
-                      .control-group
-                        input#inputPassword(type='password', placeholder='Password')
-                      .control-group
-                        label.checkbox
-                          input(type='checkbox')
-                          |  Remember me
-                    button.btn.btn-success(type='submit') Sign in
-                    button.btn(data-dismiss='modal', aria-hidden='true') Close
-    // Header End======================================================================
+block sellerPage
+block itemSlide
+block listOnLeft
+block home
     #carouselBlk
       #myCarousel.carousel.slide
         .carousel-inner
           .item.active
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(style='width:100%', src='/themes/images/carousel/1.png', alt='special offers')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -80,7 +16,7 @@ extends layout
                   | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
           .item
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(style='width:100%', src='/themes/images/carousel/2.png', alt='')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -88,7 +24,7 @@ extends layout
                   | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
           .item
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(src='/themes/images/carousel/3.png', alt='')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -96,7 +32,7 @@ extends layout
                   | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
           .item
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(src='/themes/images/carousel/4.png', alt='')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -104,7 +40,7 @@ extends layout
                   | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
           .item
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(src='/themes/images/carousel/5.png', alt='')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -112,7 +48,7 @@ extends layout
                   | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
           .item
             .container
-              a(href='/seller/register')
+              a(href='/user/register')
                 img(src='/themes/images/carousel/6.png', alt='')
               .carousel-caption
                 h4 Second Thumbnail label
@@ -124,9 +60,9 @@ extends layout
       .container
         .row
           // Sidebar ==================================================
-          #sidebar.span3
+          #sidebar.col-lg-3.col-md-3.col-sm-3
             .well.well-small
-              a#myCart(href='/seller/product_summary')
+              a#myCart(href='/user/product_summary')
                 img(src='/themes/images/ico-cart.png', alt='cart')
                 | 3 Items in your cart  
                 span.badge.badge-warning.pull-right $155.00
@@ -135,100 +71,100 @@ extends layout
                 a  ELECTRONICS [230]
                 ul
                   li
-                    a.active(href='/seller/products')
+                    a.active(href='/user/products')
                       i.icon-chevron-right
                       | Cameras (100)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Computers, Tablets & laptop (30)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Mobile Phone (80)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Sound & Vision (15)
               li.subMenu
                 a  CLOTHES [840] 
                 ul(style='display:none')
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Women's Clothing (45)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Women's Shoes (8)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Women's Hand Bags (5)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Men's Clothings  (45)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Men's Shoes (6)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Kids Clothing (5)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Kids Shoes (3)
               li.subMenu
                 a FOOD AND BEVERAGES [1000]
                 ul(style='display:none')
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Angoves  (35)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Bouchard Aine & Fils (8)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | French Rabbit (5)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Louis Bernard  (45)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | BIB Wine (Bag in Box) (8)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Other Liquors & Wine (5)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Garden (3)
                   li
-                    a(href='/seller/products')
+                    a(href='/user/products')
                       i.icon-chevron-right
                       | Khao Shong (11)
               li
-                a(href='/seller/products') HEALTH & BEAUTY [18]
+                a(href='/user/products') HEALTH & BEAUTY [18]
               li
-                a(href='/seller/products') SPORTS & LEISURE [58]
+                a(href='/user/products') SPORTS & LEISURE [58]
               li
-                a(href='/seller/products') BOOKS & ENTERTAINMENTS [14]
+                a(href='/user/products') BOOKS & ENTERTAINMENTS [14]
             br
             .thumbnail
               img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
               .caption
                 h5 Panasonic
                 h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
+                  a.btn(href='/user/product_details')
                     i.icon-zoom-in
                   a.btn(href='#')
                     | Add to 
@@ -240,7 +176,7 @@ extends layout
               .caption
                 h5 Kindle
                 h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
+                  a.btn(href='/user/product_details')
                     i.icon-zoom-in
                   a.btn(href='#')
                     | Add to 
@@ -252,7 +188,7 @@ extends layout
               .caption
                 h5 Payment Methods
           // Sidebar end===============================================
-          .span9
+          .col-lg-9.col-md-9.col-sm-9
             .well.well-small
               h4
                 | Featured Products 
@@ -262,199 +198,199 @@ extends layout
                   .carousel-inner
                     .item.active
                       ul.thumbnails
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/b1.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/b2.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/b3.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/b4.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
                     .item
                       ul.thumbnails
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/5.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
                             i.tag
-                            a(href='/seller/product_details')
+                            a(href='/=user/product_details')
                               img(src='/themes/images/products/6.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/7.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/8.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
                     .item
                       ul.thumbnails
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/9.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/10.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/11.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/1.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
                     .item
                       ul.thumbnails
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/2.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/3.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/4.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
-                        li.span3
+                        li.col-lg-3.col-md-3.col-sm-3
                           .thumbnail
-                            a(href='/seller/product_details')
+                            a(href='/user/product_details')
                               img(src='/themes/images/products/5.jpg', alt='')
                             .caption
                               h5 Product name
                               h4
-                                a.btn(href='/seller/product_details') VIEW
+                                a.btn(href='/user/product_details') VIEW
                                 span.pull-right $222.00
                   a.left.carousel-control(href='#featured', data-slide='prev') ‹
                   a.right.carousel-control(href='#featured', data-slide='next') ›
             h4 Latest Products 
             ul.thumbnails
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
+                  a(href='/user/product_details')
                     img(src='/themes/images/products/6.jpg', alt='')
                   .caption
                     h5 Product name
                     p
                       | Lorem Ipsum is simply dummy text.
                     h4(style='text-align:center')
-                      a.btn(href='/seller/product_details')
+                      a.btn(href='/user/product_details')
                         i.icon-zoom-in
                       a.btn(href='#')
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
+                  a(href='/user/product_details')
                     img(src='/themes/images/products/7.jpg', alt='')
                   .caption
                     h5 Product name
                     p
                       | Lorem Ipsum is simply dummy text.
                     h4(style='text-align:center')
-                      a.btn(href='/seller/product_details')
+                      a.btn(href='/user/product_details')
                         i.icon-zoom-in
                       a.btn(href='#')
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
+                  a(href='/user/product_details')
                     img(src='/themes/images/products/8.jpg', alt='')
                   .caption
                     h5 Product name
@@ -467,90 +403,54 @@ extends layout
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
+                  a(href='/user/product_details')
                     img(src='/themes/images/products/9.jpg', alt='')
                   .caption
                     h5 Product name
                     p
                       | Lorem Ipsum is simply dummy text.
                     h4(style='text-align:center')
-                      a.btn(href='/seller/product_details')
+                      a.btn(href='/user/product_details')
                         i.icon-zoom-in
                       a.btn(href='#')
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
+                  a(href='/user/product_details')
                     img(src='/themes/images/products/10.jpg', alt='')
                   .caption
                     h5 Product name
                     p
                       | Lorem Ipsum is simply dummy text.
                     h4(style='text-align:center')
-                      a.btn(href='/seller/product_details')
+                      a.btn(href='/user/product_details')
                         i.icon-zoom-in
                       a.btn(href='#')
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-              li.span3
+              li.col-lg-3.col-md-3.col-sm-3
                 .thumbnail
-                  a(href='/seller/product_details')
-                    img(src='themes/images/products/11.jpg', alt='')
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/11.jpg', alt='')
                   .caption
                     h5 Product name
                     p
                       | Lorem Ipsum is simply dummy text.
                     h4(style='text-align:center')
-                      a.btn(href='/seller/product_details')
+                      a.btn(href='/user/product_details')
                         i.icon-zoom-in
                       a.btn(href='#')
                         | Add to 
                         i.icon-shopping-cart
                       a.btn.btn-primary(href='#') $222.00
-    // Footer ==================================================================
-    #footerSection
-      .container
-        .row
-          .span3
-            h5 ACCOUNT
-            a(href='login.html') YOUR ACCOUNT
-            a(href='login.html') PERSONAL INFORMATION
-            a(href='login.html') ADDRESSES
-            a(href='login.html') DISCOUNT
-            a(href='login.html') ORDER HISTORY
-          .span3
-            h5 INFORMATION
-            a(href='contact.html') CONTACT
-            a(href='/seller/register') REGISTRATION
-            a(href='legal_notice.html') LEGAL NOTICE
-            a(href='/seller/tac') TERMS AND CONDITIONS
-            a(href='faq.html') FAQ
-          .span3
-            h5 OUR OFFERS
-            a(href='#') NEW PRODUCTS
-            a(href='#') TOP SELLERS
-            a(href='/seller/special_offer') SPECIAL OFFERS
-            a(href='#') MANUFACTURERS
-            a(href='#') SUPPLIERS
-          #socialMedia.span3.pull-right
-            h5 SOCIAL MEDIA 
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/facebook.png', title='facebook', alt='facebook')
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/twitter.png', title='twitter', alt='twitter')
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/youtube.png', title='youtube', alt='youtube')
-        p.pull-right © Bootshop
-      // Container End
-    // Placed at the end of the document so the pages load faster =============================================
+                      
     script(src='/themes/js/jquery.js', type='text/javascript')
     script(src='/themes/js/bootstrap.min.js', type='text/javascript')
     script(src='/themes/js/google-code-prettify/prettify.js')
     script(src='/themes/js/bootshop.js')
     script(src='/themes/js/jquery.lightbox-0.5.js')
-    // Themes switcher section =============================================================================================

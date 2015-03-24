@@ -1,5 +1,5 @@
 #row {
-  padding-top: 130px;
+  padding-top: 100px;
 }
 
 #btnLogin {
@@ -54,7 +54,6 @@
   cursor: pointer;
   display: none;
 }
-
 
 .tile-progress {
 background-color: #303641;
@@ -141,4 +140,9 @@ color: #fff;
 .tile-progress.tile-pink {
 background-color: #ec3b83;
 color: #fff;
+}
+
+.chosen {
+  outline: medium none;
+  background-color: #000 !important;
 }

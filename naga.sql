@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `area` (
   `idarea` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `name_en` varchar(100) DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `city_idcity` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `balance` (
   `prepaid_live_idprepaid` bigint(8) NOT NULL,
   `customer_idcustomer` int(11) NOT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `idcart` bigint(8) NOT NULL,
   `customer_idcustomer` int(11) NOT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `idcity` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `name_en` varchar(100) DEFAULT NULL,
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `color` (
   `name` varchar(100) DEFAULT NULL,
   `name_en` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `logo` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `admin_idadmin` int(11) NOT NULL,
   `tob_idtob` int(11) NOT NULL
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `company_address` (
   `longit` varchar(100) DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL,
   `school_idschool` int(11) NOT NULL,
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `company_seller` (
   `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `company_idcompany` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `salt` varchar(500) DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `balance` double DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `customer_address` (
   `longit` varchar(100) DEFAULT NULL,
   `default` tinyint(1) DEFAULT '1' COMMENT '1 means this is the default address for delivery\n',
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `customer_idcustomer` int(11) NOT NULL,
   `school_idschool` int(11) NOT NULL,
@@ -254,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `name` varchar(150) DEFAULT NULL,
   `name_en` varchar(150) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `tob_idtob` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -270,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `name` varchar(500) NOT NULL,
   `name_en` varchar(500) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `price` float DEFAULT NULL,
   `discount` float DEFAULT NULL,
@@ -302,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `mahalla` (
   `idmahalla` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `name_en` varchar(100) DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `area_idarea` int(11) NOT NULL,
   `link` int(11) DEFAULT NULL
@@ -386,7 +386,7 @@ CREATE TABLE IF NOT EXISTS `measure` (
   `name_en` varchar(100) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -403,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `customer_address_idcustomer_address` int(11) NOT NULL,
   `customer_address_school_idschool` int(11) NOT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -421,7 +421,7 @@ CREATE TABLE IF NOT EXISTS `prepaid` (
   `salt` varchar(500) NOT NULL,
   `amount` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS `prepaid_live` (
   `salt` varchar(500) NOT NULL,
   `amount` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -454,7 +454,7 @@ CREATE TABLE IF NOT EXISTS `school` (
   `name_en` varchar(100) DEFAULT NULL,
   `latit` varchar(100) DEFAULT NULL,
   `longit` varchar(100) DEFAULT NULL,
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `mahalla_idmahalla` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8;
@@ -748,7 +748,7 @@ CREATE TABLE IF NOT EXISTS `size` (
   `name` varchar(100) DEFAULT NULL,
   `name_en` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `measure_idmeasure` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -764,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `tob` (
   `name` varchar(150) DEFAULT NULL,
   `name_en` varchar(150) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

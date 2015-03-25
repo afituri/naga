@@ -7,9 +7,9 @@ exports.CityMgr = {
       conn.query('SELECT * FROM `city` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });
@@ -20,9 +20,9 @@ exports.CityMgr = {
       conn.query('INSERT INTO `city` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });
@@ -33,9 +33,9 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `name` = ?,`update_time`=? WHERE `idcity` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });
@@ -47,9 +47,9 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `name_en` = ?,`update_time`=? WHERE `idcity` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });
@@ -61,9 +61,9 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `status` = 0 ,`update_time` = ? WHERE `idcity` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });
@@ -74,9 +74,9 @@ exports.CityMgr = {
       conn.query('DELETE from `city` WHERE `idcity` = ?',id,  function(err, result) {
         conn.release();
         if(err) {
-          cb(null,err);
+          cb(err,null);
         } else {
-          cb(result,null);
+          cb(null,result);
         }
       });
     });

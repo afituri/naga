@@ -16,7 +16,7 @@ describe('Module City', function(){
 
   describe('#AddCity()',function(){
     it('Should inser without an error', function(done){
-      City.AddCity(add_city,function(result,err){
+      City.AddCity(add_city,function(err,result){
         if (err) throw err;
         done();
       });
@@ -25,7 +25,7 @@ describe('Module City', function(){
 
   describe('#getCities()',function(){
     it('Should update without an error', function(done){
-      City.GetCity(function(result,err){
+      City.GetCity(function(err,result){
         if (err) throw err;
         done();
       });
@@ -34,7 +34,7 @@ describe('Module City', function(){
 
   describe('#UpdateCityNameAR()',function(){
     it('Should update without an error', function(done){
-      City.UpdateCityNameAR(update_city_name,function(result,err){
+      City.UpdateCityNameAR(update_city_name,function(err,result){
         if (err) throw err;
         done();
       });
@@ -43,7 +43,7 @@ describe('Module City', function(){
 
   describe('#UpdateCityNameEN()',function(){
     it('Should update without an error', function(done){
-      City.UpdateCityNameEN(update_city_name_en,function(result,err){
+      City.UpdateCityNameEN(update_city_name_en,function(err,result){
         if (err) throw err;
         done();
       });
@@ -52,7 +52,7 @@ describe('Module City', function(){
 
   describe('#DeleteCity()',function(){
     it('Should delete without an error', function(done){
-      City.DeleteCity(delete_city,function(result,err){
+      City.DeleteCity(delete_city,function(err,result){
         if (err) throw err;
         done();
       });
@@ -61,7 +61,7 @@ describe('Module City', function(){
 
   describe('#deleteTest()',function(){
     it('Should delete test without an error', function(done){
-      City.deleteTest(delete_city,function(result,err){
+      City.deleteTest(delete_city,function(err,result){
         if (err) throw err;
         done();
       });

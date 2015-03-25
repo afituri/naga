@@ -12,6 +12,8 @@ var admin = require('./admin_app');
 var user =require('./user_app');
 var seller =require('./seller_app');
 
+
+
 //////////////////////////////////////////////////////////////
 
 var app = express();
@@ -19,7 +21,7 @@ var app = express();
 app.use(vhost(config.admin,admin));
 app.use(vhost(config.user,user));
 app.use(vhost(config.seller,seller));
-  
+
 
 // minimal config
 i18n.configure({

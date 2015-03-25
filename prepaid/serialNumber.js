@@ -109,13 +109,16 @@ var saveRandomNumber = function(Type,random,serial,no){
   var loop = function(number,Type,cb)
   {
     var c=0;
+    var ff=0;
     for(var i=0;i<number;i++){
 
    
      rand.getLastNumber(function(result){
      // console.log(result[0]);
-      if(result[0] == undefined)
+     //console.log(result[0]);
+      if(result[0] == undefined && ff==0)
       {
+        ff=1;
         var random = getRandomInt(999999999999,9999999999999);
         var NumberOfCards =number;
         var amount=Type;
@@ -132,13 +135,14 @@ var saveRandomNumber = function(Type,random,serial,no){
         }
         var serial =pad(1,8);
         var all =Batch.toString()+ty.toString()+serial.toString();
-         rand.saveOneRow(random,md5(random),Type,all,function(result){
-
+        rand.saveOneRow(random,md5(random),Type,all,function(result){
+        
          });
+       
 
       //console.log("not Exist");
       }
-      else
+      else if(ff==0)
       {
         
         var Batch =parseInt(result[0].serial_no.toString().slice(0,3));

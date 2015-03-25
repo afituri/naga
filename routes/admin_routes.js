@@ -4,6 +4,7 @@ var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson');
 var CityMgr = require('../app/city').CityMgr;
 var validator = require('../app/validator_api');
+var rand= require('../app/serialnumber').rand;
 
 
 router.get('/', function(req, res) {
@@ -62,7 +63,11 @@ router.get('/adminMahala', function(req, res) {
 });
 
 router.get('/adminSerialNumber', function(req, res) {
-  res.render('adminSerialNumber', { title: 'Prepaid Card Manger'});
+   rand.NumberActiveprepaidCard(function(result){
+     console.log(result[0].c);
+     res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c});
+   });
+  
 });
 
 

@@ -1,0 +1,299 @@
+extends layout
+block sellerPage
+block itemSlide
+block listOnLeft
+block home
+  #mainBody
+    .container
+      .row
+        // Sidebar ==================================================
+        #sidebar.col-lg-3.col-md-3.col-sm-3
+          .well.well-small
+            a#myCart(href='/user/product_summary')
+              img(src='/themes/images/ico-cart.png', alt='cart')
+              | 3 Items in your cart  
+              span.badge.badge-warning.pull-right $155.00
+          ul#sideManu.nav.nav-tabs.nav-stacked
+            li.subMenu.open
+              a  ELECTRONICS [230]
+              ul
+                li
+                  a.active(href='/user/products')
+                    i.icon-chevron-right
+                    | Cameras (100)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Computers, Tablets & laptop (30)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Mobile Phone (80)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Sound & Vision (15)
+            li.subMenu
+              a  CLOTHES [840] 
+              ul(style='display:none')
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Clothing (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Shoes (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Hand Bags (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Men's Clothings  (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Men's Shoes (6)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Kids Clothing (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Kids Shoes (3)
+            li.subMenu
+              a FOOD AND BEVERAGES [1000]
+              ul(style='display:none')
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Angoves  (35)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Bouchard Aine & Fils (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | French Rabbit (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Louis Bernard  (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | BIB Wine (Bag in Box) (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Other Liquors & Wine (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Garden (3)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Khao Shong (11)
+            li
+              a(href='/user/products') HEALTH & BEAUTY [18]
+            li
+              a(href='/user/products') SPORTS & LEISURE [58]
+            li
+              a(href='/user/products') BOOKS & ENTERTAINMENTS [14]
+          br
+          .thumbnail
+            img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
+            .caption
+              h5 Panasonic
+              h4(style='text-align:center')
+                a.btn(href='/user/product_details')
+                  i.icon-zoom-in
+                a.btn(href='#')
+                  | Add to 
+                  i.icon-shopping-cart
+                a.btn.btn-primary(href='#') $222.00
+          br
+          .thumbnail
+            img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
+            .caption
+              h5 Kindle
+              h4(style='text-align:center')
+                a.btn(href='/user/product_details')
+                  i.icon-zoom-in
+                a.btn(href='#')
+                  | Add to 
+                  i.icon-shopping-cart
+                a.btn.btn-primary(href='#') $222.00
+          br
+          .thumbnail
+            img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
+            .caption
+              h5 Payment Methods
+        // Sidebar end===============================================
+        .col-lg-9.col-md-9.col-sm-9
+          ul.breadcrumb
+            li
+              a(href='/user/homePage') Home
+              span.divider /
+            li.active  SHOPPING CART
+          h3
+            | SHOPPING CART [ 
+            small 3 Item(s) 
+            | ]
+            a.btn.btn-large.pull-right(href='/user/products')
+              i.icon-arrow-left
+              |  Continue Shopping
+          hr.soft
+          table.table.table-bordered
+            tr
+              th  I AM ALREADY REGISTERED  
+            tr
+              td
+                form.form-horizontal
+                  .control-group
+                    label.control-label(for='inputUsername') Username
+                    .controls
+                      input#inputUsername(type='text', placeholder='Username')
+                  .control-group
+                    label.control-label(for='inputPassword1') Password
+                    .controls
+                      input#inputPassword1(type='password', placeholder='Password')
+                  .control-group
+                    .controls
+                      button.btn(type='submit') Sign in
+                      |  OR 
+                      a.btn(href='/user/register') Register Now!
+                  .control-group
+                    .controls
+                      a(href='forgetpass.html', style='text-decoration:underline') Forgot password ?
+          table.table.table-bordered
+            thead
+              tr
+                th Product
+                th Description
+                th Quantity/Update
+                th Price
+                th Discount
+                th Tax
+                th Total
+            tbody
+              tr
+                td
+                  img(width='60', src='/themes/images/products/4.jpg', alt='')
+                td
+                  | MASSA AST
+                  br
+                  | Color : black, Material : metal
+                td
+                  .input-append
+                    input#appendedInputButtons.span1(style='max-width:34px', placeholder='1', size='16', type='text')
+                    button.btn(type='button')
+                      i.icon-minus
+                    button.btn(type='button')
+                      i.icon-plus
+                    button.btn.btn-danger(type='button')
+                      i.icon-remove.icon-white
+                td $120.00
+                td $25.00
+                td $15.00
+                td $110.00
+              tr
+                td
+                  img(width='60', src='/themes/images/products/8.jpg', alt='')
+                td
+                  | MASSA AST
+                  br
+                  | Color : black, Material : metal
+                td
+                  .input-append
+                    input.span1(style='max-width:34px', placeholder='1', size='16', type='text')
+                    button.btn(type='button')
+                      i.icon-minus
+                    button.btn(type='button')
+                      i.icon-plus
+                    button.btn.btn-danger(type='button')
+                      i.icon-remove.icon-white
+                td $7.00
+                td --
+                td $1.00
+                td $8.00
+              tr
+                td
+                  img(width='60', src='/themes/images/products/3.jpg', alt='')
+                td
+                  | MASSA AST
+                  br
+                  | Color : black, Material : metal
+                td
+                  .input-append
+                    input.span1(style='max-width:34px', placeholder='1', size='16', type='text')
+                    button.btn(type='button')
+                      i.icon-minus
+                    button.btn(type='button')
+                      i.icon-plus
+                    button.btn.btn-danger(type='button')
+                      i.icon-remove.icon-white
+                td $120.00
+                td $25.00
+                td $15.00
+                td $110.00
+              tr
+                td(colspan='6', style='text-align:right') Total Price:  
+                td  $228.00
+              tr
+                td(colspan='6', style='text-align:right') Total Discount: 
+                td  $50.00
+              tr
+                td(colspan='6', style='text-align:right') Total Tax:  
+                td  $31.00
+              tr
+                td(colspan='6', style='text-align:right')
+                  strong TOTAL ($228 - $50 + $31) =
+                td.label.label-important(style='display:block')
+                  strong  $155.00 
+          table.table.table-bordered
+            tbody
+              tr
+                td
+                  form.form-horizontal
+                    .control-group
+                      label.control-label
+                        strong  VOUCHERS CODE: 
+                      .controls
+                        input.input-medium(type='text', placeholder='CODE')
+                        button.btn(type='submit')  ADD 
+          table.table.table-bordered
+            tr
+              th ESTIMATE YOUR SHIPPING 
+            tr
+              td
+                form.form-horizontal
+                  .control-group
+                    label.control-label(for='inputCountry') Country 
+                    .controls
+                      input#inputCountry(type='text', placeholder='Country')
+                  .control-group
+                    label.control-label(for='inputPost') Post Code/ Zipcode 
+                    .controls
+                      input#inputPost(type='text', placeholder='Postcode')
+                  .control-group
+                    .controls
+                      button.btn(type='submit') ESTIMATE 
+          a.btn.btn-large(href='/user/products')
+            i.icon-arrow-left
+            |  Continue Shopping
+          a.btn.btn-large.pull-right(href='login.html')
+            | Next 
+            i.icon-arrow-right
+  // MainBody End =============================
+  
+  script(src='/themes/js/jquery.js', type='text/javascript')
+  script(src='/themes/js/bootstrap.min.js', type='text/javascript')
+  script(src='/themes/js/google-code-prettify/prettify.js')
+  script(src='/themes/js/bootshop.js')
+  script(src='/themes/js/jquery.lightbox-0.5.js')

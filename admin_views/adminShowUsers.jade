@@ -17,11 +17,11 @@ block dashBord
           .well.col-xs-8.col-sm-8.col-md-8.col-lg-8.col-xs-offset-2.col-sm-offset-2.col-md-offset-2.col-lg-offset-2
             .row.user-row
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
-                img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                img.img-circle(src='../img/photo50.png', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 1
+                strong #{username.user1}
                 br
-                span.text-muted User level: Administrator
+                span.text-muted User level: Root
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.cyruxx')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.cyruxx
@@ -32,11 +32,11 @@ block dashBord
                   .panel-body
                     .row
                       .col-md-3.col-lg-3.hidden-xs.hidden-sm
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        img.img-circle(src='../img/photo100.png', alt='User Pic')
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        img.img-circle(src='../img/photo50.png', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 1John Smith
+                        strong #{username.user1}
                         br
                         dl
                           dt User level:
@@ -48,13 +48,13 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 1
+                        strong #{username.user1}
                         br
                         table.table.table-user-information
                           tbody
                             tr
                               td User level:
-                              td Administrator
+                              td Root
                             tr
                               td Registered since:
                               td 11/12/2013
@@ -69,16 +69,16 @@ block dashBord
                       i.glyphicon.glyphicon-envelope
                     span.pull-right
                       button.btn.btn-sm.btn-warning(type='button', data-toggle='tooltip', data-original-title='Edit this user')
-                        i.glyphicon.glyphicon-edit
+                        i.glyphicon.glyphicon-edit    
                       button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-original-title='Remove this user')
                         i.glyphicon.glyphicon-remove
             .row.user-row
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
-                img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                img.img-circle(src='../img/photo50.png', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 2
+                strong #{username.user2}
                 br
-                span.text-muted User level: Registered
+                span.text-muted User level: Administrator
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user2')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.user2
@@ -89,11 +89,11 @@ block dashBord
                   .panel-body
                     .row
                       .col-md-3.col-lg-3.hidden-xs.hidden-sm
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        img.img-circle(src='../img/photo100.png', alt='User Pic')
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        img.img-circle(src='../img/photo50.png', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 2
+                        strong #{username.user2}
                         br
                         dl
                           dt User level:
@@ -105,7 +105,7 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 2
+                        strong #{username.user2}
                         br
                         table.table.table-user-information
                           tbody
@@ -131,11 +131,11 @@ block dashBord
                         i.glyphicon.glyphicon-remove
             .row.user-row
               .col-xs-3.col-sm-2.col-md-1.col-lg-1
-                img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                img.img-circle(src='../img/photo50.png', alt='User Pic')
               .col-xs-8.col-sm-9.col-md-10.col-lg-10
-                strong User 3
+                strong #{username.user3}
                 br
-                span.text-muted User level: Administrator
+                span.text-muted User level: Regular
               .col-xs-1.col-sm-1.col-md-1.col-lg-1.dropdown-user(data-for='.user3')
                 i.glyphicon.glyphicon-chevron-down.text-muted
             .row.user-infos.user3
@@ -146,15 +146,15 @@ block dashBord
                   .panel-body
                     .row
                       .col-md-3.col-lg-3.hidden-xs.hidden-sm
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100', alt='User Pic')
+                        img.img-circle(src='../img/photo100.png', alt='User Pic')
                       .col-xs-2.col-sm-2.hidden-md.hidden-lg
-                        img.img-circle(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50', alt='User Pic')
+                        img.img-circle(src='../img/photo50.png', alt='User Pic')
                       .col-xs-10.col-sm-10.hidden-md.hidden-lg
-                        strong User 3
+                        strong #{username.user3}
                         br
                         dl
                           dt User level:
-                          dd Administrator
+                          dd Regular
                           dt Registered since:
                           dd 11/12/2013
                           dt Topics
@@ -162,13 +162,13 @@ block dashBord
                           dt Warnings
                           dd 0
                       .col-md-9.col-lg-9.hidden-xs.hidden-sm
-                        strong User 3
+                        strong #{username.user3}
                         br
                         table.table.table-user-information
                           tbody
                             tr
                               td User level:
-                              td Administrator
+                              td Regular
                             tr
                               td Registered since:
                               td 11/12/2013
@@ -186,6 +186,17 @@ block dashBord
                         i.glyphicon.glyphicon-edit
                       button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-original-title='Remove this user')
                         i.glyphicon.glyphicon-remove
-  script(src='/js/jquery-1.11.2.min.js')
+                  //- .panel-footer
+                  //-   a.btn.btn-sm.btn-primary(data-original-title="Broadcast Message", data-toggle="tooltip", type="button")
+                  //-     i.glyphicon.glyphicon-envelope
+                  //-   span.pull-right
+                  //-     a.btn.btn-sm.btn-warning(href="#", data-original-title="Edit this user", data-toggle="tooltip", type="button")
+                  //-       i.glyphicon.glyphicon-edit
+                  //-     a.btn.btn-sm.btn-danger(href="#", data-original-title="Remove this user", data-toggle="tooltip", type="button")
+                  //-       i.glyphicon.glyphicon-remove             
+  script(src='/js/jquery-1.11.2.min.js')  
   script(src='/js/bootstrap.min.js')
-  script(src='/js/adminShowUsers.js')  
+  script(src='/js/adminShowUsers.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js') 
+   

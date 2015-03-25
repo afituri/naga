@@ -1,0 +1,456 @@
+extends layout
+block sellerPage
+block itemSlide
+block listOnLeft
+block home
+    #carouselBlk
+      #myCarousel.carousel.slide
+        .carousel-inner
+          .item.active
+            .container
+              a(href='/user/register')
+                img(style='width:100%', src='/themes/images/carousel/1.png', alt='special offers')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          .item
+            .container
+              a(href='/user/register')
+                img(style='width:100%', src='/themes/images/carousel/2.png', alt='')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          .item
+            .container
+              a(href='/user/register')
+                img(src='/themes/images/carousel/3.png', alt='')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          .item
+            .container
+              a(href='/user/register')
+                img(src='/themes/images/carousel/4.png', alt='')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          .item
+            .container
+              a(href='/user/register')
+                img(src='/themes/images/carousel/5.png', alt='')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          .item
+            .container
+              a(href='/user/register')
+                img(src='/themes/images/carousel/6.png', alt='')
+              .carousel-caption
+                h4 Second Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        a.left.carousel-control(href='#myCarousel', data-slide='prev') ‹
+        a.right.carousel-control(href='#myCarousel', data-slide='next') ›
+    #mainBody
+      .container
+        .row
+          // Sidebar ==================================================
+          #sidebar.col-lg-3.col-md-3.col-sm-3
+            .well.well-small
+              a#myCart(href='/user/product_summary')
+                img(src='/themes/images/ico-cart.png', alt='cart')
+                | 3 Items in your cart  
+                span.badge.badge-warning.pull-right $155.00
+            ul#sideManu.nav.nav-tabs.nav-stacked
+              li.subMenu.open
+                a  ELECTRONICS [230]
+                ul
+                  li
+                    a.active(href='/user/products')
+                      i.icon-chevron-right
+                      | Cameras (100)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Computers, Tablets & laptop (30)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Mobile Phone (80)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Sound & Vision (15)
+              li.subMenu
+                a  CLOTHES [840] 
+                ul(style='display:none')
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Clothing (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Shoes (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Hand Bags (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Men's Clothings  (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Men's Shoes (6)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Kids Clothing (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Kids Shoes (3)
+              li.subMenu
+                a FOOD AND BEVERAGES [1000]
+                ul(style='display:none')
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Angoves  (35)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Bouchard Aine & Fils (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | French Rabbit (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Louis Bernard  (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | BIB Wine (Bag in Box) (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Other Liquors & Wine (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Garden (3)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Khao Shong (11)
+              li
+                a(href='/user/products') HEALTH & BEAUTY [18]
+              li
+                a(href='/user/products') SPORTS & LEISURE [58]
+              li
+                a(href='/user/products') BOOKS & ENTERTAINMENTS [14]
+            br
+            .thumbnail
+              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
+              .caption
+                h5 Panasonic
+                h4(style='text-align:center')
+                  a.btn(href='/user/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
+              .caption
+                h5 Kindle
+                h4(style='text-align:center')
+                  a.btn(href='/user/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
+              .caption
+                h5 Payment Methods
+          // Sidebar end===============================================
+          .col-lg-9.col-md-9.col-sm-9
+            .well.well-small
+              h4
+                | Featured Products 
+                small.pull-right 200+ featured products
+              .row-fluid
+                #featured.carousel.slide
+                  .carousel-inner
+                    .item.active
+                      ul.thumbnails
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/b1.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/b2.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/b3.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/b4.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                    .item
+                      ul.thumbnails
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/5.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            i.tag
+                            a(href='/=user/product_details')
+                              img(src='/themes/images/products/6.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/7.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/8.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                    .item
+                      ul.thumbnails
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/9.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/10.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/11.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/1.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                    .item
+                      ul.thumbnails
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/2.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/3.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/4.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/user/product_details')
+                              img(src='/themes/images/products/5.jpg', alt='')
+                            .caption
+                              h5 Product name
+                              h4
+                                a.btn(href='/user/product_details') VIEW
+                                span.pull-right $222.00
+                  a.left.carousel-control(href='#featured', data-slide='prev') ‹
+                  a.right.carousel-control(href='#featured', data-slide='next') ›
+            h4 Latest Products 
+            ul.thumbnails
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/6.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/user/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/7.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/user/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/8.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/seller/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/9.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/user/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/10.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/user/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+              li.col-lg-3.col-md-3.col-sm-3
+                .thumbnail
+                  a(href='/user/product_details')
+                    img(src='/themes/images/products/11.jpg', alt='')
+                  .caption
+                    h5 Product name
+                    p
+                      | Lorem Ipsum is simply dummy text.
+                    h4(style='text-align:center')
+                      a.btn(href='/user/product_details')
+                        i.icon-zoom-in
+                      a.btn(href='#')
+                        | Add to 
+                        i.icon-shopping-cart
+                      a.btn.btn-primary(href='#') $222.00
+                      
+    script(src='/themes/js/jquery.js', type='text/javascript')
+    script(src='/themes/js/bootstrap.min.js', type='text/javascript')
+    script(src='/themes/js/google-code-prettify/prettify.js')
+    script(src='/themes/js/bootshop.js')
+    script(src='/themes/js/jquery.lightbox-0.5.js')

@@ -2,25 +2,28 @@ extends layout
 
 block content
   .container
-    .row
+    .row#row
       .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
         a(href="/adminLogin")
-          img.img-responsive(src="../img/nagaLogo.png")
+          img.img-responsive(src="../img/nagaLogo1.png")
         h4#h4
           i.glyphicon.glyphicon-user
           |     Admin Access
         #form-olvidado
-          form#loginForm(accept-charset='UTF-8' , name='login-form' , action='', role='form', method='post')
+          form#loginForm(accept-charset='UTF-8' , name='login-form')
             fieldset
-              .form-group.input-group
+              .form-group.input-group#form-group
                 span.input-group-addon @
                 input.form-control(placeholder='Email', name='email', type='email', autofocus='')
               .form-group.input-group
                 span.input-group-addon
                   i.glyphicon.glyphicon-lock
-                input.form-control(placeholder='Password', name='password', type='password')
+                input.form-control.pwd(placeholder='Password', name='password', type='password')
+                span.input-group-btn
+                  button.btn.btn-default.reveal(type='button')
+                    i.glyphicon.glyphicon-eye-open
               .form-group
-                button#btnLogin.btn.btn-block(type='submit') Log in
+                button#btnLogin.btn.btn-block Log in
                 p.help-block
                   a#olvidado.pull-right.text-muted(href='#')
                     small Forgot your password ?     
@@ -44,5 +47,6 @@ block content
             i.glyphicon.glyphicon-share-alt
             |      Go to site home page.   
   script(src='/js/jquery-1.11.2.min.js') 
-  script(src="/js/jquery.validate.min.js")            
-  script(src='/js/adminLogin.js')                  
+  script(src="/js/jquery.validate.min.js") 
+  script(src='/js/helpers.js')           
+  script(src='/js/adminLogin.js') 

@@ -1,13 +1,6 @@
 extends layout
 
 block dashBord
-  - function isEmptyObject(obj) {
-  -      var name;
-  -      for (name in obj) {
-  -        return false;
-  -      }
-  -      return true;
-  -    }
   #page-wrapper
     .container-fluid
       // Page Heading
@@ -21,11 +14,6 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Cities
-      - if (isEmptyObject(errors) == false)
-          p.errorMessage= "The following errors occurred:"
-          ul  
-            - each error in errors
-              li= error.msg
       .panel.panel-default
             .panel-heading
               .row
@@ -94,7 +82,7 @@ block dashBord
                 .row 
                   .col-md-offset-1
                     .modal-body
-                      form#form.form-signin(role="form" , action="/addcity", method="post")
+                      form#form.form-signin(role="form")
                         .row
                           .col-md-6
                               div.form-group
@@ -105,9 +93,11 @@ block dashBord
                                  input#nameEn.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
                           .col-xs-12.col-md-12
                             div.form-group.text-center
-                              button.btn.btn-lg.btn-primary(type="submit") Add  
+                              button.addCity.btn.btn-lg.btn-primary Add  
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/adminRegUsers.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')  
+  script(src='/js/helpers.js')
+  script(src='/js/adminCities.js') 

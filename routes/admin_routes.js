@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson');
+var CityMgr = require('../app/city').CityMgr;
+var validator = require('../app/validator_api');
 
 
 router.get('/', function(req, res) {
@@ -34,7 +36,15 @@ router.get('/adminSchools', function(req, res) {
 });
 
 router.get('/adminCities', function(req, res) {
-  res.render('adminCities', { title: 'Cities'});
+  CityMgr.GetCity(function(result){
+    res.render('adminCities', { title: 'Cities',citys:result});
+  });
+});
+
+router.post('/addcity',validator.isCity,function(req, res) {
+  CityMgr.AddCity(req.body,function(result){
+    res.redirect('adminCities');
+  });
 });
 
 router.get('/adminAreas', function(req, res) {

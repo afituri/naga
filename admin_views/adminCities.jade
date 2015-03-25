@@ -1,6 +1,13 @@
 extends layout
 
 block dashBord
+  - function isEmptyObject(obj) {
+  -      var name;
+  -      for (name in obj) {
+  -        return false;
+  -      }
+  -      return true;
+  -    }
   #page-wrapper
     .container-fluid
       // Page Heading
@@ -14,6 +21,11 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Cities
+      - if (isEmptyObject(errors) == false)
+          p.errorMessage= "The following errors occurred:"
+          ul  
+            - each error in errors
+              li= error.msg
       .panel.panel-default
             .panel-heading
               .row
@@ -49,34 +61,16 @@ block dashBord
                       td.text-right
                         strong Trash 
                   tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr
-                      td ddd
-                      td.text-center en
-                      td.text-center
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash    
-                    tr
-                      td eee
-                      td.text-center en
-                      td.text-center 
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash    
-                    tr
-                      td ttt
-                      td.text-center en
-                      td.text-center 
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash     
+                    for city in citys
+                      tr
+                        td #{city.name}
+                        td.text-center #{city.name_en}
+                        td.text-center
+                          button.btn.btn-info.btn-xs(data-value='#{city.idcity}')
+                            span.glyphicon.glyphicon-pencil
+                        td.text-right 
+                          button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal',data-value='#{city.idcity}')
+                            span.glyphicon.glyphicon-trash      
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -100,15 +94,15 @@ block dashBord
                 .row 
                   .col-md-offset-1
                     .modal-body
-                      form#form.form-signin(role="form" , action="", method="post")
+                      form#form.form-signin(role="form" , action="/addcity", method="post")
                         .row
                           .col-md-6
                               div.form-group
                                 lable.h4 Name in Arabic
-                                input#nameAn.form-control(type="text",name="employee_name", placeholder="Name in Arabic",autofocus="")
+                                input#nameAn.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
                               div.form-group
                                lable.h4 Name in English
-                                 input#nameEn.form-control(type="text",name="email", placeholder="Name in English",autofocus="")
+                                 input#nameEn.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
                           .col-xs-12.col-md-12
                             div.form-group.text-center
                               button.btn.btn-lg.btn-primary(type="submit") Add  

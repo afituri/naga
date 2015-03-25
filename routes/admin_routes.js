@@ -41,9 +41,15 @@ router.get('/adminCities', function(req, res) {
   });
 });
 
-router.post('/addcity',validator.isCity,function(req, res) {
-  CityMgr.AddCity(req.body,function(result){
-    res.redirect('adminCities');
+router.post('/addcity',function(req, res) {
+  validator.isCity(req,function(result){
+    if(result!=true){
+      res.send(result);
+    }else{
+      CityMgr.AddCity(req.body,function(result){
+        res.send(true);
+      });
+    }
   });
 });
 

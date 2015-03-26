@@ -15,7 +15,7 @@ exports.AdminMgr = {
     });
   },
     
-  GetSellerByCompanyId : function(id,cb){
+  GetAdminByCompanyId : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `admin` WHERE `status` <> 0 AND `idadmin` = ?',id,function(err, result) {
         conn.release();

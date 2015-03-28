@@ -64,9 +64,21 @@ router.get('/adminMahala', function(req, res) {
 
 router.get('/adminSerialNumber', function(req, res) {
    rand.NumberActiveprepaidCard(function(result){
-     console.log(result[0].c);
-     res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c});
+   rand.getTotalmony(function(result1){
+   rand.ActiveprepaidCard(20,function(result2) {
+    rand.ActiveprepaidCard(50,function(result3) {
+      rand.ActiveprepaidCard(100,function(result4) {
+
+
+      //console.log(result2);
+     //console.log(result[0].c);
+     res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+        twentyMony : result2 , fmony : result3,hmony:result4});
    });
+  });
+    });
+   });
+});
   
 });
 

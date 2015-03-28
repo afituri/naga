@@ -17,11 +17,11 @@ block dashBord
           .col-md-10.col-md-offset-1
             .tile-progress.tile-primary
               .tile-header
-                h4 العدد الكلي للكروت : #{cardNumber} د.ل
-                h4 المبلغ الكلي للكروت 95000 د.ل
-                h4 فئة 10 : 3000
-                h4 فئة 40 : 4000
-                h4 فئة 100: 1000
+                h4 العدد الكلي للكروت : #{cardNumber} كرت
+                h4 المبلغ الكلي للكروت : #{mony} د.ل
+                h4 فئة 20 : العدد #{twentyMony[0].c} كرت , المبلغ #{twentyMony[0].s} د.ل
+                h4 فئة 50 : العدد #{fmony[0].c} كرت , المبلغ #{fmony[0].s} د.ل
+                h4 فئة 100: العدد #{hmony[0].c} كرت , المبلغ #{hmony[0].s} د.ل
               .tile-progressbar
                 span(data-fill='10%', style='width: 100%;')
               .tile-footer

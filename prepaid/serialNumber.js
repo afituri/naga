@@ -137,11 +137,17 @@ var Main = function(){
           se++;
           var serial=pad(se,8);
           var all =sumBatch.toString()+ty.toString()+serial.toString();
-          saveRandomNumber(Type,random,all,number,function(result){
+    //       var listOfObjects = [];
+    // var singleObj = {};
+    // singleObj['type'] = Type;
+    // singleObj['value'] = random;
+    // listOfObjects.push(singleObj);  
+     saveRandomNumber(Type,random,all,number,function(result){
     });      
    }
   });
  }
+
 } 
 
   function pad(num, size) {

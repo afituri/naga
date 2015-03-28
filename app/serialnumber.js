@@ -13,8 +13,6 @@ exports.rand = {
           util.log(err);
         } else {
         console.log("Saved One Row cuz it's first time ");
-        
-
          cb(results);
          process.exit(code=0);
           
@@ -41,7 +39,7 @@ exports.rand = {
 
   ActiveprepaidCard : function(num,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('select count(*) as c from prepaid where status=1 and amount=? ',num,function(err, result) {
+      conn.query('select count(*) as c,sum(amount) as s  from prepaid where status=1 and amount=? ',num,function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -64,6 +62,20 @@ exports.rand = {
       });
     });
   },
+
+  getTotalmony : function(cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select  sum(amount) as totalMony from prepaid where status=1',function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else { 
+          cb(result);  
+        }
+      });
+    });
+  },
+
 
   getLastNumber : function(cb){
     mysqlMgr.connect(function (conn) {

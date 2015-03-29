@@ -5,7 +5,7 @@ block dashBord
       // Page Heading
       .row
         .col-lg-12
-          h1.page-header  locations Manger
+          h1.page-header  Locations Manger
             small  Areas
           ol.breadcrumb
             li
@@ -95,33 +95,32 @@ block dashBord
           #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
-                .modal-headr.modal-header
-                  button.btn.pull-right.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.close(type="button",data-dismiss="modal",aria-hidden="true")
-                  h1(style='color:#5cb85c')
+                .modal-header.text-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2
                     .glyphicon.glyphicon-plus
                     |  Add Area
                 .row 
-                  .col-md-offset-1
-                    .modal-body
-                      form#form.form-signin(role="form" , action="", method="post")
-                        .row
-                          .col-md-6
-                              div.form-group
-                                lable.h4 Name in Arabic
-                                input#nameAn.form-control(type="text",name="employee_name", placeholder="Name in Arabic",autofocus="")
-                              div.form-group
-                                lable.h4 Name in English
-                                input#nameEn.form-control(type="text",name="nid", placeholder="Latitudes",autofocus="")    
-                              div.form-group
-                                lable.h4 City
-                                select#City.form-control(type="text",name="account_number", placeholder="Mahalla",autofocus="")
-                          .col-xs-12.col-md-12
-                            div.form-group.text-center
-                              button.btn.btn-lg.btn-primary(type="submit") Add  
+                  .modal-body
+                    form#formArea.form-signin(role="form" , action="", method="post")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                        .form-group
+                          .h4 Name in Arabic
+                          input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
+                      .col-xs-5.col-md-5
+                        .form-group      
+                          .h4 Name in English
+                          input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
+                      .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
+                        .form-group
+                          .h4 City
+                          select#city.form-control(type="text",name="city",autofocus="")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
-  script(src='/js/adminRegUsers.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
    

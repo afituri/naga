@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson');
+var CityMgr = require('../app/city').CityMgr;
+var validator = require('../app/validator_api');
+var rand= require('../app/serialnumber').rand;
 
 
 router.get('/', function(req, res) {
@@ -34,7 +37,21 @@ router.get('/adminSchools', function(req, res) {
 });
 
 router.get('/adminCities', function(req, res) {
-  res.render('adminCities', { title: 'Cities'});
+  CityMgr.GetCity(function(err,result){
+    res.render('adminCities', { title: 'Cities',citys:result});
+  });
+});
+
+router.post('/addcity',function(req, res) {
+  validator.isCity(req,function(err,result){
+    if(result!=true){
+      res.send(result);
+    }else{
+      CityMgr.AddCity(req.body,function(result){
+        res.send(true);
+      });
+    }
+  });
 });
 
 router.get('/adminAreas', function(req, res) {
@@ -46,7 +63,23 @@ router.get('/adminMahala', function(req, res) {
 });
 
 router.get('/adminSerialNumber', function(req, res) {
-  res.render('adminSerialNumber', { title: 'Prepaid Card Manger'});
+   rand.NumberActiveprepaidCard(function(result){
+   rand.getTotalmony(function(result1){
+   rand.ActiveprepaidCard(20,function(result2) {
+    rand.ActiveprepaidCard(50,function(result3) {
+      rand.ActiveprepaidCard(100,function(result4) {
+
+
+      //console.log(result2);
+     //console.log(result[0].c);
+     res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+        twentyMony : result2 , fmony : result3,hmony:result4});
+   });
+  });
+    });
+   });
+});
+  
 });
 
 

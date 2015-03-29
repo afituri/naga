@@ -1,7 +1,7 @@
 var mysqlMgr = require('./mysql').mysqlMgr,
 var v =
 util=require('util');
-exports.CityMgr = {
+exports.areaMgr = {
 
   getAreaNameById : function(id,cb){
     mysqlMgr.connect(function (conn) {

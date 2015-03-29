@@ -7,9 +7,9 @@ exports.TobMgr = {
       conn.query('SELECT * FROM `tob` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -20,9 +20,9 @@ exports.TobMgr = {
       conn.query('INSERT INTO `tob` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -33,9 +33,9 @@ exports.TobMgr = {
       conn.query('UPDATE `tob` SET `name` = ?,`update_time`=? WHERE `idtob` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -47,9 +47,9 @@ exports.TobMgr = {
       conn.query('UPDATE `tob` SET `name_en` = ?,`update_time`=? WHERE `idtob` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -62,13 +62,26 @@ exports.TobMgr = {
       conn.query('UPDATE `tob` SET `status` = 0 ,`update_time` = ? WHERE `idtob` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `tob` WHERE `idtob` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 //////////////////////////////////////////////////////////////////////////
  
   

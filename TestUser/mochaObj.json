@@ -20,6 +20,23 @@
     "update_admin_level":{"value":2,"pk":10000000},
     "admin_email":{"email":"@gmin.com"},
     "delete_admin":10000000
+  },
+  "company":{
+    "add_company": {"idcompany":10000000,"name":"ناقة","name_en":"naga", "logo":"1asf","admin_idadmin":10000000,"tob_idtob":10000000},
+    "update_company_name":{"value":"الناقة","pk":10000000},
+    "update_company_name_en":{"value":"alnaga","pk":10000000},
+    "update_company_logo":{"value":"alnaga","pk":10000000},
+    "update_company_level":{"value":2,"pk":10000000},
+    "update_company_admin":{"value":10000000,"pk":10000000},
+    "update_company_tob":{"value":10000000,"pk":10000000},
+    "delete_company":10000000
+  },
+  "tob":{
+    "add_tob": {"idtob":10000000,"name":"الخمس","name_en":"Elkhoms"},
+    "update_tob_name":{"value":"خمس","pk":10000000},
+    "update_tob_name_en":{"value":"Khoms","pk":10000000},
+    "delete_tob":10000000
+
   }
   
 }

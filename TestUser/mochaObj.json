@@ -11,7 +11,15 @@
     "update_color_name":{"value":"ابيض","pk":10000000},
     "update_color_name_en":{"value":"white","pk":10000000},
     "delete_color":10000000
+  },
+  "admin":{
+    "add_admin":{"idadmin":10000000,"name":"المدير","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4"},
+    "update_admin_name":{"value":"ابيض","pk":10000000},
+    "update_admin_email":{"value":"white","pk":10000000},
+    "update_admin_password":{"value":"102030","pk":10000000},
+    "update_admin_level":{"value":2,"pk":10000000},
+    "admin_email":{"email":"@gmin.com"},
+    "delete_admin":10000000
   }
-
   
 }

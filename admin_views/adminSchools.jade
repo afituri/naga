@@ -40,47 +40,46 @@ block dashBord
                   thead
                     tr
                       td
-                        strong Name-Ar
-                      td.text-center
-                        strong Name-En
-                      td.text-center
+                        strong Name in Arabic
+                      td
+                        strong Name in English
+                      td
+                        strong City
+                      td
+                        strong Area
+                      td
                         strong Mahalla
-                      td.text-right
+                      td
+                        strong Latitude
+                      td
+                        strong Longitude
+                      td
                         strong Edit
-                      td.text-right
+                      td
                         strong Trash 
                   tbody
                     // foreach ($order->lineItems as $line) or some such thing here
                     tr
-                      td الزبير بن عوام
-                      td.text-center en
-                      td.text-center 1
-                      td.text-right 
-                        button.btn.btn-info.btn-xs
+                      td
+                        a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
+                      td 
+                        a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
+                      td
+                        a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
+                      td
+                        a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
+                      td
+                        a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
+                      td
+                        a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
+                      td
+                        a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
+                      td
+                        button.btn.btn-info.btn-xs#enable
                           span.glyphicon.glyphicon-pencil
-                      td.text-right 
+                      td 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash     
-                    tr
-                      td علي النجار
-                      td.text-center en
-                      td.text-center 3
-                      td.text-right 
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash   
-                    tr
-                      td الفاروق
-                      td.text-center en
-                      td.text-center 1
-                      td.text-right 
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash    
+                          span.glyphicon.glyphicon-trash       
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -134,4 +133,6 @@ block dashBord
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editSchool.js')
+  script(src='/js/sb-admin-2.js')

@@ -38,7 +38,7 @@ router.get('/adminSchools', function(req, res) {
 
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
-    res.render('adminCities', { title: 'Cities',citys:result});
+    res.render('adminCities', { title: 'Cities',cities:result});
   });
 });
 

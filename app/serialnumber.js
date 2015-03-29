@@ -6,40 +6,120 @@ exports.rand = {
 
   saveOneRow :function(random,random_code,amount,serial,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `prepaid` (`prepaid`, `prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?,?);INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?)  ',[random,random_code,amount,serial,random_code,amount,serial], function(err, results) {
-        
-        conn.release();
+      conn.query('INSERT INTO `prepaid` (`prepaid`,`prepaid_hash`,`amount`,`serial_no`) VALUES(?,?,?,?) ;',[random,random_code,amount,serial], function(err, results) {
+      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES(?,?,?)',[random_code,amount,serial],function(err,result){
+       conn.release();
         if(err) {
-          util.log(err);
+         // util.log(err);
+          process.exit(code=0);
         } else {
-        console.log("Saved One Row cuz it's first time ");
-         cb(results);
+         console.log("Saved one record successfully");
          process.exit(code=0);
+         cb(results);
           
         }
 
-      });  
-    });
+      }); 
+    }); 
+  });
   }, 
   
-  saveRandomNumber: function(random,random_code,amount,serial,cb){
+  saveRandomNumber: function(plive,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `prepaid` (`prepaid`, `prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?,?);INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?)  ',[random,random_code,amount,serial,random_code,amount,serial], function(err, results) {
+     // console.log(plive);
+      // /INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?)  
+     // if(plive.length == pre.length)
+     // {
+      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`serial_no`,`amount`) VALUES ?;',[plive], function(err, results) {
+     
         conn.release();
         if(err) {
-          util.log(err);
+         //util.log(err);
         } else {
           
           cb(results);
         }
 
       });  
+            
+  
+    
     });
   }, 
+  getcountp :  function(cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select count(*) as cp from prepaid ',function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else { 
+          cb(result);  
+        }
+      });
+    });
+  },
+
+
+  getcountplive :  function(cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select count(*) as cl from prepaid_live ',function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else { 
+          cb(result);  
+        }
+      });
+    });
+  },
+
+
+    saveRandomNumberr: function(pre,cb){
+    mysqlMgr.connect(function (conn) {
+       conn.query('INSERT INTO `prepaid`(`prepaid`, `prepaid_hash`,`serial_no`,`amount`) VALUES ?;',[pre], function(err, res) {
+        conn.release();
+        if(err) {
+         util.log(err);
+         //console.log("Duplicate entry please try again with small number <100000");
+         //process.exit(code=0);      
+        } else {
+          
+          cb(res);
+        }  
+            });  
+    });
+  },
+
+
+  usedCard : function(cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select count(*) as c,sum(amount) as s from prepaid_live where status=2',function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else { 
+          cb(result);  
+        }
+      });
+    });
+  },
 
   ActiveprepaidCard : function(num,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('select count(*) as c,sum(amount) as s  from prepaid where status=1 and amount=? ',num,function(err, result) {
+      conn.query('select count(*) as c,sum(amount) as s from prepaid where  amount=? ',num,function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else { 
+          cb(result);  
+        }
+      });
+    });
+  },
+
+   UseitActiveprepaidCard : function(num,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select count(*) as c,sum(amount) as s from prepaid_live where  amount=? and status=2 ',num,function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -65,7 +145,7 @@ exports.rand = {
 
   getTotalmony : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('select  sum(amount) as totalMony from prepaid where status=1',function(err, result) {
+      conn.query('select  sum(amount) as totalMony from prepaid',function(err, result) {
         conn.release();
         if(err) {
           util.log(err);
@@ -93,7 +173,7 @@ exports.rand = {
 
   NumberActiveprepaidCard : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('select count(*) as c from prepaid where status=1 ',function(err, result) {
+      conn.query('select count(*) as c from prepaid ',function(err, result) {
         conn.release();
         if(err) {
           util.log(err);

@@ -36,7 +36,7 @@ router.get('/adminSchools', function(req, res) {
 });
 
 router.get('/adminCities', function(req, res) {
-  CityMgr.GetCity(function(result){
+  CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',citys:result});
   });
 });
@@ -46,7 +46,7 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       res.send(result);
     }else{
-      CityMgr.AddCity(req.body,function(result){
+      CityMgr.AddCity(req.body,function(err,result){
         res.send(true);
       });
     }

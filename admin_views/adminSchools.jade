@@ -44,18 +44,18 @@ block dashBord
                       td
                         strong Name in English
                       td
-                        strong City
+                        strong City Nmae
                       td
-                        strong Area
+                        strong Area Name
                       td
-                        strong Mahalla
+                        strong Mahalla Nmae
                       td
-                        strong Latitude
+                        strong Latitude Number
                       td
-                        strong Longitude
-                      td
+                        strong Longitude Number
+                      td.text-right
                         strong Edit
-                      td
+                      td.text-right
                         strong Trash 
                   tbody
                     // foreach ($order->lineItems as $line) or some such thing here
@@ -74,10 +74,10 @@ block dashBord
                         a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
                       td
                         a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
-                      td
+                      td.text-right
                         button.btn.btn-info.btn-xs#enable
                           span.glyphicon.glyphicon-pencil
-                      td 
+                      td.text-right
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
                           span.glyphicon.glyphicon-trash       
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")

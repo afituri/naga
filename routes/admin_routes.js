@@ -37,13 +37,13 @@ router.get('/adminSchools', function(req, res) {
 });
 
 router.get('/adminCities', function(req, res) {
-  CityMgr.GetCity(function(result){
-    res.render('adminCities', { title: 'Cities',citys:result});
+  CityMgr.GetCity(function(err,result){
+    res.render('adminCities', { title: 'Cities',cities:result});
   });
 });
 
 router.post('/addcity',function(req, res) {
-  validator.isCity(req,function(result){
+  validator.isCity(req,function(err,result){
     if(result!=true){
       res.send(result);
     }else{

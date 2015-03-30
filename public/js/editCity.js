@@ -15,9 +15,18 @@ $(document).ready(function(){
   //       id=$(this).parent().parent().data('id');
   //       $('#section'+id).editable('toggleDisabled');
   //   });
-
+  $('a[id^="name_en"]').editable({
+    url: '/editnameEn',
+    type: 'text',
+    pk: 1,
+    name: 'name_en',
+    title: 'Edit city name in English !',
+    validate: function(v) {
+      if(!v) return 'Please enter your school name in English';
+    }
+  });
   $('a[id^="name"]').editable({
-    url: '#',
+    url: '/editname',
     type: 'text',
     pk: 1,
     name: 'name',
@@ -27,14 +36,5 @@ $(document).ready(function(){
     }
   });
 
-  $('a[id^="name_en"]').editable({
-    url: '#',
-    type: 'text',
-    pk: 1,
-    name: 'name_en',
-    title: 'Edit city name in English !',
-    validate: function(v) {
-      if(!v) return 'Please enter your school name in English';
-    }
-  });
+ 
 });

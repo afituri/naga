@@ -47,10 +47,22 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       res.send(result);
     }else{
-      CityMgr.AddCity(req.body,function(result){
+      CityMgr.AddCity(req.body,function(err,result){
         res.send(true);
       });
     }
+  });
+});
+
+router.post('/editnameEn', function(req, res) {
+  CityMgr.UpdateCityNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editname', function(req, res) {
+  CityMgr.UpdateCityNameAR(req.body,function(err,result){
+    res.send(true);
   });
 });
 

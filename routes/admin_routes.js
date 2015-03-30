@@ -54,6 +54,18 @@ router.post('/addcity',function(req, res) {
   });
 });
 
+router.post('/editnameEn', function(req, res) {
+  CityMgr.UpdateCityNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editname', function(req, res) {
+  CityMgr.UpdateCityNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
 router.get('/adminAreas', function(req, res) {
   res.render('adminAreas', { title: 'Areas'});
 });

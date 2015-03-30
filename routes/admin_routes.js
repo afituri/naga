@@ -4,6 +4,7 @@ var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson');
 var CityMgr = require('../app/city').CityMgr;
 var validator = require('../app/validator_api');
+var rand= require('../app/serialnumber').rand;
 
 
 router.get('/', function(req, res) {
@@ -37,12 +38,12 @@ router.get('/adminSchools', function(req, res) {
 
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
-    res.render('adminCities', { title: 'Cities',citys:result});
+    res.render('adminCities', { title: 'Cities',cities:result});
   });
 });
 
 router.post('/addcity',function(req, res) {
-  validator.isCity(req,function(result){
+  validator.isCity(req,function(err,result){
     if(result!=true){
       res.send(result);
     }else{
@@ -62,7 +63,36 @@ router.get('/adminMahala', function(req, res) {
 });
 
 router.get('/adminSerialNumber', function(req, res) {
-  res.render('adminSerialNumber', { title: 'Prepaid Card Manger'});
+   rand.NumberActiveprepaidCard(function(result){
+   rand.getTotalmony(function(result1){
+   rand.ActiveprepaidCard(20,function(result2){
+   rand.ActiveprepaidCard(50,function(result3){
+   rand.ActiveprepaidCard(100,function(result4){
+   rand.usedCard(function(result5){
+   rand.UseitActiveprepaidCard(20,function(result6){ 
+   rand.UseitActiveprepaidCard(50,function(result7){ 
+   rand.UseitActiveprepaidCard(100,function(result8){ 
+  console.log(result8[0].c);
+    var notusedCard = result[0].c - result5[0].c;
+    //console.log(notusedCard);
+    var precent = 100/result[0].c;
+    var total=(result5[0].c)*precent;
+    //console.log(total);
+   res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+   twentyMony : result2 , fmony : result3,hmony:result4
+    ,all:result5 
+    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
+     ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
+     ,notUsed : notusedCard});
+      });
+     });
+   });
+   });
+    });
+   });
+  }); 
+ });
+});
 });
 
 

@@ -26,6 +26,7 @@ exports.SizeMgr = {
         }
       });
     });
+  },
   UpdateSizeNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();

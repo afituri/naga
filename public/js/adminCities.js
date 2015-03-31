@@ -8,7 +8,7 @@ $(document).ready(function(){
           $("#err").append('<h1>'+data[err].msg+'</h1>');
         }
       }else{
-        window.location.href="/adminCities"+id;
+        window.location.href="/adminCities";
 
       }
     });

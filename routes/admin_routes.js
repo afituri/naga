@@ -43,11 +43,16 @@ router.get('/adminCities', function(req, res) {
 });
 
 router.post('/addcity',function(req, res) {
+  console.log(req.body);
   validator.isCity(req,function(err,result){
+    console.log(result);
+
     if(result!=true){
+      console.log("err");
       res.send(result);
     }else{
       CityMgr.AddCity(req.body,function(err,result){
+        console.log("true");
         res.send(true);
       });
     }

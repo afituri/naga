@@ -13,13 +13,13 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Schools
-      .panel.panel-default
+          .panel.panel-default
             .panel-heading
               .row
-                .col-xs-2.col-md-3
-                  h2.panel-title 
+                .col-xs-2.col-md-2
+                  h2.panel-title(style="margin-top: 8px;")
                     strong  List of Schools
-                .col-xs-5.col-md-5
+                .col-xs-5.col-md-6
                   form(role='search')
                     .input-group
                       input.form-control(type='text', placeholder='Search by name')
@@ -36,7 +36,7 @@ block dashBord
                     |  Print 
             .panel-body
               .table-responsive
-                table.table.table-condensed
+                table.table.table-striped.table-condensed
                   thead
                     tr
                       td
@@ -75,10 +75,10 @@ block dashBord
                       td
                         a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
                       td.text-right
-                        button.btn.btn-info.btn-xs#enable
+                        button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit School')
                           span.glyphicon.glyphicon-pencil
                       td.text-right
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
+                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete School')
                           span.glyphicon.glyphicon-trash       
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog

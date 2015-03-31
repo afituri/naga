@@ -14,6 +14,8 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Cities
+      .row
+        #err.col-lg-12
       .panel.panel-default
             .panel-heading
               .row
@@ -83,18 +85,18 @@ block dashBord
                     |  Add Citie
                 .row 
                   .modal-body
-                    form#formCitie.form-signin(role="form" , action="", method="post")
+                    form#formCitie.form-signin(role="form")
                       .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                         .form-group
                           .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
+                          input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
                       .col-xs-5.col-md-5
                         .form-group      
                           .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
-                .modal-footer
-                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change 
+                          input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                      .modal-footer
+                        button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                        button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')

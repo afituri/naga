@@ -6,9 +6,9 @@ module.exports = {
     isName(req,'name_en',' name_en required');
     var errors = req.validationErrors();  
     if( !errors){  
-      cb(true);
+      cb(null,true);
     }else {   //Display errors to user
-      cb(errors);
+      cb(null,errors);
     }
   }, 
 };

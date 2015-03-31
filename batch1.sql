@@ -1,4 +1,5 @@
 ALTER TABLE `area` ADD `status` TINYINT(1) NOT NULL DEFAULT '1' AFTER `name_en`;
+ALTER TABLE `prepaid_live` ADD `customer_idcustomer` INT NULL DEFAULT NULL AFTER `amount`;
 
 
 DROP TABLE IF EXISTS `naga`.`vendor_has_prepaid`;

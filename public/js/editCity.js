@@ -11,10 +11,6 @@ $(document).ready(function(){
     $('#name_en'+id).editable('toggleDisabled');
   }); 
 
-  // $('body').on('click','#enable', function(){
-  //       id=$(this).parent().parent().data('id');
-  //       $('#section'+id).editable('toggleDisabled');
-  //   });
   $('a[id^="name_en"]').editable({
     url: '/editnameEn',
     type: 'text',
@@ -25,6 +21,7 @@ $(document).ready(function(){
       if(!v) return 'Please enter your school name in English';
     }
   });
+  
   $('a[id^="name"]').editable({
     url: '/editname',
     type: 'text',
@@ -35,6 +32,4 @@ $(document).ready(function(){
       if(!v) return 'Please enter your school name in Arabic';
     }
   });
-
- 
 });

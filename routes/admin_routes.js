@@ -6,6 +6,8 @@ var CityMgr = require('../app/city').CityMgr;
 var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
+var MeasureMgr = require('../app/measure').MeasureMgr;
+var user =require('../app/userHelpers');
 
 
 router.get('/', function(req, res) {
@@ -38,7 +40,16 @@ router.get('/adminSchools', function(req, res) {
 });
 
 router.get('/adminMeasure', function(req, res) {
-  res.render('adminMeasure', { title: 'Measure'});
+   req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+  MeasureMgr.GetMeasure(limit,function(result){
+   if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+}
+  });
 });
 
 router.get('/sizes', function(req, res) {
@@ -83,6 +94,15 @@ router.post('/editname', function(req, res) {
     res.send(true);
   });
 });
+
+
+router.get('/delete/:id', function(req, res) {
+  console.log(req.params.id);
+  MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
+    res.send(true);
+  });
+});
+
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){

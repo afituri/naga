@@ -32,12 +32,8 @@ var Main = function(){
       rl.question("Enter Number Of prepaid Card that you want : ", function(number) {
         rl.question(" 20,50,100 dinars category : ", function(Type) {
           var flag=0;
-          if(Type==20 || Type == 50 || Type == 100){
-            
+          if(Type==20 || Type == 50 || Type == 100){ 
             loop(number,Type, function(plive,p){
-           //console.log(p.length);
-           // console.log(plive.length);
-           //console.log(p);
             if(p.length == plive.length)
             {
             rand.saveRandomNumber(plive,function(result){

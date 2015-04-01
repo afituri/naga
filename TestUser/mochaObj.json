@@ -54,6 +54,17 @@
     "add_mahalla":{"idmahalla":100,"name":"بوسليم","name_en":"bosleem","area_idarea":10,"link":218},
     "update_name_ar":{"value":"عبدو","pk":10},
     "update_name_en":{"value":"abdo","pk":10}
+ },
+
+  "companyAddress":{
+    "addaddress":{"idcompany_address":10000000,"latit":"af4564","longit":"asddf5564","company_idcompany":10000000,"school_idschool":1},
+    "update_Address_latit":{"value":"gsfghsfh","pk":10000000},
+    "update_Address_longit":{"value":"sdg","pk":10000000},
+    "update_Address_default":{"value":0,"pk":10000000},
+    "update_Address_idcompany":{"value":10000000,"pk":10000000},
+    "update_Address_idschool":{"value":2,"pk":10000000},
+    "delete_Address":10000000
+
 
   }
   

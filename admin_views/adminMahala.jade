@@ -13,38 +13,38 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Mahala
-      .panel.panel-default
+          .panel.panel-default
             .panel-heading
               .row
-                .col-md-3
+                .col-xs-2.col-md-3
                   h2.panel-title 
                     strong  List of Mahala
-                .col-md-5
+                .col-xs-5.col-md-5
                   form(role='search')
                     .input-group
                       input.form-control(type='text', placeholder='Search by name')
                       .input-group-btn
                         button.btn.btn-default(type='submit')
                           i.glyphicon.glyphicon-search
-                .col-md-2 
+                .col-xs-3.col-md-2
                   a.btn.btn-success(href='#newMahala', role='button',data-toggle='modal')
                     span.glyphicon.glyphicon-plus
                     |  Add Mahala
-                .col-md-2  
+                .col-xs-2.col-md-2
                   button.btn.btn-primary
                     i.glyphicon.glyphicon-print
                     |  Print 
             .panel-body
               .table-responsive
-                table.table.table-condensed
+                table.table.table-striped.table-condensed
                   thead
                     tr
                       td
-                        strong Name-Ar
-                      td.text-center
-                        strong Name-En
-                      td.text-center
-                        strong Area
+                        strong Name in Arabic
+                      td
+                        strong Name in English
+                      td
+                        strong Area Name
                       td.text-right
                         strong Edit
                       td.text-right
@@ -53,9 +53,9 @@ block dashBord
                     // foreach ($order->lineItems as $line) or some such thing here
                     tr
                       td ff
-                      td.text-center en
-                      td.text-center 1
-                      td.text-right 
+                      td en
+                      td 1
+                      td.text-right
                         button.btn.btn-info.btn-xs
                           span.glyphicon.glyphicon-pencil
                       td.text-right 
@@ -63,8 +63,8 @@ block dashBord
                           span.glyphicon.glyphicon-trash     
                     tr
                       td rr
-                      td.text-center en
-                      td.text-center 3
+                      td en
+                      td 3
                       td.text-right 
                         button.btn.btn-info.btn-xs
                           span.glyphicon.glyphicon-pencil
@@ -73,8 +73,8 @@ block dashBord
                           span.glyphicon.glyphicon-trash  
                     tr
                       td oo
-                      td.text-center en
-                      td.text-center 1
+                      td en
+                      td 1
                       td.text-right 
                         button.btn.btn-info.btn-xs
                           span.glyphicon.glyphicon-pencil

@@ -36,6 +36,18 @@ router.get('/adminSchools', function(req, res) {
   res.render('adminSchools', { title: 'Schools'});
 });
 
+router.get('/adminMeasure', function(req, res) {
+  res.render('adminMeasure', { title: 'Measure'});
+});
+
+router.get('/sizes', function(req, res) {
+  res.render('sizes', { title: 'sizes'});
+});
+
+router.get('/adminColors', function(req, res) {
+  res.render('adminColors', { title: 'Colors'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result});

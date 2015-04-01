@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
-var users = require('../TestUser/testjson');
+var users = require('../TestUser/testjson').users;
 var CityMgr = require('../app/city').CityMgr;
+var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 
@@ -25,7 +26,7 @@ router.get('/adminRegUsers', function(req, res) {
 });
 
 router.get('/adminShowUsers', function(req, res) {
-  res.render('adminShowUsers', { title: 'Admin Show Users',username:users });
+  res.render('adminShowUsers', { title: 'Admin Show Users',users:users });
 });
 
 router.get('/adminShowOrder', function(req, res) {
@@ -84,7 +85,9 @@ router.post('/editname', function(req, res) {
 });
 
 router.get('/adminAreas', function(req, res) {
-  res.render('adminAreas', { title: 'Areas'});
+  AreaMgr.getAreaInfo(function(err,result){
+    res.render('adminAreas', { title: 'Areas',areas:result});
+  });
 });
 
 router.get('/adminMahala', function(req, res) {
@@ -93,37 +96,42 @@ router.get('/adminMahala', function(req, res) {
 
 router.get('/adminSerialNumber', function(req, res) {
    rand.NumberActiveprepaidCard(function(result){
-   rand.getTotalmony(function(result1){
-   rand.ActiveprepaidCard(20,function(result2){
-   rand.ActiveprepaidCard(50,function(result3){
-   rand.ActiveprepaidCard(100,function(result4){
-   rand.usedCard(function(result5){
-   rand.UseitActiveprepaidCard(20,function(result6){ 
-   rand.UseitActiveprepaidCard(50,function(result7){ 
-   rand.UseitActiveprepaidCard(100,function(result8){ 
-  console.log(result8[0].c);
-    var notusedCard = result[0].c - result5[0].c;
-    //console.log(notusedCard);
-    var precent = 100/result[0].c;
-    var total=(result5[0].c)*precent;
-    //console.log(total);
-   res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
-   twentyMony : result2 , fmony : result3,hmony:result4
-    ,all:result5 
-    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
-     ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
-     ,notUsed : notusedCard});
-      });
-     });
-   });
-   });
+    rand.getTotalmony(function(result1){
+      rand.ActiveprepaidCard(20,function(result2){
+        rand.ActiveprepaidCard(50,function(result3){
+          rand.ActiveprepaidCard(100,function(result4){
+            rand.usedCard(function(result5){
+              rand.UseitActiveprepaidCard(20,function(result6){ 
+                rand.UseitActiveprepaidCard(50,function(result7){ 
+                  rand.UseitActiveprepaidCard(100,function(result8){ 
+                    console.log(result8[0].c);
+                    var notusedCard = result[0].c - result5[0].c;
+                    var precent = 100/result[0].c;
+                    var total=(result5[0].c)*precent;
+                    res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+                    twentyMony : result2 , fmony : result3,hmony:result4
+                    ,all:result5 
+                    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
+                    ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
+                    ,notUsed : notusedCard});
+                  });
+                });
+              });
+            });
+          });
+        });
+      }); 
     });
-   });
-  }); 
- });
+  });
 });
+
+router.get('/showAdmin', function(req, res) {
+  res.render('showAdmin', { title: 'Show Admins' ,users:users});
+});
+
+router.get('/loadingImg', function(req, res) {
+  res.render('loadingImg', { title: 'Loading....' ,users:users});
 });
 
 
 module.exports = router;
-

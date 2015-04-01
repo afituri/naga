@@ -13,30 +13,30 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Mahala
-      .panel.panel-default
+          .panel.panel-default
             .panel-heading
               .row
-                .col-md-3
+                .col-xs-2.col-md-3
                   h2.panel-title 
                     strong  List of Mahala
-                .col-md-5
+                .col-xs-5.col-md-5
                   form(role='search')
                     .input-group
                       input.form-control(type='text', placeholder='Search by name')
                       .input-group-btn
                         button.btn.btn-default(type='submit')
                           i.glyphicon.glyphicon-search
-                .col-md-2 
+                .col-xs-3.col-md-2
                   a.btn.btn-success(href='#newMahala', role='button',data-toggle='modal')
                     span.glyphicon.glyphicon-plus
                     |  Add Mahala
-                .col-md-2  
+                .col-xs-2.col-md-2
                   button.btn.btn-primary
                     i.glyphicon.glyphicon-print
                     |  Print 
             .panel-body
               .table-responsive
-                table.table.table-condensed
+                table.table.table-striped.table-condensed
                   thead
                     tr
                       td

@@ -67,17 +67,16 @@ router.get('/adminCities', function(req, res) {
 });
 
 router.post('/addcity',function(req, res) {
-  console.log(req.body);
   validator.isCity(req,function(err,result){
-    console.log(result);
-
     if(result!=true){
-      console.log("err");
-      res.send(result);
+      var rel={"result":result,stat:false}
+      res.send(rel);
     }else{
       CityMgr.AddCity(req.body,function(err,result){
-        console.log("true");
-        res.send(true);
+        CityMgr.GetCityById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
       });
     }
   });

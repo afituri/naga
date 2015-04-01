@@ -72,12 +72,9 @@ router.get('/adminSerialNumber', function(req, res) {
    rand.UseitActiveprepaidCard(20,function(result6){ 
    rand.UseitActiveprepaidCard(50,function(result7){ 
    rand.UseitActiveprepaidCard(100,function(result8){ 
-  console.log(result8[0].c);
-    var notusedCard = result[0].c - result5[0].c;
-    //console.log(notusedCard);
-    var precent = 100/result[0].c;
-    var total=(result5[0].c)*precent;
-    //console.log(total);
+   var notusedCard = result[0].c - result5[0].c;
+   var precent = 100/result[0].c;
+   var total=(result5[0].c)*precent;
    res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
    twentyMony : result2 , fmony : result3,hmony:result4
     ,all:result5 

@@ -10,7 +10,7 @@ exports.rand = {
       conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES(?,?,?)',[random_code,amount,serial],function(err,result){
        conn.release();
         if(err) {
-         // util.log(err);
+          util.log(err);
           process.exit(code=0);
         } else {
          console.log("Saved one record successfully");
@@ -34,7 +34,7 @@ exports.rand = {
      
         conn.release();
         if(err) {
-         //util.log(err);
+         util.log(err);
         } else {
           
           cb(results);

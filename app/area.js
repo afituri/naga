@@ -1,20 +1,131 @@
 var mysqlMgr = require('./mysql').mysqlMgr,
-var v =
 util=require('util');
-exports.areaMgr = {
+exports.AreaMgr = {
+	
 
-  getAreaNameById : function(id,cb){
+	addArea : function(body,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('select name,name_en from area  where idarea = ? ',id,function(err, result) {
+      conn.query('INSERT INTO `area` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
-        }          
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  getAreaInfo : function(cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `area` WHERE `status` <> 0',  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+    getAreaInfoById : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and idarea =?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  getAreaInfoByName : function(name,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and name =?',name,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  getAreaInfoByNameEn : function(name,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and name_en =?',name,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+    UpdateAreaNameAR : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date = new Date();
+      conn.query('UPDATE `area` SET `name` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+     UpdateAreaNameEn : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date = new Date();
+      conn.query('UPDATE `area` SET `name_en` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+   DeleteArea : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      var date = new Date();
+      conn.query('UPDATE `area` SET `status` = 0 ,`update_time` = ? WHERE `idarea` = ?',[date,id],  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `area` WHERE `idarea` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
       });
     });
   }
-  
-  };
+            
 
+
+
+	};

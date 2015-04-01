@@ -37,6 +37,7 @@ var Main = function(){
             loop(number,Type, function(plive,p){
            //console.log(p.length);
            // console.log(plive.length);
+           console.log(p);
             if(p.length == plive.length)
             {
             rand.saveRandomNumber(plive,function(result){

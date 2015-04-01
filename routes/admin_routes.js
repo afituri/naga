@@ -3,6 +3,7 @@ var router = express.Router();
 var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson').users;
 var CityMgr = require('../app/city').CityMgr;
+var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 
@@ -34,6 +35,18 @@ router.get('/adminShowOrder', function(req, res) {
 
 router.get('/adminSchools', function(req, res) {
   res.render('adminSchools', { title: 'Schools'});
+});
+
+router.get('/adminMeasure', function(req, res) {
+  res.render('adminMeasure', { title: 'Measure'});
+});
+
+router.get('/sizes', function(req, res) {
+  res.render('sizes', { title: 'sizes'});
+});
+
+router.get('/adminColors', function(req, res) {
+  res.render('adminColors', { title: 'Colors'});
 });
 
 router.get('/adminCities', function(req, res) {
@@ -72,7 +85,9 @@ router.post('/editname', function(req, res) {
 });
 
 router.get('/adminAreas', function(req, res) {
-  res.render('adminAreas', { title: 'Areas'});
+  AreaMgr.getAreaInfo(function(err,result){
+    res.render('adminAreas', { title: 'Areas',areas:result});
+  });
 });
 
 router.get('/adminMahala', function(req, res) {
@@ -118,5 +133,5 @@ router.get('/loadingImg', function(req, res) {
   res.render('loadingImg', { title: 'Loading....' ,users:users});
 });
 
-module.exports = router;
 
+module.exports = router;

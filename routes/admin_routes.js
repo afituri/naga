@@ -25,7 +25,7 @@ router.get('/adminRegUsers', function(req, res) {
 });
 
 router.get('/adminShowUsers', function(req, res) {
-  res.render('adminShowUsers', { title: 'Admin Show Users',username:users });
+  res.render('adminShowUsers', { title: 'Admin Show Users',users:users });
 });
 
 router.get('/adminShowOrder', function(req, res) {
@@ -114,6 +114,10 @@ router.get('/adminSerialNumber', function(req, res) {
 
 router.get('/showAdmin', function(req, res) {
   res.render('showAdmin', { title: 'Show Admins' ,users:users});
+});
+
+router.get('/loadingImg', function(req, res) {
+  res.render('loadingImg', { title: 'Loading....' ,users:users});
 });
 
 module.exports = router;

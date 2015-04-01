@@ -17,7 +17,8 @@
     "morgan": "~1.0.0",
     "mysql": "~2.5.5",
     "static-favicon": "~1.0.0",
-    "vhost": "^3.0.0"
+    "vhost": "^3.0.0",
+    "easy-pbkdf2": "~0.1.1"
   },
   "devDependencies": {
     "mocha": "~2.2.0",

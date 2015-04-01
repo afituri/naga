@@ -13,6 +13,8 @@ block dashBord
               a(href='/adminPage')  Dashboard
             li.active
               i.fa  Cities
+        .row
+          #err.col-lg-12
           .panel.panel-default
             .panel-heading
               .row
@@ -46,7 +48,7 @@ block dashBord
                         strong Edit
                       td.text-center
                         strong Trash 
-                  tbody
+                  tbody#tbody
                     for city in cities
                       tr(data-id='#{city.idcity}')
                         td.text-center
@@ -72,7 +74,7 @@ block dashBord
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
-                .modal-headr.modal-header
+                .modal-headr.modal-header-danger
                   p.h1 Sure you want to delete?
                 .modal-body
                   p.h2 Are you sure
@@ -83,7 +85,7 @@ block dashBord
           #newCitie.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
-                .modal-header.text-success
+                .modal-headr.modal-header-success
                   button.close(type="button", data-dismiss="modal" aria-label="Close")
                     span(aria-hidden="true") × 
                   h2
@@ -100,9 +102,9 @@ block dashBord
                         .form-group      
                           .h4 Name in English
                           input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
-                      .modal-footer
-                        button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                        button.btn.btn-primary(type="submit") Save Change 
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#sub.btn.btn-primary Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')

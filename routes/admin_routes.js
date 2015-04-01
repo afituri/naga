@@ -6,6 +6,8 @@ var CityMgr = require('../app/city').CityMgr;
 var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
+var MeasureMgr = require('../app/measure').MeasureMgr;
+var user =require('../app/userHelpers');
 
 
 router.get('/', function(req, res) {
@@ -37,6 +39,27 @@ router.get('/adminSchools', function(req, res) {
   res.render('adminSchools', { title: 'Schools'});
 });
 
+router.get('/adminMeasure', function(req, res) {
+   req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+  MeasureMgr.GetMeasure(limit,function(result){
+   if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+}
+  });
+});
+
+router.get('/sizes', function(req, res) {
+  res.render('sizes', { title: 'sizes'});
+});
+
+router.get('/adminColors', function(req, res) {
+  res.render('adminColors', { title: 'Colors'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result});
@@ -44,17 +67,16 @@ router.get('/adminCities', function(req, res) {
 });
 
 router.post('/addcity',function(req, res) {
-  console.log(req.body);
   validator.isCity(req,function(err,result){
-    console.log(result);
-
     if(result!=true){
-      console.log("err");
-      res.send(result);
+      var rel={"result":result,stat:false}
+      res.send(rel);
     }else{
       CityMgr.AddCity(req.body,function(err,result){
-        console.log("true");
-        res.send(true);
+        CityMgr.GetCityById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
       });
     }
   });
@@ -71,6 +93,15 @@ router.post('/editname', function(req, res) {
     res.send(true);
   });
 });
+
+
+router.get('/delete/:id', function(req, res) {
+  console.log(req.params.id);
+  MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
+    res.send(true);
+  });
+});
+
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){

@@ -66,6 +66,9 @@
     "delete_Address":10000000
 
 
+  },
+  "seller":{
+    "add_seller":{"idcompany_seller":10000000,"first_name":}
   }
   
 

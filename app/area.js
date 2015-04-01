@@ -18,7 +18,7 @@ exports.AreaMgr = {
 
   getAreaInfo : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT area.name as areaName, area.name_en as areaName_en, city.name as cityName, city.name_en as cityName_en FROM `area`,`city` WHERE area.status <> 0 and idcity=city_idcity ',  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -29,7 +29,7 @@ exports.AreaMgr = {
     });
   },
 
-    getAreaInfoById : function(id,cb){
+  getAreaInfoById : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `area` WHERE `status` <> 0 and idarea =?',id,  function(err, result) {
         conn.release();

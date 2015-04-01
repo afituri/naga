@@ -39,12 +39,14 @@ block dashBord
                 table.table.table-striped.table-condensed
                   thead
                     tr
-                      td
-                        strong Name in Arabic
-                      td
-                        strong Name in English
-                      td
-                        strong City Nmae
+                      td.text-center
+                        strong Area Name in Arabic
+                      td.text-center
+                        strong Area Name in English
+                      td.text-center
+                        strong City Name in Arabic
+                      td.text-center
+                        strong City Name in English
                       td.text-center
                         strong Edit
                       td.text-center
@@ -53,14 +55,15 @@ block dashBord
                     // foreach ($order->lineItems as $line) or some such thing here
                     for area in areas
                       tr
-                        td #{area.name}
-                        td #{area.name_en}
-                        td 1
+                        td.text-center #{area.areaName}
+                        td.text-center #{area.areaName_en}
+                        td.text-center #{area.cityName}
+                        td.text-center #{area.cityName_en}
                         td.text-center
-                          button.btn.btn-info.btn-xs
+                          button.btn.btn-info.btn-xs(data-placement='top', title='Edit')
                             span.glyphicon.glyphicon-pencil
                         td.text-center
-                          button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
+                          button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
                             span.glyphicon.glyphicon-trash        
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
@@ -104,4 +107,4 @@ block dashBord
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
-   
+  

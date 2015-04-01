@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   var panels = $('.user-infos');
   var panelsButton = $('.dropdown-user');
   panels.hide();
@@ -29,4 +29,5 @@ $(document).ready(function() {
       e.preventDefault();
       alert("This is a demo.\n :-)");
   });
+  
 });

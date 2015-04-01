@@ -74,6 +74,7 @@ router.post('/editname', function(req, res) {
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
+    console.log(result);
     res.render('adminAreas', { title: 'Areas',areas:result});
   });
 });

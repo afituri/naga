@@ -37,6 +37,7 @@ var Main = function(){
             loop(number,Type, function(plive,p){
            //console.log(p.length);
            // console.log(plive.length);
+           //console.log(p);
             if(p.length == plive.length)
             {
             rand.saveRandomNumber(plive,function(result){
@@ -134,7 +135,7 @@ var loop = function(number,Type,cb)
         }
         var serial =pad(1,8);
         var all =Batch.toString()+ty.toString()+serial.toString();
-        rand.saveOneRow(random,md5(random),Type,all,function(result){
+        rand.saveOneRow(random,md5(random),Type,all,Batch.toString(),function(result){
           console.log("Saved successfully");
           process.exit(code=0);  
         });
@@ -161,8 +162,8 @@ var loop = function(number,Type,cb)
         se++;
         var serial=pad(se,8);
         var all =sumBatch.toString()+ty.toString()+serial.toString();
-        pre.push([random,md5(random),all,Type]);
-        plive.push([md5(random),all,Type]);
+        pre.push([random,md5(random),all,Type,sumBatch.toString()]);
+        plive.push([md5(random),all,Type,sumBatch.toString()]);
       }
 
       if (index == elements)

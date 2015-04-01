@@ -4,10 +4,10 @@ util=require('util');
 exports.rand = {
   /* adding a new user to the system */
 
-  saveOneRow :function(random,random_code,amount,serial,cb){
+  saveOneRow :function(random,random_code,amount,serial,salt,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `prepaid` (`prepaid`,`prepaid_hash`,`amount`,`serial_no`) VALUES(?,?,?,?) ;',[random,random_code,amount,serial], function(err, results) {
-      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES(?,?,?)',[random_code,amount,serial],function(err,result){
+      conn.query('INSERT INTO `prepaid` (`prepaid`,`prepaid_hash`,`amount`,`serial_no`,`salt`) VALUES(?,?,?,?,?) ;',[random,random_code,amount,serial,salt], function(err, results) {
+      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`,`salt`) VALUES(?,?,?,?)',[random_code,amount,serial,salt],function(err,result){
        conn.release();
         if(err) {
          // util.log(err);
@@ -30,7 +30,7 @@ exports.rand = {
       // /INSERT INTO `prepaid_live` (`prepaid_hash`,`amount`,`serial_no`) VALUES (?,?,?)  
      // if(plive.length == pre.length)
      // {
-      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`serial_no`,`amount`) VALUES ?;',[plive], function(err, results) {
+      conn.query('INSERT INTO `prepaid_live` (`prepaid_hash`,`serial_no`,`amount`,`salt`) VALUES ?;',[plive], function(err, results) {
      
         conn.release();
         if(err) {
@@ -76,12 +76,10 @@ exports.rand = {
 
     saveRandomNumberr: function(pre,cb){
     mysqlMgr.connect(function (conn) {
-       conn.query('INSERT INTO `prepaid`(`prepaid`, `prepaid_hash`,`serial_no`,`amount`) VALUES ?;',[pre], function(err, res) {
+       conn.query('INSERT INTO `prepaid`(`prepaid`, `prepaid_hash`,`serial_no`,`amount`,`salt`) VALUES ?;',[pre], function(err, res) {
         conn.release();
         if(err) {
-         util.log(err);
-         //console.log("Duplicate entry please try again with small number <100000");
-         //process.exit(code=0);      
+         util.log(err);     
         } else {
           
           cb(res);

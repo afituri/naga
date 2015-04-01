@@ -1,11 +1,10 @@
 var mysqlMgr = require('./mysql').mysqlMgr,
 util=require('util');
-exports.AreaMgr = {
+exports.MahallaMgr = {
 	
-
-	addArea : function(body,cb){
+	addMahalla : function(body,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `area` SET ?',body,  function(err, result) {
+      conn.query('INSERT INTO `mahalla` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -16,9 +15,9 @@ exports.AreaMgr = {
     });
   },
 
-  getAreaInfo : function(cb){
+  getMahallaInfo : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -29,9 +28,9 @@ exports.AreaMgr = {
     });
   },
 
-    getAreaInfoById : function(id,cb){
+   getMahallaInfoByNameAr : function(name,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and idarea =?',id,  function(err, result) {
+      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and name=?',name,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -42,9 +41,9 @@ exports.AreaMgr = {
     });
   },
 
-  getAreaInfoByName : function(name,cb){
+   getMahallaInfoByNameEn : function(name,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and name =?',name,  function(err, result) {
+      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and name_en=?',name,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -55,9 +54,9 @@ exports.AreaMgr = {
     });
   },
 
-  getAreaInfoByNameEn : function(name,cb){
+    getMahallaInfoByIdArea : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and name_en =?',name,  function(err, result) {
+      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and area_idarea=?',id,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -68,24 +67,10 @@ exports.AreaMgr = {
     });
   },
 
-    UpdateAreaNameAR : function(body,cb){
-    mysqlMgr.connect(function (conn) {
-      var date = new Date();
-      conn.query('UPDATE `area` SET `name` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
-        conn.release();
-        if(err) {
-          cb(err,null);
-        } else {
-          cb(null,result);
-        }
-      });
-    });
-  },
-
-     UpdateAreaNameEn : function(body,cb){
+ UpdateMahallaNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `area` SET `name_en` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `mahalla` SET `name` = ?,`update_time`=? WHERE `idmahalla` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -96,10 +81,10 @@ exports.AreaMgr = {
     });
   },
 
-   DeleteArea : function(id,cb){
+   UpdateMahallaNameEN : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `area` SET `status` = 0 ,`update_time` = ? WHERE `idarea` = ?',[date,id],  function(err, result) {
+      conn.query('UPDATE `mahalla` SET `name_en` = ?,`update_time`=? WHERE `idmahalla` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -109,12 +94,28 @@ exports.AreaMgr = {
       });
     });
   },
+
+     DeleteMahalla : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      var date = new Date();
+      conn.query('UPDATE `mahalla` SET `status` = 0 ,`update_time` = ? WHERE `idmahalla` = ?',[date,id],  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+
 
 
 
   deleteTest : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('DELETE from `area` WHERE `idarea` = ?',id,  function(err, result) {
+      conn.query('DELETE from `mahalla` WHERE `idmahalla` = ?',id,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -124,7 +125,11 @@ exports.AreaMgr = {
       });
     });
   }
-            
+    
+ 
+  
+
+	
 
 
 

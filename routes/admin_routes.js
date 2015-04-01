@@ -81,6 +81,29 @@ router.get('/adminMahala', function(req, res) {
 
 router.get('/adminSerialNumber', function(req, res) {
    rand.NumberActiveprepaidCard(function(result){
+<<<<<<< HEAD
+   rand.getTotalmony(function(result1){
+   rand.ActiveprepaidCard(20,function(result2){
+   rand.ActiveprepaidCard(50,function(result3){
+   rand.ActiveprepaidCard(100,function(result4){
+   rand.usedCard(function(result5){
+   rand.UseitActiveprepaidCard(20,function(result6){ 
+   rand.UseitActiveprepaidCard(50,function(result7){ 
+   rand.UseitActiveprepaidCard(100,function(result8){ 
+   var notusedCard = result[0].c - result5[0].c;
+   var precent = 100/result[0].c;
+   var total=(result5[0].c)*precent;
+   res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+   twentyMony : result2 , fmony : result3,hmony:result4
+    ,all:result5 
+    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
+     ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
+     ,notUsed : notusedCard});
+      });
+     });
+   });
+   });
+=======
     rand.getTotalmony(function(result1){
       rand.ActiveprepaidCard(20,function(result2){
         rand.ActiveprepaidCard(50,function(result3){
@@ -108,6 +131,7 @@ router.get('/adminSerialNumber', function(req, res) {
           });
         });
       }); 
+>>>>>>> 36703ab43feeeda36bcae3513e0484cbc6170085
     });
   });
 });

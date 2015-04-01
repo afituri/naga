@@ -15,6 +15,18 @@ exports.CityMgr = {
     });
   },
 
+  GetCityById :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `city` WHERE `status` <> 0 AND `idcity`=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
   AddCity : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `city` SET ?',body,  function(err, result) {

@@ -35,7 +35,6 @@ describe('Module Area', function(){
         if (err) throw err;  
         assert.equal(typeof result[0], 'object'); 
         done();
-
         });
       });
     }),

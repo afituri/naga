@@ -13,6 +13,40 @@ $(document).ready(function(){
   });
 
 
+ $('#search').on('input', function(){
+ 	var info=$('#search').val();
+ 	if(info )
+ 	{
+
+     {
+      $.get('/search/'+$('#search').val(),function(result){
+         
+         $('#MeasureTable').empty();
+         $('.pagination').hide();
+           for(key in result){
+            $('#MeasureTable').append('<tr><td >'+result[key].name+'</td><td >'+result[key].name_en+'</td></tr>');
+           }
+         });  
+       }
+      }
+      else
+      {
+      
+      	{
+      $.get('/getMeasure',function(result){
+         $('#MeasureTable').empty();
+         $('.pagination').hide();
+           for(key in result){
+            $('#MeasureTable').append('<tr><td >'+result[key].name+'</td><td >'+result[key].name_en+'</td></tr>');
+           }
+         });  
+       }
+      }
+      });
+
+
+
+
 
   
   

@@ -10,6 +10,7 @@ var MeasureMgr = require('../app/measure').MeasureMgr;
 var user =require('../app/userHelpers');
 
 
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Admin Login' });
@@ -22,6 +23,21 @@ router.get('/adminPage', function(req, res) {
 router.get('/adminTest', function(req, res) {
   res.render('adminTest', { title: 'Admin Test' });
 });
+
+router.get('/search/:name', function(req, res) {
+ MeasureMgr.searchMng(req.params.name,function(err,result){
+ res.send(result); 
+});  
+});
+
+
+router.get('/getMeasure', function(req, res) {
+ MeasureMgr.GetMeasure(function(err,result){
+ // console.log(result);
+ res.send(result); 
+});  
+});
+
 
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Register Users'});
@@ -43,7 +59,7 @@ router.get('/adminMeasure', function(req, res) {
    req.session.back = req.originalUrl;
    var page = user.getPage(req);
    var limit =user.getLimit(page);
-  MeasureMgr.GetMeasure(limit,function(result){
+  MeasureMgr.GetMeasurelimit(limit,function(result){
    if(result[1][0] != undefined ){
     var pageCount = user.getPageCount(result[1][0].cnt); 
     var pagination = user.paginate(page,pageCount);

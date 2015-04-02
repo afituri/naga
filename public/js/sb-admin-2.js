@@ -38,10 +38,15 @@ $(function () {
 })
 
 //Loading img function
-$(window).load(function() {
-  // Animate loader off screen
-  $(".loadingImg").fadeOut();
-});
+// $(window).load(function() {
+//   // Animate loader off screen
+//   $(".loadingImg").fadeOut();
+// //   NProgress.start();
+// //   setTimeout(function() { 
+// //   NProgress.done(); 
+// //   $('#wrapper').removeClass('loadingImg'); 
+// // }, 1000);
+// });
 
 $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
   $(window).scroll(function () {
@@ -57,3 +62,9 @@ $('#toTop').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 600);
     return false;
 });
+
+NProgress.start();
+setTimeout(function() { 
+  NProgress.done(); 
+  $('.fadee').removeClass('out'); 
+}, 1000)

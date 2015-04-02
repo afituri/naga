@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
+<<<<<<< HEAD:naga.sql~
 -- Generation Time: Mar 09, 2015 at 04:31 PM
+=======
+-- Generation Time: Mar 30, 2015 at 07:17 PM
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 -- Server version: 5.6.23
 -- PHP Version: 5.5.14
 
@@ -36,7 +40,11 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `status` tinyint(1) DEFAULT '1',
   `create_time` TIMESTAMP NOT NULL ,
   `update_time` datetime DEFAULT NULL
+<<<<<<< HEAD:naga.sql~
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=10000001 DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 -- --------------------------------------------------------
 
@@ -75,18 +83,27 @@ INSERT INTO `area` (`idarea`, `name`, `name_en`, `create_time`, `update_time`, `
 
 CREATE TABLE IF NOT EXISTS `city` (
   `idcity` int(11) NOT NULL,
+<<<<<<< HEAD:naga.sql~
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` TIMESTAMP ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+  `name` varchar(100) DEFAULT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 --
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`idcity`, `name`, `name_en`, `create_time`, `update_time`) VALUES
-(1, 'طرابلس', 'Tripoli', '2015-01-26 19:13:56', NULL);
+INSERT INTO `city` (`idcity`, `name`, `name_en`, `status`, `create_time`, `update_time`) VALUES
+(1, 'طرابلس', 'Tripoli', 1, '2015-01-26 19:13:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -101,7 +118,11 @@ CREATE TABLE IF NOT EXISTS `color` (
   `status` tinyint(1) DEFAULT '1',
   `create_time` TIMESTAMP NOT NULL ,
   `update_time` datetime DEFAULT NULL
+<<<<<<< HEAD:naga.sql~
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=10000001 DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 -- --------------------------------------------------------
 
@@ -111,15 +132,25 @@ CREATE TABLE IF NOT EXISTS `color` (
 
 CREATE TABLE IF NOT EXISTS `company` (
   `idcompany` int(11) NOT NULL,
+<<<<<<< HEAD:naga.sql~
   `name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `logo` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+=======
+  `name` varchar(200) DEFAULT NULL,
+  `name_en` varchar(200) DEFAULT NULL,
+  `logo` varchar(500) DEFAULT NULL,
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `create_time` TIMESTAMP NOT NULL ,
   `update_time` datetime DEFAULT NULL,
   `admin_idadmin` int(11) NOT NULL,
   `tob_idtob` int(11) NOT NULL
+<<<<<<< HEAD:naga.sql~
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=10000001 DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 -- --------------------------------------------------------
 
@@ -174,9 +205,18 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `salt` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `level` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
+<<<<<<< HEAD:naga.sql~
   `create_time` TIMESTAMP NOT NULL ,
   `update_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
+  `balance` double DEFAULT '0',
+  `mobile` varchar(30) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 -- --------------------------------------------------------
 
@@ -664,7 +704,28 @@ CREATE TABLE IF NOT EXISTS `tob` (
   `status` tinyint(1) DEFAULT '1',
   `create_time` TIMESTAMP NOT NULL ,
   `update_time` datetime DEFAULT NULL
+<<<<<<< HEAD:naga.sql~
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=10000001 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tog`
+--
+
+CREATE TABLE IF NOT EXISTS `tog` (
+  `idtog` int(11) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `name_en` varchar(150) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
+  `genre_idgenre` int(11) NOT NULL,
+  `genre_tob_idtob` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> 280aa732506b62532d02ac1d487bdea9bfa571dc:naga.sql
 
 --
 -- Indexes for dumped tables
@@ -780,7 +841,7 @@ ALTER TABLE `tob`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10000001;
 --
 -- AUTO_INCREMENT for table `area`
 --
@@ -790,17 +851,17 @@ ALTER TABLE `area`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `idcity` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `idcity` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1001;
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `idcolor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcolor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10000001;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10000001;
 --
 -- AUTO_INCREMENT for table `company_address`
 --
@@ -850,7 +911,7 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT for table `tob`
 --
 ALTER TABLE `tob`
-  MODIFY `idtob` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtob` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10000001;
 --
 -- Constraints for dumped tables
 --

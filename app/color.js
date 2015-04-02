@@ -7,9 +7,9 @@ exports.ColorMgr = {
       conn.query('SELECT * FROM `color` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -20,21 +20,22 @@ exports.ColorMgr = {
       conn.query('INSERT INTO `color` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
+  },
   UpdateColorNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `color` SET `name` = ?,`update_time`=? WHERE `idcolor` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -46,9 +47,9 @@ exports.ColorMgr = {
       conn.query('UPDATE `color` SET `name_en` = ?,`update_time`=? WHERE `idcolor` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -60,13 +61,26 @@ exports.ColorMgr = {
       conn.query('UPDATE `color` SET `status` = 0 ,`update_time` = ? WHERE `idcolor` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `color` WHERE `idcolor` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 //////////////////////////////////////////////////////////////////////////
  
   

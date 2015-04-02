@@ -7,17 +7,19 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(href="/css/admin_style.css" rel="stylesheet")
+    link(href="/css/admin_style.css" rel="stylesheet") 
     link(href="/css/bootstrap.min.css" rel="stylesheet")
-    <!-- MetisMenu CSS -->
+    link(href="/css/bootstrap-editable.css" rel="stylesheet")
+    //- MetisMenu CSS
     link(href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet")
-    <!-- Custom CSS -->
+    //- Custom CSS
     link(href="/css/sb-admin-2.css" rel="stylesheet")
-    <!-- Custom Fonts -->
-    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css")
+    //- Custom Fonts
+    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
   body
     block content
       block navigation
+        .loadingImg
         #wrapper
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
@@ -221,11 +223,9 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Metrics
+                        a(href="/adminMeasure") Measure
                       li
-                        a(href="#") Sizes
-                      li
-                        a(href="#") Colors        
+                        a(href="/adminColors") Colors        
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-briefcase
@@ -247,7 +247,7 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Admin
+                        a(href="/showAdmin") Show Admin 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-usd
@@ -282,5 +282,5 @@ html
                               li
                                 a(href="#") Third Level Item
                               li
-                                a(href="#") Third Level Item  
+                                a(href="#") Third Level Item 
           block dashBord                                           

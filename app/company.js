@@ -4,12 +4,12 @@ exports.CompanyMgr = {
 /////////////////// COMPANY ///////////////////////////////////////////
   GetCompany :function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `Company` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT * FROM `company` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -17,24 +17,25 @@ exports.CompanyMgr = {
 
   AddCompany : function(body,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `Company` SET ?',body,  function(err, result) {
+      conn.query('INSERT INTO `company` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
+  },
   UpdateCompanyNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company` SET `name` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company` SET `name` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -43,12 +44,12 @@ exports.CompanyMgr = {
   UpdateCompanyNameEN : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company`  SET `name_en` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company`  SET `name_en` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -57,12 +58,12 @@ exports.CompanyMgr = {
   UpdateCompanyLogo : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company`  SET `logo` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company`  SET `logo` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -71,12 +72,12 @@ exports.CompanyMgr = {
   UpdateCompanyLevel : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company`  SET `level` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company`  SET `level` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -85,12 +86,12 @@ exports.CompanyMgr = {
   UpdateCompanyIdAdmin : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company`  SET `admin_idadmin` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company`  SET `admin_idadmin` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -99,12 +100,12 @@ exports.CompanyMgr = {
   UpdateCompanyIdTop : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company`  SET `tob_idtob` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `company`  SET `tob_idtob` = ?,`update_time`=? WHERE `idcompany` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -113,16 +114,29 @@ exports.CompanyMgr = {
   DeleteCompany : function(id,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `Company` SET `status` = 0 ,`update_time` = ? WHERE `idcompany` = ?',[date,id],  function(err, result) {
+      conn.query('UPDATE `company` SET `status` = 0 ,`update_time` = ? WHERE `idcompany` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `company` WHERE `idcompany` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 //////////////////////////////////////////////////////////////////////////
  
   

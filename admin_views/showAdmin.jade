@@ -34,48 +34,47 @@ block dashBord
               button.btn.btn-primary
                 i.glyphicon.glyphicon-print
                 |  Print 
-        .panel-body
-          .table-responsive
-            table.table.table-striped.table-condensed
-              thead
+        .table-responsive
+          table.table.table-striped.table-condensed
+            thead
+              tr
+                th Admin Username
+                th Admin Name
+                th Date Added
+                th Role
+                th Status
+                th.text-center Remove
+            tbody
+              for user in users
                 tr
-                  th Admin Username
-                  th Admin Name
-                  th Date Added
-                  th Role
-                  th Status
-                  th.text-center Remove
-              tbody
-                for user in users
-                  tr
-                    td #{user.username}
-                    td #{user.name}
-                    td #{user.dateadded}
-                    td Admin
-                    td
-                      case user.status
-                        when 1
-                          - var att="success"
-                          - var attName="Active"
-                        when 2 
-                          - var att="danger"
-                          - var attName="Banned"
-                        when 3 
-                          - var att="default"
-                          - var attName="Inactive"
-                        when 4 
-                          - var att="warning"
-                          - var attName="Pending"
-                        when 5 
-                          - var att="info"
-                          - var attName="Info"
-                        when 6 
-                          - var att="primary"
-                          - var attName="Root"
-                      span.label(class="label-#{att}") #{attName}
-                    td.text-center
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-placement='top', title='Remove Admin')
-                        span.glyphicon.glyphicon-remove
+                  td #{user.username}
+                  td #{user.name}
+                  td #{user.dateadded}
+                  td Admin
+                  td
+                    case user.status
+                      when 1
+                        - var att="success"
+                        - var attName="Active"
+                      when 2 
+                        - var att="danger"
+                        - var attName="Banned"
+                      when 3 
+                        - var att="default"
+                        - var attName="Inactive"
+                      when 4 
+                        - var att="warning"
+                        - var attName="Pending"
+                      when 5 
+                        - var att="info"
+                        - var attName="Info"
+                      when 6 
+                        - var att="primary"
+                        - var attName="Root"
+                    span.label(class="label-#{att}") #{attName}
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#del', data-placement='top', title='Remove Admin')
+                      span.glyphicon.glyphicon-remove
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')

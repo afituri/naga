@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/adminPage', function(req, res) {
-  res.render('adminPage', { title: 'Admin Page' });
+  res.render('adminPage', { title: 'Admin Page',NProgress:"fadeIn out" });
 });
 
 router.get('/adminTest', function(req, res) {
@@ -40,19 +40,19 @@ router.get('/getMeasure', function(req, res) {
 
 
 router.get('/adminRegUsers', function(req, res) {
-  res.render('adminRegUsers', { title: 'Admin Register Users'});
+  res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
 
 router.get('/adminShowUsers', function(req, res) {
-  res.render('adminShowUsers', { title: 'Admin Show Users',users:users });
+  res.render('adminShowUsers', { title: 'Admin Show Users',users:users,NProgress:"fadeIn out" });
 });
 
 router.get('/adminShowOrder', function(req, res) {
-  res.render('adminShowOrder', { title: 'Admin Show Order'});
+  res.render('adminShowOrder', { title: 'Admin Show Order',NProgress:"fadeIn out"});
 });
 
 router.get('/adminSchools', function(req, res) {
-  res.render('adminSchools', { title: 'Schools'});
+  res.render('adminSchools', { title: 'Schools',NProgress:"fadeIn out"});
 });
 
 router.get('/adminMeasure', function(req, res) {
@@ -63,22 +63,22 @@ router.get('/adminMeasure', function(req, res) {
    if(result[1][0] != undefined ){
     var pageCount = user.getPageCount(result[1][0].cnt); 
     var pagination = user.paginate(page,pageCount);
-  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
 }
   });
 });
 
 router.get('/sizes', function(req, res) {
-  res.render('sizes', { title: 'sizes'});
+  res.render('sizes', { title: 'sizes',NProgress:"fadeIn out"});
 });
 
 router.get('/adminColors', function(req, res) {
-  res.render('adminColors', { title: 'Colors'});
+  res.render('adminColors', { title: 'Colors',NProgress:"fadeIn out"});
 });
 
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
-    res.render('adminCities', { title: 'Cities',cities:result});
+    res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});
   });
 });
 
@@ -121,13 +121,12 @@ router.get('/delete/:id', function(req, res) {
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-    console.log(result);
-    res.render('adminAreas', { title: 'Areas',areas:result});
+    res.render('adminAreas', { title: 'Areas',areas:result,NProgress:"fadeIn out"});
   });
 });
 
 router.get('/adminMahala', function(req, res) {
-  res.render('adminMahala', { title: 'Mahala'});
+  res.render('adminMahala', { title: 'Mahala',NProgress:"fadeIn out"});
 });
 
 router.get('/adminSerialNumber', function(req, res) {
@@ -162,7 +161,7 @@ router.get('/adminSerialNumber', function(req, res) {
 });
 
 router.get('/showAdmin', function(req, res) {
-  res.render('showAdmin', { title: 'Show Admins' ,users:users});
+  res.render('showAdmin', { title: 'Show Admins' ,users:users,NProgress:"fadeIn out"});
 });
 
 router.get('/loadingImg', function(req, res) {

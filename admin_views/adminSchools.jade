@@ -34,52 +34,51 @@ block dashBord
                   button.btn.btn-primary
                     i.glyphicon.glyphicon-print
                     |  Print 
-            .panel-body
-              .table-responsive
-                table.table.table-striped.table-condensed
-                  thead
-                    tr
-                      td.text-center
-                        strong Name in Arabic
-                      td.text-center
-                        strong Name in English
-                      td.text-center
-                        strong City Nmae
-                      td.text-center
-                        strong Area Name
-                      td.text-center
-                        strong Mahalla Nmae
-                      td.text-center
-                        strong Latitude Number
-                      td.text-center
-                        strong Longitude Number
-                      td.text-center
-                        strong Edit
-                      td.text-center
-                        strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr
-                      td.text-center
-                        a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
-                      td.text-center
-                        a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
-                      td.text-center
-                        a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
-                      td.text-center
-                        a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
-                      td.text-center
-                        a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
-                      td.text-center
-                        a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
-                      td.text-center
-                        a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
-                      td.text-center
-                        button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit School')
-                          span.glyphicon.glyphicon-pencil
-                      td.text-center
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete School')
-                          span.glyphicon.glyphicon-trash       
+            .table-responsive
+              table.table.table-striped.table-condensed
+                thead
+                  tr
+                    td.text-center
+                      strong Name in Arabic
+                    td.text-center
+                      strong Name in English
+                    td.text-center
+                      strong City Name
+                    td.text-center
+                      strong Area Name
+                    td.text-center
+                      strong Mahalla Name
+                    td.text-center
+                      strong Latitude Number
+                    td.text-center
+                      strong Longitude Number
+                    td.text-center
+                      strong Edit
+                    td.text-center
+                      strong Trash 
+                tbody
+                  // foreach ($order->lineItems as $line) or some such thing here
+                  tr
+                    td.text-center
+                      a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
+                    td.text-center
+                      a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
+                    td.text-center
+                      a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
+                    td.text-center
+                      a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
+                    td.text-center
+                      a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
+                    td.text-center
+                      a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
+                    td.text-center
+                      a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
+                    td.text-center
+                      button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit School')
+                        span.glyphicon.glyphicon-pencil
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete School')
+                        span.glyphicon.glyphicon-trash       
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content

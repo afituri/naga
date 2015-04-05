@@ -17,11 +17,11 @@ html(lang='en')
     //- Custom Fonts
     link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
     link(href="/css/nprogress.css" rel="stylesheet")
-  body
+  body(style='display: none')
     block content
       block navigation
         //- .loadingImg
-        #wrapper.fadee.out
+        #wrapper(class="#{NProgress}")
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
               button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")

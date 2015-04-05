@@ -176,7 +176,7 @@ describe('Module seller', function(){
         done();
       });
     })
-  })
+  }),
 /////////////////////////////////////////////////////////////////////////////////////
 
   describe('#deleteTest()',function(){

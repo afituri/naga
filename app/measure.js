@@ -71,9 +71,8 @@ exports.MeasureMgr = {
  // SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10
   searchMng : function(name,cb){
     name = name+"%";
-    console.log(name);
     mysqlMgr.connect(function (conn) {
-        conn.query('SELECT * FROM `measure` where status <> 0 and `name` LIKE ? ' ,name, function(err, result) {
+        conn.query('SELECT * FROM `measure` where status <> 0 and `name` LIKE ?  or `name_en` LIKE ?' ,[name,name], function(err, result) {
             conn.release();
             if(err) {
               util.log(err);

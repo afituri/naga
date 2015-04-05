@@ -64,9 +64,9 @@ $('#toTop').click(function(){
 
 //NProgrss funcation
 $('body').show();
-NProgress.start();
-setTimeout(function() { 
-  NProgress.done(); 
-  $('.fadeIn').removeClass('out'); 
-},1000)
+// NProgress.start();
+// setTimeout(function() { 
+//   NProgress.done(); 
+//   $('.fadeIn').removeClass('out'); 
+// },1000)
 

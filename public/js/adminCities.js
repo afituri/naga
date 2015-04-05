@@ -4,6 +4,7 @@ $(document).ready(function(){
   });
   $('body').on('submit', '#formCitie', function(data) {
     $.post("/addcity", $("form").serializeObject(), function(data, error){
+      window.location.href="/adminCities";
       if(data.stat !=true){
         $("#err").empty();
         for (err in data.result) {

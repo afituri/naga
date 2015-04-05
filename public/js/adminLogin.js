@@ -57,3 +57,9 @@ $(".reveal").mousedown(function() {
 .mouseout(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });
+
+NProgress.start();
+setTimeout(function() { 
+  NProgress.done(); 
+  $('.fadee').removeClass('out'); 
+}, 1000);

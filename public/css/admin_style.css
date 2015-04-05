@@ -12,6 +12,21 @@
   background: url(/img/loader-128x/Preloader_2.gif) center no-repeat #fff;
 }
 
+.fadee {
+  transition: all 300ms linear 700ms;
+  /*-webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);*/
+  opacity: 1;
+
+}
+
+.fadee.out {
+  opacity: 0;
+}
+
 #btnLogin {
   background-color:#F49B23;
 }

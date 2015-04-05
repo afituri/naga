@@ -14,7 +14,7 @@ var user =require('../app/userHelpers');
 
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
-  res.render('adminLogin', { title: 'Admin Login' });
+  res.render('adminLogin', { title: 'Login' });
 });
 
 router.get('/adminPage', function(req, res) {

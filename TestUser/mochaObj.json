@@ -77,6 +77,17 @@
     "update_seller_company":{"value":10000000,"pk":10000000},
     "seller_email":{"email":"@gmin.com"},
     "delete_seller":10000000
+  },
+  "customer":{
+    "add_customer":{"idcustomer":10000000,"first_name":"abdoo","last_name":"ageel","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4"},
+    "update_customer_first":{"value":"abc","pk":10000000},
+    "update_customer_last":{"value":"def","pk":10000000},
+    "update_customer_email":{"value":"@google","pk":10000000},
+    "update_customer_password":{"value":"102030","pk":10000000},
+    "update_customer_level":{"value":2,"pk":10000000},
+    "update_customer_status":{"value":2,"pk":10000000},
+    "customer_email":{"email":"@gmin.com"},
+    "delete_customer":10000000
   }
   
 

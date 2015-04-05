@@ -135,6 +135,32 @@ describe('Module customer', function(){
     })
   }),
 
+  describe('#UpdateBalance()',function(){
+    it('Should update without an error', function(done){
+      customer.UpdateBalance(obj['update_customer_balance'],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+
+  describe('#UpdateMobile()',function(){
+    it('Should update without an error', function(done){
+      customer.UpdateMobile(obj['update_customer_mobile'],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+  
+  describe('#UpdatePhone()',function(){
+    it('Should update without an error', function(done){
+      customer.UpdatePhone(obj['update_customer_phone'],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
   describe('#deleteById()',function(){
     it('Should delete without an error', function(done){
       customer.deleteById(obj['delete_customer'],function(err,result){

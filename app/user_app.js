@@ -191,6 +191,48 @@ exports.userMgr = {
     });
   },
 
+  UpdateBalance  : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date =new Date();
+      conn.query('UPDATE `customer` SET  `balance`= ? ,update_time=?  WHERE `idcustomer`=?',[body.value,date,body.pk], function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  UpdateMobile  : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date =new Date();
+      conn.query('UPDATE `customer` SET  `mobile`= ? ,`update_time`=?  WHERE `idcustomer`=?',[body.value,date,body.pk], function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  UpdatePhone  : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date =new Date();
+      conn.query('UPDATE `customer` SET  `phone`= ? ,`update_time`=?  WHERE `idcustomer`=?',[body.value,date,body.pk], function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   deleteTest : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('DELETE from `customer` WHERE `idcustomer` = ?',id,  function(err, result) {

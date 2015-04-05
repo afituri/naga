@@ -52,7 +52,7 @@ block dashBord
                       td #{o.name}
                       td #{o.name_en}
                       td.text-right
-                        button#view.btn.btn-primary.btn-xs(data-title='Edit', data-toggle='modal')
+                        button#view.btn.btn-primary.btn-xs(value='#{o.idmeasure}' ,data-title='Edit', data-toggle='modal')
                           span.glyphicon.glyphicon-eye-open
                       td.text-right
                         button.btn.btn-info.btn-xs
@@ -60,50 +60,50 @@ block dashBord
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' value='#{o.idmeasure}')
                           span.glyphicon.glyphicon-trash  
-            if pagination 
-              div.text-center
-                ul.pagination
-                  li(class='#{pagination.previous.disabled}')
-                    a(href='?p=#{pagination.previous.n}') السابق
-                  for page in pagination.pages
-                    li(class="#{page.active}")
-                      a(href='?p=#{page.n}') #{page.n}
-                  li(class="#{pagination.next.disabled}")
-                    a(href='?p=#{pagination.next.n}') التالي        
-          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-danger
-                  p.h1 Sure you want to delete?
+        if pagination 
+          div.text-center
+            ul.pagination
+              li(class='#{pagination.previous.disabled}')
+                a(href='?p=#{pagination.previous.n}') السابق
+              for page in pagination.pages
+                li(class="#{page.active}")
+                  a(href='?p=#{page.n}') #{page.n}
+              li(class="#{pagination.next.disabled}")
+                a(href='?p=#{pagination.next.n}') التالي        
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#dell.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newMeasure.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+           .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") × 
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  Add Measure
+              .row 
                 .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#dell.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newMeasure.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-             .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-success
-                  button.close(type="button", data-dismiss="modal" aria-label="Close")
-                    span(aria-hidden="true") × 
-                  h2
-                    .glyphicon.glyphicon-plus
-                    |  Add Measure
-                .row 
-                  .modal-body
-                    form#formMeasure.form-signin(role="form" , action="", method="post")
-                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                        .form-group
-                          .h4 Name in Arabic
-                          input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
-                      .col-xs-5.col-md-5
-                        .form-group      
-                          .h4 Name in English
-                          input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
-                .modal-footer
-                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change 
+                  form#formMeasure.form-signin(role="form" , action="", method="post")
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Name in Arabic
+                        input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 Name in English
+                        input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/adminMeasure.js')

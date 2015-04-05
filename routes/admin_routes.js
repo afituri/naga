@@ -7,6 +7,7 @@ var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 var MeasureMgr = require('../app/measure').MeasureMgr;
+var SizeMgr  = require('../app/size').SizeMgr ;
 var user =require('../app/userHelpers');
 
 
@@ -33,7 +34,7 @@ router.get('/search/:name', function(req, res) {
 
 router.get('/getMeasure', function(req, res) {
  MeasureMgr.GetMeasure(function(err,result){
- // console.log(result);
+ console.log(result);
  res.send(result); 
 });  
 });
@@ -68,8 +69,13 @@ router.get('/adminMeasure', function(req, res) {
   });
 });
 
-router.get('/sizes', function(req, res) {
-  res.render('sizes', { title: 'sizes'});
+router.get('/sizes/:id', function(req, res) {
+  // get functions sizes 
+  console.log(req.params.id);
+  SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
+    console.log(result);
+  res.render('sizes', { title: 'sizes',size:result});
+  });
 });
 
 router.get('/adminColors', function(req, res) {
@@ -112,7 +118,7 @@ router.post('/editname', function(req, res) {
 
 
 router.get('/delete/:id', function(req, res) {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
     res.send(true);
   });

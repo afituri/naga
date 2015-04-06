@@ -65,7 +65,7 @@ block dashBord
                           span.glyphicon.glyphicon-trash  
         if pagination 
           div.text-center
-            ul.pagination(style='margin-top:-10px;')
+            ul.pagination
               li(class='#{pagination.previous.disabled}')
                 a(href='?p=#{pagination.previous.n}') Previous
               for page in pagination.pages

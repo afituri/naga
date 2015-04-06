@@ -4,6 +4,8 @@ var i18n = require('../app/i18n');
 var users = require('../TestUser/testjson').users;
 var CityMgr = require('../app/city').CityMgr;
 var AreaMgr = require('../app/area').AreaMgr;
+var MahallaMgr = require('../app/mahalla').MahallaMgr;
+var SchoolMgr = require('../app/school').SchoolMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 var MeasureMgr = require('../app/measure').MeasureMgr;
@@ -56,10 +58,6 @@ router.get('/adminShowUsers', function(req, res) {
 
 router.get('/adminShowOrder', function(req, res) {
   res.render('adminShowOrder', { title: 'Admin Show Order',NProgress:"fadeIn out"});
-});
-
-router.get('/adminSchools', function(req, res) {
-  res.render('adminSchools', { title: 'Schools',NProgress:"fadeIn out"});
 });
 
 router.get('/adminMeasure', function(req, res) {
@@ -154,12 +152,34 @@ router.get('/delete/:id', function(req, res) {
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-    res.render('adminAreas', { title: 'Areas',areas:result,NProgress:"fadeIn out"});
+    res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
   });
 });
 
 router.get('/adminMahala', function(req, res) {
-  res.render('adminMahala', { title: 'Mahala',NProgress:"fadeIn out"});
+  req.session.back = req.originalUrl;
+  var page = user.getPage(req);
+  var limit = user.getLimit(page);
+  MahallaMgr.getMahallaLimit(limit,function(result){
+    if(result[1][0] != undefined ){
+      var pageCount = user.getPageCount(result[1][0].cnt); 
+      var pagination = user.paginate(page,pageCount);
+      res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
+    }
+  });
+});
+
+router.get('/adminSchools', function(req, res) {
+  req.session.back = req.originalUrl;
+  var page = user.getPage(req);
+  var limit = user.getLimit(page);
+  SchoolMgr.getSchoolLimit(limit,function(result){
+    if(result[1][0] != undefined ){
+      var pageCount = user.getPageCount(result[1][0].cnt); 
+      var pagination = user.paginate(page,pageCount);
+      res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination});
+    }
+  });
 });
 
 router.get('/adminSerialNumber', function(req, res) {

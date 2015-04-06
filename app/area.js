@@ -2,7 +2,6 @@ var mysqlMgr = require('./mysql').mysqlMgr,
 util=require('util');
 exports.AreaMgr = {
 	
-
 	addArea : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `area` SET ?',body,  function(err, result) {
@@ -18,7 +17,7 @@ exports.AreaMgr = {
 
   getAreaInfo : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT area.name as areaName, area.name_en as areaName_en, city.name as cityName, city.name_en as cityName_en FROM `area`,`city` WHERE area.status <> 0 and idcity=city_idcity ',  function(err, result) {
+      conn.query('SELECT area.name as areaName, area.name_en as areaName_en, city.name as cityName, city.name_en as cityName_en FROM `area`,`city` WHERE area.status <> 0 AND idcity=city_idcity ',  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

@@ -25,9 +25,9 @@ block dashBord
                   button#space.btn.btn-primary.btn-filter
                     i.glyphicon.glyphicon-filter
                     |  Filter of Search
-                  a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
+                  a#space.btn.btn-success(href='#newMahala', role='button',data-toggle='modal')
                     i.glyphicon.glyphicon-plus
-                    |  Add Area
+                    |  Add Mahala
                   button#space.btn.btn.btn-info
                     i.glyphicon.glyphicon-print
                     |  Print 
@@ -67,39 +67,28 @@ block dashBord
                       | Trash
                 tbody
                   // foreach ($order->lineItems as $line) or some such thing here
-                  tr
-                    td.text-center ff
-                    td.text-center en
-                    td.text-center ar
-                    td.text-center 1
-                    td.text-center
-                      button.btn.btn-info.btn-xs
-                        span.glyphicon.glyphicon-pencil
-                    td.text-center 
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                        span.glyphicon.glyphicon-trash     
-                  tr
-                    td.text-center rr
-                    td.text-center en
-                    td.text-center ar
-                    td.text-center 3
-                    td.text-center
-                      button.btn.btn-info.btn-xs
-                        span.glyphicon.glyphicon-pencil
-                    td.text-center
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                        span.glyphicon.glyphicon-trash  
-                  tr
-                    td.text-center oo
-                    td.text-center en
-                    td.text-center ar
-                    td.text-center 1
-                    td.text-center 
-                      button.btn.btn-info.btn-xs
-                        span.glyphicon.glyphicon-pencil
-                    td.text-center 
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                        span.glyphicon.glyphicon-trash     
+                  for mahalas in mahala
+                    tr
+                      td.text-center #{mahalas.mahallaName}
+                      td.text-center #{mahalas.mahallaName_en}
+                      td.text-center #{mahalas.areaName}
+                      td.text-center #{mahalas.areaName_en}
+                      td.text-center
+                        button.btn.btn-info.btn-xs
+                          span.glyphicon.glyphicon-pencil
+                      td.text-center 
+                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
+                          span.glyphicon.glyphicon-trash          
+          if pagination 
+            div.text-center
+              ul.pagination
+                li(class='#{pagination.previous.disabled}')
+                  a(href='?p=#{pagination.previous.n}') Previous
+                for page in pagination.pages
+                  li(class="#{page.active}")
+                    a(href='?p=#{page.n}') #{page.n}
+                li(class="#{pagination.next.disabled}")
+                  a(href='?p=#{pagination.next.n}') Next
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content

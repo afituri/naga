@@ -91,12 +91,11 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
-   router.post('/saveItem',function(req,res){
-      orderMgr.addItem(req.body,function(result){
-       // console.log(result);
-        res.redirect('/order/showOrder');
+   router.post('/saveMeasure',function(req,res){
+      MeasureMgr.AddMeasure(req.body,function(result){
+        res.redirect('/adminMeasure');
     });
-
+});
 
 
 

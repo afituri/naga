@@ -25,10 +25,8 @@ $(document).ready(function(){
            }
          });  
        }
-      }
-      else
-      {      
-      	{
+      } else { 
+               {
       $.get('/getMeasure',function(result){
          $('#MeasureTable').empty();
           $('.pagination').show();                                                                     

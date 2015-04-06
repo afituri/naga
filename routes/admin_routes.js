@@ -107,6 +107,18 @@ router.get('/adminColors', function(req, res) {
   res.render('adminColors', { title: 'Colors',NProgress:"fadeIn out"});
 });
 
+router.get('/adminTypeBusiness', function(req, res) {
+  res.render('adminTypeBusiness', { title: 'Type of Business'});
+});
+
+router.get('/adminGenre', function(req, res) {
+  res.render('adminGenre', { title: 'Genre'});
+});
+
+router.get('/adminTypeGenre', function(req, res) {
+  res.render('adminTypeGenre', { title: 'Type of Genre'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});

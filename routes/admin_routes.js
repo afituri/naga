@@ -202,7 +202,7 @@ router.get('/showAdmin', function(req, res) {
 });
 
 router.get('/loadingImg', function(req, res) {
-  res.render('loadingImg', { title: 'Loading....' ,users:users});
+  res.render('loadingImg', { title: 'Loading....'});
 });
 
 

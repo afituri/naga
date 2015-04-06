@@ -6,67 +6,138 @@ var CityMgr = require('../app/city').CityMgr;
 var AreaMgr = require('../app/area').AreaMgr;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
+var MeasureMgr = require('../app/measure').MeasureMgr;
+var SizeMgr  = require('../app/size').SizeMgr ;
+var user =require('../app/userHelpers');
+
 
 
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
-  res.render('adminLogin', { title: 'Admin Login' });
+  res.render('adminLogin', { title: 'Login' });
 });
 
 router.get('/adminPage', function(req, res) {
-  res.render('adminPage', { title: 'Admin Page' });
+  res.render('adminPage', { title: 'Admin Page',NProgress:"fadeIn out" });
 });
 
 router.get('/adminTest', function(req, res) {
   res.render('adminTest', { title: 'Admin Test' });
 });
 
+router.get('/search/:name', function(req, res) {
+  MeasureMgr.searchMng(req.params.name,function(err,result){
+  res.send(result); 
+  });  
+});
+
+
+router.get('/getMeasure', function(req, res) {
+   req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+ MeasureMgr.GetMeasure(limit,function(err,result){
+  if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+ res.send(result[0]);
+ } 
+});  
+});
+
+
 router.get('/adminRegUsers', function(req, res) {
-  res.render('adminRegUsers', { title: 'Admin Register Users'});
+  res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
 
 router.get('/adminShowUsers', function(req, res) {
-  res.render('adminShowUsers', { title: 'Admin Show Users',users:users });
+  res.render('adminShowUsers', { title: 'Admin Show Users',users:users,NProgress:"fadeIn out" });
 });
 
 router.get('/adminShowOrder', function(req, res) {
-  res.render('adminShowOrder', { title: 'Admin Show Order'});
+  res.render('adminShowOrder', { title: 'Admin Show Order',NProgress:"fadeIn out"});
 });
 
 router.get('/adminSchools', function(req, res) {
-  res.render('adminSchools', { title: 'Schools'});
+  res.render('adminSchools', { title: 'Schools',NProgress:"fadeIn out"});
 });
 
 router.get('/adminMeasure', function(req, res) {
-  res.render('adminMeasure', { title: 'Measure'});
+   req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+  MeasureMgr.GetMeasurelimit(limit,function(result){
+   if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+    }
+  });
 });
 
-router.get('/sizes', function(req, res) {
-  res.render('sizes', { title: 'sizes'});
+//MeasurEditNameEn
+router.post('/MeasurEditNameEn', function(req, res) {
+  MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/MeasurEditName', function(req, res) {
+  MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
+    res.send(true);
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
+  });
+});
+
+router.post('/saveItem',function(req,res){
+  orderMgr.addItem(req.body,function(result){
+   // console.log(result);
+    res.redirect('/order/showOrder');
+  });
+});
+
+
+router.get('/sizes/:id', function(req, res) {
+  // get functions sizes 
+  console.log(req.params.id);
+  SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
+  res.render('sizes', { title: 'sizes',size:result});
+  });
 });
 
 router.get('/adminColors', function(req, res) {
-  res.render('adminColors', { title: 'Colors'});
+  res.render('adminColors', { title: 'Colors',NProgress:"fadeIn out"});
+});
+
+router.get('/adminTypeBusiness', function(req, res) {
+  res.render('adminTypeBusiness', { title: 'Type of Business'});
+});
+
+router.get('/adminGenre', function(req, res) {
+  res.render('adminGenre', { title: 'Genre'});
+});
+
+router.get('/adminTypeGenre', function(req, res) {
+  res.render('adminTypeGenre', { title: 'Type of Genre'});
 });
 
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
-    res.render('adminCities', { title: 'Cities',cities:result});
+    res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});
   });
 });
 
 router.post('/addcity',function(req, res) {
-  console.log(req.body);
   validator.isCity(req,function(err,result){
-    console.log(result);
-
     if(result!=true){
-      console.log("err");
-      res.send(result);
+      var rel={"result":result,stat:false}
+      res.send(rel);
     }else{
       CityMgr.AddCity(req.body,function(err,result){
-        console.log("true");
-        res.send(true);
+        CityMgr.GetCityById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
       });
     }
   });
@@ -84,14 +155,23 @@ router.post('/editname', function(req, res) {
   });
 });
 
+
+router.get('/delete/:id', function(req, res) {
+  //console.log(req.params.id);
+  MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
+    res.send(true);
+  });
+});
+
+
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-    res.render('adminAreas', { title: 'Areas',areas:result});
+    res.render('adminAreas', { title: 'Areas',areas:result,NProgress:"fadeIn out"});
   });
 });
 
 router.get('/adminMahala', function(req, res) {
-  res.render('adminMahala', { title: 'Mahala'});
+  res.render('adminMahala', { title: 'Mahala',NProgress:"fadeIn out"});
 });
 
 router.get('/adminSerialNumber', function(req, res) {
@@ -126,11 +206,11 @@ router.get('/adminSerialNumber', function(req, res) {
 });
 
 router.get('/showAdmin', function(req, res) {
-  res.render('showAdmin', { title: 'Show Admins' ,users:users});
+  res.render('showAdmin', { title: 'Show Admins' ,users:users,NProgress:"fadeIn out"});
 });
 
 router.get('/loadingImg', function(req, res) {
-  res.render('loadingImg', { title: 'Loading....' ,users:users});
+  res.render('loadingImg', { title: 'Loading....'});
 });
 
 

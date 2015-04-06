@@ -64,8 +64,6 @@
     "update_Address_idcompany":{"value":10000000,"pk":10000000},
     "update_Address_idschool":{"value":2,"pk":10000000},
     "delete_Address":10000000
-
-
   },
   "seller":{
     "add_seller":{"idcompany_seller":10000000,"first_name":"abdoo","last_name":"ageel","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4","company_idcompany":10000000},
@@ -77,8 +75,39 @@
     "update_seller_company":{"value":10000000,"pk":10000000},
     "seller_email":{"email":"@gmin.com"},
     "delete_seller":10000000
-  }
+  },
+  "customer":{
+    "add_customer":{"idcustomer":10000000,"first_name":"abdoo","last_name":"ageel","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4","balance":0,"mobile":"123456789","phone":"1234567890"},
+    "update_customer_first":{"value":"abc","pk":10000000},
+    "update_customer_last":{"value":"def","pk":10000000},
+    "update_customer_email":{"value":"@google","pk":10000000},
+    "update_customer_password":{"value":"102030","pk":10000000},
+    "update_customer_balance":{"value":"3.0","pk":10000000},
+    "update_customer_mobile":{"value":"10203000","pk":10000000},
+    "update_customer_phone":{"value":"10203000","pk":10000000},
+    "update_customer_level":{"value":2,"pk":10000000},
+    "update_customer_status":{"value":2,"pk":10000000},
+    "customer_email":{"email":"@gmin.com"},
+    "delete_customer":10000000
+  },
   
+  "customerAddress":{
+    "addaddress":{"idcustomer_address":10000000,"latit":"af4564","longit":"asddf5564","customer_idcustomer":10000000,"school_idschool":1,"address_desc":"ee"},
+    "update_customer_latit":{"value":"gsfghsfh","pk":10000000},
+    "update_customer_longit":{"value":"sdg","pk":10000000},
+    "update_customer_default":{"value":0,"pk":10000000},
+    "update_customer_idcustomer":{"value":10000000,"pk":10000000},
+    "update_customer_idschool":{"value":2,"pk":10000000},
+    "update_customer_desc":{"value":"sdg","pk":10000000},
+    "delete_customer":10000000
+  },
+  "genre":{
+    "add_genre":{"idgenre":10000000,"name":"الخمس","name_en":"Elkhoms","tob_idtob":10000000},
+    "update_genre_name":{"value":"خمس","pk":10000000},
+    "update_genre_name_en":{"value":"Khoms","pk":10000000},
+    "update_genre_tob":{"value":10000000,"pk":10000000},
+    "delete_genre":10000000
+  }
 
 
 

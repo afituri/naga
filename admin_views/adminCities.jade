@@ -5,60 +5,79 @@ block dashBord
       // Page Heading
       .row
         .col-lg-12
-          h1.page-header  Locations Manger
+          h1  Locations Manger
             small  Cities
           ol.breadcrumb
             li
               i.fa.fa-dashboard
               a(href='/adminPage')  Dashboard
             li.active
+              i.fa Locations Manger
+            li.active
               i.fa  Cities
-          .panel.panel-default
+            //- .panel.panel-default
+            //-   .panel-heading
+            //-     .row
+            //-       .col-xs-2.col-md-2
+            //-         h2.panel-title(style="margin-top: 8px;")
+            //-           strong  List of Cities
+            //-       .col-xs-5.col-md-6
+            //-         form(role='search')
+            //-           .input-group
+            //-             input.form-control(type='text', placeholder='Search by name')
+            //-             span.input-group-addon
+            //-               i.glyphicon.glyphicon-search
+            //-       .col-xs-3.col-md-2
+            //-         a.btn.btn-success(href='#newCitie', role='button',data-toggle='modal')
+            //-           span.glyphicon.glyphicon-plus
+            //-           |  Add Citie
+            //-       .col-xs-2.col-md-2 
+            //-         button.btn.btn-primary
+            //-           i.glyphicon.glyphicon-print
+            //-           |  Print 
+          .panel.panel-default.filterable
             .panel-heading
               .row
-                .col-xs-2.col-md-2
-                  h2.panel-title(style="margin-top: 8px;")
-                    strong  List of Cities
-                .col-xs-5.col-md-6
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      span.input-group-addon
-                        i.glyphicon.glyphicon-search
                 .col-xs-3.col-md-2
-                  a.btn.btn-success(href='#newCitie', role='button',data-toggle='modal')
-                    span.glyphicon.glyphicon-plus
-                    |  Add Citie
-                .col-xs-2.col-md-2 
-                  button.btn.btn-primary
+                  h3.panel-title#title
+                    strong List of Cities
+                .pull-right
+                  button#space.btn.btn-primary.btn-filter
+                    i.glyphicon.glyphicon-filter
+                    |  Filter of Search
+                  a#space.btn.btn-success(href='#newCitie', role='button',data-toggle='modal')
+                    i.glyphicon.glyphicon-plus
+                    |  Add City
+                  button#space.btn.btn.btn-info
                     i.glyphicon.glyphicon-print
-                    |  Print 
-            .panel-body
-              .table-responsive
-                table#user.table.table-striped.table-condensed
-                  thead
-                    tr
+                    |  Print
+            .table-responsive
+              table#user.table.table-striped.table-condensed
+                thead
+                  tr.filters
+                    th
+                      //- strong Name in Arabic
+                      input.form-control.text-center(type='text', placeholder='City Name in Arabic', disabled='')
+                    th
+                      //- strong Name in English
+                      input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
+                    th.text-center
+                      strong Edit
+                    th.text-center
+                      strong Trash 
+                tbody#tbody
+                  for city in cities
+                    tr(data-id='#{city.idcity}')
                       td.text-center
-                        strong Name in Arabic
+                        a.editable.editable-click(id='name#{city.idcity}', href='#', data-type='text', data-pk='#{city.idcity}') #{city.name}
                       td.text-center
-                        strong Name in English
+                        a.editable.editable-click(id='name_en#{city.idcity}',href='#', data-type='text', data-pk='#{city.idcity}') #{city.name_en}
                       td.text-center
-                        strong Edit
+                        button#enable.btn.btn-info.btn-xs(data-value='#{city.idcity}', data-placement='top', title='Edit City')
+                          span.glyphicon.glyphicon-pencil
                       td.text-center
-                        strong Trash 
-                  tbody
-                    for city in cities
-                      tr(data-id='#{city.idcity}')
-                        td.text-center
-                          a.editable.editable-click(id='name#{city.idcity}', href='#', data-type='text', data-pk='#{city.idcity}') #{city.name}
-                        td.text-center
-                          a.editable.editable-click(id='name_en#{city.idcity}',href='#', data-type='text', data-pk='#{city.idcity}') #{city.name_en}
-                        td.text-center
-                          button#enable.btn.btn-info.btn-xs(data-value='#{city.idcity}', data-placement='top', title='Edit City')
-                            span.glyphicon.glyphicon-pencil
-                        td.text-center
-                          button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-value='#{city.idcity}', data-placement='top', title='Delete City')
-                            span.glyphicon.glyphicon-trash      
+                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-value='#{city.idcity}', data-placement='top', title='Delete City')
+                          span.glyphicon.glyphicon-trash      
               //- if pagination
               //-   .text-center
               //-     ul.pagination
@@ -69,40 +88,40 @@ block dashBord
               //-           a(href='?p=#{page.n}') #{page.n}
               //-       li(class="#{pagination.next.disabled}")
               //-         a(href='?p=#{pagination.next.n}') Next
-          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-danger
-                  p.h1 Sure you want to delete?
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newCitie.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") × 
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  Add Citie
+              .row 
                 .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newCitie.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-success
-                  button.close(type="button", data-dismiss="modal" aria-label="Close")
-                    span(aria-hidden="true") × 
-                  h2
-                    .glyphicon.glyphicon-plus
-                    |  Add Citie
-                .row 
-                  .modal-body
-                    form#formCitie.form-signin(role="form")
-                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                        .form-group
-                          .h4 Name in Arabic
-                          input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
-                      .col-xs-5.col-md-5
-                        .form-group      
-                          .h4 Name in English
-                          input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
-                  .modal-footer
-                    button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                    button#sub.btn.btn-primary Save Change 
+                  form#formCitie.form-signin(role="form")
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Name in Arabic
+                        input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 Name in English
+                        input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button#sub.btn.btn-primary Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
@@ -110,4 +129,5 @@ block dashBord
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/editCity.js') 
   script(src='/js/helpers.js')
-  script(src='/js/adminCities.js') 
+  script(src='/js/adminCities.js')
+  script(src='/js/searchFilter.js') 

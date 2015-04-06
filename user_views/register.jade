@@ -141,229 +141,93 @@ block home
                 a(href='/user/homePage') Home
                 span.divider /
               li.active Registration
-            h3  Registration
-            .well
-              //
-                <div class="alert alert-info fade in">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </div>
-                <div class="alert fade in">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </div>
-                <div class="alert alert-block alert-error fade in">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </div>
-              form.form-horizontal
-                h4 Your personal information
-                .control-group
-                  label.control-label
-                    | Title 
-                    sup *
-                  .controls
-                    select.span1(name='days')
-                      option(value='') -
-                      option(value='1') Mr.
-                      option(value='2') Mrs
-                      option(value='3') Miss
-                .control-group
-                  label.control-label(for='inputFname1')
-                    | First name 
-                    sup *
-                  .controls
-                    input#inputFname1(type='text', placeholder='First Name')
-                .control-group
-                  label.control-label(for='inputLnam')
-                    | Last name 
-                    sup *
-                  .controls
-                    input#inputLnam(type='text', placeholder='Last Name')
-                .control-group
-                  label.control-label(for='input_email')
-                    | Email 
-                    sup *
-                  .controls
-                    input#input_email(type='text', placeholder='Email')
-                .control-group
-                  label.control-label(for='inputPassword1')
-                    | Password 
-                    sup *
-                  .controls
-                    input#inputPassword1(type='password', placeholder='Password')
-                .control-group
-                  label.control-label
-                    | Date of Birth 
-                    sup *
-                  .controls
-                    select.span1(name='days')
-                      option(value='') -
-                      option(value='1') 1  
-                      option(value='2') 2  
-                      option(value='3') 3  
-                      option(value='4') 4  
-                      option(value='5') 5  
-                      option(value='6') 6  
-                      option(value='7') 7  
-                    select.span1(name='days')
-                      option(value='') -
-                      option(value='1') 1  
-                      option(value='2') 2  
-                      option(value='3') 3  
-                      option(value='4') 4  
-                      option(value='5') 5  
-                      option(value='6') 6  
-                      option(value='7') 7  
-                    select.span1(name='days')
-                      option(value='') -
-                      option(value='1') 1  
-                      option(value='2') 2  
-                      option(value='3') 3  
-                      option(value='4') 4  
-                      option(value='5') 5  
-                      option(value='6') 6  
-                      option(value='7') 7  
-                .alert.alert-block.alert-error.fade.in
-                  button.close(type='button', data-dismiss='alert') ×
-                  strong Lorem Ipsum is simply
-                  |  dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                h4 Your address
-                .control-group
-                  label.control-label(for='inputFname')
-                    | First name 
-                    sup *
-                  .controls
-                    input#inputFname(type='text', placeholder='First Name')
-                .control-group
-                  label.control-label(for='inputLname')
-                    | Last name 
-                    sup *
-                  .controls
-                    input#inputLname(type='text', placeholder='Last Name')
-                .control-group
-                  label.control-label(for='company') Company
-                  .controls
-                    input#company(type='text', placeholder='company')
-                .control-group
-                  label.control-label(for='address')
-                    | Address
-                    sup *
-                  .controls
-                    input#address(type='text', placeholder='Adress')
-                    span Street address, P.O. box, company name, c/o
-                .control-group
-                  label.control-label(for='address2')
-                    | Address (Line 2)
-                    sup *
-                  .controls
-                    input#address2(type='text', placeholder='Adress line 2')
-                    span Apartment, suite, unit, building, floor, etc.
-                .control-group
-                  label.control-label(for='city')
-                    | City
-                    sup *
-                  .controls
-                    input#city(type='text', placeholder='city')
-                .control-group
-                  label.control-label(for='state')
-                    | State
-                    sup *
-                  .controls
-                    select#state
-                      option(value='') -
-                      option(value='1') Alabama
-                      option(value='2') Alaska
-                      option(value='3') Arizona
-                      option(value='4') Arkansas
-                      option(value='5') California
-                      option(value='6') Colorado
-                      option(value='7') Connecticut
-                      option(value='8') Delaware
-                      option(value='53') District of Columbia
-                      option(value='9') Florida
-                      option(value='10') Georgia
-                      option(value='11') Hawaii
-                      option(value='12') Idaho
-                      option(value='13') Illinois
-                      option(value='14') Indiana
-                      option(value='15') Iowa
-                      option(value='16') Kansas
-                      option(value='17') Kentucky
-                      option(value='18') Louisiana
-                      option(value='19') Maine
-                      option(value='20') Maryland
-                      option(value='21') Massachusetts
-                      option(value='22') Michigan
-                      option(value='23') Minnesota
-                      option(value='24') Mississippi
-                      option(value='25') Missouri
-                      option(value='26') Montana
-                      option(value='27') Nebraska
-                      option(value='28') Nevada
-                      option(value='29') New Hampshire
-                      option(value='30') New Jersey
-                      option(value='31') New Mexico
-                      option(value='32') New York
-                      option(value='33') North Carolina
-                      option(value='34') North Dakota
-                      option(value='35') Ohio
-                      option(value='36') Oklahoma
-                      option(value='37') Oregon
-                      option(value='38') Pennsylvania
-                      option(value='51') Puerto Rico
-                      option(value='39') Rhode Island
-                      option(value='40') South Carolina
-                      option(value='41') South Dakota
-                      option(value='42') Tennessee
-                      option(value='43') Texas
-                      option(value='52') US Virgin Islands
-                      option(value='44') Utah
-                      option(value='45') Vermont
-                      option(value='46') Virginia
-                      option(value='47') Washington
-                      option(value='48') West Virginia
-                      option(value='49') Wisconsin
-                      option(value='50') Wyoming
-                .control-group
-                  label.control-label(for='postcode')
-                    | Zip / Postal Code
-                    sup *
-                  .controls
-                    input#postcode(type='text', placeholder='Zip / Postal Code')
-                .control-group
-                  label.control-label(for='country')
-                    | Country
-                    sup *
-                  .controls
-                    select#country
-                      option(value='') -
-                      option(value='1') Country
-                .control-group
-                  label.control-label(for='aditionalInfo') Additional information
-                  .controls
-                    textarea#aditionalInfo(name='aditionalInfo', cols='26', rows='3') Additional information
-                .control-group
-                  label.control-label(for='phone')
-                    | Home phone 
-                    sup *
-                  .controls
-                    input#phone(type='text', name='phone', placeholder='phone')
-                    span You must register at least one phone number
-                .control-group
-                  label.control-label(for='mobile') Mobile Phone 
-                  .controls
-                    input#mobile(type='text', name='mobile', placeholder='Mobile Phone')
-                p
-                  sup *
-                  | Required field
-                .control-group
-                  .controls
-                    input(type='hidden', name='email_create', value='1')
-                    input(type='hidden', name='is_new_customer', value='1')
-                    input.btn.btn-large.btn-success(type='submit', value='Register')
+            h3#Reservationh3  Reservation
+            .panel.panel-warning
+              .panel-body
+                form.form-horizontal(id="register",name="register" ,role="form" ,action="" ) 
+                  .form-group
+                    label.control-label.col-md-offset-2
+                      h4#Reservationh3 Your personal information
+                            
+                  .form-group    
+                    label.control-label.col-md-2.col-md-offset-2 NAME       
+                    .col-md-8
+                      .col-md-4
+                        .form-group.internal
+                          input.form-control(id="FirstName",type ="text", value="",name="FirstName",placeholder ="First Name")
+                      .col-md-4.indent-small
+                        .form-group.internal
+                          input.form-control(id="LastName",name="LastName",type = "text", placeholder ="Last Name")          
+
+                  .form-group    
+                    label.control-label.col-md-2.col-md-offset-2 Email
+                    .col-md-6
+                      .form-group
+                        .col-md-11
+                          input.form-control(id="email", type = "email", placeholder = "Email" , name ="email")
+                            
+                  .form-group    
+                    label.control-label.col-md-2.col-md-offset-2  Password
+                    .col-md-6
+                      .form-group
+                        .col-md-11
+                          input.form-control#Password(name = "Password", type = "Password", placeholder = "Password")    
+                      .form-group.internal
+                        .col-md-11
+                          input.form-control(id="confirmPassword",name="confirmPassword",type = "text", placeholder = "confirm Password")  
+                  .form-group    
+                    label.control-label.col-md-2.col-md-offset-2 Phone Namber
+                    .col-md-6
+                      .form-group
+                        .col-md-11
+                          input.form-control(name="Mobile",id="Mobile", type = "Namber", placeholder = "Mobile: {xxx} - xxx xxxx")
+                      .form-group.internal
+                        .col-md-11
+                          input.form-control(name="HomePhone" , id="HomePhone" ,type= "Namber", placeholder = "HomePhone: {xxx} - xxx xxxx") 
+                  hr.soft 
+                  .col-md-2
+                  h4#Reservationh4 Your Location            
+                  .form-group                      
+                      label.control-label.col-md-2.col-md-offset-2 city
+                      .col-md-8
+                        .col-md-3
+                          .form-group
+                            select.form-control#city(name= "city")
+                              option(value="-1") Travel trailer
+                        label.control-label.col-md-1 area
+                        .col-md-4
+                          .form-group
+                            select.form-control(name="area" , id="area")
+                              option(value ="-1") Travel trailer
+                    .form-group           
+                      label.control-label.col-md-2.col-md-offset-2 mahalla
+                      .col-md-8
+                        .col-md-6
+                          .form-group.internal
+                            select.form-control(name="mahalla" , id="mahalla")
+                              option(value ="-1") Travel trailer      
+                    .form-group          
+                      label.control-label.col-md-2.col-md-offset-2 The nearestschool
+                      .col-md-8
+                        .col-md-6         
+                          .form-group.internal
+                            select.form-control(name="nearestschool" , id="nearestschool")
+                              option(value ="-1") Travel trailer
+                  .form-group    
+                    label.control-label.col-md-2.col-md-offset-2 The nearest point for your location
+                    .col-md-6
+                      textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
+                  .form-group         
+                    .col-md-offset-4.col-md-3
+                      button#Loginbt(type= "submit") Request Reservation
+                    .col-md-3
+                      button#Loginbt() Cancel
     // MainBody End =============================
-    script(src='/themes/js/jquery.js', type='text/javascript')
+    script(src='/themes/js/bootstrap.min.js', type='text/javascript')
+    script(src='/js/jquery-1.11.2.min.js') 
+    script(src="/js/jquery.validate.min.js") 
+    script(src="/js/register.js")
+    script(src='/js/helpers.js')            
     script(src='/themes/js/bootstrap.min.js', type='text/javascript')
     script(src='/themes/js/google-code-prettify/prettify.js')
     script(src='/themes/js/bootshop.js')

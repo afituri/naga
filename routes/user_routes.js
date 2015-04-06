@@ -15,6 +15,40 @@ router.get('/department', function(req, res) {
   res.render('department', { title: ' department' });
 });
 
+router.get('/myAcount', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('myAcount', { title: 'myAcount' });
+});
+
+router.get('/forgotPassword?', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('forgotPassword', { title: 'myAcount' });
+});
+
+router.get('/newPassword?', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('newPassword', { title: 'myAcount' });
+});
+
+
+router.get('/login', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('login', { title: 'login' });
+});
+
+router.get('/account', function(req, res) {
+  res.render('account', { title: ' my account' });
+});
+
+router.get('/registration', function(req, res) {
+  res.render('registration', { title: 'registration' });
+});
+
+router.get('/myOrder', function(req, res) {
+  res.render('myOrder', { title: 'myOrder' });
+});
+
+
     
     router.get('/abdo', function(req,res){
       userMgr.deleteById(1,function(result){

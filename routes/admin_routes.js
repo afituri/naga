@@ -33,9 +33,15 @@ router.get('/search/:name', function(req, res) {
 
 
 router.get('/getMeasure', function(req, res) {
- MeasureMgr.GetMeasure(function(err,result){
- console.log(result);
- res.send(result); 
+   req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+ MeasureMgr.GetMeasure(limit,function(err,result){
+  if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+ res.send(result[0]);
+ } 
 });  
 });
 
@@ -64,16 +70,41 @@ router.get('/adminMeasure', function(req, res) {
    if(result[1][0] != undefined ){
     var pageCount = user.getPageCount(result[1][0].cnt); 
     var pagination = user.paginate(page,pageCount);
-  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
-}
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+    }
   });
 });
+
+//MeasurEditNameEn
+
+router.post('/MeasurEditNameEn', function(req, res) {
+  MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/MeasurEditName', function(req, res) {
+  MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
+    res.send(true);
+  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
+
+  });
+});
+
+   router.post('/saveItem',function(req,res){
+      orderMgr.addItem(req.body,function(result){
+       // console.log(result);
+        res.redirect('/order/showOrder');
+    });
+
+
+
+
 
 router.get('/sizes/:id', function(req, res) {
   // get functions sizes 
   console.log(req.params.id);
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
-    console.log(result);
   res.render('sizes', { title: 'sizes',size:result});
   });
 });

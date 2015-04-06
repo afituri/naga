@@ -14,61 +14,64 @@ block dashBord
             li.active
               i.fa  Measure
       .panel.panel-default
-        .panel-heading
-          .row
-            .col-md-3
-              h2.panel-title 
-                strong  List of Measure
-            .col-md-5
-              form(role='search')
-                .input-group
-                  input#search.form-control(type='text', placeholder='Search by name')
-                  .input-group-btn
-                    button.btn.btn-default(type='submit')
-                      i.glyphicon.glyphicon-search
-            .col-md-2 
-              a.btn.btn-success(href='#newMeasure', role='button',data-toggle='modal')
-                span.glyphicon.glyphicon-plus
-                |  Add Measure
-            .col-md-2  
-        .table-responsive
-          table.table.table-condensed
-            thead
-              tr
-                td.text-center
-                  strong Name in Arabic
-                td.text-center
-                  strong Name in English
-                td.text-center
-                  strong View
-                 td.text-center
-                  strong Edit  
-                td.text-center
-                  strong Trash 
-              tbody#MeasureTable
-                for o in measure
-                  tr
-                    td.text-center #{o.name}
-                    td.text-center #{o.name_en}
-                    td.text-center
-                      button#view.btn.btn-primary.btn-xs(value='#{o.idmeasure}' ,data-title='Edit', data-toggle='modal')
-                        span.glyphicon.glyphicon-eye-open
-                    td.text-center
-                      button.btn.btn-info.btn-xs
-                        span.glyphicon.glyphicon-pencil     
-                    td.text-center
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' value='#{o.idmeasure}')
-                        span.glyphicon.glyphicon-trash  
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  List of Measure
+                .col-md-5
+                  form(role='search')
+                    .input-group
+                      input#search.form-control(type='text', placeholder='Search by name')
+                      .input-group-btn
+                        button.btn.btn-default(type='submit')
+                          i.glyphicon.glyphicon-search
+                .col-md-2 
+                  a.btn.btn-success(href='#newMeasure', role='button',data-toggle='modal')
+                    span.glyphicon.glyphicon-plus
+                    |  Add Measure
+                .col-md-2  
+        .panel-body
+          .table-responsive
+            table.table.table-condensed
+              thead
+                tr
+                  td
+                    strong Name in Arabic
+                  td
+                    strong Name in English
+                  td.text-right
+                    strong View
+                   td.text-right
+                    strong Edit  
+                  td.text-right
+                    strong Trash 
+                tbody#MeasureTable
+                  for o in measure
+                    tr(data-id='#{o.idmeasure}')
+                      td
+                        a.editable.editable-click(id='name#{o.idmeasure}', href='#', data-type='text', data-pk='#{o.idmeasure}') #{o.name}
+                      td
+                        a.editable.editable-click(id='name_en#{o.idmeasure}', href='#', data-type='text', data-pk='#{o.idmeasure}') #{o.name_en} 
+                      td.text-right
+                        button#view.btn.btn-primary.btn-xs(value='#{o.idmeasure}' ,data-title='Edit', data-toggle='modal')
+                          span.glyphicon.glyphicon-eye-open
+                      td.text-right
+                        button#enable.btn.btn-info.btn-xs(value='#{o.idmeasure}' ,data-title='Edit', data-toggle='modal')
+                          span.glyphicon.glyphicon-pencil     
+                      td.text-right 
+                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' value='#{o.idmeasure}')
+                          span.glyphicon.glyphicon-trash  
         if pagination 
           div.text-center
             ul.pagination
               li(class='#{pagination.previous.disabled}')
-                a(href='?p=#{pagination.previous.n}') Previous
+                a(href='?p=#{pagination.previous.n}') السابق
               for page in pagination.pages
                 li(class="#{page.active}")
                   a(href='?p=#{page.n}') #{page.n}
               li(class="#{pagination.next.disabled}")
-                a(href='?p=#{pagination.next.n}') Next        
+                a(href='?p=#{pagination.next.n}') التالي        
         #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
@@ -91,7 +94,7 @@ block dashBord
                   |  Add Measure
               .row 
                 .modal-body
-                  form#formMeasure.form-signin(role="form" , action="", method="post")
+                  form#formMeasure.form-signin(role="form" , action="/saveMeasure", method="post")
                     .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                       .form-group
                         .h4 Name in Arabic
@@ -105,8 +108,10 @@ block dashBord
                 button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
-  script(src='/js/adminMeasure.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/nprogress.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/adminMeasure.js')
+  script(src='/js/editMeasure.js') 
   script(src='/js/adminSizes.js')

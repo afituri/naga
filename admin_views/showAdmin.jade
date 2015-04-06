@@ -1,0 +1,103 @@
+extends layout
+block dashBord
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admins Manger
+          small  Show Admin
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  Show Admin
+        //- // Show Admins Started
+        //- .panel.panel-default
+        //-   .panel-heading
+        //-     .row
+        //-       .col-xs-2.col-md-2
+        //-         h2.panel-title 
+        //-           strong  List of Admins
+        //-       .col-xs-5.col-md-6
+        //-         form(role='search')
+        //-           .form-group.input-group
+        //-             input.form-control(type='text', placeholder='Search by name')
+        //-             span.input-group-addon
+        //-               i.glyphicon.glyphicon-search
+        //-       .col-xs-3.col-md-2
+        //-         a.btn.btn-success(href='#newCitie', role='button',data-toggle='modal')
+        //-           span.glyphicon.glyphicon-plus
+        //-           |  Add Admin
+        //-       .col-xs-2.col-md-2 
+        //-         button.btn.btn-primary
+        //-           i.glyphicon.glyphicon-print
+        //-           |  Print 
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Admins
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newAdmin', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Admin
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th 
+                    input.form-control.text-center(type='text', placeholder='Admin Username', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Admin Name', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Date Added', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Role', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Status', disabled='')
+                  th.text-center Remove
+              tbody
+                for user in users
+                  tr
+                    td.text-center #{user.username}
+                    td.text-center #{user.name}
+                    td.text-center #{user.dateadded}
+                    td.text-center Admin
+                    td.text-center
+                      case user.status
+                        when 1
+                          - var att="success"
+                          - var attName="Active"
+                        when 2 
+                          - var att="danger"
+                          - var attName="Banned"
+                        when 3 
+                          - var att="default"
+                          - var attName="InActive"
+                        when 4 
+                          - var att="warning"
+                          - var attName="Pending"
+                        when 5 
+                          - var att="info"
+                          - var attName="Info"
+                        when 6 
+                          - var att="primary"
+                          - var attName="Admin"
+                      span.label(class="label-#{att}") #{attName}
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-placement='top', title='Remove Admin')
+                        span.glyphicon.glyphicon-remove
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js') 
+    

@@ -7,22 +7,35 @@ exports.AdminMgr = {
       conn.query('SELECT * FROM `admin` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
-    
-  GetSellerByCompanyId : function(id,cb){
+  
+  AddAdmin : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('INSERT INTO `admin` SET ?',body,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  GetAdminById : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `admin` WHERE `status` <> 0 AND `idadmin` = ?',id,function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -33,9 +46,9 @@ exports.AdminMgr = {
       conn.query('SELECT `name` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -46,9 +59,9 @@ exports.AdminMgr = {
       conn.query('SELECT `email` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -58,9 +71,9 @@ exports.AdminMgr = {
       conn.query('SELECT `level` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -71,9 +84,9 @@ exports.AdminMgr = {
       conn.query('SELECT `status` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -84,9 +97,9 @@ exports.AdminMgr = {
       conn.query('SELECT `status` FROM `admin` WHERE `status` = 1 AND`email` = ? ',email,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -98,9 +111,9 @@ exports.AdminMgr = {
       conn.query('UPDATE `admin` SET `name` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -112,9 +125,9 @@ exports.AdminMgr = {
       conn.query('UPDATE `admin` SET `email` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -126,26 +139,39 @@ exports.AdminMgr = {
       conn.query('UPDATE `admin` SET `level` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
   },
   
-  DeleteAdmin : function(body,cb){
+  DeleteAdmin : function(id,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `admin` SET `status` = ?,`update_time`=? WHERE `idadmin` = ?',  [body.value,date,body.pk],  function(err, result) {
+      conn.query('UPDATE `admin` SET `status` = 0,`update_time`=? WHERE `idadmin` = ?',  [date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `admin` WHERE `idadmin` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
   
 };

@@ -2,50 +2,7 @@ extends layout
 block content
   html
   body
-    #logoArea.navbar
-      a#smallScreen.btn.btn-navbar(data-target='#topMenu', data-toggle='collapse')
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      .navbar-inner
-        a.brand(href='/seller/homePage')
-           img(src='/themes/images/Logoo.png', alt='Bootsshop', width='300 px ;')
-        form.form-inline.navbar-search(method='post', action='products.html')
-          input#srchFld.srchTxt(type='text')
-          select.srchTxt
-            option All
-            option CLOTHES 
-            option FOOD AND BEVERAGES 
-            option HEALTH & BEAUTY 
-            option SPORTS & LEISURE 
-            option BOOKS & ENTERTAINMENTS 
-          button#submitButton.btn.btn-primary(type='submit') Go
-        ul#topMenu.nav.pull-right
-          li
-            a(href='/seller/special_offer') Specials Offer
-          li
-            a(href='normal.html') Delivery
-          li
-            a(href='contact.html') Contact
-          li
-            a(href='#login', role='button', data-toggle='modal', style='padding-right:0')
-              span.btn.btn-large.btn-success Login
-            #login.modal.hide.fade.in(tabindex='-1', role='dialog', aria-labelledby='login', aria-hidden='false')
-              .modal-header
-                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                h3 Login Block
-              .modal-body
-                form.form-horizontal.loginFrm
-                  .control-group
-                    input#inputEmail(type='text', placeholder='Email')
-                  .control-group
-                    input#inputPassword(type='password', placeholder='Password')
-                  .control-group
-                    label.checkbox
-                      input(type='checkbox')
-                      |  Remember me
-                button.btn.btn-success(type='submit') Sign in
-                button.btn(data-dismiss='modal', aria-hidden='true') Close
+    
     // Header End======================================================================
     #mainBody
       .container

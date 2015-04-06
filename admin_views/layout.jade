@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
     meta(charset='utf-8')
@@ -9,16 +9,20 @@ html
     meta(name='author', content='')
     link(href="/css/admin_style.css" rel="stylesheet")
     link(href="/css/bootstrap.min.css" rel="stylesheet")
-    <!-- MetisMenu CSS -->
+    link(href="/css/bootstrap-editable.css" rel="stylesheet")
+    //- MetisMenu CSS
     link(href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet")
-    <!-- Custom CSS -->
+    //- Custom CSS
     link(href="/css/sb-admin-2.css" rel="stylesheet")
-    <!-- Custom Fonts -->
-    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css")
-  body
+    //- Custom Fonts
+    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
+    link(href="/css/nprogress.css" rel="stylesheet")
+  body(style='display: none')
     block content
       block navigation
-        #wrapper
+        //- .loadingImg
+        //-(class="#{NProgress}")
+        #wrapper 
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
               button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
@@ -221,11 +225,9 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Metrics
+                        a(href="/adminMeasure") Measure
                       li
-                        a(href="#") Sizes
-                      li
-                        a(href="#") Colors        
+                        a(href="/adminColors") Colors        
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-briefcase
@@ -233,13 +235,7 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Type of Business 
-                      li
-                        a(href="#") Business Genre
-                          span.fa.arrow
-                        ul.nav.nav-third-level
-                          li
-                            a(href="#") Genre
+                        a(href="/adminTypeBusiness") Type of Business 
                   li
                     a(href="#")
                       i.fa.fa-user
@@ -247,7 +243,7 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Admin
+                        a(href="/showAdmin") Show Admin 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-usd
@@ -282,5 +278,5 @@ html
                               li
                                 a(href="#") Third Level Item
                               li
-                                a(href="#") Third Level Item  
+                                a(href="#") Third Level Item 
           block dashBord                                           

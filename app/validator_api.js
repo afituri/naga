@@ -1,17 +1,14 @@
-var CityMgr = require('./city').CityMgr;
 
 
 module.exports = {
-  isCity : function (req,res,next) {
+  isCity : function (req,cb) {
     isName(req,'name',' name required');           //Validate name
     isName(req,'name_en',' name_en required');
     var errors = req.validationErrors();  
     if( !errors){  
-      return next();
+      cb(null,true);
     }else {   //Display errors to user
-      CityMgr.GetCity(function(result){
-        res.render('adminCities', { title: 'Cities',citys:result,errors: errors});
-      });
+      cb(null,errors);
     }
   }, 
 };

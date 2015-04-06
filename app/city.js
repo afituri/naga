@@ -7,22 +7,34 @@ exports.CityMgr = {
       conn.query('SELECT * FROM `city` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
 
+  GetCityById :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `city` WHERE `status` <> 0 AND `idcity`=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
   AddCity : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `city` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -33,9 +45,9 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `name` = ?,`update_time`=? WHERE `idcity` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -47,9 +59,9 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `name_en` = ?,`update_time`=? WHERE `idcity` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -61,13 +73,26 @@ exports.CityMgr = {
       conn.query('UPDATE `city` SET `status` = 0 ,`update_time` = ? WHERE `idcity` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `city` WHERE `idcity` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 //////////////////////////////////////////////////////////////////////////
  
   

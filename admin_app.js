@@ -8,8 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/admin_routes');
 var admin = express();
-var expressValidator = require('express-validator'); 
-  
+var expressValidator = require('express-validator');   
 admin.set('views', path.join(__dirname, 'admin_views'));
 admin.set('view engine', 'jade');
 

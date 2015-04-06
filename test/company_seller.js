@@ -9,10 +9,10 @@ var tob = require('../TestUser/mochaObj.json').tob;
 var obj = require('../TestUser/mochaObj.json').seller;
 
 
-describe('Module admin', function(){
+describe('Module seller', function(){
   
-  it('admin is an object with a fucntion ', function(){
-    assert.equal(typeof adminMgr, 'object');
+  it('seller is an object with a fucntion ', function(){
+    assert.equal(typeof CompanySeller, 'object');
   }),
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -36,27 +36,34 @@ describe('Module admin', function(){
 
   describe('#AddCompany()',function(){
     it('Should inser without an error', function(done){
-      company.AddCompany(obj["add_company"],function(err,result){
+      CompanyMgr.AddCompany(company["add_company"],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-  describe('#GetAllAdmin()',function(){
-    it('Should update without an error', function(done){
-      adminMgr.GetAllAdmin(function(err,result){
+  describe('#AddSeller()',function(){
+    it('Should inser without an error', function(done){
+      CompanySeller.AddSeller(obj["add_seller"],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
 
-  describe('#GetAdminById()',function(){
+  describe('#GetAllSeller()',function(){
     it('Should update without an error', function(done){
-      adminMgr.GetAdminById(obj['delete_admin'],function(err,result){
+      CompanySeller.GetAllSeller(function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+
+  describe('#GetSellerByCompanyId()',function(){
+    it('Should update without an error', function(done){
+      CompanySeller.GetSellerByCompanyId(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -65,7 +72,7 @@ describe('Module admin', function(){
 
   describe('#GetNameById()',function(){
     it('Should update without an error', function(done){
-      adminMgr.GetNameById(obj['delete_admin'],function(err,result){
+      CompanySeller.GetNameById(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -74,7 +81,7 @@ describe('Module admin', function(){
 
   describe('#GetEmailById()',function(){
     it('Should update without an error', function(done){
-      adminMgr.GetEmailById(obj['delete_admin'],function(err,result){
+      CompanySeller.GetEmailById(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -83,7 +90,7 @@ describe('Module admin', function(){
 
   describe('#GetLevelById()',function(){
     it('Should update without an error', function(done){
-      adminMgr.GetLevelById(obj['delete_admin'],function(err,result){
+      CompanySeller.GetLevelById(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -92,25 +99,34 @@ describe('Module admin', function(){
 
   describe('#GetStatusById()',function(){
     it('Should update without an error', function(done){
-      adminMgr.GetStatusById(obj['delete_admin'],function(err,result){
+      CompanySeller.GetStatusById(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
 
-  describe('#checkEmailAdmin()',function(){
+  describe('#checkEmailSaller()',function(){
     it('Should update without an error', function(done){
-      adminMgr.checkEmailAdmin(obj['admin_email'],function(err,result){
+      CompanySeller.checkEmailSaller(obj['seller_email'],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
 
-  describe('#UpdateName()',function(){
+  describe('#UpdateFirstName()',function(){
     it('Should update without an error', function(done){
-      adminMgr.UpdateName(obj['update_admin_name'],function(err,result){
+      CompanySeller.UpdateFirstName(obj['update_seller_first'],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+
+  describe('#UpdateLastName()',function(){
+    it('Should update without an error', function(done){
+      CompanySeller.UpdateLastName(obj['update_seller_last'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -119,7 +135,7 @@ describe('Module admin', function(){
 
   describe('#UpdateEmail()',function(){
     it('Should update without an error', function(done){
-      adminMgr.UpdateEmail(obj['update_admin_email'],function(err,result){
+      CompanySeller.UpdateEmail(obj['update_seller_email'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -128,16 +144,25 @@ describe('Module admin', function(){
 
   describe('#UpdateLevel()',function(){
     it('Should update without an error', function(done){
-      adminMgr.UpdateLevel(obj['update_admin_level'],function(err,result){
+      CompanySeller.UpdateLevel(obj['update_seller_level'],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
 
-  describe('#DeleteAdmin()',function(){
+  describe('#UpdateCompany()',function(){
+    it('Should update without an error', function(done){
+      CompanySeller.UpdateCompany(obj['update_seller_company'],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+
+  describe('#DeleteSeller()',function(){
     it('Should delete without an error', function(done){
-      adminMgr.DeleteAdmin(obj['delete_admin'],function(err,result){
+      CompanySeller.DeleteSeller(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
@@ -146,23 +171,23 @@ describe('Module admin', function(){
 
   describe('#deleteTest()',function(){
     it('Should delete test without an error', function(done){
-      adminMgr.deleteTest(obj['delete_admin'],function(err,result){
+      CompanySeller.deleteTest(obj['delete_seller'],function(err,result){
         if (err) throw err;
         done();
       });
     })
-  })
+  }),
 /////////////////////////////////////////////////////////////////////////////////////
 
   describe('#deleteTest()',function(){
     it('Should delete test without an error', function(done){
-      company.deleteTest(obj["delete_company"],function(err,result){
+      CompanyMgr.deleteTest(company["delete_company"],function(err,result){
         if (err) throw err;
         done();
       });
     })
   }),
-  
+
   describe('#deleteTest()',function(){
     it('Should delete test without an error', function(done){
       adminMgr.deleteTest(admin['delete_admin'],function(err,result){

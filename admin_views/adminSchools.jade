@@ -4,135 +4,177 @@ block dashBord
     .container-fluid
       // Page Heading
       .row
-        .col-lg-12
-          h1.page-header  Locations Manger
-            small  Schools
-          ol.breadcrumb
-            li
-              i.fa.fa-dashboard
-              a(href='/adminPage')  Dashboard
-            li.active
-              i.fa  Schools
-          .panel.panel-default
-            .panel-heading
-              .row
-                .col-xs-2.col-md-2
-                  h2.panel-title(style="margin-top: 8px;")
-                    strong  List of Schools
-                .col-xs-5.col-md-6
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      .input-group-btn
-                        button.btn.btn-default(type='submit')
-                          i.glyphicon.glyphicon-search
-                .col-xs-3.col-md-2
-                  a.btn.btn-success(href='#newschool', role='button',data-toggle='modal')
-                    .glyphicon.glyphicon-plus 
-                    |  Add School
-                .col-xs-2.col-md-2 
-                  button.btn.btn-primary
-                    i.glyphicon.glyphicon-print
-                    |  Print 
-            .panel-body
-              .table-responsive
-                table.table.table-striped.table-condensed
-                  thead
-                    tr
-                      td.text-center
-                        strong Name in Arabic
-                      td.text-center
-                        strong Name in English
-                      td.text-center
-                        strong City Nmae
-                      td.text-center
-                        strong Area Name
-                      td.text-center
-                        strong Mahalla Nmae
-                      td.text-center
-                        strong Latitude Number
-                      td.text-center
-                        strong Longitude Number
-                      td.text-center
-                        strong Edit
-                      td.text-center
-                        strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr
-                      td.text-center
-                        a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
-                      td.text-center
-                        a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
-                      td.text-center
-                        a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
-                      td.text-center
-                        a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
-                      td.text-center
-                        a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
-                      td.text-center
-                        a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
-                      td.text-center
-                        a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
-                      td.text-center
-                        button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit School')
-                          span.glyphicon.glyphicon-pencil
-                      td.text-center
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete School')
-                          span.glyphicon.glyphicon-trash       
-          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-danger
-                  p.h1 Sure you want to delete?
+        h1  Locations Manger
+          small  Schools
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa  Schools
+        //- .panel.panel-default
+        //-   .panel-heading
+        //-     .row
+        //-       .col-xs-2.col-md-2
+        //-         h2.panel-title(style="margin-top: 8px;")
+        //-           strong  List of Schools
+        //-       .col-xs-5.col-md-6
+        //-         form(role='search')
+        //-           .input-group
+        //-             input.form-control(type='text', placeholder='Search by name')
+        //-             .input-group-btn
+        //-               button.btn.btn-default(type='submit')
+        //-                 i.glyphicon.glyphicon-search
+        //-       .col-xs-3.col-md-2
+        //-         a.btn.btn-success(href='#newschool', role='button',data-toggle='modal')
+        //-           .glyphicon.glyphicon-plus 
+        //-           |  Add School
+        //-       .col-xs-2.col-md-2 
+        //-         button.btn.btn-primary
+        //-           i.glyphicon.glyphicon-print
+        //-           |  Print 
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Schools
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newschool', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add School
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th.text-center
+                    //- strong Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Name in Arabic', disabled='')
+                  th.text-center
+                    //- strong Name in English
+                    input.form-control.text-center(type='text', placeholder='Name in English', disabled='')
+                  th.text-center
+                    //- strong City Name
+                    input.form-control.text-center(type='text', placeholder='City Name', disabled='')
+                  th.text-center
+                    //- strong Area Name
+                    input.form-control.text-center(type='text', placeholder='Area Name', disabled='')
+                  th.text-center
+                    //- strong Mahalla Name
+                    input.form-control.text-center(type='text', placeholder='Mahalla Name', disabled='')
+                  th.text-center
+                    //- strong Latitude Number
+                    input.form-control.text-center(type='text', placeholder='Latitude #', disabled='')
+                  th.text-center
+                    //- strong Longitude Number
+                    input.form-control.text-center(type='text', placeholder='Longitude #', disabled='')
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash 
+              tfoot
+                tr
+                  th.text-center
+                    | Name in Arabic
+                  th.text-center
+                    | Name in English
+                  th.text-center
+                    | City Name
+                  th.text-center
+                    | Area Name
+                  th.text-center
+                    | Mahalla Name
+                  th.text-center
+                    | Latitude #
+                  th.text-center
+                    | Longitude #
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash
+              tbody
+                // foreach ($order->lineItems as $line) or some such thing here
+                tr
+                  td.text-center
+                    a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
+                  td.text-center
+                    a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
+                  td.text-center
+                    a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
+                  td.text-center
+                    a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
+                  td.text-center
+                    a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
+                  td.text-center
+                    a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
+                  td.text-center
+                    a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
+                  td.text-center
+                    button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
+                      span.glyphicon.glyphicon-trash       
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newschool.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") ×
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  Add School
+              .row 
                 .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newschool.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-success
-                  button.close(type="button", data-dismiss="modal" aria-label="Close")
-                    span(aria-hidden="true") ×
-                  h2
-                    .glyphicon.glyphicon-plus
-                    |  Add School
-                .row 
-                  .modal-body
-                    form#formSchool.form-signin(role="form" , action="", method="post")
-                      .col-xs-6.col-md-6
-                        .form-group
-                          .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
-                        .form-group
-                          .h4 Latitudes
-                          input#latitudes.form-control(type="text",name="latitudes", placeholder="Latitudes",autofocus="")    
-                        .form-group
-                          .h4 City
-                          select#city.form-control(type="text",name="city", placeholder="Mahalla",autofocus="")
-                      .col-xs-6.col-md-6
-                        .form-group
-                          .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
-                        .form-group
-                          .h4 Meridians
-                          input#meridians.form-control(type="text",name="meridians", placeholder="Meridians",autofocus="")
-                        .form-group
-                          .h4 Area
-                          select#area.form-control(type="text",name="area", placeholder="Mahalla",autofocus="")    
-                      .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
-                        .form-group
-                          .h4 Mahalla
-                          select#mahalla.form-control(type="text",name="mahalla", placeholder="Name in English",autofocus="")
-                .modal-footer
-                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change
+                  form#formSchool.form-signin(role="form" , action="", method="post")
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in Arabic
+                        input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
+                      .form-group
+                        .h4 Latitudes
+                        input#latitudes.form-control(type="text",name="latitudes", placeholder="Latitudes",autofocus="")    
+                      .form-group
+                        .h4 City
+                        select#city.form-control(type="text",name="city", placeholder="Mahalla",autofocus="")
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in English
+                        input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
+                      .form-group
+                        .h4 Meridians
+                        input#meridians.form-control(type="text",name="meridians", placeholder="Meridians",autofocus="")
+                      .form-group
+                        .h4 Area
+                        select#area.form-control(type="text",name="area", placeholder="Mahalla",autofocus="")    
+                    .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
+                      .form-group
+                        .h4 Mahalla
+                        select#mahalla.form-control(type="text",name="mahalla", placeholder="Name in English",autofocus="")
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button.btn.btn-primary(type="submit") Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/editSchool.js')
   script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')

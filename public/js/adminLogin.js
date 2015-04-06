@@ -15,10 +15,10 @@ $(document).ready(function() {
       },
     },
     messages:{
-      // email:{
-      //   required: "الرجاء ادخال البريد الالكتروني",
-      //   email: "خطأ هذا ليس بريد الكتروني"
-      // },
+      email:{
+        required: "Please enter your email address !",
+        // email: "خطأ هذا ليس بريد الكتروني"
+      },
     },
     errorPlacement: function(error, element) {
       if (element.attr("name") == "email") {
@@ -57,3 +57,14 @@ $(".reveal").mousedown(function() {
 .mouseout(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });
+
+$('body').show();
+NProgress.start();
+setTimeout(function() { 
+  NProgress.done(); 
+  $('.fadeIn').removeClass('out'); 
+}, 1000)
+
+
+
+

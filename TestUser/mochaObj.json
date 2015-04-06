@@ -100,6 +100,13 @@
     "update_customer_idschool":{"value":2,"pk":10000000},
     "update_customer_desc":{"value":"sdg","pk":10000000},
     "delete_customer":10000000
+  },
+  "genre":{
+    "add_genre":{"idgenre":10000000,"name":"الخمس","name_en":"Elkhoms","tob_idtob":10000000},
+    "update_genre_name":{"value":"خمس","pk":10000000},
+    "update_genre_name_en":{"value":"Khoms","pk":10000000},
+    "update_genre_tob":{"value":10000000,"pk":10000000},
+    "delete_genre":10000000
   }
 
 

@@ -12,6 +12,8 @@ var user =require('../app/userHelpers');
 
 
 
+
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -76,7 +78,6 @@ router.get('/adminMeasure', function(req, res) {
 });
 
 //MeasurEditNameEn
-
 router.post('/MeasurEditNameEn', function(req, res) {
   MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
     res.send(true);
@@ -87,16 +88,15 @@ router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
     res.send(true);
   res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
-
   });
 });
+
 
    router.post('/saveMeasure',function(req,res){
       MeasureMgr.AddMeasure(req.body,function(result){
         res.redirect('/adminMeasure');
     });
 });
-
 
 
 
@@ -163,6 +163,11 @@ router.get('/adminAreas', function(req, res) {
 
 router.get('/adminMahala', function(req, res) {
   res.render('adminMahala', { title: 'Mahala',NProgress:"fadeIn out"});
+});
+
+
+router.get('/adminInvoice', function(req, res) {
+  res.render('adminInvoice', { title: 'Invoice'});
 });
 
 router.get('/adminSerialNumber', function(req, res) {

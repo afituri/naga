@@ -12,44 +12,59 @@ block dashBord
               i.fa.fa-dashboard
               a(href='/adminPage')  Dashboard
             li.active
+              i.fa Locations Manger
+            li.active
               i.fa  Mahala
-          .panel.panel-default
+          .panel.panel-default.filterable
             .panel-heading
               .row
-                .col-xs-2.col-md-3
-                  h2.panel-title 
-                    strong  List of Mahala
-                .col-xs-5.col-md-5
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      .input-group-btn
-                        button.btn.btn-default(type='submit')
-                          i.glyphicon.glyphicon-search
                 .col-xs-3.col-md-2
-                  a.btn.btn-success(href='#newMahala', role='button',data-toggle='modal')
-                    span.glyphicon.glyphicon-plus
-                    |  Add Mahala
-                .col-xs-2.col-md-2
-                  button.btn.btn-primary
+                  h3.panel-title#title
+                    strong List of Areas
+                .pull-right
+                  button#space.btn.btn-primary.btn-filter
+                    i.glyphicon.glyphicon-filter
+                    |  Filter of Search
+                  a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
+                    i.glyphicon.glyphicon-plus
+                    |  Add Area
+                  button#space.btn.btn.btn-info
                     i.glyphicon.glyphicon-print
                     |  Print 
             .table-responsive
               table.table.table-striped.table-condensed
                 thead
-                  tr
-                    td.text-center
-                      strong Mahala Name in Arabic
-                    td.text-center
-                      strong Mahala Name in English
-                    td.text-center
-                      strong Area Name in Arabic
-                    td.text-center
-                      strong Area Name in English
-                    td.text-center
+                  tr.filters
+                    th
+                      //- strong Mahala Name in Arabic
+                      input.form-control.text-center(type='text', placeholder='Mahala Name in Arabic', disabled='')
+                    th
+                      //- strong Mahala Name in English
+                      input.form-control.text-center(type='text', placeholder='Mahala Name in English', disabled='')
+                    th
+                      //- strong Area Name in Arabic
+                      input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
+                    th
+                      //- strong Area Name in English
+                      input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
+                    th.text-center
                       strong Edit
-                    td.text-center
+                    th.text-center
                       strong Trash 
+                tfoot
+                  tr
+                    th.text-center
+                      | Mahala Name in Arabic
+                    th.text-center
+                      | Mahala Name in English
+                    th.text-center
+                      | Area Name in Arabic
+                    th.text-center
+                      | Area Name in English
+                    th.text-center
+                      | Edit
+                    th.text-center
+                      | Trash
                 tbody
                   // foreach ($order->lineItems as $line) or some such thing here
                   tr
@@ -130,5 +145,6 @@ block dashBord
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/nprogress.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js') 

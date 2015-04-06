@@ -18,7 +18,8 @@
     "morgan": "~1.0.0",
     "mysql": "~2.5.5",
     "static-favicon": "~1.0.0",
-    "vhost": "^3.0.0"
+    "vhost": "^3.0.0",
+    "jsreport": "~0.3.0"
   },
   "devDependencies": {
     "mocha": "~2.2.0",

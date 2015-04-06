@@ -16,49 +16,66 @@ block dashBord
               a(href='/adminMeasure')  Measure
             li.active
               i.fa  Sizes 
-      .panel.panel-default
+            //- .panel.panel-default
+            //-   .panel-heading
+            //-     .row
+            //-       .col-md-3
+            //-         h2.panel-title 
+            //-           strong  List of Sizes
+            //-       .col-md-5
+            //-         form(role='search')
+            //-           .input-group
+            //-             input.form-control(type='text', placeholder='Search by name')
+            //-             .input-group-btn
+            //-               button.btn.btn-default(type='submit')
+            //-                 i.glyphicon.glyphicon-search
+            //-       .col-md-2 
+            //-         a.btn.btn-success(href='#newSizes', role='button',data-toggle='modal')
+            //-           span.glyphicon.glyphicon-plus
+            //-           |  Add Sizes
+            //-       .col-md-2  
+          .panel.panel-default.filterable
             .panel-heading
               .row
-                .col-md-3
-                  h2.panel-title 
-                    strong  List of Sizes
-                .col-md-5
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      .input-group-btn
-                        button.btn.btn-default(type='submit')
-                          i.glyphicon.glyphicon-search
-                .col-md-2 
-                  a.btn.btn-success(href='#newSizes', role='button',data-toggle='modal')
-                    span.glyphicon.glyphicon-plus
-                    |  Add Sizes
-                .col-md-2  
-            .panel-body
-              .table-responsive
-                table.table.table-condensed
-                  thead
-                    tr
-                      td
-                        strong Name in Arabic
-                      td
-                        strong Name in English
-                       td.text-right
-                        strong Edit  
-                      td.text-right
-                        strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                  for i in size
-                    tr
-                      td #{i.name}
-                      td #{i.name_en}
-                      td.text-right
-                        button#edit.btn.btn-info.btn-xs(href='#del', data-toggle='modal' , value='#{i.idsize}')
-                          span.glyphicon.glyphicon-pencil     
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' ,value='#{i.idsize}')
-                          span.glyphicon.glyphicon-trash         
+                .col-xs-3.col-md-2
+                  h3.panel-title#title
+                    strong List of Sizes
+                .pull-right
+                  button#space.btn.btn-primary.btn-filter
+                    i.glyphicon.glyphicon-filter
+                    |  Filter of Search
+                  a#space.btn.btn-success(href='#newSizes', role='button',data-toggle='modal')
+                    i.glyphicon.glyphicon-plus
+                    |  Add Size
+                  button#space.btn.btn.btn-info
+                    i.glyphicon.glyphicon-print
+                    |  Print
+            .table-responsive
+              table.table.table-condensed
+                thead
+                  tr.filters
+                    th
+                      //- strong Name in Arabic
+                      input.form-control.text-center(type='text', placeholder='Size Name in Arabic', disabled='')
+                    th
+                      //- strong Name in English
+                      input.form-control.text-center(type='text', placeholder='Size Name in English', disabled='')
+                    th.text-center
+                      | Edit  
+                    th.text-center
+                      | Trash 
+                tbody
+                  // foreach ($order->lineItems as $line) or some such thing here
+                for i in size
+                  tr
+                    td.text-center #{i.name}
+                    td.text-center #{i.name_en}
+                    td.text-center
+                      button#edit.btn.btn-info.btn-xs(href='', data-toggle='modal' , value='#{i.idsize}')
+                        span.glyphicon.glyphicon-pencil     
+                    td.text-center 
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' ,value='#{i.idsize}')
+                        span.glyphicon.glyphicon-trash         
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -96,5 +113,5 @@ block dashBord
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/nprogress.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js') 

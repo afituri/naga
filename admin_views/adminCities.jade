@@ -55,15 +55,15 @@ block dashBord
               table#user.table.table-striped.table-condensed
                 thead
                   tr.filters
-                    td.text-center
+                    th
                       //- strong Name in Arabic
-                      input.form-control.text-center(type='text', placeholder='Name in Arabic', disabled='')
-                    td.text-center
+                      input.form-control.text-center(type='text', placeholder='City Name in Arabic', disabled='')
+                    th
                       //- strong Name in English
-                      input.form-control.text-center(type='text', placeholder='Name in English', disabled='')
-                    td.text-center
+                      input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
+                    th.text-center
                       strong Edit
-                    td.text-center
+                    th.text-center
                       strong Trash 
                 tbody#tbody
                   for city in cities

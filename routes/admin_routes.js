@@ -76,7 +76,6 @@ router.get('/adminMeasure', function(req, res) {
 });
 
 //MeasurEditNameEn
-
 router.post('/MeasurEditNameEn', function(req, res) {
   MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
     res.send(true);
@@ -87,18 +86,15 @@ router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
     res.send(true);
   res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
-
   });
 });
 
-   router.post('/saveItem',function(req,res){
-      orderMgr.addItem(req.body,function(result){
-       // console.log(result);
-        res.redirect('/order/showOrder');
-    });
-
-
-
+router.post('/saveItem',function(req,res){
+  orderMgr.addItem(req.body,function(result){
+   // console.log(result);
+    res.redirect('/order/showOrder');
+  });
+});
 
 
 router.get('/sizes/:id', function(req, res) {

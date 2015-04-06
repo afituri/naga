@@ -6,6 +6,10 @@
   margin-right: 10px;
 }
 
+ul.pagination { 
+  margin-top:-10px;
+}
+
 #title {
   margin-top: 8px;
 }

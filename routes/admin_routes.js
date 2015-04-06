@@ -26,9 +26,9 @@ router.get('/adminTest', function(req, res) {
 });
 
 router.get('/search/:name', function(req, res) {
- MeasureMgr.searchMng(req.params.name,function(err,result){
- res.send(result); 
-});  
+  MeasureMgr.searchMng(req.params.name,function(err,result){
+  res.send(result); 
+  });  
 });
 
 

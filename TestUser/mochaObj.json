@@ -116,6 +116,12 @@
     "update_school_longit":{"value":"sdg","pk":10000000},
     "update_school_mahalla":{"value":100,"pk":10000000},
     "delete_school":10000000
+  },
+  "measure":{
+    "add_measure":{"idmeasure":10000000,"name":"احمر","name_en":"red", "status":1},
+    "update_measure_name":{"value":"ابيض","pk":10000000},
+    "update_measure_name_en":{"value":"white","pk":10000000},
+    "delete_measure":10000000
   }
 
 

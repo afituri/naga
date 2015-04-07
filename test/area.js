@@ -4,11 +4,9 @@ var City = require('../app/city').CityMgr;
 var  objArea = require('../TestUser/mochaObj.json').Area;
 var  objCity = require('../TestUser/mochaObj.json').city;
 
-describe('Module Area', function(){
-
-  it('Area is an object with a fucntions', function(){
-    assert.equal(typeof AreaMgr, 'object');
-    // assert.equal(typeof City.AddCity, 'function');
+  describe('Module Area', function(){
+    it('Area is an object with a fucntions', function(){
+      assert.equal(typeof AreaMgr, 'object');
   }),
 
   describe('#AddCity()',function(){
@@ -35,11 +33,10 @@ describe('Module Area', function(){
         if (err) throw err;  
         assert.equal(typeof result[0], 'object'); 
         done();
-        });
       });
-    }),
+    });
+  }),
  
-
   describe('#getAreaInfoById()',function(){
     it('Should select area info by id without an error\n\tresult[0] should be an object', function(done){
       AreaMgr.getAreaInfoById(objArea['add_area'].idarea,function(err,result){
@@ -88,7 +85,7 @@ describe('Module Area', function(){
     })
   }),
 
-   describe('#DeleteArea()',function(){
+  describe('#DeleteArea()',function(){
     it('Should delete without an error', function(done){
       AreaMgr.DeleteArea(objArea['delete_area'],function(err,result){
         if (err) throw err;
@@ -114,7 +111,5 @@ describe('Module Area', function(){
       });
     })
   })
-
-
-
+  
 });

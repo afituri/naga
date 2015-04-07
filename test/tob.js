@@ -1,17 +1,10 @@
 var assert = require("assert"); // core module
 var tobMgr = require('../app/tob').TobMgr;  // our module
-
-// var add_city= {idcity:1000,name:'الخمس',name_en:'Elkhoms', status:1},
-//     update_city_name={value:'خمس',pk:1000},
-//     update_city_name_en={value:'Khoms',pk:1000},
-//     delete_city=1000;
 var obj = require('../TestUser/mochaObj.json').tob;
 
-describe('Module tob', function(){
-  
-  it('tob is an object ', function(){
-    assert.equal(typeof tobMgr, 'object');
-    // assert.equal(typeof City.AddCity, 'function');
+  describe('Module tob', function(){
+    it('tob is an object ', function(){
+      assert.equal(typeof tobMgr, 'object');
   }),
 
   describe('#AddTob()',function(){

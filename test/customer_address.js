@@ -4,15 +4,12 @@ var customerMgr = require('../app/user_app').userMgr;  // our module
 var customer = require('../TestUser/mochaObj.json').customer;
 var obj = require('../TestUser/mochaObj.json').customerAddress;
 
-
-
-describe('Module customer Address', function(){
-  
-  it('customer is an object with a fucntion called ', function(){
-    assert.equal(typeof CustomerAddressMgr, 'object');
+  describe('Module customer Address', function(){
+    it('customer is an object with a fucntion called ', function(){
+      assert.equal(typeof CustomerAddressMgr, 'object');
   }),
 //////////////////////////////////////////////////////////////////////////////////////////
-describe('#AddCustomer()',function(){
+  describe('#AddCustomer()',function(){ 
     it('Should inser without an error', function(done){
       customerMgr.AddCustomer(customer["add_customer"],function(err,result){
         if (err) throw err;

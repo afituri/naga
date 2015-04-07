@@ -14,6 +14,8 @@ var user =require('../app/userHelpers');
 
 
 
+
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -28,8 +30,16 @@ router.get('/adminTest', function(req, res) {
 });
 
 router.get('/search/:name', function(req, res) {
-  MeasureMgr.searchMng(req.params.name,function(err,result){
-  res.send(result); 
+  req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+  MeasureMgr.searchMng(req.params.name,limit,function(err,result){
+      if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+ res.send(result[0]);
+    } 
+  
   });  
 });
 
@@ -87,17 +97,18 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
-router.post('/saveItem',function(req,res){
-  orderMgr.addItem(req.body,function(result){
-   // console.log(result);
-    res.redirect('/order/showOrder');
-  });
+
+
+   router.post('/saveMeasure',function(req,res){
+      MeasureMgr.AddMeasure(req.body,function(result){
+        res.redirect('/adminMeasure');
+    });
 });
 
 
+
+
 router.get('/sizes/:id', function(req, res) {
-  // get functions sizes 
-  console.log(req.params.id);
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
   res.render('sizes', { title: 'sizes',size:result});
   });
@@ -162,6 +173,17 @@ router.get('/delete/:id', function(req, res) {
 });
 
 
+
+router.get('/deleteSize/:id', function(req, res) {
+  SizeMgr.GetSizebyId(req.params.id,function(err,resultt){
+   SizeMgr.DeleteSize(req.params.id,function(err,result){
+     console.log(resultt);
+    res.send(resultt);
+     });
+   });
+});
+
+
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
     res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
@@ -192,6 +214,11 @@ router.get('/adminSchools', function(req, res) {
       res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination});
     }
   });
+});
+
+
+router.get('/adminInvoice', function(req, res) {
+  res.render('adminInvoice', { title: 'Invoice'});
 });
 
 router.get('/adminSerialNumber', function(req, res) {

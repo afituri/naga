@@ -37,7 +37,7 @@ block dashBord
                 tr
                   th
                     //- strong Name in Arabic
-                    input.form-control.text-center(type='text', name='name', placeholder='Name in Arabic', disabled='')
+                    input#search.form-control.text-center(type='text', name='name', placeholder='Name in Arabic', disabled='')
                   th
                     //- strong Name in English
                     input.form-control.text-center(type='text', name='name_en', placeholder='Name in English', disabled='')
@@ -104,9 +104,9 @@ block dashBord
                       .form-group      
                         .h4 Name in English
                         input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
-              .modal-footer
-                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                button.btn.btn-primary(type="submit") Save Change 
+                      .modal-footer
+                        button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                        button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
@@ -114,5 +114,4 @@ block dashBord
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/adminMeasure.js')
   script(src='/js/editMeasure.js') 
-  script(src='/js/adminSizes.js')
   script(src='/js/searchFilter.js') 

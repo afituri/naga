@@ -44,36 +44,28 @@ block dashBord
                 td.text-center
                   strong Trash 
             tbody
-              // foreach ($order->lineItems as $line) or some such thing here
-              tr
-                td.text-center ازرق
-                td.text-center Blue
-                td.text-center
-                  button.btn.btn-info.btn-xs
-                    span.glyphicon.glyphicon-pencil     
-                td.text-center
-                  button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                    span.glyphicon.glyphicon-trash   
-              tr
-                td.text-center احمر
-                td.text-center Red
-                td.text-center
-                  button.btn.btn-info.btn-xs
-                    span.glyphicon.glyphicon-pencil    
-                td.text-center
-                  button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                    span.glyphicon.glyphicon-trash           
-          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-danger
-                  p.h1 Sure you want to delete?
-                .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+              for i in color
+                tr
+                  td.text-center #{i.name}  
+                  td.text-center #{i.name_en}
+                  td.text-center
+                    button.btn.btn-info.btn-xs
+                      span.glyphicon.glyphicon-pencil     
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#ded', data-toggle='modal',value='#{i.idcolor}')
+                      span.glyphicon.glyphicon-trash   
+                      
+        #ded.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
           #newColors.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
              .modal-dialog
               .modal-content
@@ -102,4 +94,4 @@ block dashBord
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/nprogress.js')
   script(src='/js/sb-admin-2.js')  
-  script(src='/js/adminSizes.js')
+  script(src='/js/adminColor.js')

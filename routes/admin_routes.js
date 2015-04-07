@@ -10,6 +10,7 @@ var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 var MeasureMgr = require('../app/measure').MeasureMgr;
 var SizeMgr  = require('../app/size').SizeMgr ;
+var ColorMgr =require('../app/color').ColorMgr;
 var user =require('../app/userHelpers');
 
 router.get('/', function(req, res) {
@@ -83,6 +84,21 @@ router.post('/MeasurEditNameEn', function(req, res) {
     res.send(true);
   });
 });
+// SizeEditNameEn
+
+router.post('/SizeEditNameEn', function(req, res) {
+ SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/SizeEditNameAr', function(req, res) {
+ SizeMgr.UpdateSizeNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
 
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
@@ -91,10 +107,12 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
+
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
     res.redirect('/adminMeasure');
   });
+
 });
 
 router.get('/sizes/:id', function(req, res) {
@@ -104,7 +122,10 @@ router.get('/sizes/:id', function(req, res) {
 });
 
 router.get('/adminColors', function(req, res) {
-  res.render('adminColors', { title: 'Colors',NProgress:"fadeIn out"});
+  ColorMgr.GetColor(function(err,result){
+    console.log(result);
+    res.render('adminColors', { title: 'Colors',color:result});
+  }); 
 });
 
 router.get('/adminTypeBusiness', function(req, res) {
@@ -130,7 +151,7 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    }else{
+      }  else {
       CityMgr.AddCity(req.body,function(err,result){
         CityMgr.GetCityById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -168,6 +189,14 @@ router.get('/deleteSize/:id', function(req, res) {
     });
   });
 });
+
+router.get('/deleteColor/:id', function(req, res) {
+   ColorMgr.DeleteColor(req.params.id,function(err,result){
+     console.log(resultt);
+    res.send(resultt);
+   });
+});
+
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){

@@ -1,1 +1,0 @@
-require('jsreport').bootstrapper().start();

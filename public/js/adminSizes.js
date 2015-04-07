@@ -1,9 +1,6 @@
 
 $(document).ready(function(){
-
-
   $('body').on('click', '#delete', function () {
-  
       $('#del').val($(this).val());
   });
  $('body').on('click', '#del', function () {

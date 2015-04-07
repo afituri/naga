@@ -4,60 +4,6 @@ block dashBord
     .container-fluid
       // Page Heading
       .row
-<<<<<<< HEAD
-        .col-lg-12
-          h1  Locations Manger
-            small  Mahala
-          ol.breadcrumb
-            li
-              i.fa.fa-dashboard
-              a(href='/adminPage')  Dashboard
-            li.active
-              i.fa Locations Manger
-            li.active
-              i.fa  Mahala
-          .panel.panel-default.filterable
-            .panel-heading
-              .row
-                .col-xs-3.col-md-2
-                  h3.panel-title#title
-<<<<<<< HEAD
-                    strong List of Areas
-=======
-                    strong List of Mahala
->>>>>>> 62a146e61fa17864cc33863be07145e4fda16ad9
-                .pull-right
-                  button#space.btn.btn-primary.btn-filter
-                    i.glyphicon.glyphicon-filter
-                    |  Filter of Search
-                  a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
-                    i.glyphicon.glyphicon-plus
-                    |  Add Area
-                  button#space.btn.btn.btn-info
-                    i.glyphicon.glyphicon-print
-                    |  Print 
-            .table-responsive
-              table.table.table-striped.table-condensed
-                thead
-                  tr.filters
-                    th
-                      //- strong Mahala Name in Arabic
-                      input.form-control.text-center(type='text', placeholder='Mahala Name in Arabic', disabled='')
-                    th
-                      //- strong Mahala Name in English
-                      input.form-control.text-center(type='text', placeholder='Mahala Name in English', disabled='')
-                    th
-                      //- strong Area Name in Arabic
-                      input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
-                    th
-                      //- strong Area Name in English
-                      input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
-                    th.text-center
-                      strong Edit
-                    th.text-center
-                      strong Trash 
-                tfoot
-=======
         h1  Locations Manger
           small  Mahala
         ol.breadcrumb
@@ -121,7 +67,6 @@ block dashBord
               tbody
                 // foreach ($order->lineItems as $line) or some such thing here
                 for mahalas in mahala
->>>>>>> e8b11a221c56f3d4f66785a33e89d8084bb47475
                   tr
                     td.text-center #{mahalas.mahallaName}
                     td.text-center #{mahalas.mahallaName_en}

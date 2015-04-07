@@ -4,8 +4,8 @@ block dashBord
     .container-fluid
       // Page Heading
       .row
-        h1  Admins Manger
-          small  Show Admin
+        h1  Admin Manger
+          small  View Admins
         ol.breadcrumb
           li
             i.fa.fa-dashboard
@@ -13,7 +13,7 @@ block dashBord
           li.active
             i.fa.fa-user  Admin Manger
           li.active
-            i.fa  Show Admin
+            i.fa  View Admins
         //- // Show Admins Started
         //- .panel.panel-default
         //-   .panel-heading
@@ -45,7 +45,7 @@ block dashBord
                 button#space.btn.btn-primary.btn-filter
                   i.glyphicon.glyphicon-filter
                   |  Filter of Search
-                a#space.btn.btn-success(href='#newAdmin', role='button',data-toggle='modal')
+                a#space.btn.btn-success(href='/addAdmin', role='button',data-toggle='modal')
                   i.glyphicon.glyphicon-plus
                   |  Add Admin
                 button#space.btn.btn.btn-info

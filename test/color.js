@@ -2,16 +2,9 @@ var assert = require("assert"); // core module
 var color = require('../app/color').ColorMgr;  // our module
 var obj = require('../TestUser/mochaObj.json').color;
 
-// var add_color= {idcolor:10000000,name:'احمر',name_en:'red', status:1},
-//     update_color_name={value:'ابيض',pk:10000000},
-//     update_color_name_en={value:'white',pk:10000000},
-//     delete_color=10000000;
-
-
-describe('Module color', function(){
-  
-  it('color is an object with a fucntion called Addcolor', function(){
-    assert.equal(typeof color, 'object');
+  describe('Module color', function(){
+    it('color is an object with a fucntion called Addcolor', function(){
+      assert.equal(typeof color, 'object');
   }),
 
   describe('#Addcolor()',function(){

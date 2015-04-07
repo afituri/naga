@@ -2,6 +2,10 @@
   padding-top: 100px; 
 }
 
+#form-control { 
+  margin-bottom: 10px; 
+}
+
 #space {
   margin-right: 10px;
 }

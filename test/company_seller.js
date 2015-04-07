@@ -8,11 +8,9 @@ var admin = require('../TestUser/mochaObj.json').admin;
 var tob = require('../TestUser/mochaObj.json').tob;
 var obj = require('../TestUser/mochaObj.json').seller;
 
-
-describe('Module seller', function(){
-  
-  it('seller is an object with a fucntion ', function(){
-    assert.equal(typeof CompanySeller, 'object');
+  describe('Module seller', function(){
+    it('seller is an object with a fucntion ', function(){
+      assert.equal(typeof CompanySeller, 'object');
   }),
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -206,7 +204,5 @@ describe('Module seller', function(){
     })
   })
 //////////////////////////////////////////////////////////////////////////////
-
-
 
 });

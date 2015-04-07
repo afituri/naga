@@ -28,9 +28,17 @@ router.get('/adminTest', function(req, res) {
 });
 
 router.get('/search/:name', function(req, res) {
- MeasureMgr.searchMng(req.params.name,function(err,result){
- res.send(result); 
-});  
+  req.session.back = req.originalUrl;
+   var page = user.getPage(req);
+   var limit =user.getLimit(page);
+  MeasureMgr.searchMng(req.params.name,limit,function(err,result){
+      if(result[1][0] != undefined ){
+    var pageCount = user.getPageCount(result[1][0].cnt); 
+    var pagination = user.paginate(page,pageCount);
+ res.send(result[0]);
+    } 
+  
+  });  
 });
 
 
@@ -92,6 +100,7 @@ router.post('/MeasurEditName', function(req, res) {
 });
 
 
+
    router.post('/saveMeasure',function(req,res){
       MeasureMgr.AddMeasure(req.body,function(result){
         res.redirect('/adminMeasure');
@@ -100,9 +109,8 @@ router.post('/MeasurEditName', function(req, res) {
 
 
 
+
 router.get('/sizes/:id', function(req, res) {
-  // get functions sizes 
-  console.log(req.params.id);
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
   res.render('sizes', { title: 'sizes',size:result});
   });
@@ -152,6 +160,17 @@ router.get('/delete/:id', function(req, res) {
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
     res.send(true);
   });
+});
+
+
+
+router.get('/deleteSize/:id', function(req, res) {
+  SizeMgr.GetSizebyId(req.params.id,function(err,resultt){
+   SizeMgr.DeleteSize(req.params.id,function(err,result){
+     console.log(resultt);
+    res.send(resultt);
+     });
+   });
 });
 
 

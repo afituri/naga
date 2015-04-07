@@ -69,10 +69,11 @@ exports.MeasureMgr = {
     });
   },
  // SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10
-  searchMng : function(name,cb){
+  searchMng : function(name,limit,cb){
     name = name+"%";
     mysqlMgr.connect(function (conn) {
-        conn.query('SELECT * FROM `measure` where status <> 0 and (`name` LIKE ?  or `name_en` LIKE ?)' ,[name,name], function(err, result) {
+      // (`name` LIKE ?  or `name_en` LIKE ?)
+         conn.query('SELECT * FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) ',[name,name,limit,name,name], function(err, result) {
             conn.release();
             if(err) {
               util.log(err);

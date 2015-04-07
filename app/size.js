@@ -15,6 +15,20 @@ exports.SizeMgr = {
     });
   },
 
+   GetSizebyId :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `size` WHERE `status` <> 0 and idsize=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   GetSizeByIdMeasur :function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `size` WHERE `status` <> 0 and measure_idmeasure=?',id,  function(err, result) {

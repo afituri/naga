@@ -4,55 +4,71 @@ block dashBord
     .container-fluid
       // Page Heading
       .row
-        .col-lg-12
-          h1.page-header  Locations Manger
-            small  Areas
-          ol.breadcrumb
-            li
-              i.fa.fa-dashboard
-              a(href='/adminPage')  Dashboard
-            li.active
-              i.fa Locations Manger
-            li.active
-              i.fa  Areas
-          .panel.panel-default.filterable
-            .panel-heading
-              .row
-                .col-xs-3.col-md-2
-                  h3.panel-title#title
-                    strong List of Areas
-                .pull-right
-                  button#space.btn.btn-primary.btn-filter
-                    i.glyphicon.glyphicon-filter
-                    |  Filter of Search
-                  a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
-                    i.glyphicon.glyphicon-plus
-                    |  Add Area
-                  button#space.btn.btn.btn-info
-                    i.glyphicon.glyphicon-print
-                    |  Print
-            .table-responsive
-              table.table.table-striped.table-condensed
-                thead
-                  tr.filters
-                    th
-                      //- strong Area Name in Arabic
-                      input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
-                    th
-                      //- strong Area Name in English
-                      input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
-                    th
-                      //- strong City Name in Arabic
-                      input.form-control.text-center(type='text', placeholder='City Name in Arabic', disabled='')
-                    th
-                      //- strong City Name in English
-                      input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
-                    th.text-center
-                      strong Edit
-                    th.text-center
-                      strong Trash 
-                tfoot
+        h1  Locations Manger
+          small  Areas
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa Locations Manger
+          li.active
+            i.fa  Areas
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Areas
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Area
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th
+                    //- strong Area Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
+                  th
+                    //- strong Area Name in English
+                    input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
+                  th
+                    //- strong City Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='City Name in Arabic', disabled='')
+                  th
+                    //- strong City Name in English
+                    input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
+                  th.text-center
+                    strong Edit
+                  th.text-center
+                    strong Trash 
+              tfoot
+                tr
+                  th.text-center
+                    | Area Name in Arabic
+                  th.text-center
+                    | Area Name in English
+                  th.text-center
+                    | City Name in Arabic
+                  th.text-center
+                    | City Name in English
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash 
+              tbody
+                // foreach ($order->lineItems as $line) or some such thing here
+                for area in areas
                   tr
+<<<<<<< HEAD
                     th.text-center
                       | Area Name in Arabic
                     th.text-center
@@ -84,39 +100,56 @@ block dashBord
               .modal-content
                 .modal-headr.modal-header-danger
                   p.h1 Sure you want to delete?
+=======
+                    td.text-center #{area.areaName}
+                    td.text-center #{area.areaName_en}
+                    td.text-center #{area.cityName}
+                    td.text-center #{area.cityName_en}
+                    td.text-center
+                      button.btn.btn-info.btn-xs(data-placement='top', title='Edit')
+                        span.glyphicon.glyphicon-pencil
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
+                        span.glyphicon.glyphicon-trash        
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") × 
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  Add Area
+              .row 
+>>>>>>> 62a146e61fa17864cc33863be07145e4fda16ad9
                 .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-success
-                  button.close(type="button", data-dismiss="modal" aria-label="Close")
-                    span(aria-hidden="true") × 
-                  h2
-                    .glyphicon.glyphicon-plus
-                    |  Add Area
-                .row 
-                  .modal-body
-                    form#formArea.form-signin(role="form" , action="", method="post")
-                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                        .form-group
-                          .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
-                      .col-xs-5.col-md-5
-                        .form-group      
-                          .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
-                      .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
-                        .form-group
-                          .h4 City
-                          select#city.form-control(type="text",name="city",autofocus="")
-                .modal-footer
-                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change 
+                  form#formArea.form-signin(role="form" , action="", method="post")
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Name in Arabic
+                        input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 Name in English
+                        input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
+                    .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
+                      .form-group
+                        .h4 City
+                        select#city.form-control(type="text",name="city",autofocus="")
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')

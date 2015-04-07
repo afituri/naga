@@ -62,9 +62,19 @@ block dashBord
                       //- strong Name in English
                       input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
                     th.text-center
-                      strong Edit
+                      | Edit
                     th.text-center
-                      strong Trash 
+                      | Trash 
+                tfoot
+                  tr
+                    th.text-center
+                      | City Name in Arabic
+                    th.text-center
+                      | City Name in English
+                    th.text-center
+                      | Edit
+                    th.text-center
+                      | Trash
                 tbody#tbody
                   for city in cities
                     tr(data-id='#{city.idcity}')

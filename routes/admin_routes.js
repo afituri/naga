@@ -12,10 +12,6 @@ var MeasureMgr = require('../app/measure').MeasureMgr;
 var SizeMgr  = require('../app/size').SizeMgr ;
 var user =require('../app/userHelpers');
 
-
-
-
-
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -31,30 +27,28 @@ router.get('/adminTest', function(req, res) {
 
 router.get('/search/:name', function(req, res) {
   req.session.back = req.originalUrl;
-   var page = user.getPage(req);
-   var limit =user.getLimit(page);
+  var page = user.getPage(req);
+  var limit =user.getLimit(page);
   MeasureMgr.searchMng(req.params.name,limit,function(err,result){
-      if(result[1][0] != undefined ){
-    var pageCount = user.getPageCount(result[1][0].cnt); 
-    var pagination = user.paginate(page,pageCount);
- res.send(result[0]);
+    if(result[1][0] != undefined ){
+      var pageCount = user.getPageCount(result[1][0].cnt); 
+      var pagination = user.paginate(page,pageCount);
+      res.send(result[0]);
     } 
-  
   });  
 });
 
-
 router.get('/getMeasure', function(req, res) {
-   req.session.back = req.originalUrl;
-   var page = user.getPage(req);
-   var limit =user.getLimit(page);
- MeasureMgr.GetMeasure(limit,function(err,result){
-  if(result[1][0] != undefined ){
-    var pageCount = user.getPageCount(result[1][0].cnt); 
-    var pagination = user.paginate(page,pageCount);
- res.send(result[0]);
- } 
-});  
+  req.session.back = req.originalUrl;
+  var page = user.getPage(req);
+  var limit =user.getLimit(page);
+  MeasureMgr.GetMeasure(limit,function(err,result){
+    if(result[1][0] != undefined ){
+      var pageCount = user.getPageCount(result[1][0].cnt); 
+      var pagination = user.paginate(page,pageCount);
+      res.send(result[0]);
+    }   
+  });  
 });
 
 
@@ -71,14 +65,14 @@ router.get('/adminShowOrder', function(req, res) {
 });
 
 router.get('/adminMeasure', function(req, res) {
-   req.session.back = req.originalUrl;
-   var page = user.getPage(req);
-   var limit =user.getLimit(page);
+  req.session.back = req.originalUrl;
+  var page = user.getPage(req);
+  var limit =user.getLimit(page);
   MeasureMgr.GetMeasurelimit(limit,function(result){
-   if(result[1][0] != undefined ){
-    var pageCount = user.getPageCount(result[1][0].cnt); 
-    var pagination = user.paginate(page,pageCount);
-  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
+    if(result[1][0] != undefined ){
+      var pageCount = user.getPageCount(result[1][0].cnt); 
+      var pagination = user.paginate(page,pageCount);
+      res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination});
     }
   });
 });
@@ -93,24 +87,19 @@ router.post('/MeasurEditNameEn', function(req, res) {
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
     res.send(true);
-  res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
+    res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
   });
 });
 
-
-
-   router.post('/saveMeasure',function(req,res){
-      MeasureMgr.AddMeasure(req.body,function(result){
-        res.redirect('/adminMeasure');
-    });
+router.post('/saveMeasure',function(req,res){
+  MeasureMgr.AddMeasure(req.body,function(result){
+    res.redirect('/adminMeasure');
+  });
 });
-
-
-
 
 router.get('/sizes/:id', function(req, res) {
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
-  res.render('sizes', { title: 'sizes',size:result});
+    res.render('sizes', { title: 'sizes',size:result});
   });
 });
 
@@ -164,7 +153,6 @@ router.post('/editname', function(req, res) {
   });
 });
 
-
 router.get('/delete/:id', function(req, res) {
   //console.log(req.params.id);
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
@@ -172,17 +160,14 @@ router.get('/delete/:id', function(req, res) {
   });
 });
 
-
-
 router.get('/deleteSize/:id', function(req, res) {
   SizeMgr.GetSizebyId(req.params.id,function(err,resultt){
-   SizeMgr.DeleteSize(req.params.id,function(err,result){
-     console.log(resultt);
-    res.send(resultt);
-     });
-   });
+    SizeMgr.DeleteSize(req.params.id,function(err,result){
+      // console.log(resultt);
+      res.send(resultt);
+    });
+  });
 });
-
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
@@ -215,7 +200,6 @@ router.get('/adminSchools', function(req, res) {
     }
   });
 });
-
 
 router.get('/adminInvoice', function(req, res) {
   res.render('adminInvoice', { title: 'Invoice'});
@@ -252,13 +236,16 @@ router.get('/adminSerialNumber', function(req, res) {
   });
 });
 
-router.get('/showAdmin', function(req, res) {
-  res.render('showAdmin', { title: 'Show Admins' ,users:users,NProgress:"fadeIn out"});
+router.get('/viewAdmin', function(req, res) {
+  res.render('viewAdmin', { title: 'view Admins' ,users:users,NProgress:"fadeIn out"});
 });
 
 router.get('/loadingImg', function(req, res) {
   res.render('loadingImg', { title: 'Loading....'});
 });
 
+router.get('/addAdmin', function(req, res) {
+    res.render('addAdmin', { title: 'Add Admin'});
+});
 
 module.exports = router;

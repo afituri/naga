@@ -15,6 +15,7 @@ exports.SizeMgr = {
     });
   },
 
+
   GetSizebyId :function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `size` WHERE `status` <> 0 and idsize=?',id,  function(err, result) {
@@ -82,6 +83,7 @@ exports.SizeMgr = {
       });
     });
   },
+
 
   UpdateSizeIdMeasure: function(body,cb){
     mysqlMgr.connect(function (conn) {

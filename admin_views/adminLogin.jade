@@ -22,7 +22,7 @@ block content
                   button.btn.btn-default.reveal(type='button')
                     i.glyphicon.glyphicon-eye-open
               .form-group
-                button#btnLogin.btn.btn-block Log in
+                button#btnLogin.btn.btn-block(type='button', data-loading-text="Logging In...",autocomplete="off") Log In
                 p.help-block
                   a#olvidado.pull-right.text-muted(href='#')
                     small Forgot your password ?     
@@ -45,7 +45,8 @@ block content
           a.pull-left(href="#" target="_blank",style='color:#F49B23;')
             i.glyphicon.glyphicon-share-alt
             |      Go to site home page.   
-  script(src='/js/jquery-1.11.2.min.js') 
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
   script(src="/js/jquery.validate.min.js")
   script(src='/js/helpers.js')
   script(src='/js/nprogress.js')

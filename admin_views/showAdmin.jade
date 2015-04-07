@@ -11,7 +11,9 @@ block dashBord
             i.fa.fa-dashboard
             a(href='/adminPage')  Dashboard
           li.active
-            i.fa.fa-user  Show Admin
+            i.fa.fa-user  Admin Manger
+          li.active
+            i.fa  Show Admin
         //- // Show Admins Started
         //- .panel.panel-default
         //-   .panel-heading
@@ -50,20 +52,34 @@ block dashBord
                   i.glyphicon.glyphicon-print
                   |  Print
           .table-responsive
-            table.table.table-striped.table-condensed
+            table#myTable.table.tablesorter
               thead
                 tr.filters
-                  th 
+                  th
                     input.form-control.text-center(type='text', placeholder='Admin Username', disabled='')
                   th
                     input.form-control.text-center(type='text', placeholder='Admin Name', disabled='')
                   th
-                    input.form-control.text-center(type='text', placeholder='Date Added', disabled='')
+                    input.form-control.text-center(type='text', placeholder='Date Created', disabled='')
                   th
                     input.form-control.text-center(type='text', placeholder='Role', disabled='')
                   th
                     input.form-control.text-center(type='text', placeholder='Status', disabled='')
                   th.text-center Remove
+              tfoot
+                  tr
+                    th.text-center.header 
+                      | Admin Username
+                    th.text-center.header 
+                      | Admin Name
+                    th.text-center.header 
+                      | Date Created
+                    th.text-center.header 
+                      | Role
+                    th.text-center.header 
+                      | Status
+                    th.text-center.header 
+                      | Remove
               tbody
                 for user in users
                   tr
@@ -99,5 +115,5 @@ block dashBord
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js') 
   script(src='/js/sb-admin-2.js')
-  script(src='/js/searchFilter.js') 
+  script(src='/js/searchFilter.js')
     

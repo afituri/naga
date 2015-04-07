@@ -13,6 +13,7 @@ ul.pagination {
 #title {
   margin-top: 8px;
 }
+
 .loadingImg {
   position: fixed;
   left: 0px;
@@ -214,4 +215,5 @@ ul.pagination {
 .filterable .filters input[disabled]:-ms-input-placeholder {
   color: #333;
 }
+
 

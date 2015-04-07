@@ -7,27 +7,27 @@ $(document).ready(function() {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
-  $("#loginForm").validate({
-    rules:{
-      email:{
-        required: true,
-        email: true,
-      },
-    },
-    messages:{
-      email:{
-        required: "Please enter your email address !",
-        // email: "خطأ هذا ليس بريد الكتروني"
-      },
-    },
-    errorPlacement: function(error, element) {
-      if (element.attr("name") == "email") {
-          error.insertAfter("#form-group");
-      } else {
-          error.insertAfter(element);
-      }
-    }  
-  });
+  // $("#loginForm").validate({
+  //   rules:{
+  //     email:{
+  //       required: true,
+  //       email: true,
+  //     },
+  //   },
+  //   messages:{
+  //     email:{
+  //       required: "Please enter your email address !",
+  //       // email: "خطأ هذا ليس بريد الكتروني"
+  //     },
+  //   },
+  //   errorPlacement: function(error, element) {
+  //     if (element.attr("name") == "email") {
+  //         error.insertAfter("#form-group");
+  //     } else {
+  //         error.insertAfter(element);
+  //     }
+  //   }  
+  // });
   // $('body').on("click","#btnLogin",function(){
   //   alert("test2222");
   //   $("#loginForm").submit();
@@ -64,6 +64,12 @@ setTimeout(function() {
   NProgress.done(); 
   $('.fadeIn').removeClass('out'); 
 }, 1000)
+
+$('#btnLogin').on('click', function () {
+    $(this).button('loading')
+    // business logic...
+     // $btn.button('complete')
+});
 
 
 

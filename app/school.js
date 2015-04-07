@@ -15,6 +15,19 @@ exports.SchoolMgr = {
     });
   },
 
+  getSchoolLimit :function(limit,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT school.name AS schoolName, school.name_en AS schoolName_en, school.latit AS latitude, school.longit AS longitude, mahalla.name AS mahallaName, area.name AS areaName, city.name AS cityName FROM `school`,`mahalla`,`area`,`city` WHERE `school`.`mahalla_idmahalla`=`mahalla`.`idmahalla` AND `mahalla`.`area_idarea`=`area`.`idarea` AND `area`.`city_idcity`=`city`.`idcity` limit ?,10 ; SELECT count(*) as cnt FROM `mahalla` WHERE `status` <> 0 ',limit, function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+          cb(result);
+        }
+      });
+    });
+  },
+
   AddSchool : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `school` SET ?',body,  function(err, result) {

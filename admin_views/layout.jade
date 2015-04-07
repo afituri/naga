@@ -16,7 +16,6 @@ html(lang='en')
     link(href="/css/sb-admin-2.css" rel="stylesheet")
     //- Custom Fonts
     link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
-    link(href="/css/nprogress.css" rel="stylesheet")
   body(style='display: none')
     block content
       block navigation
@@ -181,7 +180,7 @@ html(lang='en')
                     a(href='/')
                       i.fa.fa-sign-out.fa-fw
                       |  Logout          
-            .navbar-default.sidebar(role="navigation")
+            .navbar-default.sidebar#preview-container(role="navigation")
               .sidebar-nav.navbar-collapse
                 ul.nav#side-menu
                   li.sidebar-search
@@ -243,7 +242,9 @@ html(lang='en')
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="/showAdmin") Show Admin 
+                        a(href="/showAdmin") Show Admin
+                      li
+                        a(href="/addedAdmin") Added Admin 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-usd

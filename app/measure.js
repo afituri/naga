@@ -8,9 +8,9 @@ exports.MeasureMgr = {
       conn.query('SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 ',limit, function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -22,7 +22,7 @@ exports.MeasureMgr = {
      conn.query('SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 ',limit, function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
           cb(null,result);
         }
@@ -35,9 +35,9 @@ exports.MeasureMgr = {
       conn.query('INSERT INTO `measure` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -49,9 +49,9 @@ exports.MeasureMgr = {
       conn.query('UPDATE `measure` SET `name` = ?,`update_time`=? WHERE `idmeasure` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -63,9 +63,9 @@ exports.MeasureMgr = {
       conn.query('UPDATE `measure` SET `name_en` = ?,`update_time`=? WHERE `idmeasure` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -74,15 +74,14 @@ exports.MeasureMgr = {
   searchMng : function(name,limit,cb){
     name = name+"%";
     mysqlMgr.connect(function (conn) {
-      // (`name` LIKE ?  or `name_en` LIKE ?)
-         conn.query('SELECT * FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) ',[name,name,limit,name,name], function(err, result) {
-            conn.release();
-            if(err) {
-              util.log(err);
-            } else {
-              cb(null,result);
-            } 
-        });
+      conn.query('SELECT * FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) ',[name,name,limit,name,name], function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        } 
+      });
     });
   },
 
@@ -92,12 +91,25 @@ exports.MeasureMgr = {
       conn.query('UPDATE `measure` SET `status` = 0 ,`update_time` = ? WHERE `idmeasure` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `measure` WHERE `idmeasure` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 ////////////////////////////////////////////////////////////////////////// 
 };

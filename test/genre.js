@@ -3,11 +3,11 @@ var tobMgr = require('../app/tob').TobMgr;  // our module
 var genre = require('../app/genre').GenreMgr;
 var tob = require('../TestUser/mochaObj.json').tob;
 var obj = require('../TestUser/mochaObj.json').genre;
-describe('Module genre', function(){
-  
-  it('genre is an object ', function(){
-    assert.equal(typeof tobMgr, 'object');
-    // assert.equal(typeof City.AddCity, 'function');
+
+  describe('Module genre', function(){
+    it('genre is an object ', function(){
+      assert.equal(typeof tobMgr, 'object');
+      // assert.equal(typeof City.AddCity, 'function');
   }),
 /////////////////////////////////////////////////////////////////////////////////
   describe('#AddTob()',function(){

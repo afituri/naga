@@ -6,23 +6,12 @@ var obj = require('../TestUser/mochaObj.json').company;
 var admin = require('../TestUser/mochaObj.json').admin;
 var tob = require('../TestUser/mochaObj.json').tob;
 
-// var add_company= {idcompany:10000000,name:'ناقة',name_en:'naga', logo:'1asf',admin_idadmin:1,tob_idtob:1},
-//     update_company_name={value:'الناقة',pk:10000000},
-//     update_company_name_en={value:'alnaga',pk:10000000},
-//     update_company_logo={value:'alnaga',pk:10000000},
-//     update_company_level={value:2,pk:10000000},
-//     update_company_admin={value:2,pk:1},
-//     update_company_tob={value:2,pk:1},
-//     delete_company=10000000;
-
-
-describe('Module company', function(){
-  
-  it('company is an object with a fucntion called Addcompany', function(){
-    assert.equal(typeof company, 'object');
+  describe('Module company', function(){
+    it('company is an object with a fucntion called Addcompany', function(){
+      assert.equal(typeof company, 'object');
   }),
 //////////////////////////////////////////////////////////////////////////////////////////
-describe('#AddTob()',function(){
+  describe('#AddTob()',function(){
     it('Should inser without an error', function(done){
       tobMgr.AddTob(tob['add_tob'],function(err,result){
         if (err) throw err;

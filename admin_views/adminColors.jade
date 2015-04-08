@@ -43,13 +43,15 @@ block dashBord
                   strong Edit  
                 td.text-center
                   strong Trash 
-            tbody
+            tbody#colorTable
               for i in color
-                tr
-                  td.text-center #{i.name}  
-                  td.text-center #{i.name_en}
+                tr(data-id='#{i.idcolor}')
+                  td.text-center 
+                     a.editable.editable-click(id='name#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name}  
                   td.text-center
-                    button.btn.btn-info.btn-xs
+                    a.editable.editable-click(id='name_en#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name_en}  
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(value='#{i.idcolor}' ,data-title='Edit', data-toggle='modal')
                       span.glyphicon.glyphicon-pencil     
                   td.text-center
                     button#delete.btn.btn-danger.btn-xs(href='#ded', data-toggle='modal',value='#{i.idcolor}')
@@ -91,6 +93,8 @@ block dashBord
                   button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/editColor.js')
+  script(src='/js/bootstrap-editable.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/nprogress.js')
   script(src='/js/sb-admin-2.js')  

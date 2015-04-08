@@ -123,7 +123,6 @@ router.get('/sizes/:id', function(req, res) {
 
 router.get('/adminColors', function(req, res) {
   ColorMgr.GetColor(function(err,result){
-    console.log(result);
     res.render('adminColors', { title: 'Colors',color:result});
   }); 
 });
@@ -167,6 +166,20 @@ router.post('/editnameEn', function(req, res) {
     res.send(true);
   });
 });
+ 
+
+
+router.post('/editColorNameEn', function(req, res) {
+  ColorMgr.UpdateColorNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editColorNameAr', function(req, res) {
+  ColorMgr.UpdateColorNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
 
 router.post('/editname', function(req, res) {
   CityMgr.UpdateCityNameAR(req.body,function(err,result){
@@ -192,8 +205,7 @@ router.get('/deleteSize/:id', function(req, res) {
 
 router.get('/deleteColor/:id', function(req, res) {
    ColorMgr.DeleteColor(req.params.id,function(err,result){
-     console.log(resultt);
-    res.send(resultt);
+    res.send(result);
    });
 });
 
@@ -244,7 +256,7 @@ router.get('/adminSerialNumber', function(req, res) {
               rand.UseitActiveprepaidCard(20,function(result6){ 
                 rand.UseitActiveprepaidCard(50,function(result7){ 
                   rand.UseitActiveprepaidCard(100,function(result8){ 
-                    console.log(result8[0].c);
+                   // console.log(result8[0].c);
                     var notusedCard = result[0].c - result5[0].c;
                     var precent = 100/result[0].c;
                     var total=(result5[0].c)*precent;

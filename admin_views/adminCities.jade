@@ -2,7 +2,6 @@ extends layout
 block dashBord
   #page-wrapper
     .container-fluid
-      // Page Heading
       .row
         .col-lg-12
           h1  Locations Manger
@@ -15,26 +14,6 @@ block dashBord
               i.fa Locations Manger
             li.active
               i.fa  Cities
-            //- .panel.panel-default
-            //-   .panel-heading
-            //-     .row
-            //-       .col-xs-2.col-md-2
-            //-         h2.panel-title(style="margin-top: 8px;")
-            //-           strong  List of Cities
-            //-       .col-xs-5.col-md-6
-            //-         form(role='search')
-            //-           .input-group
-            //-             input.form-control(type='text', placeholder='Search by name')
-            //-             span.input-group-addon
-            //-               i.glyphicon.glyphicon-search
-            //-       .col-xs-3.col-md-2
-            //-         a.btn.btn-success(href='#newCitie', role='button',data-toggle='modal')
-            //-           span.glyphicon.glyphicon-plus
-            //-           |  Add Citie
-            //-       .col-xs-2.col-md-2 
-            //-         button.btn.btn-primary
-            //-           i.glyphicon.glyphicon-print
-            //-           |  Print 
           .panel.panel-default.filterable
             .panel-heading
               .row
@@ -84,7 +63,7 @@ block dashBord
                         button#enable.btn.btn-info.btn-xs(data-value='#{city.idcity}', data-placement='top', title='Edit City')
                           span.glyphicon.glyphicon-pencil
                       td.text-center
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-value='#{city.idcity}', data-placement='top', title='Delete City')
+                        button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='#{city.idcity}')
                           span.glyphicon.glyphicon-trash      
               //- if pagination
               //-   .text-center
@@ -96,16 +75,16 @@ block dashBord
               //-           a(href='?p=#{page.n}') #{page.n}
               //-       li(class="#{pagination.next.disabled}")
               //-         a(href='?p=#{pagination.next.n}') Next
-        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+        #delll.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
               .modal-headr.modal-header-danger
                 p.h1 Sure you want to delete?
               .modal-body
                 p.h2 Are you sure
-                p 
+                p
               .modal-footer
-                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newCitie.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
@@ -133,9 +112,9 @@ block dashBord
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/editCity.js') 
+  script(src='/js/adminCities.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/bootstrap-editable.min.js')
-  script(src='/js/editCity.js') 
   script(src='/js/helpers.js')
-  script(src='/js/adminCities.js')
   script(src='/js/searchFilter.js') 

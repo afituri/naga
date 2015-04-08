@@ -16,27 +16,31 @@ block dashBord
             i.fa  Add Admin
         // Add Admin
         .col-xs-10.col-xs-offset-1.col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3.well.well-sm
-          legend
-            a(href='#')
-              i.glyphicon.glyphicon-globe
-            |  Add Admin!
-          form.form(action='#', method='post', role='form')
-            input.form-control#form-control(name='name', placeholder='Full Name', type='text', required='', autofocus='')
-            input.form-control#form-control(name='email', placeholder='Your Email', type='email')
-            input.form-control#form-control(name='reEnterEmail', placeholder='Re-enter Email', type='email')
-            input.form-control#form-control(name='password', placeholder='New Password', type='password')
-            input.form-control#form-control(name='confirmPassword', placeholder='Confirm Password', type='password')
+          form#addAdmin(role='form')
             .form-group
-              select.form-control#form-control
-                option(value='',selected='', disabled='', style='color: grey; display:none;') Please Select Level
+              input.form-control#name(name='name', placeholder='Full Name', type='text', autofocus='')
+            .form-group
+              input.form-control#email(name='email', placeholder='Your Email', type='email')
+            .form-group
+              input.form-control#reEnterEmail(name='reEnterEmail', placeholder='Re-enter Email', type='email')
+            .form-group
+              input.form-control#password(name='password', placeholder='New Password', type='password')
+            .form-group
+              input.form-control#confirmPassword(name='confirmPassword', placeholder='Confirm Password', type='password')
+            .form-group
+              select.form-control#level(name='level',type='text')
+                option(value='-1', style='color: grey; display:none;') Please Select Level
                 option(value='1') Administration
-                option(value='2') Seller 
+                option(value='2') Seller  
             .row
               .col-xs-8.col-md-8
-                button.btn.btn-primary.btn-block(type='submit') Registration Admin 
+                button#btnSubmit.btn.btn-primary.btn-block(type='submit') Registration Admin 
               .col-xs-4.col-md-4
                 button.btn.btn-danger.btn-block(type='reset') Cancel
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/addAdmin.js')

@@ -30,7 +30,7 @@ exports.AreaMgr = {
 
   getAreaInfoById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `area` WHERE `status` <> 0 and idarea =?',id,  function(err, result) {
+      conn.query('SELECT `a`.`name` as areaName, `a`.`name_en` as areaName_en, `c`.`name` as cityName, `c`.`name_en` as cityName_en FROM `area` a,`city` c WHERE `a`.`status` <> 0 AND `idcity`=`city_idcity` AND `idarea`=?',id,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

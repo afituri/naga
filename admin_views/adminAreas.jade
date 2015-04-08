@@ -67,16 +67,18 @@ block dashBord
               tbody
                 // foreach ($order->lineItems as $line) or some such thing here
                 for area in areas
-                  tr
-                    td.text-center #{area.areaName}
-                    td.text-center #{area.areaName_en}
+                  tr(data-id='#{area.idarea}')
+                    td.text-center 
+                      a.editable.editable-click(id='name#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName}
+                    td.text-center 
+                       a.editable.editable-click(id='name_en#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName_en}
                     td.text-center #{area.cityName}
                     td.text-center #{area.cityName_en}
                     td.text-center
-                      button.btn.btn-info.btn-xs(data-placement='top', title='Edit')
+                      button#enable.btn.btn-info.btn-xs(data-value='#{area.idarea}', data-placement='top', title='Edit City')
                         span.glyphicon.glyphicon-pencil
                     td.text-center
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete',value='#{area.idarea}')
                         span.glyphicon.glyphicon-trash        
         #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
@@ -87,7 +89,7 @@ block dashBord
                 p.h2 Are you sure
                 p 
               .modal-footer
-                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
@@ -118,7 +120,12 @@ block dashBord
                 button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editArea.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/searchFilter.js')
+  script(src='/js/adminAreas.js')
+ 
+
   

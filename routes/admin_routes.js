@@ -69,7 +69,7 @@ router.get('/adminMeasure', function(req, res) {
   req.session.back = req.originalUrl;
   var page = user.getPage(req);
   var limit =user.getLimit(page);
-  MeasureMgr.GetMeasurelimit(limit,function(result){
+  MeasureMgr.GetMeasurelimit(limit,function(err,result){
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);

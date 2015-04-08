@@ -107,6 +107,21 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
+///editAreaName
+
+router.post('/editAreaName', function(req, res) {
+  AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+///editAreaNameEn
+
+router.post('/editAreaNameEn', function(req, res) {
+  AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
 
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
@@ -210,9 +225,24 @@ router.get('/deleteColor/:id', function(req, res) {
 });
 
 
+
+router.get('/deleteCity/:id', function(req, res) {
+  console.log(req.params.id);
+   CityMgr.DeleteCity(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
+router.get('/deleteArea/:id', function(req, res) {
+   AreaMgr.DeleteArea(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
+
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-    res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
+  res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
   });
 });
 
@@ -221,6 +251,7 @@ router.get('/adminMahala', function(req, res) {
   var page = user.getPage(req);
   var limit = user.getLimit(page);
   MahallaMgr.getMahallaLimit(limit,function(result){
+    console.log(result[0]);
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);

@@ -1,8 +1,7 @@
 $(document).ready(function(){
-  $.validator.addMethod("valueNotEquals", function(value, element, arg){
-    return arg != value;
-  }, "Value must not equal arg.");
+
   $("#formArea").validate({
+    ignore: ':not(select:hidden, input:visible, textarea:visible)',
     rules:{
       name:{
         required: true,
@@ -11,7 +10,7 @@ $(document).ready(function(){
         required : true,
       },
       city_idcity:{
-        valueNotEquals: "-1"
+        required : true,
       },
     },
     messages:{
@@ -22,12 +21,24 @@ $(document).ready(function(){
         required: "Please enter area in english !",
       },
       city_idcity:{
-        valueNotEquals: "Please select city name !"
+        required: "Please select city name !"
       },
+    },
+    errorPlacement: function (error, element) {
+      if ($(element).is('select')) {
+          element.next().after(error);
+      } else {
+          error.insertAfter(element);
+      }
     },
   });
   $('body').on('click', '#save', function () {
     $('#formArea').submit();
+  });
+  $('body').on('click', '#cancel', function () {
+    $('#name').val("");
+    $('#name_en').val("");
+    $('.selectpicker').selectpicker('val', '');
   });
   $("#formArea").submit(function() {
     $.post("/addAreas", $("form").serializeObject(), function(data, error){

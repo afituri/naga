@@ -92,17 +92,17 @@ block Dashboard
                 button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-          .modal-dialog
-            .modal-content
-              .modal-headr.modal-header-success
-                button.close(type="button", data-dismiss="modal" aria-label="Close")
-                  span(aria-hidden="true") × 
-                h2
-                  .glyphicon.glyphicon-plus
-                  |  Add Area
-              .row 
+          form#formArea(role="form",name="formArea")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2.modal-title
+                    .glyphicon.glyphicon-plus
+                    |  Add Area
                 .modal-body
-                  form#formArea.form-signin(role="form",name="formArea")
+                  .row
                     .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                       .form-group
                         .h4 Area in Arabic
@@ -113,17 +113,18 @@ block Dashboard
                         input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
                     .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
                       .form-group
-                        .h4 City
-                        select#city_idcity.form-control(type="text",name="city_idcity")
-                          option(value="-1", style='color: grey; display:none;') Please Select City
+                        .h4 Select City 
+                        select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5')
+                          option(value="", style='color:grey; display:none;') Please Select City
                           for city in cities
-                            option(value="#{city.idcity}") #{city.name} #{city.name_en}
-              .modal-footer
-                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                button#save.btn.btn-primary() Save Change 
+                            option(value="#{city.idcity}",data-subtext='#{city.name_en}') #{city.name} 
+                .modal-footer
+                  button#cancel.btn.btn-danger(data-dismiss='modal',type='submit') Cancel
+                  button#save.btn.btn-primary Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/editArea.js')
   script(src='/metisMenu/dist/metisMenu.min.js')

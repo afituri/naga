@@ -13,6 +13,7 @@ var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
 var user =require('../app/userHelpers');
 
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -94,6 +95,22 @@ router.post('/SizeEditNameEn', function(req, res) {
 
 router.post('/SizeEditNameAr', function(req, res) {
  SizeMgr.UpdateSizeNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+///editMahalla
+
+router.post('/editMahalla', function(req, res) {
+ MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+///editMahallaEn
+
+router.post('/editMahallaEn', function(req, res) {
+ MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
@@ -224,10 +241,16 @@ router.get('/deleteColor/:id', function(req, res) {
    });
 });
 
+//deleteMahalla
+router.get('/deleteMahalla/:id', function(req, res) {
+   MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
 
 
 router.get('/deleteCity/:id', function(req, res) {
-  console.log(req.params.id);
+  //console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
     res.send(result);
   });
@@ -251,10 +274,11 @@ router.get('/adminMahala', function(req, res) {
   var page = user.getPage(req);
   var limit = user.getLimit(page);
   MahallaMgr.getMahallaLimit(limit,function(result){
-    console.log(result[0]);
+    //console.log(result[0]);
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
+      //console.log(result[0]);
       res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
     }
   });

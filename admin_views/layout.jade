@@ -16,11 +16,19 @@ html(lang='en')
     link(href="/css/sb-admin-2.css" rel="stylesheet")
     //- Custom Fonts
     link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
+    //- NProgress CSS
+    link(href="/css/nprogress.css" rel="stylesheet")
+    link(href="/css/animate.min.css" rel="stylesheet")
   body(style='display: none')
     block content
       block navigation
         //- .loadingImg
         //-(class="#{NProgress}")
+        #search
+          button.close(type='button') ×
+          form
+            input(type='search', value='', placeholder='type keyword(s) here')
+            button.btn.btn-primary(type='submit') Search  
         #wrapper
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
@@ -183,8 +191,11 @@ html(lang='en')
             .navbar-default.sidebar#preview-container(role="navigation")
               .sidebar-nav.navbar-collapse
                 ul.nav#side-menu
-                  li.text-center
-                    a(href="#search") Search
+                  //- button.btn.btn-default.btn-info(type='submit') Search
+                  li
+                    a(href="#search") 
+                      i.fa.fa-search  
+                      |  Search
                   //- li.sidebar-search
                   //-   .input-group.custom-search-form
                   //-     input.form-control(type="text", placeholder="Search...")
@@ -282,4 +293,4 @@ html(lang='en')
                                 a(href="#") Third Level Item
                               li
                                 a(href="#") Third Level Item 
-          block dashBord                                           
+          block Dashboard                                           

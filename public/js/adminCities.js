@@ -17,10 +17,9 @@ $(document).ready(function(){
   $('body').on('click', '#sub', function () {
     $('#formCitie').submit();
   });
-  $('body').on('submit', '#formCitie', function(data) {
+  $("#formCitie").submit(function() {
+  // $('body').on('submit', '#formCitie', function(data) {
     $.post("/addcity", $("form").serializeObject(), function(data, error){
-      // window.location.href="/adminCities";
-      alret("test");
       if(data.stat !=true){
         $("#err").empty();
         for (err in data.result) {

@@ -52,7 +52,6 @@ router.get('/getMeasure', function(req, res) {
   });  
 });
 
-
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
@@ -84,8 +83,8 @@ router.post('/MeasurEditNameEn', function(req, res) {
     res.send(true);
   });
 });
-// SizeEditNameEn
 
+// SizeEditNameEn
 router.post('/SizeEditNameEn', function(req, res) {
  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
     res.send(true);
@@ -98,8 +97,6 @@ router.post('/SizeEditNameAr', function(req, res) {
   });
 });
 
-
-
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
     res.send(true);
@@ -108,26 +105,23 @@ router.post('/MeasurEditName', function(req, res) {
 });
 
 ///editAreaName
-
 router.post('/editAreaName', function(req, res) {
   AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
-///editAreaNameEn
 
+///editAreaNameEn
 router.post('/editAreaNameEn', function(req, res) {
   AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
     res.send(true);
   });
 });
 
-
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
     res.redirect('/adminMeasure');
   });
-
 });
 
 router.get('/sizes/:id', function(req, res) {
@@ -182,8 +176,6 @@ router.post('/editnameEn', function(req, res) {
   });
 });
  
-
-
 router.post('/editColorNameEn', function(req, res) {
   ColorMgr.UpdateColorNameEN(req.body,function(err,result){
     res.send(true);
@@ -224,8 +216,6 @@ router.get('/deleteColor/:id', function(req, res) {
    });
 });
 
-
-
 router.get('/deleteCity/:id', function(req, res) {
   console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
@@ -238,7 +228,6 @@ router.get('/deleteArea/:id', function(req, res) {
     res.send(result);
   });
 });
-
 
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
@@ -286,13 +275,13 @@ router.get('/adminSchools', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination});
+      res.render('adminSchools', { title:'Schools',school:result[0],pagination:pagination});
     }
   });
 });
 
 router.get('/adminInvoice', function(req, res) {
-  res.render('adminInvoice', { title: 'Invoice'});
+  res.render('adminInvoice', { title:'Invoice'});
 });
 
 router.get('/adminSerialNumber', function(req, res) {
@@ -304,17 +293,12 @@ router.get('/adminSerialNumber', function(req, res) {
             rand.usedCard(function(result5){
               rand.UseitActiveprepaidCard(20,function(result6){ 
                 rand.UseitActiveprepaidCard(50,function(result7){ 
-                  rand.UseitActiveprepaidCard(100,function(result8){ 
-                   // console.log(result8[0].c);
+                  rand.UseitActiveprepaidCard(100,function(result8){
                     var notusedCard = result[0].c - result5[0].c;
                     var precent = 100/result[0].c;
                     var total=(result5[0].c)*precent;
-                    res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
-                    twentyMony : result2 , fmony : result3,hmony:result4
-                    ,all:result5 
-                    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
-                    ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
-                    ,notUsed : notusedCard});
+                    res.render('adminSerialNumber', { title:'Prepaid Card Manger', cardNumber:result[0].c, mony:result1[0].totalMony, twentyMony:result2, fmony:result3, hmony:result4, all:result5, Tused:result6[0].c, Fused:result7[0].c, Hused:result8[0].c, TTused:result6[0].s, FFused:result7[0].s, HHused:result8[0].s, usedPercent:total, notUsed:notusedCard
+                    });
                   });
                 });
               });
@@ -327,15 +311,15 @@ router.get('/adminSerialNumber', function(req, res) {
 });
 
 router.get('/viewAdmin', function(req, res) {
-  res.render('viewAdmin', { title: 'view Admins' ,users:users,NProgress:"fadeIn out"});
+  res.render('viewAdmin', { title:'view Admins', users:users, NProgress:"fadeIn out"});
 });
 
 router.get('/loadingImg', function(req, res) {
-  res.render('loadingImg', { title: 'Loading....'});
+  res.render('loadingImg', { title:'Loading....'});
 });
 
 router.get('/addAdmin', function(req, res) {
-    res.render('addAdmin', { title: 'Add Admin'});
+    res.render('addAdmin', { title:'Add Admin'});
 });
 
 module.exports = router;

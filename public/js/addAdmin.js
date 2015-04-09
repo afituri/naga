@@ -1,9 +1,7 @@
 $(document).ready(function(){
-
   $.validator.addMethod("valueNotEquals", function(value, element, arg){
     return arg != value;
   }, "Value must not equal arg.");
-
   $("#addAdmin").validate({
     rules:{
       name:{
@@ -54,15 +52,24 @@ $(document).ready(function(){
       },
     },
   });
-
   $('body').on('click', '#btnSubmit', function () {
-    $.notify('You successfully read this important alert message.', {
+    $.notify({
+      title: "<strong>Successful:</strong> ",
+      message: "Add a new admin has successfully"
+    },{
       type: 'success',
       allow_dismiss: true,
+      showProgressbar: false,
       placement: {
         from: 'top',
         align: 'center'
-      }
+      },
+      mouse_over: null,
+      newest_on_top: true,
+      animate: {
+        enter: 'animated flipInY',
+        exit: 'animated flipOutX'
+      },
     });
   });  
 });

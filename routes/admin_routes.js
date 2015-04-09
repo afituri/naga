@@ -13,6 +13,7 @@ var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
 var user =require('../app/userHelpers');
 
+
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -52,6 +53,7 @@ router.get('/getMeasure', function(req, res) {
   });  
 });
 
+
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
@@ -83,8 +85,8 @@ router.post('/MeasurEditNameEn', function(req, res) {
     res.send(true);
   });
 });
-
 // SizeEditNameEn
+
 router.post('/SizeEditNameEn', function(req, res) {
  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
     res.send(true);
@@ -97,31 +99,52 @@ router.post('/SizeEditNameAr', function(req, res) {
   });
 });
 
+///editMahalla
+
+router.post('/editMahalla', function(req, res) {
+ MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+///editMahallaEn
+
+router.post('/editMahallaEn', function(req, res) {
+ MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
     res.send(true);
-    res.render('adminMeasure', { title: 'Measure',measure:result[0],pagination:pagination,NProgress:"fadeIn out"});
+   
   });
 });
 
 ///editAreaName
+
 router.post('/editAreaName', function(req, res) {
   AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
-
 ///editAreaNameEn
+
 router.post('/editAreaNameEn', function(req, res) {
   AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
     res.send(true);
   });
 });
 
+
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
     res.redirect('/adminMeasure');
   });
+
 });
 
 router.get('/sizes/:id', function(req, res) {
@@ -176,6 +199,8 @@ router.post('/editnameEn', function(req, res) {
   });
 });
  
+
+
 router.post('/editColorNameEn', function(req, res) {
   ColorMgr.UpdateColorNameEN(req.body,function(err,result){
     res.send(true);
@@ -216,8 +241,16 @@ router.get('/deleteColor/:id', function(req, res) {
    });
 });
 
+//deleteMahalla
+router.get('/deleteMahalla/:id', function(req, res) {
+   MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
+
+
 router.get('/deleteCity/:id', function(req, res) {
-  console.log(req.params.id);
+  //console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
     res.send(result);
   });
@@ -229,39 +262,23 @@ router.get('/deleteArea/:id', function(req, res) {
   });
 });
 
+
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-    CityMgr.GetCity(function(err,result1){
-      res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out",cities:result1});
-    });
+  res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
   });
 });
 
-router.post('/addAreas',function(req,res){
-  console.log(req.body);
-  validator.isAreas(req,function(err,result){
-    if(result!=true){
-      var rel={"result":result,stat:false}
-      res.send(rel);
-      }  else {
-      AreaMgr.addArea(req.body,function(err,result){
-        AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
-          var rel={"result":resultid,stat:true}
-          res.send(rel);
-        });
-      });
-    }
-  });
-});
 router.get('/adminMahala', function(req, res) {
   req.session.back = req.originalUrl;
   var page = user.getPage(req);
   var limit = user.getLimit(page);
   MahallaMgr.getMahallaLimit(limit,function(result){
-    console.log(result[0]);
+    //console.log(result[0]);
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
+      //console.log(result[0]);
       res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
     }
   });
@@ -275,13 +292,13 @@ router.get('/adminSchools', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      res.render('adminSchools', { title:'Schools',school:result[0],pagination:pagination});
+      res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination});
     }
   });
 });
 
 router.get('/adminInvoice', function(req, res) {
-  res.render('adminInvoice', { title:'Invoice'});
+  res.render('adminInvoice', { title: 'Invoice'});
 });
 
 router.get('/adminSerialNumber', function(req, res) {
@@ -293,12 +310,17 @@ router.get('/adminSerialNumber', function(req, res) {
             rand.usedCard(function(result5){
               rand.UseitActiveprepaidCard(20,function(result6){ 
                 rand.UseitActiveprepaidCard(50,function(result7){ 
-                  rand.UseitActiveprepaidCard(100,function(result8){
+                  rand.UseitActiveprepaidCard(100,function(result8){ 
+                   // console.log(result8[0].c);
                     var notusedCard = result[0].c - result5[0].c;
                     var precent = 100/result[0].c;
                     var total=(result5[0].c)*precent;
-                    res.render('adminSerialNumber', { title:'Prepaid Card Manger', cardNumber:result[0].c, mony:result1[0].totalMony, twentyMony:result2, fmony:result3, hmony:result4, all:result5, Tused:result6[0].c, Fused:result7[0].c, Hused:result8[0].c, TTused:result6[0].s, FFused:result7[0].s, HHused:result8[0].s, usedPercent:total, notUsed:notusedCard
-                    });
+                    res.render('adminSerialNumber', { title: 'Prepaid Card Manger',cardNumber:result[0].c,mony:result1[0].totalMony,
+                    twentyMony : result2 , fmony : result3,hmony:result4
+                    ,all:result5 
+                    ,Tused:result6[0].c,Fused:result7[0].c,Hused:result8[0].c
+                    ,TTused:result6[0].s,FFused:result7[0].s,HHused:result8[0].s,usedPercent:total
+                    ,notUsed : notusedCard});
                   });
                 });
               });
@@ -311,15 +333,15 @@ router.get('/adminSerialNumber', function(req, res) {
 });
 
 router.get('/viewAdmin', function(req, res) {
-  res.render('viewAdmin', { title:'view Admins', users:users, NProgress:"fadeIn out"});
+  res.render('viewAdmin', { title: 'view Admins' ,users:users,NProgress:"fadeIn out"});
 });
 
 router.get('/loadingImg', function(req, res) {
-  res.render('loadingImg', { title:'Loading....'});
+  res.render('loadingImg', { title: 'Loading....'});
 });
 
 router.get('/addAdmin', function(req, res) {
-    res.render('addAdmin', { title:'Add Admin'});
+    res.render('addAdmin', { title: 'Add Admin'});
 });
 
 module.exports = router;

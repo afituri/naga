@@ -30,7 +30,7 @@ exports.MahallaMgr = {
 
   getMahallaLimit :function(limit,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT mahalla.name as mahallaName, mahalla.name_en as mahallaName_en, area.name as areaName, area.name_en as areaName_en FROM `mahalla`,`area` WHERE mahalla.status <> 0 AND idarea=area_idarea limit ?,10 ; SELECT count(*) as cnt FROM `mahalla` WHERE `status` <> 0 ',limit, function(err, result) {
+      conn.query('SELECT mahalla.idmahalla,mahalla.name as mahallaName, mahalla.name_en as mahallaName_en, area.name as areaName, area.name_en as areaName_en FROM `mahalla`,`area` WHERE mahalla.status <> 0 AND idarea=area_idarea limit ?,10 ; SELECT count(*) as cnt FROM `mahalla` WHERE `status` <> 0 ',limit, function(err, result) {
         conn.release();
         if(err) {
           util.log(err);

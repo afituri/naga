@@ -67,16 +67,18 @@ block Dashboard
               tbody
                 // foreach ($order->lineItems as $line) or some such thing here
                 for mahalas in mahala
-                  tr
-                    td.text-center #{mahalas.mahallaName}
-                    td.text-center #{mahalas.mahallaName_en}
+                  tr(data-id='#{mahalas.idmahalla}')
+                    td.text-center
+                      a.editable.editable-click(id='name#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName}
+                    td.text-center 
+                      a.editable.editable-click(id='name_en#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName_en}
                     td.text-center #{mahalas.areaName}
                     td.text-center #{mahalas.areaName_en}
                     td.text-center
-                      button.btn.btn-info.btn-xs
-                        span.glyphicon.glyphicon-pencil
+                      button#enable.btn.btn-info.btn-xs(value='#{mahalas.idmahalla}' ,data-title='Edit', data-toggle='modal')
+                        span.glyphicon.glyphicon-pencil   
                     td.text-center 
-                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
+                      button#delete.btn.btn-danger.btn-xs(value='#{mahalas.idmahalla}',href='#del', data-toggle='modal')
                         span.glyphicon.glyphicon-trash          
         if pagination 
           .text-center
@@ -97,7 +99,7 @@ block Dashboard
                 p.h2 Are you sure
                 p 
               .modal-footer
-                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newMahala.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
            .modal-dialog
@@ -136,3 +138,5 @@ block Dashboard
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/searchFilter.js') 
+  script(src='/js/adminMahalla.js')
+  script(src='/js/editMahalla.js') 

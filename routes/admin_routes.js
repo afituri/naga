@@ -250,7 +250,6 @@ router.get('/deleteMahalla/:id', function(req, res) {
 
 
 router.get('/deleteCity/:id', function(req, res) {
-  //console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
     res.send(result);
   });

@@ -27,8 +27,8 @@ block Dashboard
             .form-group
               input#display_name.form-control(type='text', name='display_name', placeholder='Display Name')
             .form-group
-              select#level.form-control
-                option(value='',selected='', disabled='', style='color: grey; display:none;') Please Select Level
+              select#level.form-control(name='level')
+                option(value='-1',selected='', disabled='', style='color: grey; display:none;') Please Select Level
                 option(value='1') Administration
                 option(value='2') Seller 
             .form-group

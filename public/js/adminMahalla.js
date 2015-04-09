@@ -1,7 +1,6 @@
 $(document).ready(function(){
  
   $('body').on('click','#delete', function(){
-  	
     $('#deletee').val($(this).val());
   });
 
@@ -10,4 +9,5 @@ $(document).ready(function(){
      window.location.href='/adminMahala';
    });
   });
+  
 });

@@ -296,7 +296,9 @@ router.get('/adminMahala', function(req, res) {
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
       //console.log(result[0]);
-      res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
+      CityMgr.GetCity(function(err,result1){
+        res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination,cities:result1});
+      });
     }
   });
 });

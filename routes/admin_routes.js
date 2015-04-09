@@ -261,10 +261,27 @@ router.get('/deleteArea/:id', function(req, res) {
   });
 });
 
-
 router.get('/adminAreas', function(req, res) {
   AreaMgr.getAreaInfo(function(err,result){
-  res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out"});
+    CityMgr.GetCity(function(err,result1){
+      res.render('adminAreas', { title: 'Areas', areas:result,NProgress:"fadeIn out",cities:result1});
+    });
+  });
+});
+ 
+router.post('/addAreas',function(req,res){
+  validator.isAreas(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }else {
+      AreaMgr.addArea(req.body,function(err,result){
+        AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
   });
 });
 

@@ -8,26 +8,25 @@ $(document).ready(function() {
     $('div#form-olvidado').toggle('500');
   });
   $("#loginForm").validate({
-    //alert("DD");
-      rules:{
-        email:{
-          required: true,
-          email: true,
-        },
+    rules:{
+      email:{
+        required: true,
+        email: true,
       },
-      messages:{
-        email:{
-          required: "Please enter your email address !",
-          // email: "خطأ هذا ليس بريد الكتروني"
-        },
+    },
+    messages:{
+      email:{
+        required: "Please enter your email address !",
       },
-      errorPlacement: function(error, element) {
-        if (element.attr("name") == "email") {
-            error.insertAfter("#form-group");
-        } else {
-            error.insertAfter(element);
-        }
-      }  
+    },
+    errorPlacement: function(error, element) {
+      if (element.attr("name") == "email") {
+        error.insertAfter("#form-group");
+      } 
+      else {
+        error.insertAfter(element);
+      }
+    },
   });
   // $('body').on("click","#btnLogin",function(){
   //   alert("test2222");
@@ -61,10 +60,16 @@ $(".reveal").mousedown(function() {
 
 $('body').show();
 NProgress.start();
-setTimeout(function() { 
+$(window).load(function() {
   NProgress.done(); 
-  $('.fadeIn').removeClass('out'); 
-}, 1000)
+  $('.showIn').removeClass('out');
+  $('.showIn').addClass('flipInY');
+});
+// setTimeout(function() { 
+//   NProgress.done(); 
+//   $('.showIn').removeClass('out');
+//   $('.showIn').addClass('flipInY');
+// }, 2000)
 
 $('#btnLogin').on('click', function () {
     $(this).button('loading')

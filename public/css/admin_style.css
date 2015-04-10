@@ -95,12 +95,12 @@ ul.pagination {
   background: url(/img/loader-128x/Preloader_2.gif) center no-repeat #fff;
 }
 
-.fadeIn {
+.showIn {
   transition: all 300ms linear 700ms;
   opacity: 1;
 }
 
-.fadeIn.out {
+.showIn.out {
   opacity: 0;
 }
 

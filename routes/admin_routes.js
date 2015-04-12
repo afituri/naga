@@ -116,6 +116,39 @@ router.post('/editMahallaEn', function(req, res) {
 });
 
 
+// SchoolEditName
+
+router.post('/SchoolEditName', function(req, res) {
+ SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+//SchoolEditNameEn
+
+router.post('/SchoolEditNameEn', function(req, res) {
+ SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+// editlatitSchool
+
+router.post('/editlatitSchool', function(req, res) {
+ SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editlongitSchool', function(req, res) {
+ SchoolMgr.UpdateSchoolLongit(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+
 
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
@@ -244,6 +277,13 @@ router.get('/deleteColor/:id', function(req, res) {
 //deleteMahalla
 router.get('/deleteMahalla/:id', function(req, res) {
    MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
+
+//deleteSchool
+router.get('/deleteSchool/:id', function(req, res) {
+   SchoolMgr.DeleteSchool(req.params.id,function(err,result){
     res.send(result);
    });
 });

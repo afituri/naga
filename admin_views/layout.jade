@@ -16,13 +16,21 @@ html(lang='en')
     link(href="/css/sb-admin-2.css" rel="stylesheet")
     //- Custom Fonts
     link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
+    //- NProgress CSS
     link(href="/css/nprogress.css" rel="stylesheet")
-  body(style='display: none')
+    link(href="/css/animate.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+  body.animated.fadeIn(style='display: none')
     block content
       block navigation
         //- .loadingImg
         //-(class="#{NProgress}")
-        #wrapper 
+        #search
+          button.close(type='button') ×
+          form
+            input(type='search', value='', placeholder='type keyword(s) here')
+            button.btn.btn-primary(type='submit') Search  
+        #wrapper
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
               button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
@@ -181,15 +189,20 @@ html(lang='en')
                     a(href='/')
                       i.fa.fa-sign-out.fa-fw
                       |  Logout          
-            .navbar-default.sidebar(role="navigation")
+            .navbar-default.sidebar#preview-container(role="navigation")
               .sidebar-nav.navbar-collapse
                 ul.nav#side-menu
-                  li.sidebar-search
-                    .input-group.custom-search-form
-                      input.form-control(type="text", placeholder="Search...")
-                      span.input-group-btn
-                        button.btn.btn-default(type="button")
-                          i.fa.fa-search
+                  //- button.btn.btn-default.btn-info(type='submit') Search
+                  li
+                    a(href="#search") 
+                      i.fa.fa-search  
+                      |  Search
+                  //- li.sidebar-search
+                  //-   .input-group.custom-search-form
+                  //-     input.form-control(type="text", placeholder="Search...")
+                  //-     span.input-group-btn
+                  //-       button.btn.btn-default(type="button")
+                  //-         i.fa.fa-search
                   li
                     a(href="/adminPage")
                       i.fa.fa-dashboard.fa-fw
@@ -243,7 +256,9 @@ html(lang='en')
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="/showAdmin") Show Admin 
+                        a(href="/viewAdmin") View Admins
+                      li
+                        a(href="/addAdmin") Add Admin 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-usd
@@ -279,4 +294,4 @@ html(lang='en')
                                 a(href="#") Third Level Item
                               li
                                 a(href="#") Third Level Item 
-          block dashBord                                           
+          block Dashboard                                           

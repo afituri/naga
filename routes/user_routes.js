@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
-var should = require('should');
-var  supertest=require('supertest');
+
 
 /* GET home page. */
 router.get('/', function(req, res) {

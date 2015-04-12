@@ -8,20 +8,21 @@ exports.MeasureMgr = {
       conn.query('SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 ',limit, function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
-    GetMeasure :function(limit,cb){
+
+  GetMeasure :function(limit,cb){
     mysqlMgr.connect(function (conn) {
       //SELECT o.idorder FROM orders   WHERE o.deleted =1  limit ?,10; SELECT COUNT(*) as cnt FROM orders as o, employee as emp ,department as dept WHERE o.deleted=1  AND  o.requestEmploye=emp.idemployee AND dept.iddepartments=emp.iddepartment;',[limit],function(err, result1) {
      conn.query('SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 ',limit, function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
           cb(null,result);
         }
@@ -34,22 +35,23 @@ exports.MeasureMgr = {
       conn.query('INSERT INTO `measure` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
   UpdateMeasureNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `measure` SET `name` = ?,`update_time`=? WHERE `idmeasure` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -61,25 +63,25 @@ exports.MeasureMgr = {
       conn.query('UPDATE `measure` SET `name_en` = ?,`update_time`=? WHERE `idmeasure` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
   },
  // SELECT * FROM `measure` WHERE `status` <> 0 limit ?,10
-  searchMng : function(name,cb){
+  searchMng : function(name,limit,cb){
     name = name+"%";
     mysqlMgr.connect(function (conn) {
-        conn.query('SELECT * FROM `measure` where status <> 0 and (`name` LIKE ?  or `name_en` LIKE ?)' ,[name,name], function(err, result) {
-            conn.release();
-            if(err) {
-              util.log(err);
-            } else {
-              cb(null,result);
-            } 
-        });
+      conn.query('SELECT * FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) limit ?,10 ; SELECT count(*) as cnt FROM `measure` WHERE `status` <> 0 and (`name` LIKE ?  or `name_en` LIKE ?) ',[name,name,limit,name,name], function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        } 
+      });
     });
   },
 
@@ -89,14 +91,25 @@ exports.MeasureMgr = {
       conn.query('UPDATE `measure` SET `status` = 0 ,`update_time` = ? WHERE `idmeasure` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
-//////////////////////////////////////////////////////////////////////////
- 
-  
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `measure` WHERE `idmeasure` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
+////////////////////////////////////////////////////////////////////////// 
 };

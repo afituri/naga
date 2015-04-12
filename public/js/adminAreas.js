@@ -1,42 +1,87 @@
 $(document).ready(function(){
-    $('.filterable .btn-filter').click(function(){
-        var $panel = $(this).parents('.filterable'),
-        $filters = $panel.find('.filters input'),
-        $tbody = $panel.find('.table tbody');
-        if ($filters.prop('disabled') == true) {
-            $filters.prop('disabled', false);
-            $filters.first().focus();
-        } else {
-            $filters.val('').prop('disabled', true);
-            $tbody.find('.no-result').remove();
-            $tbody.find('tr').show();
-        }
-    });
 
-    $('.filterable .filters input').keyup(function(e){
-        /* Ignore tab key */
-        var code = e.keyCode || e.which;
-        if (code == '9') return;
-        /* Useful DOM data and selectors */
-        var $input = $(this),
-        inputContent = $input.val().toLowerCase(),
-        $panel = $input.parents('.filterable'),
-        column = $panel.find('.filters th').index($input.parents('th')),
-        $table = $panel.find('.table'),
-        $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
-        var $filteredRows = $rows.filter(function(){
-            var value = $(this).find('td').eq(column).text().toLowerCase();
-            return value.indexOf(inputContent) === -1;
-        });
-        /* Clean previous no-result if exist */
-        $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-        $rows.show();
-        $filteredRows.hide();
-        /* Prepend no-result row if all rows are filtered */
-        if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+  $("#formArea").validate({
+    ignore: ':not(select:hidden, input:visible, textarea:visible)',
+    rules:{
+      name:{
+        required: true,
+      },
+      name_en:{
+        required : true,
+      },
+      city_idcity:{
+        required : true,
+      },
+    },
+    messages:{
+      name:{
+        required: "Please enter area in arabic !",
+      },
+      name_en:{
+        required: "Please enter area in english !",
+      },
+      city_idcity:{
+        required: "Please select city name !"
+      },
+    },
+    errorPlacement: function (error, element) {
+      if ($(element).is('select')) {
+          element.next().after(error);
+      } else {
+          error.insertAfter(element);
+      }
+    },
+  });
+  $('body').on('click', '#save', function () {
+    $('#formArea').submit();
+  });
+  $('body').on('click', '#cancel', function () {
+    $('#name').val("");
+    $('#name_en').val("");
+    $('.selectpicker').selectpicker('val', '');
+  });
+  $("#formArea").submit(function() {
+    $.post("/addAreas", $("form").serializeObject(), function(data, error){
+      if(data.stat !=true){
+        $("#err").empty();
+        for (err in data.result) {
+          $("#err").append('<h1>'+data.result[err].msg+'</h1>');
         }
+      }else{
+        $("#tbody").append('<tr data-id="'+data.result[0].idarea+'">'+
+          '<td class="text-center"> <a id="name'+data.result[0].idarea+'" href="#" data-type="text" data-pk="'+data.result[0].idarea+'" class="editable editable-click">'+data.result[0].areaName+'</a></td>'+
+          '<td class="text-center"> <a id="name_en'+data.result[0].idarea+'" href="#" data-type="text" data-pk="'+data.result[0].idarea+'" class="editable editable-click">'+data.result[0].areaName_en+'</a></td>'+
+          '<td class="text-center">'+data.result[0].cityName+'</td>'+
+          '<td class="text-center">'+data.result[0].cityName_en+'</td>'+
+          '<td class="text-center">'+
+          '<button id="enable" data-value="'+data.result[0].idarea+'" data-placement="top" title="Edit City" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center">'+
+          '<button id="delete" href="#del" data-toggle="modal" data-placement="top" title="Delete" value="'+data.result[0].idarea+'" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash">  </span></button></td></tr>');
+        $('#newArea').modal('hide');
+        $.notify({
+          title: "<strong>Successful:</strong> ",
+          message: "Add a new Area has successfully"
+        },{
+          type: 'success',
+          allow_dismiss: true,
+          showProgressbar: false,
+          placement: {
+            from: 'top',
+            align: 'center'
+          },
+          mouse_over: null,
+          newest_on_top: true,
+          animate: {
+            enter: 'animated flipInY',
+            exit: 'animated flipOutX'
+          },
+        });
+      }
     });
+    return false;
+  });
+//-add your new fanction
 });
+
+
+
+  

@@ -1,5 +1,5 @@
 extends layout
-block dashBord
+block Dashboard
   #page-wrapper
     .container-fluid
       // Page Heading
@@ -15,24 +15,6 @@ block dashBord
             a(href='/adminMeasure')  Measure
           li.active
             i.fa  Sizes 
-          //- .panel.panel-default
-          //-   .panel-heading
-          //-     .row
-          //-       .col-md-3
-          //-         h2.panel-title 
-          //-           strong  List of Sizes
-          //-       .col-md-5
-          //-         form(role='search')
-          //-           .input-group
-          //-             input.form-control(type='text', placeholder='Search by name')
-          //-             .input-group-btn
-          //-               button.btn.btn-default(type='submit')
-          //-                 i.glyphicon.glyphicon-search
-          //-       .col-md-2 
-          //-         a.btn.btn-success(href='#newSizes', role='button',data-toggle='modal')
-          //-           span.glyphicon.glyphicon-plus
-          //-           |  Add Sizes
-          //-       .col-md-2  
         .panel.panel-default.filterable
           .panel-heading
             .row
@@ -66,15 +48,18 @@ block dashBord
               tbody
                 // foreach ($order->lineItems as $line) or some such thing here
                 for i in size
-                  tr
-                    td.text-center #{i.name}
-                    td.text-center #{i.name_en}
+                  tr(data-id="#{i.idsize}")
+                    td.text-center 
+                      a.editable.editable-click(id='name#{i.idsize}', href='#', data-type='text', data-pk='#{i.idsize}') #{i.name}
+                    td.text-center 
+                      a.editable.editable-click(id='name_en#{i.idsize}', href='#', data-type='text', data-pk='#{i.idsize}') #{i.name_en}
                     td.text-center
-                      button#edit.btn.btn-info.btn-xs(href='', data-toggle='modal' , value='#{i.idsize}')
+                      button#enable.btn.btn-info.btn-xs(value='#{i.idsize}' ,data-title='Edit', data-toggle='modal')
                         span.glyphicon.glyphicon-pencil     
                     td.text-center 
                       button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' ,value='#{i.idsize}')
                         span.glyphicon.glyphicon-trash         
+
         #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
@@ -84,7 +69,7 @@ block dashBord
                 p.h2 Are you sure
                 p 
               .modal-footer
-                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newSizes.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
            .modal-dialog
@@ -111,6 +96,10 @@ block dashBord
                 button.btn.btn-primary(type="submit") Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/adminSizes.js') 
+  script(src='/js/editSize.js') 
+  script(src='/js/bootstrap-editable.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/searchFilter.js') 
+  

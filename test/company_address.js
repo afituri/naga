@@ -8,15 +8,12 @@ var admin = require('../TestUser/mochaObj.json').admin;
 var tob = require('../TestUser/mochaObj.json').tob;
 var obj = require('../TestUser/mochaObj.json').companyAddress;
 
-
-
-describe('Module company Address', function(){
-  
-  it('company is an object with a fucntion called Addcompany', function(){
-    assert.equal(typeof CompanyAddMgr, 'object');
+  describe('Module company Address', function(){
+    it('company is an object with a fucntion called Addcompany', function(){
+      assert.equal(typeof CompanyAddMgr, 'object');
   }),
 //////////////////////////////////////////////////////////////////////////////////////////
-describe('#AddTob()',function(){
+  describe('#AddTob()',function(){
     it('Should inser without an error', function(done){
       tobMgr.AddTob(tob['add_tob'],function(err,result){
         if (err) throw err;

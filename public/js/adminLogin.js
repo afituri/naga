@@ -17,16 +17,21 @@ $(document).ready(function() {
     messages:{
       email:{
         required: "Please enter your email address !",
-        // email: "خطأ هذا ليس بريد الكتروني"
       },
     },
     errorPlacement: function(error, element) {
       if (element.attr("name") == "email") {
-          error.insertAfter("#form-group");
-      } else {
-          error.insertAfter(element);
+        error.insertAfter("#form-group");
+      } 
+      else {
+        error.insertAfter(element);
       }
-    }  
+    },
+    highlight: function(element) {
+      $('#form-group').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass('animated shake');
+      });
+    },
   });
   // $('body').on("click","#btnLogin",function(){
   //   alert("test2222");
@@ -60,10 +65,23 @@ $(".reveal").mousedown(function() {
 
 $('body').show();
 NProgress.start();
-setTimeout(function() { 
+$(window).load(function() {
   NProgress.done(); 
-  $('.fadeIn').removeClass('out'); 
-}, 1000)
+  $('.showIn').removeClass('out');
+  $('.showIn').addClass('flipInY');
+});
+// setTimeout(function() { 
+//   NProgress.done(); 
+//   $('.showIn').removeClass('out');
+//   $('.showIn').addClass('flipInY');
+// }, 2000)
+
+// $('#btnLogin').on('click', function () {
+//     $(this).button('loading')
+//     // business logic...
+//      // $btn.button('complete')
+// });
+
 
 
 

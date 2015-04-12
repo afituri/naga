@@ -1,5 +1,5 @@
 extends layout
-block dashBord
+block Dashboard
   #page-wrapper
     .container-fluid
       // Page Heading
@@ -50,7 +50,7 @@ block dashBord
                   i.glyphicon.glyphicon-print
                   |  Print
           .table-responsive
-            table.table.table-striped.table-condensed
+            table.table.table-striped.table-condensed.table-hover
               thead
                 tr.filters
                   th.text-center
@@ -99,28 +99,31 @@ block dashBord
                   th.text-center
                     | Trash
               tbody
-                // foreach ($order->lineItems as $line) or some such thing here
-                tr
-                  td.text-center
-                    a#nameArabic.editable.editable-click(href='#', data-type='text', data-pk='1') الزبير بن عوام
-                  td.text-center
-                    a#nameEnglish.editable.editable-click(href='#', data-type='text', data-pk='1') Zubair bin owaam
-                  td.text-center
-                    a#city.editable.editable-click(href='#', data-type='text', data-pk='1') طرابلس
-                  td.text-center
-                    a#area.editable.editable-click(href='#', data-type='text', data-pk='1') ابو سليم
-                  td.text-center
-                    a#mahalla.editable.editable-click(href='#', data-type='text', data-pk='1') حي ناصر
-                  td.text-center
-                    a#latitude.editable.editable-click(href='#', data-type='text', data-pk='1') 100.50
-                  td.text-center
-                    a#longitude.editable.editable-click(href='#', data-type='text', data-pk='1') 144.50
-                  td.text-center
-                    button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit')
-                      span.glyphicon.glyphicon-pencil
-                  td.text-center
-                    button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
-                      span.glyphicon.glyphicon-trash       
+                for schools in school
+                  tr
+                    td.text-center #{schools.schoolName}
+                    td.text-center #{schools.schoolName_en}
+                    td.text-center #{schools.cityName}
+                    td.text-center #{schools.areaName}
+                    td.text-center #{schools.mahallaName} 
+                    td.text-center #{schools.latitude}
+                    td.text-center #{schools.longitude}
+                    td.text-center
+                      button.btn.btn-info.btn-xs#enable(data-placement='top', title='Edit')
+                        span.glyphicon.glyphicon-pencil
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(value='#{schools.idschool}',href='#del', data-toggle='modal', data-placement='top', title='Delete')
+                        span.glyphicon.glyphicon-trash       
+        if pagination 
+          .text-center
+            ul.pagination
+              li(class='#{pagination.previous.disabled}')
+                a(href='?p=#{pagination.previous.n}') Previous
+              for page in pagination.pages
+                li(class="#{page.active}")
+                  a(href='?p=#{page.n}') #{page.n}
+              li(class="#{pagination.next.disabled}")
+                a(href='?p=#{pagination.next.n}') Next
         #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
@@ -130,7 +133,7 @@ block dashBord
                 p.h2 Are you sure
                 p 
               .modal-footer
-                button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newschool.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
@@ -174,7 +177,8 @@ block dashBord
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/bootstrap-editable.min.js')
   script(src='/js/editSchool.js')
   script(src='/js/sb-admin-2.js')
+  script(src='/js/bootstrap-editable.min.js')
   script(src='/js/searchFilter.js')
+  script(src='/js/adminSchool.js')

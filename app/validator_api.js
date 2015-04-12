@@ -11,6 +11,17 @@ module.exports = {
       cb(null,errors);
     }
   }, 
+
+  isAreas : function (req,cb) {
+    isName(req,'name',' name required');           //Validate name
+    isName(req,'name_en',' name_en required');
+    var errors = req.validationErrors();  
+    if( !errors){  
+      cb(null,true);
+    }else {   //Display errors to user
+      cb(null,errors);
+    }
+  }, 
 };
 
 

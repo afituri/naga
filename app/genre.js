@@ -7,9 +7,9 @@ exports.GenreMgr = {
       conn.query('SELECT * FROM `genre` WHERE `status` <> 0',  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -20,9 +20,9 @@ exports.GenreMgr = {
       conn.query('INSERT INTO `genre` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
@@ -33,9 +33,9 @@ exports.GenreMgr = {
       conn.query('UPDATE `genre` SET `name` = ?,`update_time`=? WHERE `idgenre` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -47,9 +47,9 @@ exports.GenreMgr = {
       conn.query('UPDATE `genre` SET `name_en` = ?,`update_time`=? WHERE `idgenre` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -61,9 +61,9 @@ exports.GenreMgr = {
       conn.query('UPDATE `genre` SET `tob_idtob` = ?,`update_time`=? WHERE `idgenre` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result); 
+          cb(null,result);
         }
       });
     });
@@ -76,13 +76,26 @@ exports.GenreMgr = {
       conn.query('UPDATE `genre` SET `status` = 0 ,`update_time` = ? WHERE `idgenre` = ?',[date,id],  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          cb(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `genre` WHERE `idgenre` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 //////////////////////////////////////////////////////////////////////////
  
   

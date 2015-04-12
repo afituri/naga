@@ -2,11 +2,9 @@ var assert = require("assert"); // core module
 var customer = require('../app/user_app').userMgr;  // our module
 var obj = require('../TestUser/mochaObj.json').customer;
 
-
-describe('Module customer', function(){
-  
-  it('customer is an object with a fucntion ', function(){
-    assert.equal(typeof customer, 'object');
+  describe('Module customer', function(){
+    it('customer is an object with a fucntion ', function(){
+      assert.equal(typeof customer, 'object');
   }),
 
   describe('#AddCustomer()',function(){
@@ -178,6 +176,5 @@ describe('Module customer', function(){
       });
     })
   })
-
 
 });

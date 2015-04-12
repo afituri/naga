@@ -1,7 +1,4 @@
 $(document).ready(function(){
-  $.validator.addMethod("valueNotEquals", function(value, element, arg){
-    return arg != value;
-  }, "Value must not equal arg.");
   $("#addAdmin").validate({
     rules:{
       name:{
@@ -22,10 +19,10 @@ $(document).ready(function(){
       },
       confirmPassword:{
         required : true,
-        equalTo: "#password"
+        equalTo: "#password",
       },
       level: {
-        valueNotEquals: "-1"
+        required: true,
       },
     },
     messages:{
@@ -37,7 +34,7 @@ $(document).ready(function(){
       },
       reEnterEmail:{
         required: "Please Re-enter the email address !",
-        equalTo: "Please enter the same email address again !"
+        equalTo: "Please enter the same email address again !",
       },
       password:{
         required: "Please enter the password !",
@@ -48,28 +45,35 @@ $(document).ready(function(){
         minlength: "Should be your password at least 5 characters !",
       },
       level: {
-        valueNotEquals: "Please choose the admin validity",
+        required: "Please choose the admin validity !",
       },
     },
+    highlight: function(element) {
+      $(element).addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass('animated shake');
+      });
+    },
   });
-  $('body').on('click', '#btnSubmit', function () {
-    $.notify({
-      title: "<strong>Successful:</strong> ",
-      message: "Add a new admin has successfully"
-    },{
-      type: 'success',
-      allow_dismiss: true,
-      showProgressbar: false,
-      placement: {
-        from: 'top',
-        align: 'center'
-      },
-      mouse_over: null,
-      newest_on_top: true,
-      animate: {
-        enter: 'animated flipInY',
-        exit: 'animated flipOutX'
-      },
-    });
-  });  
+  // var form = $( "#addAdmin" );
+  // form.validate();
+  // $( "button" ).click(function() {
+  //   $.notify({
+  //       title: "<strong>Successful:</strong> ",
+  //       message: "Add a new admin has successfully"
+  //     },{
+  //       type: 'danger',
+  //       allow_dismiss: true,
+  //       showProgressbar: false,
+  //       placement: {
+  //         from: 'top',
+  //         align: 'center'
+  //       },
+  //       mouse_over: null,
+  //       newest_on_top: true,
+  //       animate: {
+  //         enter: 'animated flipInY',
+  //         exit: 'animated flipOutX'
+  //       },
+  //     });
+  // });
 });

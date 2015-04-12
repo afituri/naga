@@ -1,22 +1,35 @@
 extends layout
 block content
-  #page-wrapper
-    .container-fluid
-      // Page Heading
-      .row
-        .col-xs-11.col-sm-3.alert.alert-success.animated.fadeInDown(data-notify='container', role='alert', data-notify-position='top-right', style='display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; z-index: 1031; top: 20px; right: 20px;')
-          button.close(type='button', aria-hidden='true', data-notify='dismiss', style='display: none;') ×
-          span(data-notify='icon')
-          span(data-notify='title')
-          span(data-notify='message')
-            strong Checking
-            |  for errors.
-          .progress(data-notify='progressbar')
-            .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%;')
-          a(href='#', target='_blank', data-notify='url')
+  .container
+    h1
+      | NoScript Alert 
+      small for Bootstrap3
+    // NoScript Alert
+    // <noscript>
+    .alert.alert-danger
+      button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+      span
+        strong Notice: 
+        |  JavaScript is not enabled. 
+        a.alert-link(href='http://enable-javascript.com/') Please Enable JavaScript Safley
+        | .
+    // </noscript>
+    p
+      strong The above alert
+      |  will only show is JavaScript is disabled in the browser.
+    p
+      | Code courtesy of 
+      a(href='http://enable-javascript.com/') enable-javascript.com
+    blockquote
+      | Nowadays almost all web pages contain JavaScript, a scripting programming language that runs on visitor's web browser. It makes web pages functional for specific purposes and if disabled for some reason, the content or the functionality of the web page can be limited or unavailable. Here you can find instructions on how to enable (activate) JavaScript in five most commonly used browsers.
+    pre.
+      \n                
+    p
+      | * 
+      em Remember
+      |  to uncomment the 
+      code noscript
+      |  tags for live use.
   script(src='/js/jquery-1.11.2.min.js')
-  script(src='/js/bootstrap.min.js')
-  script(src='/metisMenu/dist/metisMenu.min.js')
+
   script(src='/js/sb-admin-2.js')
-  script(src='/js/bootstrap-notify.min.js')
-  script(src='/js/addAdmin.js')

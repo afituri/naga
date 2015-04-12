@@ -27,6 +27,11 @@ $(document).ready(function() {
         error.insertAfter(element);
       }
     },
+    highlight: function(element) {
+      $('#form-group').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass('animated shake');
+      });
+    },
   });
   // $('body').on("click","#btnLogin",function(){
   //   alert("test2222");
@@ -71,11 +76,12 @@ $(window).load(function() {
 //   $('.showIn').addClass('flipInY');
 // }, 2000)
 
-$('#btnLogin').on('click', function () {
-    $(this).button('loading')
-    // business logic...
-     // $btn.button('complete')
-});
+// $('#btnLogin').on('click', function () {
+//     $(this).button('loading')
+//     // business logic...
+//      // $btn.button('complete')
+// });
+
 
 
 

@@ -121,6 +121,10 @@ router.get('/adminTypeGenre', function(req, res) {
   res.render('adminTypeGenre', { title: 'Type of Genre'});
 });
 
+router.get('/adminCompany', function(req, res) {
+  res.render('adminCompany', { title: 'Company'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});

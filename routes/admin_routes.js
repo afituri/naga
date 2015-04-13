@@ -85,8 +85,8 @@ router.post('/MeasurEditNameEn', function(req, res) {
     res.send(true);
   });
 });
-// SizeEditNameEn
 
+// SizeEditNameEn
 router.post('/SizeEditNameEn', function(req, res) {
  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
     res.send(true);
@@ -100,7 +100,6 @@ router.post('/SizeEditNameAr', function(req, res) {
 });
 
 ///editMahalla
-
 router.post('/editMahalla', function(req, res) {
  MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
     res.send(true);
@@ -108,16 +107,13 @@ router.post('/editMahalla', function(req, res) {
 });
 
 ///editMahallaEn
-
 router.post('/editMahallaEn', function(req, res) {
  MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
-
 // SchoolEditName
-
 router.post('/SchoolEditName', function(req, res) {
  SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
     res.send(true);
@@ -125,7 +121,6 @@ router.post('/SchoolEditName', function(req, res) {
 });
 
 //SchoolEditNameEn
-
 router.post('/SchoolEditNameEn', function(req, res) {
  SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
     res.send(true);
@@ -133,22 +128,17 @@ router.post('/SchoolEditNameEn', function(req, res) {
 });
 
 // editlatitSchool
-
 router.post('/editlatitSchool', function(req, res) {
  SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
     res.send(true);
   });
 });
 
-
 router.post('/editlongitSchool', function(req, res) {
  SchoolMgr.UpdateSchoolLongit(req.body,function(err,result){
     res.send(true);
   });
 });
-
-
-
 
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
@@ -158,20 +148,18 @@ router.post('/MeasurEditName', function(req, res) {
 });
 
 ///editAreaName
-
 router.post('/editAreaName', function(req, res) {
   AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
-///editAreaNameEn
 
+///editAreaNameEn
 router.post('/editAreaNameEn', function(req, res) {
   AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
     res.send(true);
   });
 });
-
 
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
@@ -235,8 +223,6 @@ router.post('/editnameEn', function(req, res) {
     res.send(true);
   });
 });
- 
-
 
 router.post('/editColorNameEn', function(req, res) {
   ColorMgr.UpdateColorNameEN(req.body,function(err,result){
@@ -291,7 +277,6 @@ router.get('/deleteSchool/:id', function(req, res) {
     res.send(result);
    });
 });
-
 
 router.get('/deleteCity/:id', function(req, res) {
    CityMgr.DeleteCity(req.params.id,function(err,result){
@@ -398,6 +383,12 @@ router.get('/viewAdmin', function(req, res) {
 
 router.get('/loadingImg', function(req, res) {
   res.render('loadingImg', { title: 'Loading....'});
+});
+
+router.get('/testPage', function(req, res) {
+  CityMgr.GetCity(function(err,result){
+    res.render('testPage', { title: 'Test Page',cities:result});
+  });
 });
 
 router.get('/addAdmin', function(req, res) {

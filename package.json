@@ -10,6 +10,7 @@
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "easy-pbkdf2": "^0.1.1",
+    "email-templates": "^1.2.1",
     "express": "~4.2.0",
     "express-session": "~1.10.3",
     "express-validator": "^2.9.0",
@@ -18,6 +19,7 @@
     "jsreport": "~0.3.0",
     "morgan": "~1.0.0",
     "mysql": "~2.5.5",
+    "nodemailer": "0.7.1",
     "should": "^5.2.0",
     "static-favicon": "~1.0.0",
     "vhost": "^3.0.0"

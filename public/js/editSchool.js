@@ -1,90 +1,66 @@
 $(document).ready(function(){
+  
   var defaults = {
-        disabled: true,
+    disabled: true,
   };
 
-  $.resul=new Array();
-
   $.extend($.fn.editable.defaults, defaults);
+    $('body').on('click','#enable', function(){
+      id=$(this).parent().parent().data('id');
+      $('#name'+id).editable('toggleDisabled');
+      $('#name_en'+id).editable('toggleDisabled');
+      $('#latit'+id).editable('toggleDisabled');
+      $('#longit'+id).editable('toggleDisabled');
 
-  $('#enable').click(function() {
-    $('.panel-body .editable').editable('toggleDisabled');
   }); 
+
+  $('a[id^="latit"]').editable({
+    url: '/editlatitSchool',
+    type: 'text',
+    pk: 1,
+    name: 'name',
+    title: 'Edit Measure name in Arabic !',
+    validate: function(v) {
+      if(!v) return 'Please enter your Measure name in Arabic';
+    }
+  });
+
+    $('a[id^="longit"]').editable({
+    url: '/editlongitSchool',
+    type: 'text',
+    pk: 1,
+    name: 'name',
+    title: 'Edit Measure name in Arabic !',
+    validate: function(v) {
+      if(!v) return 'Please enter your Measure name in Arabic';
+    }
+  });
   
-  $('#nameArabic').editable({
-    url: '',
+  $('a[id^="name_en"]').editable({
+    url: '/SchoolEditNameEn',
     type: 'text',
     pk: 1,
-    name: 'name',
-    title: 'Edit school name in Arabic !',
+    name: 'name_en',
+    title: 'Edit Measure name in English !',
     validate: function(v) {
-      if(!v) return 'Please enter your school name in Arabic';
+      if(!v) return 'Please enter your Measure name in English';
     }
   });
 
-  $('#nameEnglish').editable({
-  url: '',
-  type: 'text',
-  pk: 1,
-  name: 'name',
-  title: 'Edit school name in English !',
-  validate: function(v) {
-    if(!v) return 'Please enter your school name in English';
-  }
-  });
-
-  $('#city').editable({
-    url: '',
+  $('a[id^="name"]').editable({
+    url: '/SchoolEditName',
     type: 'text',
     pk: 1,
     name: 'name',
-    title: 'Edit city name !',
+    title: 'Edit Measure name in Arabic !',
     validate: function(v) {
-      if(!v) return 'Please enter your city name';
+      if(!v) return 'Please enter your Measure name in Arabic';
     }
   });
 
-  $('#area').editable({
-    url: '',
-    type: 'text',
-    pk: 1,
-    name: 'name',
-    title: 'Edit area name !',
-    validate: function(v) {
-      if(!v) return 'Please enter your area name';
-    }
-  });
+ 
 
-  $('#mahalla').editable({
-    url: '',
-    type: 'text',
-    pk: 1,
-    name: 'name',
-    title: 'Edit mahalla name !',
-    validate: function(v) {
-      if(!v) return 'Please enter your mahalla name';
-    }
-  });
 
-  $('#latitude').editable({
-    url: '',
-    type: 'text',
-    pk: 1,
-    name: 'name',
-    title: 'Edit latitudes number !',
-    validate: function(v) {
-      if(!v) return 'Please enter your latitudes number';
-    }
-  });
 
-  $('#longitude').editable({
-    url: '',
-    type: 'text',
-    pk: 1,
-    name: 'name',
-    title: 'Edit longitude number !',
-    validate: function(v) {
-      if(!v) return 'Please enter your longitude number';
-    }
-  });
+
 });

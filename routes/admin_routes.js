@@ -53,7 +53,6 @@ router.get('/getMeasure', function(req, res) {
   });  
 });
 
-
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
@@ -207,7 +206,8 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-      }  else {
+    } 
+    else {
       CityMgr.AddCity(req.body,function(err,result){
         CityMgr.GetCityById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -243,7 +243,6 @@ router.post('/editname', function(req, res) {
 });
 
 router.get('/delete/:id', function(req, res) {
-  //console.log(req.params.id);
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
     res.send(true);
   });
@@ -252,7 +251,6 @@ router.get('/delete/:id', function(req, res) {
 router.get('/deleteSize/:id', function(req, res) {
   SizeMgr.GetSizebyId(req.params.id,function(err,resultt){
     SizeMgr.DeleteSize(req.params.id,function(err,result){
-      // console.log(resultt);
       res.send(resultt);
     });
   });
@@ -303,7 +301,8 @@ router.post('/addAreas',function(req,res){
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    }else {
+    }
+    else {
       AreaMgr.addArea(req.body,function(err,result){
         AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -319,11 +318,9 @@ router.get('/adminMahala', function(req, res) {
   var page = user.getPage(req);
   var limit = user.getLimit(page);
   MahallaMgr.getMahallaLimit(limit,function(result){
-    //console.log(result[0]);
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      //console.log(result[0]);
       res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
     }
   });
@@ -356,7 +353,6 @@ router.get('/adminSerialNumber', function(req, res) {
               rand.UseitActiveprepaidCard(20,function(result6){ 
                 rand.UseitActiveprepaidCard(50,function(result7){ 
                   rand.UseitActiveprepaidCard(100,function(result8){ 
-                   // console.log(result8[0].c);
                     var notusedCard = result[0].c - result5[0].c;
                     var precent = 100/result[0].c;
                     var total=(result5[0].c)*precent;

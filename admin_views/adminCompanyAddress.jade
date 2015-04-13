@@ -6,30 +6,33 @@ block Dashboard
       .row
         .col-lg-12
           h1.page-header  Company Manger
-            small  Company
+            small  Company Address
           ol.breadcrumb
             li
               i.fa.fa-dashboard
               a(href='/adminPage')  Dashboard
+            li
+              i.fa
+              a(href='/adminCompany')  Company
             li.active
-              i.fa  Company
+              i.fa  Address
       .panel.panel-default
             .panel-heading
               .row
                 .col-md-3
                   h2.panel-title 
-                    strong  List of Company 
+                    strong  List of Company Address
                 .col-md-5
                   form(role='search')
                     .input-group
-                      input.form-control(type='text', placeholder='Search by name')
+                      input.form-control(type='text', placeholder='Search by School')
                       .input-group-btn
                         button.btn.btn-default(type='submit')
                           i.glyphicon.glyphicon-search
                 .col-md-2 
-                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
+                  a.btn.btn-success(href='#newAddres', role='button',data-toggle='modal')
                     span.glyphicon.glyphicon-plus
-                    |  Add Company 
+                    |  Add Addres 
                 .col-md-2  
             .panel-body
               .table-responsive
@@ -37,31 +40,30 @@ block Dashboard
                   thead
                     tr
                       td
-                        strong Name in Arabic
+                        strong latit
                       td
-                        strong Name in English
+                        strong longit
+                      td
+                        strong Branch
+                      td
+                        strong School
+                      td
+                        strong  Description
                       td.text-right
-                        strong View
-                      td.text-right
-                        strong Addresses
-                      td.text-right
-                        strong Seller  
+                        strong Edit    
                       td.text-right
                         strong Trash 
                   tbody
                     // foreach ($order->lineItems as $line) or some such thing here
                     tr
-                      td ناقة
-                      td naga
-                      td.text-right
-                        button#viewc.btn.btn-primary.btn-xs
-                          span.glyphicon.glyphicon-eye-open
+                      td 33.67
+                      td 77.38
+                      td Main branch
+                      td name
+                      td ........
                       td.text-right
                         button#view.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-map-marker
-                      td.text-right
-                        button#view1.btn.btn-warning.btn-xs
-                          span.glyphicon.glyphicon-user      
+                          span.glyphicon.glyphicon-pencil        
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
                           span.glyphicon.glyphicon-trash      
@@ -76,7 +78,7 @@ block Dashboard
                 .modal-footer
                   button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          #newAddres.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
@@ -84,27 +86,27 @@ block Dashboard
                     span(aria-hidden="true") ×
                   h2
                     .glyphicon.glyphicon-plus
-                    |  Add Company
+                    |  Add Company Addres
                 .row 
                   .modal-body
-                    form#formCompany.form-signin(role="form" , action="", method="post")
+                    form#formAddres.form-signin(role="form" , action="", method="post")
                       .col-xs-6.col-md-6
                         .form-group
-                          .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                          .h4 latit
+                          input#latit.form-control(type="text",name="latit", placeholder="latit",autofocus="")
                         .form-group
-                          .h4 Type of Business
-                          select#tob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")    
+                          .h4 Branch
+                          select#default.form-control(type="text",name="default", placeholder="Branch",autofocus="")    
                         .form-group
-                          .h4 logo
-                          input#logo(type="file",name="logo", placeholder="logo",autofocus="")
+                          .h4 Description 
+                          textarea#Description(rows='10', cols='67',type="file",name="address_desc", placeholder="Description",autofocus="")
                       .col-xs-6.col-md-6
                         .form-group
-                          .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                          .h4 longit
+                          input#longit.form-control(type="text",name="longit", placeholder="longit",autofocus="")
                         .form-group
-                          .h4 level
-                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
+                          .h4 School
+                          select#School.form-control(type="text",name="school_idschool", placeholder="School",autofocus="")    
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button.btn.btn-primary(type="submit") Save Change
@@ -112,6 +114,3 @@ block Dashboard
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')  
-  script(src='/js/CompanyAddress.js')
-  script(src='/js/companySeller.js') 
-  script(src='/js/CompanyView.js') 

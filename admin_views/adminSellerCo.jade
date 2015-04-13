@@ -6,19 +6,22 @@ block Dashboard
       .row
         .col-lg-12
           h1.page-header  Company Manger
-            small  Company
+            small  Company Seller
           ol.breadcrumb
             li
               i.fa.fa-dashboard
               a(href='/adminPage')  Dashboard
+            li
+              i.fa
+              a(href='/adminCompany')  Company  
             li.active
-              i.fa  Company
+              i.fa  Seller
       .panel.panel-default
             .panel-heading
               .row
                 .col-md-3
                   h2.panel-title 
-                    strong  List of Company 
+                    strong  List of Company Seller
                 .col-md-5
                   form(role='search')
                     .input-group
@@ -27,9 +30,9 @@ block Dashboard
                         button.btn.btn-default(type='submit')
                           i.glyphicon.glyphicon-search
                 .col-md-2 
-                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
+                  a.btn.btn-success(href='#newSeller', role='button',data-toggle='modal')
                     span.glyphicon.glyphicon-plus
-                    |  Add Company 
+                    |  Add Seller 
                 .col-md-2  
             .panel-body
               .table-responsive
@@ -37,34 +40,33 @@ block Dashboard
                   thead
                     tr
                       td
-                        strong Name in Arabic
+                        strong First Name
                       td
-                        strong Name in English
+                        strong Last Name
+                      td
+                        strong Email
+                      td
+                        strong password  
+                      td
+                        strong level
                       td.text-right
-                        strong View
+                        strong Edit
                       td.text-right
-                        strong Addresses
-                      td.text-right
-                        strong Seller  
-                      td.text-right
-                        strong Trash 
+                        strong Trash     
                   tbody
                     // foreach ($order->lineItems as $line) or some such thing here
                     tr
-                      td ناقة
-                      td naga
-                      td.text-right
-                        button#viewc.btn.btn-primary.btn-xs
-                          span.glyphicon.glyphicon-eye-open
+                      td mohammed
+                      td ali
+                      td ex@gmail.com
+                      td *********
+                      td admin
                       td.text-right
                         button#view.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-map-marker
-                      td.text-right
-                        button#view1.btn.btn-warning.btn-xs
-                          span.glyphicon.glyphicon-user      
+                          span.glyphicon.glyphicon-pencil       
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash      
+                          span.glyphicon.glyphicon-trash 
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -76,7 +78,7 @@ block Dashboard
                 .modal-footer
                   button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          #newSeller.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
@@ -84,27 +86,27 @@ block Dashboard
                     span(aria-hidden="true") ×
                   h2
                     .glyphicon.glyphicon-plus
-                    |  Add Company
+                    |  Add Company Seller
                 .row 
                   .modal-body
-                    form#formCompany.form-signin(role="form" , action="", method="post")
+                    form#formSeller.form-signin(role="form" , action="", method="post")
                       .col-xs-6.col-md-6
                         .form-group
-                          .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                          .h4 First Name
+                          input#first_name.form-control(type="text",name="first_name", placeholder="First Name",autofocus="")
                         .form-group
-                          .h4 Type of Business
-                          select#tob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")    
-                        .form-group
-                          .h4 logo
-                          input#logo(type="file",name="logo", placeholder="logo",autofocus="")
-                      .col-xs-6.col-md-6
-                        .form-group
-                          .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                          .h4 Email
+                          input#email.form-control(type="text",name="email", placeholder="Email",autofocus="")    
                         .form-group
                           .h4 level
-                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
+                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 Last Name
+                          input#last_name.form-control(type="text",name="last_name", placeholder="Last Name",autofocus="")
+                        .form-group
+                          .h4 password
+                          input#password.form-control(type="text",name="password", placeholder="password",autofocus="")    
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button.btn.btn-primary(type="submit") Save Change
@@ -113,5 +115,3 @@ block Dashboard
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')  
   script(src='/js/CompanyAddress.js')
-  script(src='/js/companySeller.js') 
-  script(src='/js/CompanyView.js') 

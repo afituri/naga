@@ -175,6 +175,18 @@ router.get('/adminCompany', function(req, res) {
   res.render('adminCompany', { title: 'Company'});
 });
 
+router.get('/adminCompany/adminCompanyAddress', function(req, res) {
+  res.render('adminCompanyAddress', { title: 'CompanyAddress'});
+});
+
+router.get('/adminCompany/adminSellerCo', function(req, res) {
+  res.render('adminSellerCo', { title: 'Company Seller'});
+});
+
+router.get('/adminCompany/adminCompanyView', function(req, res) {
+  res.render('adminCompanyView', { title: 'Company view'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});

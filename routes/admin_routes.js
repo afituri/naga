@@ -11,6 +11,7 @@ var rand= require('../app/serialnumber').rand;
 var MeasureMgr = require('../app/measure').MeasureMgr;
 var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
+var TobMgr =require('../app/tob').TobMgr;
 var user =require('../app/userHelpers');
 
 
@@ -193,15 +194,21 @@ router.get('/adminColors', function(req, res) {
 });
 
 router.get('/adminTypeBusiness', function(req, res) {
-  res.render('adminTypeBusiness', { title: 'Type of Business'});
+  TobMgr.GetTob(function(err,result){
+    console.log(result);
+  res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});
+  });
 });
 
-router.get('/adminGenre', function(req, res) {
+router.get('/adminTypeBusiness/adminGenre', function(req, res) {
   res.render('adminGenre', { title: 'Genre'});
 });
 
-router.get('/adminTypeGenre', function(req, res) {
+
+router.get('/adminTypeBusiness/adminGenre/adminTypeGenre', function(req, res) {
+  
   res.render('adminTypeGenre', { title: 'Type of Genre'});
+
 });
 
 router.get('/adminCompany', function(req, res) {
@@ -274,6 +281,14 @@ router.get('/deleteSize/:id', function(req, res) {
 
 router.get('/deleteColor/:id', function(req, res) {
    ColorMgr.DeleteColor(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
+
+// /deleteTOB
+
+router.get('/deleteTOB/:id', function(req, res) {
+   TobMgr.DeleteTob(req.params.id,function(err,result){
     res.send(result);
    });
 });

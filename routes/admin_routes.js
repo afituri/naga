@@ -248,7 +248,6 @@ router.get('/deleteMahalla/:id', function(req, res) {
    });
 });
 
-
 router.get('/deleteCity/:id', function(req, res) {
   //console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
@@ -269,7 +268,13 @@ router.get('/adminAreas', function(req, res) {
     });
   });
 });
- 
+
+router.get('/getarea/:id', function(req, res) {
+  AreaMgr.getAreaInfoByCity(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
 router.post('/addAreas',function(req,res){
   validator.isAreas(req,function(err,result){
     if(result!=true){
@@ -278,6 +283,23 @@ router.post('/addAreas',function(req,res){
     }else {
       AreaMgr.addArea(req.body,function(err,result){
         AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
+router.post('/addMahala',function(req,res){
+  validator.isMahala(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }else {
+      delete req.body['city'];
+      MahallaMgr.addMahalla(req.body,function(err,result){
+        MahallaMgr.getMahallaId(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);
         });

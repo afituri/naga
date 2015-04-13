@@ -75,10 +75,10 @@ block Dashboard
                     td.text-center #{mahalas.areaName}
                     td.text-center #{mahalas.areaName_en}
                     td.text-center
-                      button#enable.btn.btn-info.btn-xs(value='#{mahalas.idmahalla}' ,data-title='Edit', data-toggle='modal')
+                      button#enable.btn.btn-info.btn-xs(value='#{mahalas.idmahalla}', data-toggle='modal', data-placement='top', title='Edit Mahala')
                         span.glyphicon.glyphicon-pencil   
                     td.text-center 
-                      button#delete.btn.btn-danger.btn-xs(value='#{mahalas.idmahalla}',href='#del', data-toggle='modal')
+                      button#delete.btn.btn-danger.btn-xs(value='#{mahalas.idmahalla}',href='#del', data-toggle='modal', data-placement='top', title='Delete Mahala')
                         span.glyphicon.glyphicon-trash          
         if pagination 
           .text-center
@@ -102,41 +102,76 @@ block Dashboard
                 button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newMahala.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-           .modal-dialog
-            .modal-content
-              .modal-headr.modal-header-success
-                button.close(type="button", data-dismiss="modal" aria-label="Close")
-                  span(aria-hidden="true") × 
-                h2
-                  .glyphicon.glyphicon-plus
-                  |  Add Mahala
-              .row 
+          form#formMahala(role="form",name="formMahala")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2.modal-title
+                    .glyphicon.glyphicon-plus
+                    |  Add Mahala
                 .modal-body
-                  form#formMahala.form-signin(role="form" , action="", method="post")
+                  .row
                     .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                       .form-group
-                        .h4 Name in Arabic
-                        input#nameArabic.form-control(type="text", name="nameArabic", placeholder="Name in Arabic",autofocus="")
+                        .h4 Mahala in Arabic
+                        input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
                     .col-xs-5.col-md-5
                       .form-group      
-                        .h4 Name in English
-                        input#nameEnglish.form-control(type="text", name="nameEnglish", placeholder="Name in English",autofocus="")
-                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
+                        .h4 Mahala in English
+                        input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                       .form-group
-                        .h4 City
-                        select#city.form-control(type="text", name="city", autofocus="")
-                    .col-xs-5.col-md-5  
+                        .h4 Select City 
+                        select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5',data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select City
+                    .col-xs-5.col-md-5
                       .form-group
-                        .h4 Area
-                        select#area.form-control(type="text", name="area", autofocus="")
-              .modal-footer
-                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                button.btn.btn-primary(type="submit") Save Change 
+                        .h4 Select Area 
+                        select#city_idarea.form-control.selectpicker.show-tick(type="text",name="city_idarea",data-show-subtext='true',data-size='5',data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select City
+                .modal-footer
+                  button#cancel.btn.btn-danger(data-dismiss='modal',type='submit') Cancel
+                  button#save.btn.btn-primary Save Change
+           //- .modal-dialog
+           //-  .modal-content
+           //-    .modal-headr.modal-header-success
+           //-      button.close(type="button", data-dismiss="modal" aria-label="Close")
+           //-        span(aria-hidden="true") × 
+           //-      h2
+           //-        .glyphicon.glyphicon-plus
+           //-        |  Add Mahala
+           //-    .row 
+           //-      .modal-body
+           //-        form#formMahala.form-signin(role="form" , action="", method="post")
+           //-          .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+           //-            .form-group
+           //-              .h4 Name in Arabic
+           //-              input#nameArabic.form-control(type="text", name="nameArabic", placeholder="Name in Arabic",autofocus="")
+           //-          .col-xs-5.col-md-5
+           //-            .form-group      
+           //-              .h4 Name in English
+           //-              input#nameEnglish.form-control(type="text", name="nameEnglish", placeholder="Name in English",autofocus="")
+           //-          .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
+           //-            .form-group
+           //-              .h4 City
+           //-              select#city.form-control(type="text", name="city", autofocus="")
+           //-          .col-xs-5.col-md-5  
+           //-            .form-group
+           //-              .h4 Area
+           //-              select#area.form-control(type="text", name="area", autofocus="")
+           //-    .modal-footer
+           //-      button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+           //-      button.btn.btn-primary(type="submit") Save Change 
+           
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-select.min.js')
+  script(src="/js/jquery.validate.min.js")
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/bootstrap-editable.min.js')
-  script(src='/js/sb-admin-2.js')
-  script(src='/js/searchFilter.js') 
+  script(src='/js/sb-admin-2.js') 
+  script(src='/js/editMahalla.js')
   script(src='/js/adminMahalla.js')
-  script(src='/js/editMahalla.js') 
+  script(src='/js/searchFilter.js') 

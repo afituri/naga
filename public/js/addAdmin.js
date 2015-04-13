@@ -44,7 +44,7 @@ $(document).ready(function(){
         required: "Please enter the confirm password !",
         minlength: "Should be your password at least 5 characters !",
       },
-      level: {
+      level:{
         required: "Please choose the admin validity !",
       },
     },

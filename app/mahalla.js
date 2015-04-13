@@ -30,11 +30,13 @@ exports.MahallaMgr = {
 
   getMahallaId :function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `m`.`idmahalla`,`m`.`name` as mahallaName, `m`.`name_en` as mahallaName_en, `a`.`name` as areaName, `a`.`name_en` as areaName_en FROM `mahalla` m,`area` a WHERE `m`.`status` <> 0 AND `idarea`=`area_idarea AND `idmahalla`=?',id, function(err, result) {
+      console.log("im h");
+      conn.query('SELECT `m`.`idmahalla`,`m`.`name` as mahallaName, `m`.`name_en` as mahallaName_en, `a`.`name` as areaName, `a`.`name_en` as areaName_en FROM `mahalla` m,`area` a WHERE `m`.`status` <> 0 AND `idarea`=`area_idarea` AND `idmahalla`=?',id, function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
         } else {
+          console.log(result);
           cb(null,result);
         }
       });

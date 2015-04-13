@@ -11,6 +11,7 @@ var rand= require('../app/serialnumber').rand;
 var MeasureMgr = require('../app/measure').MeasureMgr;
 var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
+var TobMgr =require('../app/tob').TobMgr;
 var user =require('../app/userHelpers');
 
 
@@ -53,7 +54,6 @@ router.get('/getMeasure', function(req, res) {
   });  
 });
 
-
 router.get('/adminRegUsers', function(req, res) {
   res.render('adminRegUsers', { title: 'Admin Register Users',NProgress:"fadeIn out"});
 });
@@ -79,13 +79,11 @@ router.get('/adminMeasure', function(req, res) {
   });
 });
 
-//MeasurEditNameEn
 router.post('/MeasurEditNameEn', function(req, res) {
   MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
-// SizeEditNameEn
 
 router.post('/SizeEditNameEn', function(req, res) {
  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
@@ -99,15 +97,11 @@ router.post('/SizeEditNameAr', function(req, res) {
   });
 });
 
-///editMahalla
-
 router.post('/editMahalla', function(req, res) {
  MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
-
-///editMahallaEn
 
 router.post('/editMahallaEn', function(req, res) {
  MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
@@ -115,7 +109,29 @@ router.post('/editMahallaEn', function(req, res) {
   });
 });
 
+router.post('/SchoolEditName', function(req, res) {
+ SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
 
+router.post('/SchoolEditNameEn', function(req, res) {
+ SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editlatitSchool', function(req, res) {
+ SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editlongitSchool', function(req, res) {
+ SchoolMgr.UpdateSchoolLongit(req.body,function(err,result){
+    res.send(true);
+  });
+});
 
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
@@ -124,14 +140,11 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
-///editAreaName
-
 router.post('/editAreaName', function(req, res) {
   AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
-///editAreaNameEn
 
 router.post('/editAreaNameEn', function(req, res) {
   AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
@@ -139,6 +152,17 @@ router.post('/editAreaNameEn', function(req, res) {
   });
 });
 
+router.post('/editTobName', function(req, res) {
+  TobMgr.UpdateTobNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editTobNameEn', function(req, res) {
+  TobMgr.UpdateTobNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
 
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
@@ -160,15 +184,24 @@ router.get('/adminColors', function(req, res) {
 });
 
 router.get('/adminTypeBusiness', function(req, res) {
-  res.render('adminTypeBusiness', { title: 'Type of Business'});
+  TobMgr.GetTob(function(err,result){
+  res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});
+  });
 });
 
-router.get('/adminGenre', function(req, res) {
+router.get('/adminTypeBusiness/adminGenre', function(req, res) {
   res.render('adminGenre', { title: 'Genre'});
 });
 
-router.get('/adminTypeGenre', function(req, res) {
+
+router.get('/adminTypeBusiness/adminGenre/adminTypeGenre', function(req, res) {
+  
   res.render('adminTypeGenre', { title: 'Type of Genre'});
+
+});
+
+router.get('/adminCompany', function(req, res) {
+  res.render('adminCompany', { title: 'Company'});
 });
 
 router.get('/adminCities', function(req, res) {
@@ -182,7 +215,8 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-      }  else {
+    } 
+    else {
       CityMgr.AddCity(req.body,function(err,result){
         CityMgr.GetCityById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -198,8 +232,6 @@ router.post('/editnameEn', function(req, res) {
     res.send(true);
   });
 });
- 
-
 
 router.post('/editColorNameEn', function(req, res) {
   ColorMgr.UpdateColorNameEN(req.body,function(err,result){
@@ -220,7 +252,6 @@ router.post('/editname', function(req, res) {
 });
 
 router.get('/delete/:id', function(req, res) {
-  //console.log(req.params.id);
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){
     res.send(true);
   });
@@ -229,7 +260,6 @@ router.get('/delete/:id', function(req, res) {
 router.get('/deleteSize/:id', function(req, res) {
   SizeMgr.GetSizebyId(req.params.id,function(err,resultt){
     SizeMgr.DeleteSize(req.params.id,function(err,result){
-      // console.log(resultt);
       res.send(resultt);
     });
   });
@@ -241,15 +271,25 @@ router.get('/deleteColor/:id', function(req, res) {
    });
 });
 
-//deleteMahalla
+router.get('/deleteTOB/:id', function(req, res) {
+   TobMgr.DeleteTob(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
+
 router.get('/deleteMahalla/:id', function(req, res) {
    MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
     res.send(result);
    });
 });
 
+router.get('/deleteSchool/:id', function(req, res) {
+   SchoolMgr.DeleteSchool(req.params.id,function(err,result){
+    res.send(result);
+   });
+});
+
 router.get('/deleteCity/:id', function(req, res) {
-  //console.log(req.params.id);
    CityMgr.DeleteCity(req.params.id,function(err,result){
     res.send(result);
   });
@@ -280,7 +320,8 @@ router.post('/addAreas',function(req,res){
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    }else {
+    }
+    else {
       AreaMgr.addArea(req.body,function(err,result){
         AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -299,6 +340,7 @@ router.post('/addMahala',function(req,res){
     }else {
       delete req.body['city'];
       MahallaMgr.addMahalla(req.body,function(err,result){
+        console.log(result.insertId);
         MahallaMgr.getMahallaId(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);
@@ -313,7 +355,6 @@ router.get('/adminMahala', function(req, res) {
   var page = user.getPage(req);
   var limit = user.getLimit(page);
   MahallaMgr.getMahallaLimit(limit,function(result){
-    //console.log(result[0]);
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
@@ -343,7 +384,8 @@ router.get('/adminInvoice', function(req, res) {
 });
 
 router.get('/adminSerialNumber', function(req, res) {
-   rand.NumberActiveprepaidCard(function(result){
+   res.render('adminSerialNumber', { title: 'Loading....'});
+  /*rand.NumberActiveprepaidCard(function(result){
     rand.getTotalmony(function(result1){
       rand.ActiveprepaidCard(20,function(result2){
         rand.ActiveprepaidCard(50,function(result3){
@@ -352,7 +394,6 @@ router.get('/adminSerialNumber', function(req, res) {
               rand.UseitActiveprepaidCard(20,function(result6){ 
                 rand.UseitActiveprepaidCard(50,function(result7){ 
                   rand.UseitActiveprepaidCard(100,function(result8){ 
-                   // console.log(result8[0].c);
                     var notusedCard = result[0].c - result5[0].c;
                     var precent = 100/result[0].c;
                     var total=(result5[0].c)*precent;
@@ -371,6 +412,8 @@ router.get('/adminSerialNumber', function(req, res) {
       }); 
     });
   });
+
+  */
 });
 
 router.get('/viewAdmin', function(req, res) {
@@ -379,6 +422,12 @@ router.get('/viewAdmin', function(req, res) {
 
 router.get('/loadingImg', function(req, res) {
   res.render('loadingImg', { title: 'Loading....'});
+});
+
+router.get('/testPage', function(req, res) {
+  CityMgr.GetCity(function(err,result){
+    res.render('testPage', { title: 'Test Page',cities:result});
+  });
 });
 
 router.get('/addAdmin', function(req, res) {

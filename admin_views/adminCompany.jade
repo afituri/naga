@@ -1,27 +1,24 @@
 extends layout
-block Dashboard
+block dashBord
   #page-wrapper
     .container-fluid
       // Page Heading
       .row
         .col-lg-12
-          h1.page-header  Business Manger
-            small  Genre
+          h1.page-header  Company Manger
+            small  Company
           ol.breadcrumb
             li
               i.fa.fa-dashboard
               a(href='/adminPage')  Dashboard
-            li
-              i.fa  
-              a(href='/adminTypeBusiness') Type of Business
             li.active
-              i.fa  Genre
+              i.fa  Company
       .panel.panel-default
             .panel-heading
               .row
                 .col-md-3
                   h2.panel-title 
-                    strong  List of Genre 
+                    strong  List of Company 
                 .col-md-5
                   form(role='search')
                     .input-group
@@ -30,9 +27,9 @@ block Dashboard
                         button.btn.btn-default(type='submit')
                           i.glyphicon.glyphicon-search
                 .col-md-2 
-                  a.btn.btn-success(href='#newGenre', role='button',data-toggle='modal')
+                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
                     span.glyphicon.glyphicon-plus
-                    |  Add Genre 
+                    |  Add Company 
                 .col-md-2  
             .panel-body
               .table-responsive
@@ -50,12 +47,12 @@ block Dashboard
                       td.text-right
                         strong Trash 
                   tbody
-                  
+                    // foreach ($order->lineItems as $line) or some such thing here
                     tr
-                      td رجال
-                      td Men
+                      td ناقة
+                      td naga
                       td.text-right
-                        button#view.btn.btn-primary.btn-xs(data-title='Edit', data-toggle='modal')
+                        button.btn.btn-primary.btn-xs(href='#myModal', role='button',data-toggle='modal')
                           span.glyphicon.glyphicon-eye-open
                       td.text-right
                         button.btn.btn-info.btn-xs
@@ -64,8 +61,8 @@ block Dashboard
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
                           span.glyphicon.glyphicon-trash   
                     tr
-                      td نساء
-                      td Women
+                      td الروية
+                      td vi
                       td.text-right
                         button.btn.btn-primary.btn-xs
                           span.glyphicon.glyphicon-eye-open 
@@ -74,7 +71,52 @@ block Dashboard
                           span.glyphicon.glyphicon-pencil    
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash           
+                          span.glyphicon.glyphicon-trash    
+
+          #myModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                    i.text-danger.fa.fa-times
+                  h4#myModalLabel.modal-title
+                    i.text-muted.fa.fa-file 
+                    strong  02051
+                    |  - Company
+                .modal-body
+                  table.pull-left.col-md-8
+                    tbody
+                      tr
+                        td.h4
+                          strong Name
+                        td  
+                        td.h3 naga
+                      tr
+                        td.h4
+                          strong Phone number
+                        td  
+                        td.h3 1223334444
+                      tr
+                        td.h4
+                          strong Address
+                        td  
+                        td.h3 Tripoli
+                        td  
+                        td.h3
+                  .col-md-4
+                    img.img-thumbnail(src='http://lorempixel.com/150/150/technics/', alt='teste')
+                  .clearfix
+                .modal-footer
+                  .text-right.pull-right.col-md-3
+                  //-   | Varejo: 
+                  //-   br
+                  //-   span.h3.text-muted
+                  //-     strong  R$50,00 
+                  //- .text-right.pull-right.col-md-3
+                  //-   | Atacado: 
+                  //-   br
+                  //-   span.h3.text-muted
+                  //-     strong R$35,00
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -86,7 +128,7 @@ block Dashboard
                 .modal-footer
                   button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newGenre.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
              .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
@@ -94,7 +136,7 @@ block Dashboard
                     span(aria-hidden="true") × 
                   h2
                     .glyphicon.glyphicon-plus
-                    |  Add Genre
+                    |  Add Company
                 .row 
                   .modal-body
                     form#formGenre.form-signin(role="form" , action="", method="post")

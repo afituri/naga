@@ -19,7 +19,8 @@ html(lang='en')
     //- NProgress CSS
     link(href="/css/nprogress.css" rel="stylesheet")
     link(href="/css/animate.min.css" rel="stylesheet")
-  body(style='display: none')
+    link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+  body.animated.fadeIn(style='display: none')
     block content
       block navigation
         //- .loadingImg
@@ -265,7 +266,7 @@ html(lang='en')
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Company 
+                        a(href="/adminCompany") Company 
                       li
                         a(href="#") Seller Manger
                           span.fa.arrow

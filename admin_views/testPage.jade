@@ -1,0 +1,91 @@
+extends layout
+
+block Dashboard
+  style(type='text/css').
+    a[disabled="disabled"] {
+    pointer-events: none;
+    }
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Test Page
+          small  Test
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa  Test
+        .row
+          .col-md-6.col-md-offset-3
+            #rootwizard
+              .navbar
+                .navbar-inner
+                  .container-fluid
+                    ul
+                      li
+                        a(href='#tab1', data-toggle='tab', disabled="disabled") Select City
+                      li
+                        a(href='#tab2', data-toggle='tab', disabled="disabled") Select Area
+                      li
+                        a(href='#tab3', data-toggle='tab', disabled="disabled") Select Mahalla
+                      li
+                        a(href='#tab4', data-toggle='tab', disabled="disabled") Select School
+              #bar.progress
+                .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+              .tab-content
+                #tab1.tab-pane
+                  table.table.table-striped.table-condensed
+                    thead
+                      tr
+                        th.text-center Select
+                        th.text-center City in Arabic
+                        th.text-center City in English
+                    tbody
+                      for city in cities
+                        tr
+                          td.text-center
+                            input(type='radio', name='cityName', value='#{city.idcity}')
+                          td.text-center
+                            span #{city.name}
+                          td.text-center
+                            span #{city.name_en}
+                #tab2.tab-pane
+                  table.table.table-striped.table-condensed
+                    thead
+                      tr
+                        th Select
+                        th Area in Arabic
+                        th Area in English 
+                    tbody
+                      tr
+                        td Donna R. Folse
+                        td 2012/05/06
+                        td Editor
+                        td
+                          span.label.label-success Active
+                #tab3.tab-pane
+                  | 3
+                #tab4.tab-pane
+                  | 4
+                ul.pager.wizard
+                  li.previous
+                    a(href='javascript:function() { return false; }') Previous
+                  li.next
+                    a(href='javascript:function() { return false; }') Next
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/jquery.bootstrap.wizard.min.js')
+  script.
+    $(document).ready(function() {
+    $('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+    var $total = navigation.find('li').length;
+    var $current = index+1;
+    var $percent = ($current/$total) * 100;
+    $('#rootwizard .progress-bar').css({width:$percent+'%'});
+    }});
+    window.prettyPrint && prettyPrint()
+    });

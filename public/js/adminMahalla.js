@@ -1,4 +1,49 @@
 $(document).ready(function(){
+  $("#formMahala").validate({
+    ignore: ':not(select:hidden, input:visible, textarea:visible)',
+    rules:{
+      name:{
+        required: true,
+      },
+      name_en:{
+        required: true,
+      },
+      city_idcity:{
+        required: true,
+      },
+      city_idarea:{
+        required: true,
+      },
+    },
+    messages:{
+      name:{
+        required: "Please enter area in arabic !",
+      },
+      name_en:{
+        required: "Please enter area in english !",
+      },
+      city_idcity:{
+        required: "Please select city name !",
+      },
+      city_idarea:{
+        required: "Please select area name !",
+      },
+    },
+    errorPlacement: function (error, element) {
+      if ($(element).is('select')) {
+          element.next().after(error);
+      } else {
+          error.insertAfter(element);
+      }
+    },
+  });
+  
+  $('body').on('click', '#cancel', function () {
+    $('#name').val("");
+    $('#name_en').val("");
+    $('.selectpicker').selectpicker('val', '');
+  });
+
   $('body').on('click','#delete', function(){
     $('#deletee').val($(this).val());
   });
@@ -32,20 +77,17 @@ $(document).ready(function(){
         // }
       } 
       else {
-        console.log(data);
-        // $("#tbody").append('<tr data-id="'+data.result[0].idcity+'"><td class="text-center"><a id="name'+data.result[0].idcity+'" href="#" data-type="text" data-pk="'+data.result[0].idcity+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name+'</a></td><td class="text-center"><a id="name_en'+data.result[0].idcity+'" href="#" data-type="text" data-pk="'+data.result[0].idcity+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name_en+'</a></td><td class="text-center"><button id="enable" data-value="'+data.result[0].idcity+'" data-placement="top" title="" class="btn btn-info btn-xs" data-original-title="Edit City"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center"><button id="delete" href="#del" data-toggle="modal" data-value="'+data.result[0].idcity+'" data-placement="top" title="" class="btn btn-danger btn-xs" data-original-title="Delete City"><span class="glyphicon glyphicon-trash"></span></button></td></tr>');
-      //   <tr data-id="{mahalas.idmahalla}">
-      //   <td class="text-center"><a id="name{mahalas.idmahalla}" href="#" data-type="text" data-pk="{mahalas.idmahalla}" class="editable editable-click"> {mahalas.mahallaName}</a></td>
-      //   <td class="text-center"> <a id="name_en{mahalas.idmahalla}" href="#" data-type="text" data-pk="{mahalas.idmahalla}" class="editable editable-click"> {mahalas.mahallaName_en}</a></td>
-      //   <td class="text-center">{mahalas.areaName}</td>
-      //   <td class="text-center">{mahalas.areaName_en}</td>
-      //   <td class="text-center">
-      //     <button id="enable" value="{mahalas.idmahalla}" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil">  </span></button>
-      //   </td>
-      //   <td class="text-center">
-      //     <button id="delete" value="{mahalas.idmahalla}" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
-      //   </td>
-      // </tr>
+        //'<tr data-id="'+data.result[0].idmahalla+'"><td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name+'</a></td><td class="text-center"><a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name_en+'</a></td><td class="text-center"><button id="enable" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-info btn-xs" data-original-title="Edit City"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center"><button id="delete" href="#del" data-toggle="modal" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-danger btn-xs" data-original-title="Delete City"><span class="glyphicon glyphicon-trash"></span></button></td></tr>'
+        $("#tbody").append('<tr data-id="'+data.result[0].idmahalla+'">'+
+        '<td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName+'</a></td>'+
+        '<td class="text-center"> <a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName_en+'</a></td>'+
+        '<td class="text-center">'+data.result[0].areaName+'</td>'+
+        '<td class="text-center">'+data.result[0].areaName_en+'</td>'+
+        '<td class="text-center">'+
+          '<button id="enable" value="'+data.result[0].idmahalla+'" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil">  </span></button>'+
+        '</td><td class="text-center">'+
+          '<button id="delete" value="'+data.result[0].idmahalla+'" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>'+
+        '</td></tr>');
 
         $('#newMahala').modal('hide');
         $.notify({

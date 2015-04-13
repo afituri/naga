@@ -79,14 +79,12 @@ router.get('/adminMeasure', function(req, res) {
   });
 });
 
-//MeasurEditNameEn
 router.post('/MeasurEditNameEn', function(req, res) {
   MeasureMgr.UpdateMeasureNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
-// SizeEditNameEn
 router.post('/SizeEditNameEn', function(req, res) {
  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
     res.send(true);
@@ -99,35 +97,30 @@ router.post('/SizeEditNameAr', function(req, res) {
   });
 });
 
-///editMahalla
 router.post('/editMahalla', function(req, res) {
  MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
-///editMahallaEn
 router.post('/editMahallaEn', function(req, res) {
  MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
-// SchoolEditName
 router.post('/SchoolEditName', function(req, res) {
  SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
-//SchoolEditNameEn
 router.post('/SchoolEditNameEn', function(req, res) {
  SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
-// editlatitSchool
 router.post('/editlatitSchool', function(req, res) {
  SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
     res.send(true);
@@ -147,16 +140,26 @@ router.post('/MeasurEditName', function(req, res) {
   });
 });
 
-///editAreaName
 router.post('/editAreaName', function(req, res) {
   AreaMgr.UpdateAreaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
-///editAreaNameEn
 router.post('/editAreaNameEn', function(req, res) {
   AreaMgr.UpdateAreaNameEn(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editTobName', function(req, res) {
+  TobMgr.UpdateTobNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editTobNameEn', function(req, res) {
+  TobMgr.UpdateTobNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
@@ -182,7 +185,6 @@ router.get('/adminColors', function(req, res) {
 
 router.get('/adminTypeBusiness', function(req, res) {
   TobMgr.GetTob(function(err,result){
-    console.log(result);
   res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});
   });
 });
@@ -269,22 +271,18 @@ router.get('/deleteColor/:id', function(req, res) {
    });
 });
 
-// /deleteTOB
-
 router.get('/deleteTOB/:id', function(req, res) {
    TobMgr.DeleteTob(req.params.id,function(err,result){
     res.send(result);
    });
 });
 
-//deleteMahalla
 router.get('/deleteMahalla/:id', function(req, res) {
    MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
     res.send(result);
    });
 });
 
-//deleteSchool
 router.get('/deleteSchool/:id', function(req, res) {
    SchoolMgr.DeleteSchool(req.params.id,function(err,result){
     res.send(result);
@@ -359,7 +357,8 @@ router.get('/adminInvoice', function(req, res) {
 });
 
 router.get('/adminSerialNumber', function(req, res) {
-   rand.NumberActiveprepaidCard(function(result){
+   res.render('adminSerialNumber', { title: 'Loading....'});
+  /*rand.NumberActiveprepaidCard(function(result){
     rand.getTotalmony(function(result1){
       rand.ActiveprepaidCard(20,function(result2){
         rand.ActiveprepaidCard(50,function(result3){
@@ -386,6 +385,8 @@ router.get('/adminSerialNumber', function(req, res) {
       }); 
     });
   });
+
+  */
 });
 
 router.get('/viewAdmin', function(req, res) {

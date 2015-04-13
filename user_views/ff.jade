@@ -1,0 +1,35 @@
+hr.soft 
+          .col-md-2
+          h4#Reservationh4 Your Location            
+          .form-group                      
+              label.control-label.col-md-2.col-md-offset-2 city
+              .col-md-8
+                .col-md-3
+                  .form-group
+                    select.form-control#city(name= "city")
+                      option(value="-1") Travel trailer
+                label.control-label.col-md-1 area
+                .col-md-4
+                  .form-group
+                    select.form-control(name="area" , id="area")
+                      option(value ="-1") Travel trailer
+            .form-group           
+              label.control-label.col-md-2.col-md-offset-2 mahalla
+              .col-md-8
+                .col-md-6
+                  .form-group.internal
+                    select.form-control(name="mahalla" , id="mahalla")
+                      option(value ="-1") Travel trailer      
+            .form-group          
+              label.control-label.col-md-2.col-md-offset-2 The nearestschool
+              .col-md-8
+                .col-md-6         
+                  .form-group.internal
+                    select.form-control(name="nearestschool" , id="nearestschool")
+                      option(value ="-1") Travel trailer
+          .form-group    
+            label.control-label.col-md-2.col-md-offset-2 The nearest point for your location
+            .col-md-6
+              textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
+          .form-group         
+            .col-md-offset-4.col-md-3

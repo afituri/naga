@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
   res.render('homeUser', { title: 'homeUser' });
 });
 
+
 router.get('/department', function(req, res) {
   res.render('department', { title: ' department' });
 });
@@ -18,6 +19,10 @@ router.get('/department', function(req, res) {
 router.get('/myAcount', function(req, res) {
   i18n.setlang(req,res);
   res.render('myAcount', { title: 'myAcount' });
+});
+router.get('/editProfile', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('editProfile', { title: 'editProfile' });
 });
 
 router.get('/forgotPassword?', function(req, res) {

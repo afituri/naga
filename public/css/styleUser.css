@@ -2,6 +2,46 @@
   color: #696763;
   font-size: 16px;
 }
+#img-responsive{
+    display: block;
+    max-width: 100%;
+   
+}
+#D {
+    
+    background-color: #ffffff;
+
+}
+.error
+{
+color: red;
+font-size:80%;
+font-family:verdana;
+
+}
+.spanerror{
+
+color: red;
+font-size:90%;
+font-weight: bold;
+}
+#h5Login
+{
+color: #E47911;
+font-size:180%;
+
+}
+#h5-warning
+{
+
+  color :#E47911;
+}
+#forgpass
+{
+
+
+
+}
 #Reservationh4
 {
  color: #696763;
@@ -10,7 +50,7 @@ font-weight: bold;
 }
 #Reservationh3
 {
-color: #696763;
+color: #F49B23;
 font-weight: bold;
 
 }
@@ -20,10 +60,53 @@ font-weight: bold;
   font-size: 12px;
   text-transform: uppercase;
 }
+.textboxEditProfile {
+    padding: 1px 20px;
+    border: 0;
+    height: 25px;
+    width: 275px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 1px 1px 0 0 #BBB, 5px 5px 40px 2px #ffffff inset;
+    -moz-box-shadow: 1px 1px 0 0 #BBB, 5px 5px 40px 2px #ffffff inset;
+    -webkit-box-shadow: 1px 1px 0 0 #BBB, 5px 5px 40px 2px #fff inset;
+    -webkit-background-clip: padding-box;
+    outline: 0;
+}
+
+
 #ff{
 width: 84%;
 }
+.btnEditProfile {
+  
+  -webkit-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+  -moz-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+  box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+  background-color:#5B74A8;
+  border:1px solid #29447E;
+  font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  padding:2px 6px;
+  height:28px;
+  color:#fff;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5p
+}
+
+.btnEditProfile:hover {
+  background: #337ab7;
+  text-decoration: none;
+}
 #Loginbt{
+color: #E47911;
+
+}
+.idbutton
+{
 color: #E47911;
 
 }

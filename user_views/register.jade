@@ -1,234 +1,70 @@
 extends layout
-block sellerPage
-block itemSlide
-block listOnLeft
-block home
-    #mainBody
-      .container
-        .row
-          // Sidebar ==================================================
-          #sidebar.col-lg-3.col-md-3.col-sm-3
-            .well.well-small
-              a#myCart(href='product_summary.html')
-                img(src='/themes/images/ico-cart.png', alt='cart')
-                | 3 Items in your cart  
-                span.badge.badge-warning.pull-right $155.00
-            ul#sideManu.nav.nav-tabs.nav-stacked
-              li.subMenu.open
-                a  ELECTRONICS [230]
-                ul
-                  li
-                    a.active(href='products.html')
-                      i.icon-chevron-right
-                      | Cameras (100)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Computers, Tablets & laptop (30)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Mobile Phone (80)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Sound and Vision (15)
-              li.subMenu
-                a  CLOTHES [840] 
-                ul(style='display:none')
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Women's Clothing (45)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Women's Shoes (8)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Women's Hand Bags (5)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Men's Clothings  (45)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Men's Shoes (6)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Kids Clothing (5)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Kids Shoes (3)
-              li.subMenu
-                a FOOD AND BEVERAGES [1000]
-                ul(style='display:none')
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Angoves  (35)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Bouchard Aine and Fils (8)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | French Rabbit (5)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Louis Bernard  (45)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | BIB Wine (Bag in Box) (8)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Other Liquors and Wine (5)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Garden (3)
-                  li
-                    a(href='products.html')
-                      i.icon-chevron-right
-                      | Khao Shong (11)
-              li
-                a(href='products.html') HEALTH & BEAUTY [18]
-              li
-                a(href='products.html') SPORTS & LEISURE [58]
-              li
-                a(href='products.html') BOOKS & ENTERTAINMENTS [14]
-            br
-            .thumbnail
-              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
-              .caption
-                h5 Panasonic
-                h4(style='text-align:center')
-                  a.btn(href='/user/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
-              .caption
-                h5 Kindle
-                h4(style='text-align:center')
-                  a.btn(href='/user/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
-              .caption
-                h5 Payment Methods
-          // Sidebar end===============================================
-          .col-lg-9.col-md-9.col-sm-9
-            ul.breadcrumb
-              li
-                a(href='/user/homePage') Home
-                span.divider /
-              li.active Registration
-            h3#Reservationh3  Reservation
-            .panel.panel-warning
-              .panel-body
-                form.form-horizontal(id="register",name="register" ,role="form" ,action="" ) 
-                  .form-group
-                    label.control-label.col-md-offset-2
-                      h4#Reservationh3 Your personal information
-                            
-                  .form-group    
-                    label.control-label.col-md-2.col-md-offset-2 NAME       
-                    .col-md-8
-                      .col-md-4
-                        .form-group.internal
-                          input.form-control(id="FirstName",type ="text", value="",name="FirstName",placeholder ="First Name")
-                      .col-md-4.indent-small
-                        .form-group.internal
-                          input.form-control(id="LastName",name="LastName",type = "text", placeholder ="Last Name")          
+block content
+  //.col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+    
+    
+  .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3 
+    .panel.panel
+      // Default panel contents
+      .panel-heading
 
-                  .form-group    
-                    label.control-label.col-md-2.col-md-offset-2 Email
-                    .col-md-6
-                      .form-group
-                        .col-md-11
-                          input.form-control(id="email", type = "email", placeholder = "Email" , name ="email")
-                            
-                  .form-group    
-                    label.control-label.col-md-2.col-md-offset-2  Password
-                    .col-md-6
-                      .form-group
-                        .col-md-11
-                          input.form-control#Password(name = "Password", type = "Password", placeholder = "Password")    
-                      .form-group.internal
-                        .col-md-11
-                          input.form-control(id="confirmPassword",name="confirmPassword",type = "text", placeholder = "confirm Password")  
-                  .form-group    
-                    label.control-label.col-md-2.col-md-offset-2 Phone Namber
-                    .col-md-6
-                      .form-group
-                        .col-md-11
-                          input.form-control(name="Mobile",id="Mobile", type = "Namber", placeholder = "Mobile: {xxx} - xxx xxxx")
-                      .form-group.internal
-                        .col-md-11
-                          input.form-control(name="HomePhone" , id="HomePhone" ,type= "Namber", placeholder = "HomePhone: {xxx} - xxx xxxx") 
-                  hr.soft 
-                  .col-md-2
-                  h4#Reservationh4 Your Location            
-                  .form-group                      
-                      label.control-label.col-md-2.col-md-offset-2 city
-                      .col-md-8
-                        .col-md-3
-                          .form-group
-                            select.form-control#city(name= "city")
-                              option(value="-1") Travel trailer
-                        label.control-label.col-md-1 area
-                        .col-md-4
-                          .form-group
-                            select.form-control(name="area" , id="area")
-                              option(value ="-1") Travel trailer
-                    .form-group           
-                      label.control-label.col-md-2.col-md-offset-2 mahalla
-                      .col-md-8
-                        .col-md-6
-                          .form-group.internal
-                            select.form-control(name="mahalla" , id="mahalla")
-                              option(value ="-1") Travel trailer      
-                    .form-group          
-                      label.control-label.col-md-2.col-md-offset-2 The nearestschool
-                      .col-md-8
-                        .col-md-6         
-                          .form-group.internal
-                            select.form-control(name="nearestschool" , id="nearestschool")
-                              option(value ="-1") Travel trailer
-                  .form-group    
-                    label.control-label.col-md-2.col-md-offset-2 The nearest point for your location
-                    .col-md-6
-                      textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
-                  .form-group         
-                    .col-md-offset-4.col-md-3
-                      button#Loginbt(type= "submit") Request Reservation
-                    .col-md-3
-                      button#Loginbt() Cancel
+        
+          .col-md-4.pull-right
+            a(href="/adminLogin")
+             img.img-responsive(src="../img/nagaLogo1.png")
+          .row
+            .col-md-3.pull-left
+              h4#Reservationh4 Reservation      
+      .panel-body
+          .row
+            .col-md-6.pull-left        
+              
+              span.spanerror#serror  
+          form.form-horizontal(id="register",name="register" ,role="form" ,action="" ) 
+            .form-group
+              label.control-label.col-md-offset-1
+                h4#Reservationh3 Pleas Your personal information
+                      
+            .form-group    
+              label.label-sm.col-md-2.col-md-offset-2 Name       
+
+              .col-xs-2.col-sm-2.col-md-2
+                .form-group
+                  input#FirstName.form-control.input-sm.left.phone-group(type='text', name='FirstName', placeholder='First Name')
+              .col-xs-2.col-sm-2.col-md-2
+                .form-group
+                  input#LastName.form-control.input-sm(type='text', name='LastName', placeholder='Last Name')          
+
+            .form-group    
+              label.label-sm.col-md-2.col-md-offset-2 Email
+              .col-xs-4.col-sm-4.col-md-4
+                .form-group
+                    input.form-control.input-sm(id="email", type = "email", placeholder = "Email" , name ="email")
+                .form-group.internal
+                    input.form-control.input-sm(id="confirmEmail",name="confirmEmail",type = "text", placeholder = "confirm Email")      
+                      
+            .form-group    
+              label.small-label.col-md-2.col-md-offset-2  Password
+              .col-xs-4.col-sm-4.col-md-4
+                .form-group
+                    input.form-control.input-sm#Password(name = "Password", type = "Password", placeholder = "Password")    
+                .form-group.internal
+                    input.form-control.input-sm(id="confirmPassword",name="confirmPassword",type = "text", placeholder = "confirm Password")  
+            .form-group    
+              label.small-label.col-md-2.col-md-offset-2 Phone Namber
+              .col-xs-4.col-sm-4.col-md-4
+                .form-group
+                    input.form-control.input-sm(name="Mobile",id="Mobile", type = "Namber", placeholder = "Mobile: {xxx} - xxx xxxx")
+                .form-group.internal
+                    input.form-control.input-sm(name="HomePhone" , id="HomePhone" ,type= "Namber", placeholder = "HomePhone: {xxx} - xxx xxxx") 
+            
+                button#Loginbt(type= "submit") Request Reservation
+
     // MainBody End =============================
     script(src='/themes/js/bootstrap.min.js', type='text/javascript')
     script(src='/js/jquery-1.11.2.min.js') 
     script(src="/js/jquery.validate.min.js") 
     script(src="/js/register.js")
     script(src='/js/helpers.js')            
-    script(src='/themes/js/bootstrap.min.js', type='text/javascript')
     script(src='/themes/js/google-code-prettify/prettify.js')
-    script(src='/themes/js/bootshop.js')
     script(src='/themes/js/jquery.lightbox-0.5.js')

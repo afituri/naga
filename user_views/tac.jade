@@ -161,40 +161,51 @@ block home
             ul.breadcrumb
               li
                 a(href='/user/homePage') Home
-                span.divider /
+                span.divider 
               li.active Terms and Conditions
-            h3  Terms and Conditions
-            hr.soft
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum varius dapibus. Sed hendrerit porta felis at sollicitudin. Sed at nunc ac neque semper fermentum. Proin diam sem, semper fermentum eleifend nec, viverra ac est. Sed ultricies, lectus et vehicula imperdiet, felis tortor vehicula turpis, non fermentum enim est et sapien. Nam justo mi, dignissim a euismod ut, pretium sed leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In viverra porta est, consequat elementum metus tristique a. Mauris tempus tellus a metus dapibus faucibus egestas lectus consectetur. Integer libero dolor, luctus non congue vitae, tempus ut neque. Nunc eleifend lorem quis diam pharetra sagittis. Aliquam ut dolor dui. Fusce dictum facilisis ipsum eu porttitor. In ultricies rhoncus tortor vitae tincidunt.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Nullam a vulputate leo. Nulla tristique metus eros. Curabitur ultrices commodo mauris, sit amet faucibus lectus fermentum in. Nulla eleifend, augue hendrerit tempus faucibus, diam lacus aliquet urna, eget facilisis turpis risus quis arcu. Cras placerat suscipit sem, ac consequat dui iaculis eu. Cras elit enim, adipiscing lobortis rutrum ac, vehicula nec massa. Praesent pharetra ligula ac erat venenatis feugiat. Quisque id nulla mi. Mauris at orci nec nisi eleifend auctor. Mauris placerat consectetur tincidunt. Nam eu tellus vitae dolor vestibulum commodo. Etiam tristique, urna ac convallis laoreet, enim enim aliquet neque, id cursus risus nulla sed ligula. Nunc quam libero, accumsan vitae consequat at, sollicitudin eget mi. Phasellus in molestie diam. Aliquam enim purus, tempor id sodales non, volutpat eu diam. Donec eu nisl lacinia leo semper lobortis sed sit amet elit.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Aliquam interdum, ipsum a posuere dictum, tellus risus blandit dolor, at tristique sapien urna vel purus. Pellentesque in dictum urna. Sed feugiat libero sit amet arcu malesuada eu convallis dui convallis. Donec facilisis massa a ipsum aliquam lobortis. Praesent ac lectus sed leo aliquam egestas. Sed ante neque, volutpat ac tempor et, bibendum at ligula. Nunc porta vestibulum sodales.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Nullam a vulputate leo. Nulla tristique metus eros. Curabitur ultrices commodo mauris, sit amet faucibus lectus fermentum in. Nulla eleifend, augue hendrerit tempus faucibus, diam lacus aliquet urna, eget facilisis turpis risus quis arcu. Cras placerat suscipit sem, ac consequat dui iaculis eu. Cras elit enim, adipiscing lobortis rutrum ac, vehicula nec massa. Praesent pharetra ligula ac erat venenatis feugiat. Quisque id nulla mi. Mauris at orci nec nisi eleifend auctor. Mauris placerat consectetur tincidunt. Nam eu tellus vitae dolor vestibulum commodo. Etiam tristique, urna ac convallis laoreet, enim enim aliquet neque, id cursus risus nulla sed ligula. Nunc quam libero, accumsan vitae consequat at, sollicitudin eget mi. Phasellus in molestie diam. Aliquam enim purus, tempor id sodales non, volutpat eu diam. Donec eu nisl lacinia leo semper lobortis sed sit amet elit.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Aliquam interdum, ipsum a posuere dictum, tellus risus blandit dolor, at tristique sapien urna vel purus. Pellentesque in dictum urna. Sed feugiat libero sit amet arcu malesuada eu convallis dui convallis. Donec facilisis massa a ipsum aliquam lobortis. Praesent ac lectus sed leo aliquam egestas. Sed ante neque, volutpat ac tempor et, bibendum at ligula. Nunc porta vestibulum sodales.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Nullam a vulputate leo. Nulla tristique metus eros. Curabitur ultrices commodo mauris, sit amet faucibus lectus fermentum in. Nulla eleifend, augue hendrerit tempus faucibus, diam lacus aliquet urna, eget facilisis turpis risus quis arcu. Cras placerat suscipit sem, ac consequat dui iaculis eu. Cras elit enim, adipiscing lobortis rutrum ac, vehicula nec massa. Praesent pharetra ligula ac erat venenatis feugiat. Quisque id nulla mi. Mauris at orci nec nisi eleifend auctor. Mauris placerat consectetur tincidunt. Nam eu tellus vitae dolor vestibulum commodo. Etiam tristique, urna ac convallis laoreet, enim enim aliquet neque, id cursus risus nulla sed ligula. Nunc quam libero, accumsan vitae consequat at, sollicitudin eget mi. Phasellus in molestie diam. Aliquam enim purus, tempor id sodales non, volutpat eu diam. Donec eu nisl lacinia leo semper lobortis sed sit amet elit.
-            h5 Lorem ipsum dolor sit amet
-            br
-            p
-              | Aliquam interdum, ipsum a posuere dictum, tellus risus blandit dolor, at tristique sapien urna vel purus. Pellentesque in dictum urna. Sed feugiat libero sit amet arcu malesuada eu convallis dui convallis. Donec facilisis massa a ipsum aliquam lobortis. Praesent ac lectus sed leo aliquam egestas. Sed ante neque, volutpat ac tempor et, bibendum at ligula. Nunc porta vestibulum sodales.
-  // MainBody End =============================
-    
+            .row
+              .col-md-10.col-md-offset-1
+                .panel.panel-default
+                  // Default panel contents
+                  .panel-heading 
+                    h4#Reservationh4 Your Location
+                  .panel-body
+                    br
+                    .row
+                      .col-md-3.col-md-offset-1                     
+                        label.control-label city 
+                      .col-md-8
+                        select.textboxEditProfile#city(name= "city")
+                          option(value="-1") Travel trailer
+                    br
+                    .row
+                      .col-md-3.col-md-offset-1         
+                        label.control-label area
+                      .col-md-8
+                        select.textboxEditProfile(name="area" , id="area")
+                          option(value ="-1") Travel trailer
+                    br
+                    .row
+                      .col-md-3.col-md-offset-1
+                        label.control-label mahalla
+                      .col-md-8
+                        select.textboxEditProfile(name="mahalla" , id="mahalla")
+                          option(value ="-1") Travel trailer      
+                    br
+                    .row
+                      .col-md-3.col-md-offset-1
+                        label.control-label The nearestschool
+                      .col-md-8
+                        select.textboxEditProfile(name="nearestschool" , id="nearestschool")
+                          option(value ="-1") Travel trailer
+                    br
+                    .row
+                      .col-md-3.col-md-offset-1
+                        label.control-label The nearest point for your location
+                      .col-md-8
+                        textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
+
+
   script(src='/themes/js/jquery.js', type='text/javascript')
   script(src='/themes/js/bootstrap.min.js', type='text/javascript')
   script(src='/themes/js/google-code-prettify/prettify.js')

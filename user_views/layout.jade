@@ -21,7 +21,6 @@ html
     link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/themes/images/ico/apple-touch-icon-72-precomposed.png')
     link(rel='apple-touch-icon-precomposed', href='/themes/images/ico/apple-touch-icon-57-precomposed.png')
     style#enject(type='text/css')
-    
 
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -43,122 +42,7 @@ html
                 span.icon-bar
               a.navbar-brand(href='#')
             // Collect the nav links, forms, and other content for toggling
-            a.navbar-brand.pull-left
             #bs-megadropdown-tabs.collapse.navbar-collapse
-              .mainmenu
-                ul.nav.navbar-nav.navbar-left
-                  li
-                    a(href='#') Link
-                  li.dropdown.mega-dropdown.active.navbar-left
-                    a.dropdown-toggle(href='#', data-toggle='dropdown')
-                      | Dropdown 
-                      span.caret
-                    .dropdown-menu.mega-dropdown-menu
-                      .container-fluid
-                        // Tab panes
-                        .tab-content
-                          #men.tab-pane.active
-                            ul.nav-list.list-inline
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png')
-                                  span Running
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png')
-                                  span Basketball
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png')
-                                  span Football
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png')
-                                  span Soccer
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png')
-                                  span Men's Training
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png')
-                                  span Women's Training
-                          #women.tab-pane
-                            ul.nav-list.list-inline
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png')
-                                  span Running
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png')
-                                  span Basketball
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png')
-                                  span Football
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png')
-                                  span Soccer
-                          #kids.tab-pane
-                            ul.nav-list.list-inline
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png')
-                                  span Running
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png')
-                                  span Basketball
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png')
-                                  span Football
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png')
-                                  span Soccer
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png')
-                                  span Men's Training
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png')
-                                  span Women's Training
-                          #sports.tab-pane
-                            ul.nav-list.list-inline
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png')
-                                  span Basketball
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png')
-                                  span Football
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png')
-                                  span Soccer
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png')
-                                  span Men's Training
-                              li
-                                a(href='#')
-                                  img(src='http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png')
-                                  span Women's Training
-                      // Nav tabs
-                      ul.nav.nav-tabs(role='tablist')
-                        li.active
-                          a(href='#men', role='tab', data-toggle='tab') Men
-                        li
-                          a(href='#women', role='tab', data-toggle='tab') Women
-                        li
-                          a(href='#kids', role='tab', data-toggle='tab') Kids
-                        li
-                          a(href='#sports', role='tab', data-toggle='tab') Sports
               .mainmenu
                 ul.nav.navbar-nav.navbar-right
                   li.dropdown
@@ -257,7 +141,7 @@ html
 
               //- .pull-right.basketImg
       block sellerPage
-      block home
+      block home 
       block itemSlide
       block listOnLeft
         .row
@@ -520,14 +404,17 @@ html
                 .col-md-3.col-md-offset-1
                   .single-widget
                     h2 About Shopper
-                    form.searchform(action='#')
-                      input(type='text', placeholder='Your email address')
-                      button.btn.btn-default(type='submit')
-                        i.fa.fa-arrow-circle-o-right
-                      p
-                        | Get the most recent updates from 
-                        br
-                        | our site and be updated your self...
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') Company Information
+                      li
+                        a(href='') Careers
+                      li
+                        a(href='') Store Location
+                      li
+                        a(href='') Affillate Program
+                      li
+                        a(href='') Copyright
           .footer-bottom
             .container
               .row

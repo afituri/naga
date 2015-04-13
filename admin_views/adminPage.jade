@@ -1,12 +1,11 @@
 extends layout
-block dashBord
+block Dashboard
   #page-wrapper
     .container-fluid
       // Page Heading
       .row
         .col-lg-12
-          h1.page-header
-            | Dashboard 
+          h1 Dashboard 
             small Statistics Overview
           ol.breadcrumb
             li.active
@@ -74,7 +73,13 @@ block dashBord
                 span.pull-right
                   i.fa.fa-arrow-circle-right
                 .clearfix
+  //- #search
+  //-   button.close(type='button') ×
+  //-   form
+  //-     input(type='search', value='', placeholder='type keyword(s) here')
+  //-     button.btn.btn-primary(type='submit') Search
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/nprogress.js')
   script(src='/js/sb-admin-2.js')

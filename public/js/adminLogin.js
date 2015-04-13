@@ -15,18 +15,23 @@ $(document).ready(function() {
       },
     },
     messages:{
-      // email:{
-      //   required: "الرجاء ادخال البريد الالكتروني",
-      //   email: "خطأ هذا ليس بريد الكتروني"
-      // },
+      email:{
+        required: "Please enter your email address !",
+      },
     },
     errorPlacement: function(error, element) {
       if (element.attr("name") == "email") {
-          error.insertAfter("#form-group");
-      } else {
-          error.insertAfter(element);
+        error.insertAfter("#form-group");
+      } 
+      else {
+        error.insertAfter(element);
       }
-    }  
+    },
+    highlight: function(element) {
+      $('#form-group').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass('animated shake');
+      });
+    },
   });
   // $('body').on("click","#btnLogin",function(){
   //   alert("test2222");
@@ -57,3 +62,27 @@ $(".reveal").mousedown(function() {
 .mouseout(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });
+
+$('body').show();
+NProgress.start();
+$(window).load(function() {
+  NProgress.done(); 
+  $('.showIn').removeClass('out');
+  $('.showIn').addClass('flipInY');
+});
+// setTimeout(function() { 
+//   NProgress.done(); 
+//   $('.showIn').removeClass('out');
+//   $('.showIn').addClass('flipInY');
+// }, 2000)
+
+// $('#btnLogin').on('click', function () {
+//     $(this).button('loading')
+//     // business logic...
+//      // $btn.button('complete')
+// });
+
+
+
+
+

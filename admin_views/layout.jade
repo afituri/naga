@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
     meta(charset='utf-8')
@@ -7,7 +7,7 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(href="/css/admin_style.css" rel="stylesheet") 
+    link(href="/css/admin_style.css" rel="stylesheet")
     link(href="/css/bootstrap.min.css" rel="stylesheet")
     link(href="/css/bootstrap-editable.css" rel="stylesheet")
     //- MetisMenu CSS
@@ -16,10 +16,20 @@ html
     link(href="/css/sb-admin-2.css" rel="stylesheet")
     //- Custom Fonts
     link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
-  body
+    //- NProgress CSS
+    link(href="/css/nprogress.css" rel="stylesheet")
+    link(href="/css/animate.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+  body.animated.fadeIn(style='display: none')
     block content
       block navigation
-        .loadingImg
+        //- .loadingImg
+        //-(class="#{NProgress}")
+        #search
+          button.close(type='button') ×
+          form
+            input(type='search', value='', placeholder='type keyword(s) here')
+            button.btn.btn-primary(type='submit') Search  
         #wrapper
           nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
             .navbar-header
@@ -179,15 +189,20 @@ html
                     a(href='/')
                       i.fa.fa-sign-out.fa-fw
                       |  Logout          
-            .navbar-default.sidebar(role="navigation")
+            .navbar-default.sidebar#preview-container(role="navigation")
               .sidebar-nav.navbar-collapse
                 ul.nav#side-menu
-                  li.sidebar-search
-                    .input-group.custom-search-form
-                      input.form-control(type="text", placeholder="Search...")
-                      span.input-group-btn
-                        button.btn.btn-default(type="button")
-                          i.fa.fa-search
+                  //- button.btn.btn-default.btn-info(type='submit') Search
+                  li
+                    a(href="#search") 
+                      i.fa.fa-search  
+                      |  Search
+                  //- li.sidebar-search
+                  //-   .input-group.custom-search-form
+                  //-     input.form-control(type="text", placeholder="Search...")
+                  //-     span.input-group-btn
+                  //-       button.btn.btn-default(type="button")
+                  //-         i.fa.fa-search
                   li
                     a(href="/adminPage")
                       i.fa.fa-dashboard.fa-fw
@@ -233,13 +248,7 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Type of Business 
-                      li
-                        a(href="#") Business Genre
-                          span.fa.arrow
-                        ul.nav.nav-third-level
-                          li
-                            a(href="#") Genre
+                        a(href="/adminTypeBusiness") Type of Business 
                   li
                     a(href="#")
                       i.fa.fa-user
@@ -247,7 +256,9 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="/showAdmin") Show Admin 
+                        a(href="/viewAdmin") View Admins
+                      li
+                        a(href="/addAdmin") Add Admin 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-usd
@@ -255,7 +266,7 @@ html
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Company 
+                        a(href="/adminCompany") Company 
                       li
                         a(href="#") Seller Manger
                           span.fa.arrow
@@ -283,4 +294,4 @@ html
                                 a(href="#") Third Level Item
                               li
                                 a(href="#") Third Level Item 
-          block dashBord                                           
+          block Dashboard                                           

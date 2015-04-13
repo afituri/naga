@@ -15,6 +15,34 @@ exports.SizeMgr = {
     });
   },
 
+
+  GetSizebyId :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `size` WHERE `status` <> 0 and idsize=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  GetSizeByIdMeasur :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `size` WHERE `status` <> 0 and measure_idmeasure=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+          cb(result);
+        }
+      });
+    });
+  },
+
   AddSize : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `size` SET ?',body,  function(err, result) {
@@ -27,6 +55,7 @@ exports.SizeMgr = {
       });
     });
   },
+  
   UpdateSizeNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
@@ -54,6 +83,7 @@ exports.SizeMgr = {
       });
     });
   },
+
 
   UpdateSizeIdMeasure: function(body,cb){
     mysqlMgr.connect(function (conn) {

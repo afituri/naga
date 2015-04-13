@@ -1,110 +1,137 @@
 extends layout
-block dashBord
+block Dashboard
   #page-wrapper
     .container-fluid
       // Page Heading
       .row
-        .col-lg-12
-          h1.page-header  Locations Manger
-            small  Areas
-          ol.breadcrumb
-            li
-              i.fa.fa-dashboard
-              a(href='/adminPage')  Dashboard
-            li.active
-              i.fa  Areas
-          .panel.panel-default
-            .panel-heading
-              .row
-                .col-xs-2.col-md-2
-                  h2.panel-title(style="margin-top: 8px;")
-                    strong  List of Area
-                .col-xs-5.col-md-6
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      .input-group-btn
-                        button.btn.btn-default(type='submit')
-                          i.glyphicon.glyphicon-search
-                .col-xs-3.col-md-2
-                  a.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
-                    span.glyphicon.glyphicon-plus
-                    |  Add Area
-                .col-xs-2.col-md-1
-                  button.btn.btn-primary
-                    i.glyphicon.glyphicon-print
-                    |  Print 
-            .panel-body
-              .table-responsive
-                table.table.table-striped.table-condensed
-                  thead
-                    tr
-                      td.text-center
-                        strong Area Name in Arabic
-                      td.text-center
-                        strong Area Name in English
-                      td.text-center
-                        strong City Name in Arabic
-                      td.text-center
-                        strong City Name in English
-                      td.text-center
-                        strong Edit
-                      td.text-center
-                        strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    for area in areas
-                      tr
-                        td.text-center #{area.areaName}
-                        td.text-center #{area.areaName_en}
-                        td.text-center #{area.cityName}
-                        td.text-center #{area.cityName_en}
-                        td.text-center
-                          button.btn.btn-info.btn-xs(data-placement='top', title='Edit')
-                            span.glyphicon.glyphicon-pencil
-                        td.text-center
-                          button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete')
-                            span.glyphicon.glyphicon-trash        
-          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-            .modal-dialog
-              .modal-content
-                .modal-headr.modal-header-danger
-                  p.h1 Sure you want to delete?
-                .modal-body
-                  p.h2 Are you sure
-                  p 
-                .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
-          #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+        h1  Locations Manger
+          small  Areas
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa Locations Manger
+          li.active
+            i.fa  Areas
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Areas
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newArea', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Area
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th
+                    //- strong Area Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
+                  th
+                    //- strong Area Name in English
+                    input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
+                  th
+                    //- strong City Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='City Name in Arabic', disabled='')
+                  th
+                    //- strong City Name in English
+                    input.form-control.text-center(type='text', placeholder='City Name in English', disabled='')
+                  th.text-center
+                    strong Edit
+                  th.text-center
+                    strong Trash 
+              tfoot
+                tr
+                  th.text-center
+                    | Area Name in Arabic
+                  th.text-center
+                    | Area Name in English
+                  th.text-center
+                    | City Name in Arabic
+                  th.text-center
+                    | City Name in English
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash 
+              tbody#tbody
+                // foreach ($order->lineItems as $line) or some such thing here
+                for area in areas
+                  tr(data-id='#{area.idarea}')
+                    td.text-center 
+                      a.editable.editable-click(id='name#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName}
+                    td.text-center 
+                       a.editable.editable-click(id='name_en#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName_en}
+                    td.text-center #{area.cityName}
+                    td.text-center #{area.cityName_en}
+                    td.text-center
+                      button#enable.btn.btn-info.btn-xs(data-value='#{area.idarea}', data-placement='top', title='Edit City')
+                        span.glyphicon.glyphicon-pencil
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal', data-placement='top', title='Delete',value='#{area.idarea}')
+                        span.glyphicon.glyphicon-trash        
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newArea.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          form#formArea(role="form",name="formArea")
             .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
                   button.close(type="button", data-dismiss="modal" aria-label="Close")
                     span(aria-hidden="true") × 
-                  h2
+                  h2.modal-title
                     .glyphicon.glyphicon-plus
                     |  Add Area
-                .row 
-                  .modal-body
-                    form#formArea.form-signin(role="form" , action="", method="post")
-                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                        .form-group
-                          .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="nameArabic", placeholder="Name in Arabic",autofocus="")
-                      .col-xs-5.col-md-5
-                        .form-group      
-                          .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="nameEnglish", placeholder="Name in English",autofocus="")
-                      .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
-                        .form-group
-                          .h4 City
-                          select#city.form-control(type="text",name="city",autofocus="")
+                .modal-body
+                  .row
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Area in Arabic
+                        input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 Area in English
+                        input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
+                    .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
+                      .form-group
+                        .h4 Select City 
+                        select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5',data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select City
+                          for city in cities
+                            option(value="#{city.idcity}",data-subtext='#{city.name_en}') #{city.name} 
                 .modal-footer
-                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change 
+                  button#cancel.btn.btn-danger(data-dismiss='modal',type='submit') Cancel
+                  button#save.btn.btn-primary Save Change 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editArea.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/helpers.js')
   script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/adminAreas.js')
+ 
+
   

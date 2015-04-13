@@ -2,7 +2,7 @@ var mysqlMgr = require('./mysql').mysqlMgr,
 util=require('util');
 exports.MahallaMgr = {
 	
-	addMahalla : function(body,cb){
+  addMahalla : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `mahalla` SET ?',body,  function(err, result) {
         conn.release();
@@ -28,7 +28,20 @@ exports.MahallaMgr = {
     });
   },
 
-   getMahallaInfoByNameAr : function(name,cb){
+  getMahallaLimit :function(limit,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT mahalla.idmahalla,mahalla.name as mahallaName, mahalla.name_en as mahallaName_en, area.name as areaName, area.name_en as areaName_en FROM `mahalla`,`area` WHERE mahalla.status <> 0 AND idarea=area_idarea limit ?,10 ; SELECT count(*) as cnt FROM `mahalla` WHERE `status` <> 0 ',limit, function(err, result) {
+        conn.release();
+        if(err) {
+          util.log(err);
+        } else {
+          cb(result);
+        }
+      });
+    });
+  },
+
+  getMahallaInfoByNameAr : function(name,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and name=?',name,  function(err, result) {
         conn.release();
@@ -41,7 +54,7 @@ exports.MahallaMgr = {
     });
   },
 
-   getMahallaInfoByNameEn : function(name,cb){
+  getMahallaInfoByNameEn : function(name,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and name_en=?',name,  function(err, result) {
         conn.release();
@@ -54,7 +67,7 @@ exports.MahallaMgr = {
     });
   },
 
-    getMahallaInfoByIdArea : function(id,cb){
+  getMahallaInfoByIdArea : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 and area_idarea=?',id,  function(err, result) {
         conn.release();
@@ -67,7 +80,7 @@ exports.MahallaMgr = {
     });
   },
 
- UpdateMahallaNameAR : function(body,cb){
+  UpdateMahallaNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `mahalla` SET `name` = ?,`update_time`=? WHERE `idmahalla` = ?',  [body.value,date,body.pk],  function(err, result) {
@@ -81,7 +94,7 @@ exports.MahallaMgr = {
     });
   },
 
-   UpdateMahallaNameEN : function(body,cb){
+  UpdateMahallaNameEN : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `mahalla` SET `name_en` = ?,`update_time`=? WHERE `idmahalla` = ?',  [body.value,date,body.pk],  function(err, result) {
@@ -95,7 +108,7 @@ exports.MahallaMgr = {
     });
   },
 
-     DeleteMahalla : function(id,cb){
+  DeleteMahalla : function(id,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `mahalla` SET `status` = 0 ,`update_time` = ? WHERE `idmahalla` = ?',[date,id],  function(err, result) {
@@ -109,10 +122,6 @@ exports.MahallaMgr = {
     });
   },
 
-
-
-
-
   deleteTest : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('DELETE from `mahalla` WHERE `idmahalla` = ?',id,  function(err, result) {
@@ -124,13 +133,5 @@ exports.MahallaMgr = {
         }
       });
     });
-  }
-    
- 
-  
-
-	
-
-
-
-	};
+  }    
+};

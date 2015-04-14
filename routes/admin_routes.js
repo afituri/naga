@@ -177,11 +177,13 @@ router.post('/editGenreName', function(req, res) {
   });
 });
 
-router.post('/saveMeasure',function(req,res){
-  MeasureMgr.AddMeasure(req.body,function(result){
-    res.redirect('/adminMeasure');
+router.post('/addMeasure',function(req,res){
+  MeasureMgr.AddMeasure(req.body,function(err,result){
+    MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
+      var rel={"result":resultid,stat:true}
+      res.send(rel);
+    });
   });
-
 });
 
 router.get('/sizes/:id', function(req, res) {

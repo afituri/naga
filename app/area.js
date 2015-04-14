@@ -28,6 +28,19 @@ exports.AreaMgr = {
     });
   },
 
+  getAreaInfoByCity : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `area` WHERE `status` <> 0 AND `city_idcity`=? ',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   getAreaInfoById : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT `a`.`idarea`,`a`.`name` as areaName, `a`.`name_en` as areaName_en, `c`.`name` as cityName, `c`.`name_en` as cityName_en FROM `area` a,`city` c WHERE `a`.`status` <> 0 AND `idcity`=`city_idcity` AND `idarea`=?',id,  function(err, result) {
@@ -67,7 +80,7 @@ exports.AreaMgr = {
     });
   },
 
-    UpdateAreaNameAR : function(body,cb){
+  UpdateAreaNameAR : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `area` SET `name` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
@@ -81,7 +94,7 @@ exports.AreaMgr = {
     });
   },
 
-     UpdateAreaNameEn : function(body,cb){
+  UpdateAreaNameEn : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `area` SET `name_en` = ?,`update_time`=? WHERE `idarea` = ?',  [body.value,date,body.pk],  function(err, result) {
@@ -95,7 +108,7 @@ exports.AreaMgr = {
     });
   },
 
-   DeleteArea : function(id,cb){
+  DeleteArea : function(id,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `area` SET `status` = 0 ,`update_time` = ? WHERE `idarea` = ?',[date,id],  function(err, result) {

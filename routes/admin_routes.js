@@ -217,6 +217,18 @@ router.get('/adminCompany', function(req, res) {
   res.render('adminCompany', { title: 'Company'});
 });
 
+router.get('/adminCompany/adminCompanyAddress', function(req, res) {
+  res.render('adminCompanyAddress', { title: 'CompanyAddress'});
+});
+
+router.get('/adminCompany/adminSellerCo', function(req, res) {
+  res.render('adminSellerCo', { title: 'Company Seller'});
+});
+
+router.get('/adminCompany/adminCompanyView', function(req, res) {
+  res.render('adminCompanyView', { title: 'Company view'});
+});
+
 router.get('/adminCities', function(req, res) {
   CityMgr.GetCity(function(err,result){
     res.render('adminCities', { title: 'Cities',cities:result,NProgress:"fadeIn out"});
@@ -329,7 +341,13 @@ router.get('/adminAreas', function(req, res) {
     });
   });
 });
- 
+
+router.get('/getarea/:id', function(req, res) {
+  AreaMgr.getAreaInfoByCity(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
 router.post('/addAreas',function(req,res){
   validator.isAreas(req,function(err,result){
     if(result!=true){
@@ -347,6 +365,24 @@ router.post('/addAreas',function(req,res){
   });
 });
 
+router.post('/addMahala',function(req,res){
+  validator.isMahala(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }else {
+      delete req.body['city'];
+      MahallaMgr.addMahalla(req.body,function(err,result){
+        console.log(result.insertId);
+        MahallaMgr.getMahallaId(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
 router.get('/adminMahala', function(req, res) {
   req.session.back = req.originalUrl;
   var page = user.getPage(req);
@@ -355,7 +391,10 @@ router.get('/adminMahala', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination});
+      //console.log(result[0]);
+      CityMgr.GetCity(function(err,result1){
+        res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination,cities:result1});
+      });
     }
   });
 });

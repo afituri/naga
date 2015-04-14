@@ -190,11 +190,14 @@ router.post('/editTogNameEn', function(req, res) {
   });
 });
 
-router.post('/saveMeasure',function(req,res){
-  MeasureMgr.AddMeasure(req.body,function(result){
-    res.redirect('/adminMeasure');
-  });
 
+router.post('/addMeasure',function(req,res){
+  MeasureMgr.AddMeasure(req.body,function(err,result){
+    MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
+      var rel={"result":resultid,stat:true}
+      res.send(rel);
+    });
+  });
 });
 
 router.get('/sizes/:id', function(req, res) {
@@ -373,6 +376,28 @@ router.get('/getarea/:id', function(req, res) {
   });
 });
 
+router.get('/getmahalla/:id', function(req, res) {
+  MahallaMgr.getMahallaInfoByIdArea(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
+router.post('/addschool',function(req,res){
+  // validator.isMahala(req,function(err,result){
+  //   if(result!=true){
+  //     var rel={"result":result,stat:false}
+  //     res.send(rel);
+  //   }else {
+      delete req.body['area_idarea'];
+      delete req.body['city_idcity'];
+      SchoolMgr.AddSchool(req.body,function(err,result){
+        var rel={stat:true}
+        res.send(rel);
+      });
+    // }
+  // });
+});
+
 router.post('/addAreas',function(req,res){
   validator.isAreas(req,function(err,result){
     if(result!=true){
@@ -398,7 +423,6 @@ router.post('/addMahala',function(req,res){
     }else {
       delete req.body['city'];
       MahallaMgr.addMahalla(req.body,function(err,result){
-        console.log(result.insertId);
         MahallaMgr.getMahallaId(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);
@@ -432,7 +456,9 @@ router.get('/adminSchools', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination});
+      CityMgr.GetCity(function(err,result1){
+        res.render('adminSchools', { title: 'Schools',school:result[0],pagination:pagination,cities:result1});
+      });
     }
   });
 });

@@ -80,6 +80,19 @@ $(document).ready(function(){
     return false;
   });
 //-add your new fanction
+
+  $('body').on('click','#delete',function(){
+      $('#deletee').val($(this).val());
+   }) ;
+
+  $('body').on('click','#deletee',function(){
+      $.get('/deleteArea/'+$(this).val(),function(result){
+          window.location.href='/adminAreas';
+      });
+  }) ;
+
+
+
 });
 
 

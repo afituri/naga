@@ -17,11 +17,11 @@ block Dashboard
         .col-md-10.col-md-offset-1
           .tile-progress.tile-primary
             .tile-header
-              h4 العدد الكلي للكروت : #{cardNumber} كرت
-              h4 مبلغ المال الكلي للكروت : #{mony} د.ل
-              h4 فئة 20 : العدد #{twentyMony[0].c} كرت , المبلغ #{twentyMony[0].s} د.ل
-              h4 فئة 50 : العدد #{fmony[0].c} كرت , المبلغ #{fmony[0].s} د.ل
-              h4 فئة 100: العدد #{hmony[0].c} كرت , المبلغ #{hmony[0].s} د.ل
+              h4 العدد الكلي للكروت :  كرت
+              h4 مبلغ المال الكلي للكروت : 0 د.ل
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
             .tile-progressbar
               span(data-fill='10%', style='width: 100%;')
             .tile-footer
@@ -31,57 +31,57 @@ block Dashboard
               span النسبة الكاملة
           .tile-progress.tile-red
             .tile-header
-              h4 عدد الكروت المستخــدمة : #{all[0].c} كرت
-              h4 مبلغ المال للكروت المستخدمة : #{all[0].s} 
-              h4 فئة 20 : العدد #{Tused} كرت , المبلغ #{TTused} د.ل
-              h4 فئة 50 : العدد #{Fused} كرت , المبلغ #{FFused} د.ل
-              h4 فئة 100: العدد #{Hused} كرت , المبلغ #{HHused} د.ل
+              h4 عدد الكروت المستخــدمة : 0 كرت
+              h4 مبلغ المال للكروت المستخدمة : 0
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
             .tile-progressbar
               
-              span(data-fill='#{usedPercent}%', style='width: #{usedPercent}%;')
+              span(data-fill='0%', style='width: 0%;')
             .tile-footer
               h4
-                span.pct-counter #{usedPercent}
+                span.pct-counter 0
                 | % النسبة
               span تحديد نسبة الكروت المستخدمة حسب  العدد
           .tile-progress.tile-blue
             .tile-header
-              h4 عدد الكروت الغير المستخــدمة : #{notUsed} كرت
-              h4 مبلغ المال للكروت الغير المستخدمة : #{mony - all[0].s}
-              h4 فئة 20 : العدد #{twentyMony[0].c - Tused} كرت , المبلغ #{twentyMony[0].s - TTused} د.ل
-              h4 فئة 50 : العدد #{fmony[0].c - Fused} كرت , المبلغ #{fmony[0].s - FFused} د.ل
-              h4 فئة 100: العدد #{hmony[0].c - Hused} كرت , المبلغ #{hmony[0].s - HHused} د.ل
+              h4 عدد الكروت الغير المستخــدمة : 0 كرت
+              h4 مبلغ المال للكروت الغير المستخدمة : 0
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
             .tile-progressbar
-              span(data-fill='#{100-usedPercent}%', style='width: #{100-usedPercent}%;')
+              span(data-fill='0%', style='width: 0%;')
             .tile-footer
               h4
-                span.pct-counter #{100-usedPercent}
+                span.pct-counter 0
                 | % النسبة
               span تحديد نسبة الكروت الغير مستخدمة حسب العدد 
           .tile-progress.tile-aqua
             .tile-header
-              h4 مبلغ المال للكروت المستخدمة : #{TTused+FFused+HHused} د.ل  
-              h4 فئة 20 : #{TTused} د.ل 
-              h4 فئة 50 : #{FFused} د.ل
-              h4 فئة 100: #{HHused} د.ل
+              h4 مبلغ المال للكروت المستخدمة : 0 د.ل  
+              h4 فئة 20 : 0 د.ل 
+              h4 فئة 50 : 0 د.ل
+              h4 فئة 100: 0 د.ل
             .tile-progressbar
-              span(data-fill='#{(TTused+FFused+HHused)*(100/mony)}%', style='width: #{(TTused+FFused+HHused)*(100/mony)}%;')
+              span(data-fill='0%', style='width: 0%;')
             .tile-footer
               h4
-                span.pct-counter #{(TTused+FFused+HHused)*(100/mony)}
+                span.pct-counter 0
                 | % النسبة 
               span تحديد نسبة الكروت المستخدمة حسب المبلغ المالي
           .tile-progress.tile-green
             .tile-header
-              h4 مبلغ الكروت الغير مستخدمة: #{mony - all[0].s} د.ل
-              h4 فئة 20 : #{twentyMony[0].s - TTused} د.ل 
-              h4 فئة 50 : #{fmony[0].s - FFused} د.ل
-              h4 فئة 100: #{hmony[0].s - HHused} د.ل 
+              h4 مبلغ الكروت الغير مستخدمة: 0 د.ل
+              h4 فئة 20 : 0 د.ل 
+              h4 فئة 50 : 0 د.ل
+              h4 فئة 100: 0 د.ل 
             .tile-progressbar
-              span(data-fill='#{100-(TTused+FFused+HHused)*(100/mony)}%', style='width: #{100-(TTused+FFused+HHused)*(100/mony)}%;')
+              span(data-fill='0%')
             .tile-footer
               h4
-                span.pct-counter #{100-(TTused+FFused+HHused)*(100/mony)}
+                span.pct-counter 0
                 | % النسبة
               span تحديد نسبة الكروت الغير مستخدمة حسب المبلغ المالي
   script(src='/js/jquery-1.11.2.min.js')

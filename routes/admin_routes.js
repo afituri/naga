@@ -12,6 +12,7 @@ var MeasureMgr = require('../app/measure').MeasureMgr;
 var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
 var TobMgr =require('../app/tob').TobMgr;
+var GenreMgr =require('../app/genre').GenreMgr;
 var user =require('../app/userHelpers');
 
 
@@ -163,6 +164,18 @@ router.post('/editTobNameEn', function(req, res) {
     res.send(true);
   });
 });
+ 
+router.post('/editGenreNameEn', function(req, res) {
+  GenreMgr.UpdateGenreNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editGenreName', function(req, res) {
+  GenreMgr.UpdateGenreNameAR(req.body,function(err,result){
+    res.send(true);
+  });
+});
 
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
@@ -189,15 +202,15 @@ router.get('/adminTypeBusiness', function(req, res) {
   });
 });
 
-router.get('/adminTypeBusiness/adminGenre', function(req, res) {
-  res.render('adminGenre', { title: 'Genre'});
+router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
+  GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){
+  res.render('adminGenre', { title: 'Genre',genre:result});
+  });
 });
 
 
 router.get('/adminTypeBusiness/adminGenre/adminTypeGenre', function(req, res) {
-  
   res.render('adminTypeGenre', { title: 'Type of Genre'});
-
 });
 
 router.get('/adminCompany', function(req, res) {
@@ -298,6 +311,14 @@ router.get('/deleteCity/:id', function(req, res) {
 router.get('/deleteArea/:id', function(req, res) {
    AreaMgr.DeleteArea(req.params.id,function(err,result){
     res.send(result);
+  });
+});
+
+router.get('/deletegenreee/:id', function(req, res) {
+   TobMgr.GetIdTobByIdGenre(req.params.id,function(err,idtob){
+   GenreMgr.DeleteGenre(req.params.id,function(err,result){
+    res.send(idtob);
+     });
   });
 });
 

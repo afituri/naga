@@ -13,8 +13,8 @@ var SizeMgr  = require('../app/size').SizeMgr ;
 var ColorMgr =require('../app/color').ColorMgr;
 var TobMgr =require('../app/tob').TobMgr;
 var GenreMgr =require('../app/genre').GenreMgr;
+var TogMgr =require('../app/tog').TogMgr;
 var user =require('../app/userHelpers');
-
 
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
@@ -177,6 +177,19 @@ router.post('/editGenreName', function(req, res) {
   });
 });
 
+
+router.post('/editTogName', function(req, res) {
+  TogMgr.UpdateTogName(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editTogNameEn', function(req, res) {
+  TogMgr.UpdateTogNameEn(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
 router.post('/saveMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(result){
     res.redirect('/adminMeasure');
@@ -209,8 +222,10 @@ router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
 });
 
 
-router.get('/adminTypeBusiness/adminGenre/adminTypeGenre', function(req, res) {
-  res.render('adminTypeGenre', { title: 'Type of Genre'});
+router.get('/adminTypeBusiness/adminGenre/:id/adminTypeGenre', function(req, res) {
+  TogMgr.GetTogById(req.params.id,function(err,result){
+  res.render('adminTypeGenre', { title: 'Type of Genre',tog:result});
+  });
 });
 
 router.get('/adminCompany', function(req, res) {
@@ -291,9 +306,9 @@ router.get('/deleteSize/:id', function(req, res) {
 });
 
 router.get('/deleteColor/:id', function(req, res) {
-   ColorMgr.DeleteColor(req.params.id,function(err,result){
+  ColorMgr.DeleteColor(req.params.id,function(err,result){
     res.send(result);
-   });
+  });
 });
 
 router.get('/deleteTOB/:id', function(req, res) {
@@ -301,6 +316,16 @@ router.get('/deleteTOB/:id', function(req, res) {
     res.send(result);
    });
 });
+
+
+router.get('/deleteTog/:id', function(req, res) {
+   TogMgr.GetidgenreByidtog(req.params.id,function(err,id){ 
+    TogMgr.DeleteTog(req.params.id,function(err,result){
+   res.send(id);
+  });
+  });
+});
+
 
 router.get('/deleteMahalla/:id', function(req, res) {
    MahallaMgr.DeleteMahalla(req.params.id,function(err,result){

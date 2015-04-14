@@ -16,7 +16,6 @@ $(document).ready(function(){
 
 
   $('body').on('click', '#view', function () {
-    window.location.href='/adminTypeBusiness/adminGenre/adminTypeGenre';
-   // alert("moahhed");
+    window.location.href='/adminTypeBusiness/adminGenre/'+$(this).val()+'/adminTypeGenre';
   });
-  });
+});

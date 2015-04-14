@@ -50,26 +50,20 @@ block Dashboard
                         strong Edit  
                       td.text-right
                         strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr
-                      td معطف
-                      td jacket
-                      td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil     
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash   
-                    tr
-                      td قميص
-                      td shirt
-                      td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil    
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash           
+                  tbody#bod
+                    for i in tog
+                      tr(data-id='#{i.idtog}')
+                        td 
+                          a.editable.editable-click(id='name#{i.idtog}', href='#', data-type='text', data-pk='#{i.idtog}') #{i.name}  
+                        td 
+                          a.editable.editable-click(id='name_en#{i.idtog}', href='#', data-type='text', data-pk='#{i.idtog}') #{i.name_en}  
+                        td.text-right
+                          button#enable.btn.btn-info.btn-xs
+                            span.glyphicon.glyphicon-pencil     
+                        td.text-right 
+                          button#delete.btn.btn-danger.btn-xs(value='#{i.idtog}',href='#del', data-toggle='modal')
+                            span.glyphicon.glyphicon-trash   
+                             
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -79,7 +73,7 @@ block Dashboard
                   p.h2 Are you sure
                   p 
                 .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
           #newtog.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
              .modal-dialog
@@ -107,5 +101,9 @@ block Dashboard
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editTog.js')
+  script(src='/js/sb-admin-2.js') 
+  script(src='/js/adminTog.js') 
+
  

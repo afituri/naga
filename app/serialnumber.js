@@ -172,6 +172,7 @@ exports.rand = {
 
   NumberActiveprepaidCard : function(cb){
     mysqlMgr.connect(function (conn) {
+    //  var q1="select count(*) as c from prepaid;"
       conn.query('select count(*) as c from prepaid ',function(err, result) {
         conn.release();
         if(err) {

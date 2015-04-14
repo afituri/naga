@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('body').on('click', '#view', function () {
-    window.location.href='/adminTypeBusiness/adminGenre/adminTypeGenre';
+    window.location.href='/adminCompany/adminCompanyAddress';
    // alert("moahhed");
   });
   });

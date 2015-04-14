@@ -14,6 +14,7 @@ var ColorMgr =require('../app/color').ColorMgr;
 var TobMgr =require('../app/tob').TobMgr;
 var GenreMgr =require('../app/genre').GenreMgr;
 var TogMgr =require('../app/tog').TogMgr;
+var CompanyMgr=require('../app/company').CompanyMgr;
 var user =require('../app/userHelpers');
 
 router.get('/', function(req, res) {
@@ -190,7 +191,6 @@ router.post('/editTogNameEn', function(req, res) {
   });
 });
 
-
 router.post('/addMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(err,result){
     MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
@@ -232,7 +232,9 @@ router.get('/adminTypeBusiness/adminGenre/:id/adminTypeGenre', function(req, res
 });
 
 router.get('/adminCompany', function(req, res) {
-  res.render('adminCompany', { title: 'Company'});
+  CompanyMgr.GetCompany(function(err,result){
+    res.render('adminCompany', { title: 'Company',company:result});
+  });
 });
 
 router.get('/adminCompany/adminCompanyAddress', function(req, res) {
@@ -326,6 +328,12 @@ router.get('/deleteTog/:id', function(req, res) {
     TogMgr.DeleteTog(req.params.id,function(err,result){
    res.send(id);
   });
+  });
+});
+
+router.get('/deleteCompany/:id', function(req, res) {
+  CompanyMgr.DeleteCompany(req.params.id,function(err,result){
+    res.send(result);
   });
 });
 

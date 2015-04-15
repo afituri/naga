@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $('body').on('click', '#view', function () {
-    window.location.href='/adminTypeBusiness/adminGenre';
-
+    window.location.href='/adminTypeBusiness/'+$(this).val()+'/adminGenre';
       });
 
    $('body').on('click','#delete',function () {

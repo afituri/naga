@@ -245,8 +245,10 @@ router.get('/adminCompany/adminSellerCo', function(req, res) {
   res.render('adminSellerCo', { title: 'Company Seller'});
 });
 
-router.get('/adminCompany/adminCompanyView', function(req, res) {
-  res.render('adminCompanyView', { title: 'Company view'});
+router.get('/adminCompany/:id/adminCompanyView', function(req, res) {
+  CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){  
+    res.render('adminCompanyView', { title: 'Company view',com:result});
+  });
 });
 
 router.get('/adminCities', function(req, res) {

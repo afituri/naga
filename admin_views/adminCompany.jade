@@ -54,13 +54,13 @@ block Dashboard
                       td #{i.name}
                       td #{i.name_en}
                       td.text-right
-                        button#viewc.btn.btn-primary.btn-xs
+                        button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
                           span.glyphicon.glyphicon-eye-open
                       td.text-right
-                        button#view.btn.btn-info.btn-xs
+                        button#Addresse.btn.btn-info.btn-xs
                           span.glyphicon.glyphicon-map-marker
                       td.text-right
-                        button#view1.btn.btn-warning.btn-xs
+                        button#seller.btn.btn-warning.btn-xs
                           span.glyphicon.glyphicon-user      
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany}',href='#del', data-toggle='modal')
@@ -115,4 +115,3 @@ block Dashboard
   script(src='/js/adminCompany.js')
   script(src='/js/CompanyAddress.js')
   script(src='/js/companySeller.js') 
-  script(src='/js/CompanyView.js') 

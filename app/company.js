@@ -15,6 +15,19 @@ exports.CompanyMgr = {
     });
   },
 
+    GetCompanyInfoById :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `company` WHERE `status` <> 0 and idcompany=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   AddCompany : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `company` SET ?',body,  function(err, result) {

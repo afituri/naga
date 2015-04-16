@@ -70,137 +70,119 @@ block content
                     button.btn.btn-success(type='submit') Sign in
                     button.btn(data-dismiss='modal', aria-hidden='true') Close
     // Header End======================================================================
+    
+
     #mainBody
       .container
         .row
           // Sidebar ==================================================
-          #sidebar.span3
-            .well.well-small
-              a#myCart(href='product_summary.html')
-                img(src='/themes/images/ico-cart.png', alt='cart')
-                | 3 Items in your cart  
-                span.badge.badge-warning.pull-right $155.00
-            ul#sideManu.nav.nav-tabs.nav-stacked
-              li.subMenu.open
-                a  ELECTRONICS [230]
-                ul
-                  li
-                    a.active(href='/seller/products')
-                      i.icon-chevron-right
-                      | Cameras (100)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Computers, Tablets & laptop (30)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Mobile Phone (80)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Sound & Vision (15)
-              li.subMenu
-                a  CLOTHES [840] 
-                ul(style='display:none')
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Clothing (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Shoes (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Hand Bags (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Men's Clothings  (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Men's Shoes (6)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Kids Clothing (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Kids Shoes (3)
-              li.subMenu
-                a FOOD AND BEVERAGES [1000]
-                ul(style='display:none')
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Angoves  (35)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Bouchard Aine & Fils (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | French Rabbit (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Louis Bernard  (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | BIB Wine (Bag in Box) (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Other Liquors & Wine (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Garden (3)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Khao Shong (11)
-              li
-                a(href='/seller/products') HEALTH & BEAUTY [18]
-              li
-                a(href='/seller/products') SPORTS & LEISURE [58]
-              li
-                a(href='/seller/products') BOOKS & ENTERTAINMENTS [14]
-            br
-            .thumbnail
-              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
-              .caption
-                h5 Panasonic
-                h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
-              .caption
-                h5 Kindle
-                h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
-              .caption
-                h5 Payment Methods
+          div.row
+            div.col-lg-6.col-lg-offset-3(id="alertBlock")
+            div.col-lg-6.col-lg-offset-3(id='registerForm')
+              div.panel.panel-default
+                div.panel-heading 
+                div.panel-body              
+                  form(id="fileupload", action="/upload", method="POST", enctype="multipart/form-data")    
+                    table.table
+                      tr
+                        td(colspan='3')
+                          div.row.fileupload-buttonbar
+                            div
+                              span.btn.btn-success.btn-sm.fileinput-button 
+                                i.glyphicon.glyphicon-plus
+                                span Add files...
+                                input(type="file", name="files[]", multiple)
+                              button.btn.btn-primary.btn-sm.start(type='submit') 
+                                i.glyphicon.glyphicon-upload
+                                span Start upload
+                              button.btn.btn-warning.btn-sm.cancel 
+                                i.glyphicon.glyphicon-ban-circle
+                                span Cancel upload
+                              button.btn.btn-danger.btn-sm.delete 
+                                i.glyphicon.glyphicon-trash
+                                span Delete
+                              input.toggle(type='checkbox')
+                              span.fileupload-process
+                            div.fileupload-progress.fade
+                              div.progress.progress-striped.active(role="progressbar", aria-valuemin="0", aria-valuemax="100")
+                              div.progress-extended &nbsp;
+                          table.table.table-striped(role='presentation')
+                            tbody.files 
+            
+          script(id="template-upload", type="text/x-tmpl")
+            {% for (var i=0, file; file=o.files[i]; i++) { %}
+            <tr class="template-upload fade">
+            <td>
+            <span class="preview"></span>
+            </td>
+            <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+            </td>
+            <td>
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+            </td>
+            <td>
+            {% if (!i && !o.options.autoUpload) { %}
+            <button class="btn btn-primary start" disabled>
+            <i class="glyphicon glyphicon-upload"></i>
+            <span>Start</span>
+            </button>
+            {% } %}
+            {% if (!i) { %}
+            <button class="btn btn-warning cancel">
+            <i class="glyphicon glyphicon-ban-circle"></i>
+            <span>Cancel</span>
+            </button>
+            {% } %}
+            </td>
+            </tr>
+            {% } %}
+          script(id="template-download", type="text/x-tmpl")
+            {% for (var i=0, file; file=o.files[i]; i++) { %}
+            <tr class="template-download fade">
+            <td>
+            <span class="preview">
+            {% if (file.thumbnailUrl) { %}
+            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+            {% } %}
+            </span>
+            </td>
+            <td>
+            <p class="name">
+            {% if (file.url) { %}
+            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+            {% } else { %}
+            <span>{%=file.name%}</span>
+            {% } %}
+            </p>
+            {% if (file.error) { %}
+            <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+            </td>
+            <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+            </td>
+            <td>
+            {% if (file.deleteUrl) { %}
+            <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+            <i class="glyphicon glyphicon-trash"></i>
+            <span>Delete</span>
+            </button>
+            <input type="checkbox" name="delete" value="1" class="toggle">
+            {% } else { %}
+            <button class="btn btn-warning cancel">
+            <i class="glyphicon glyphicon-ban-circle"></i>
+            <span>Cancel</span>
+            </button>
+            {% } %}
+            </td>
+            </tr>
+            {% } %}
+
+
+
           // Sidebar end===============================================
           .span9
             ul.breadcrumb
@@ -361,3 +343,17 @@ block content
           a(href='//themes/css/#', name='pattern20')
             img(src='//themes/switch/images/pattern/pattern20.png', alt='bootstrap business templates')
     span#/themesBtn
+    script(type='text/javascript', src='/js/jquery-1.11.2.min.js')
+    script(type='text/javascript', src='/js/jquery-ui.min.js')
+    script(type='text/javascript', src='/js/tmpl.min.js')
+    script(type='text/javascript', src='/js/load-image.min.js')
+    script(type='text/javascript', src='/js/canvas-to-blob.min.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/jquery.blueimp-gallery.min.js')
+    script(type='text/javascript', src='/js/jquery.iframe-transport.js')
+    script(type='text/javascript', src='/js/jquery.fileupload.js')
+    script(type='text/javascript', src='/js/jquery.fileupload-process.js')
+    script(type='text/javascript', src='/js/jquery.fileupload-image.js')
+    script(type='text/javascript', src='/js/jquery.fileupload-validate.js')
+    script(type='text/javascript', src='/js/jquery.fileupload-ui.js')
+    script(type='text/javascript', src='/js/main.js')

@@ -85,17 +85,17 @@ block Dashboard
                 button#dell.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newMeasure.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-           .modal-dialog
-            .modal-content
-              .modal-headr.modal-header-success
-                button.close(type="button", data-dismiss="modal" aria-label="Close")
-                  span(aria-hidden="true") × 
-                h2
-                  .glyphicon.glyphicon-plus
-                  |  Add Measure
-              .row 
+          form#formMeasure.form-signin(role="form", name="formMeasure")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Measure
                 .modal-body
-                  form#formMeasure.form-signin(role="form" )
+                  .row
                     .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
                       .form-group
                         .h4 Name in Arabic
@@ -106,7 +106,7 @@ block Dashboard
                         input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button#save.btn.btn-primary() Save Change 
+                  button#save.btn.btn-primary() Save Change  
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/bootstrap-notify.min.js')

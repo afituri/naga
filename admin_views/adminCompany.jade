@@ -1,5 +1,5 @@
 extends layout
-block dashBord
+block Dashboard
   #page-wrapper
     .container-fluid
       // Page Heading
@@ -42,81 +42,29 @@ block dashBord
                         strong Name in English
                       td.text-right
                         strong View
-                       td.text-right
-                        strong Edit  
+                      td.text-right
+                        strong Addresses
+                      td.text-right
+                        strong Seller  
                       td.text-right
                         strong Trash 
                   tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
+                  for i in company
                     tr
-                      td ناقة
-                      td naga
+                      td #{i.name}
+                      td #{i.name_en}
                       td.text-right
-                        button.btn.btn-primary.btn-xs(href='#myModal', role='button',data-toggle='modal')
+                        button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
                           span.glyphicon.glyphicon-eye-open
                       td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil     
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash   
-                    tr
-                      td الروية
-                      td vi
+                        button#Addresse.btn.btn-info.btn-xs
+                          span.glyphicon.glyphicon-map-marker
                       td.text-right
-                        button.btn.btn-primary.btn-xs
-                          span.glyphicon.glyphicon-eye-open 
-                      td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil    
+                        button#seller.btn.btn-warning.btn-xs
+                          span.glyphicon.glyphicon-user      
                       td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash    
-
-          #myModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-            .modal-dialog
-              .modal-content
-                .modal-header
-                  button.close(type='button', data-dismiss='modal', aria-hidden='true')
-                    i.text-danger.fa.fa-times
-                  h4#myModalLabel.modal-title
-                    i.text-muted.fa.fa-file 
-                    strong  02051
-                    |  - Company
-                .modal-body
-                  table.pull-left.col-md-8
-                    tbody
-                      tr
-                        td.h4
-                          strong Name
-                        td  
-                        td.h3 naga
-                      tr
-                        td.h4
-                          strong Phone number
-                        td  
-                        td.h3 1223334444
-                      tr
-                        td.h4
-                          strong Address
-                        td  
-                        td.h3 Tripoli
-                        td  
-                        td.h3
-                  .col-md-4
-                    img.img-thumbnail(src='http://lorempixel.com/150/150/technics/', alt='teste')
-                  .clearfix
-                .modal-footer
-                  .text-right.pull-right.col-md-3
-                  //-   | Varejo: 
-                  //-   br
-                  //-   span.h3.text-muted
-                  //-     strong  R$50,00 
-                  //- .text-right.pull-right.col-md-3
-                  //-   | Atacado: 
-                  //-   br
-                  //-   span.h3.text-muted
-                  //-     strong R$35,00
+                        button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany}',href='#del', data-toggle='modal')
+                          span.glyphicon.glyphicon-trash      
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -126,33 +74,44 @@ block dashBord
                   p.h2 Are you sure
                   p 
                 .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
           #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-             .modal-dialog
+            .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
                   button.close(type="button", data-dismiss="modal" aria-label="Close")
-                    span(aria-hidden="true") × 
+                    span(aria-hidden="true") ×
                   h2
                     .glyphicon.glyphicon-plus
                     |  Add Company
                 .row 
                   .modal-body
-                    form#formGenre.form-signin(role="form" , action="", method="post")
-                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                    form#formCompany.form-signin(role="form" , action="", method="post")
+                      .col-xs-6.col-md-6
                         .form-group
                           .h4 Name in Arabic
-                          input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
-                      .col-xs-5.col-md-5
-                        .form-group      
+                          input#nameArabic.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                        .form-group
+                          .h4 Type of Business
+                          select#tob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")    
+                        .form-group
+                          .h4 logo
+                          input#logo(type="file",name="logo", placeholder="logo",autofocus="")
+                      .col-xs-6.col-md-6
+                        .form-group
                           .h4 Name in English
-                          input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                          input#nameEnglish.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                        .form-group
+                          .h4 level
+                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change 
+                  button.btn.btn-primary(type="submit") Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')  
-  script(src='/js/Genre.js')
+  script(src='/js/adminCompany.js')
+  script(src='/js/CompanyAddress.js')
+  script(src='/js/companySeller.js') 

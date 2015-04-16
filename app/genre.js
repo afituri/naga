@@ -15,6 +15,24 @@ exports.GenreMgr = {
     });
   },
 
+    GetGenreByIdtob :function(idtob,cb){
+
+      mysqlMgr.connect(function (conn) {
+        conn.query('SELECT * FROM `genre` WHERE `status` <> 0 and tob_idtob =?',idtob,function(err, result) {
+          conn.release();
+          if(err) {
+            cb(err,null);
+          } else {
+            cb(null,result);
+          }
+        });
+      });
+  },
+
+
+
+
+
   AddGenre : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `genre` SET ?',body,  function(err, result) {

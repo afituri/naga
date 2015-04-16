@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
+var uploadManager = require('../app/upload')(router);
 
 /* GET home page. */
 router.get('/', function(req, res) {

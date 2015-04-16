@@ -46,32 +46,22 @@ block Dashboard
                         strong Edit  
                       td.text-right
                         strong Trash 
-                  tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr
-                      td ملابس
-                      td Clothes
-                      td.text-right
-                        button#view.btn.btn-primary.btn-xs(data-title='Edit', data-toggle='modal')
-                          span.glyphicon.glyphicon-eye-open
-                      td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil     
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash   
-                    tr
-                      td مجوهرات
-                      td Jewelry
-                      td.text-right
-                        button.btn.btn-primary.btn-xs
-                          span.glyphicon.glyphicon-eye-open 
-                      td.text-right
-                        button.btn.btn-info.btn-xs
-                          span.glyphicon.glyphicon-pencil    
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash           
+                    tbody#TOB
+                      for i in TOB
+                        tr(data-id='#{i.idtob}')
+                          td 
+                            a.editable.editable-click(id='name#{i.idtob}', href='#', data-type='text', data-pk='#{i.idtob}') #{i.name}
+                          td 
+                            a.editable.editable-click(id='name_en#{i.idtob}', href='#', data-type='text', data-pk='#{i.idtob}') #{i.name_en}
+                          td.text-right
+                            button#view.btn.btn-primary.btn-xs(value='#{i.idtob}',data-title='Edit', data-toggle='modal')
+                              span.glyphicon.glyphicon-eye-open
+                          td.text-right
+                            button#enable.btn.btn-info.btn-xs
+                              span.glyphicon.glyphicon-pencil     
+                          td.text-right 
+                            button#delete.btn.btn-danger.btn-xs(value='#{i.idtob}',href='#del', data-toggle='modal')
+                              span.glyphicon.glyphicon-trash             
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -81,7 +71,7 @@ block Dashboard
                   p.h2 Are you sure
                   p 
                 .modal-footer
-                  button#delete.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                   button.btn.btn-success(data-dismiss='modal', type='button') Cancel
           #newtob.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
              .modal-dialog
@@ -109,5 +99,7 @@ block Dashboard
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/bootstrap-editable.min.js')
   script(src='/js/sb-admin-2.js')  
   script(src='/js/TypeofBusiness.js')
+  script(src='/js/editTob.js')

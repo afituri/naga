@@ -1,18 +1,23 @@
 $(document).ready(function() {
+
   $("#register").validate({
    // alert("hii");
    //console.log("hii");
     rules:{
-     
+
       FirstName:{
         required: true
       },
       LastName:{
-        required: true
+        required: true,
       },
       email: {
         required: true,
         email: true,
+      },
+      confirmEmail: {
+        required: true,
+        equalTo: "#email"
       },
       Password :{
         required: true,
@@ -63,6 +68,11 @@ $(document).ready(function() {
         minlength: "Should be your password at least 5 characters",
         equalTo: "Password are not identical"
       },
+      confirmEmail:{
+        required: "Please enter your confirmEmail",
+        
+        equalTo: "Email are not identical"
+      },
       Mobile:{
         required: "Please enter your Mobile",
       },
@@ -80,9 +90,28 @@ $(document).ready(function() {
       // },
       // nearestschool: {
       //   valueNotEquals: "Please enter your nearestschool",
-      // } 
+      // } #F49B23
 
     },
+    showErrors: function (errorMap, errorList) {
+        if (errorList.length) {
+            $("#serror").html(errorList[0].message);
+        }
+    },
+    errorPlacement: function (error, element) {
+        element.focus(function () {
+            $("span").html(error);
+        }).blur(function () {
+            $("span").html('');
+        });
+    }
 
+  //   errorPlacement: function(error, element) {
+  //   if (element.attr("name") == "FirstName" || element.attr("name") == "LastName" ) {
+  //     error.appendTo("#Reservationh3");
+  //   } else {
+  //     
+  //   }
+  // }
   });
 });

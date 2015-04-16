@@ -21,7 +21,7 @@ seller.use(express.static(path.join(__dirname, 'public')));
 seller.use(session({secret: 'NagaDev',resave: true,saveUninitialized: true}));
 // init i18n module for this loop
 seller.use(i18n.init);
-seller.use('/seller',seller_routes);
+seller.use('/',seller_routes);
 
 
 

@@ -135,135 +135,128 @@ block home
               .caption
                 h5 Payment Methods
           // Sidebar end===============================================
-          .col-lg-9.col-md-9.col-sm-9
+          .col-lg-9.col-md-9.col-sm-9.col-xs-9
             ul.breadcrumb
               li
                 a(href='/user/homePage') Home
                 span.divider 
               li.active Edit Profile
-
             .tab-content
               #inbox.tab-pane.active
                   .btn-toolbar.well.well-sm(role='toolbar', style='margin:0px;') 
                     /////////////// EditUserName
                     br                
-                    .col-md-4 Username
-                    .col-md-8
+                    .col-md-4.col-sm-4.col-xs-4.col-lg-4 Username
+                    .col-md-8.col-sm-8.col-xs-8.col-lg-8
                       b Farouk Shouba
                       .pull-right
                          
                         a#idEditUserName(href = '#' ,data-toggle='modal', data-target='.bs-example-modal-lg')
-                          | Edit
-              
+                          | Edit              
                     br  
                     div#idUserName 
                       br
                       br 
-                      .col-md-3.col-md-offset-1 First Name
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='FirstName', value='Farouk', type='text')
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 First Name
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='FirstName', value='Farouk', type='text')
                       br
                       br     
-                      .col-md-3.col-md-offset-1 Last Name
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='LastName', value='Shouba', type='text')     
-                        .col-md-offset-8
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Last Name
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-md-4.col-xs-4(name='LastName', value='Shouba', type='text')     
+                        .col-sm-offset-7.col-md-offset-9.col-xs-offset-5
                 
                           label.submit.uiButtonDisabled.uiButton.uiButtonConfirm(for='u_2j_2')
-                            input.btnEditProfile(value='Save Changes', disabled='1', type='submit')
+                            input#Loginbt(value='Save Changes', disabled='1', type='submit')
                           label.cancel.uiButton(for='u_2j_3')
-                            input.btnEditProfile#idCancelUserName(value='Cancel', type='button')
+                            input.idCancel#idCancelUserName(value='Cancel', type='button')
                     /////////// EditPassword    
                     hr.soft              
-                    .col-md-4 Password
-                    .col-md-8
+                    .col-md-4.col-sm-4.col-xs-4.col-lg-4 Password
+                    .col-md-8.col-sm-8.col-xs-8.col-lg-8
                       b Farouk Shouba
                       .pull-right
                          
                         a#idEditPassword(href = '#' ,data-toggle='modal', data-target='.bs-example-modal-lg')
                           | Edit
-                    br
-                      
+                    br                      
                     div#idPassword 
                       br
                       br 
-                      .col-md-3.col-md-offset-1 New Password
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='Password', value='Farouk', type='Password')
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 New Password
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='Password', value='Farouk', type='Password')
                       br
                       br     
-                      .col-md-3.col-md-offset-1 Confirm New Password
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='ConfirmPassword', value='Shouba', type='Password')     
-                        .col-md-offset-8
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Confirm New Password
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='ConfirmPassword', value='Shouba', type='Password')     
+                        .col-sm-offset-7.col-md-offset-9.col-xs-offset-5
                 
                           label.submit.uiButtonDisabled.uiButton.uiButtonConfirm(for='u_2j_2')
-                            input.btnEditProfile(value='Save Changes', disabled='1', type='submit')
+                            input#Loginbt(value='Save Changes', disabled='1', type='submit')
                           label.cancel.uiButton(for='u_2j_3')
-                            input.btnEditProfile#idCancelPassword(value='Cancel', type='button')
+                            input.idCancel#idCancelPassword(value='Cancel', type='button')
                     ////////////////////////////          
                     hr.soft
-                    .col-md-4 Email
-                    .col-md-8
+                    .col-md-4.col-xs-4.col-sm-4.col-lg-4 Email
+                    .col-md-8.col-xs-8.col-sm-8.col-lg-8
                       b Farouk Shouba
                       .pull-right
                          
                         a#idEditEmail( href = '#' ,  data-toggle='modal', data-target='.bs-example-modal-lg')
                           | Edit          
-                    br
-                      
+                    br                     
                     div#idEmail 
                       br
                       br  
-                      .col-md-3.col-md-offset-1 Email 
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='Email', value='Farouk', type='Email')
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Email 
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='Email', value='Farouk', type='Email')
                       br
                       br  
-                      .col-md-3.col-md-offset-1 Confirm Email 
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='ConfirmEmail', value='Farouk', type='Email')
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Confirm Email 
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='ConfirmEmail', value='Farouk', type='Email')
                       br
                       br  
-                      .col-md-3.col-md-offset-1 Password 
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='Password', value='Farouk', type='Password')            
-                        .col-md-offset-8
-                
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Password 
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='Password', value='Farouk', type='Password')            
+                        .col-sm-offset-7.col-md-offset-9.col-xs-offset-5
                           label.submit.uiButtonDisabled.uiButton.uiButtonConfirm(for='u_2j_2')
-                            input.btnEditProfile(value='Save Changes', disabled='1', type='submit')
+                            input#Loginbt(value='Save Changes', disabled='1', type='submit')
                           label.cancel.uiButton(for='u_2j_3')
-                            input.btnEditProfile#idCancelEmail(value='Cancel', type='button')
+                            input.idCancel#idCancelEmail(value='Cancel', type='button')
                     ////////////////////////
                     hr.soft      
-                    .col-md-4 Phone Number
-                    .col-md-8
+                    .col-md-4.col-xs-4.col-sm-4.col-lg-4 Phone Number
+                    .col-md-8.col-xs-8.col-sm-8.col-lg-8
                       b Farouk Shouba
-                      .pull-right
-                         
+                      .pull-right                
                         a#idEditPhoneNumber(href = '#' ,data-toggle='modal', data-target='.bs-example-modal-lg')
                           | Edit
-                    br
-                      
+                    br   
                     div#idPhoneNumber  
                       br
                       br
-                      .col-md-3.col-md-offset-1 Mobile
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='Mobile', value='Farouk', type='text')
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Mobile
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='Mobile', value='Farouk', type='text')
                       br
                       br     
-                      .col-md-3.col-md-offset-1 Home Number
-                      .col-md-8
-                          input.textboxEditProfile.col-md-4(name='HomeNumber', value='Shouba', type='text')     
+                      .col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.col-xs-3.col-xs-offset-1 Home Number
+                      .col-sm-8.col-md-8.col-xs-8
+                          input.textboxEditProfile.col-sm-4.col-sm-4.col-xs-4(name='HomeNumber', value='Shouba', type='text')     
                         
-                        .col-md-offset-8
+                        .col-sm-offset-7.col-md-offset-9.col-xs-offset-5
                 
                           label.submit.uiButtonDisabled.uiButton.uiButtonConfirm
-                            input.btnEditProfile(value='Save Changes', disabled='1', type='submit')
+                            input#Loginbt(value='Save Changes', disabled='1', type='submit')
 
                           label.cancel.uiButton
-                            input.btnEditProfile#idCancelPhoneNumber(value='Cancel', type='button')   
+                            input.idCancel#idCancelPhoneNumber(value='Cancel', type='button')   
                       br             
     // MainBody End =============================
     script(src='/themes/js/bootstrap.min.js', type='text/javascript')

@@ -90,7 +90,7 @@ $(document).ready(function() {
       // },
       // nearestschool: {
       //   valueNotEquals: "Please enter your nearestschool",
-      // } 
+      // } #F49B23
 
     },
     showErrors: function (errorMap, errorList) {

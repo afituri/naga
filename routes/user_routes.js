@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
+var CityMgr = require('../app/city').CityMgr;
 
 
 /* GET home page. */
@@ -29,11 +30,6 @@ router.get('/forgotPassword?', function(req, res) {
   res.render('forgotPassword', { title: 'myAcount' });
 });
 
-router.get('/newPassword?', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('newPassword', { title: 'myAcount' });
-});
-
 
 router.get('/login', function(req, res) {
   i18n.setlang(req,res);
@@ -41,11 +37,7 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/account', function(req, res) {
-  res.render('account', { title: ' my account' });
-});
-
-router.get('/registration', function(req, res) {
-  res.render('registration', { title: 'registration' });
+  res.render('account', { title: ' My Account' });
 });
 
 router.get('/myOrder', function(req, res) {
@@ -53,12 +45,12 @@ router.get('/myOrder', function(req, res) {
 });
 
 
-    
-    router.get('/abdo', function(req,res){
-      userMgr.deleteById(1,function(result){
-         res.render('abdo',{title: 'abdo'});
-         });
-      });
+
+router.get('/abdo', function(req,res){
+  userMgr.deleteById(1,function(result){
+     res.render('abdo',{title: 'abdo'});
+     });
+  });
 
 router.get('/homePage', function(req, res) {
   i18n.setlang(req,res);
@@ -70,19 +62,21 @@ router.get('/products', function(req, res) {
   res.render('products', { title: 'Seller' });
 });
 
-router.get('/tac', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('tac', { title: 'Seller' });
+router.get('/Location', function(req, res) {
+  CityMgr.GetCity(function(err,result){
+    res.render('Location', { title: 'Location',cities:result});
+  });
 });
+
 
 router.get('/special_offer', function(req, res) {
   i18n.setlang(req,res);
   res.render('special_offer', { title: 'Seller' });
 });
 
-router.get('/register', function(req, res) {
+router.get('/registration', function(req, res) {
   i18n.setlang(req,res);
-  res.render('register', { title: 'Seller' });
+  res.render('registration', { title: 'Registration' });
 });
 
 router.get('/product_summary', function(req, res) {

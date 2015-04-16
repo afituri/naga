@@ -1,24 +1,260 @@
 extends layout
-block items
-  .pull-left
-    .recent-orders.text-left
-      h1.recent-orders-heading Welcome to your Walmart account!
-        .recent-order-sub-heading From here you can:
+block sellerPage
+block itemSlide
+block listOnLeft
+block home
 
-        .recent-order-navs
-          i.glyphicon.glyphicon-truck
-          a(href='') Check the status of any order
-          
-        .recent-order-navs
-          i.wmicon.wmicon-card.dashboard-icons
-          a(href='') Update your credit card details
-          
-          
-        .recent-order-navs
-          i.glyphicon.glyphicon-envelope
-          a(href='') Edit your email address
+  #mainBody
+      .container
+        .row
+          // Sidebar ==================================================
+          #sidebar.col-lg-3.col-md-3.col-sm-3
+            .well.well-small
+              a#myCart(href='product_summary.html')
+                img(src='/themes/images/ico-cart.png', alt='cart')
+                | 3 Items in your cart  
+                span.badge.badge-warning.pull-right $155.00
+            ul#sideManu.nav.nav-tabs.nav-stacked
+              li.subMenu.open
+                a  ELECTRONICS [230]
+                ul
+                  li
+                    a.active(href='/user/products')
+                      i.icon-chevron-right
+                      | Cameras (100)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Computers, Tablets & laptop (30)
+                    li
+                        a(href='#') Some action
+                      li
+                        a(href='#') Some other action
+                      li.divider
+                      li.dropdown-submenu
+                        a(tabindex='-1', href='#') Hover me for more options
+                        ul.dropdown-menu
+                          li
+                            a(tabindex='-1', href='#') Second level
+                          li.dropdown-submenu
+                            a(href='#') Even More..
+                            ul.dropdown-menu
+                              li
+                                a(href='#') 3rd level
+                              li
+                                a(href='#') 3rd level
+                          li
+                            a(href='#') Second level
+                          li
+                            a(href='#') Second level
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Mobile Phone (80)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Sound & Vision (15)
+              li.subMenu
+                a  CLOTHES [840] 
+                ul(style='display:none')
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Clothing (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Shoes (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Women's Hand Bags (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Men's Clothings  (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Men's Shoes (6)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Kids Clothing (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Kids Shoes (3)
+              li.subMenu
+                a FOOD AND BEVERAGES [1000]
+                ul(style='display:none')
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Angoves  (35)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Bouchard Aine & Fils (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | French Rabbit (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Louis Bernard  (45)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | BIB Wine (Bag in Box) (8)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Other Liquors & Wine (5)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Garden (3)
+                  li
+                    a(href='/user/products')
+                      i.icon-chevron-right
+                      | Khao Shong (11)
+              li
+                a(href='/user/products') HEALTH & BEAUTY [18]
+              li
+                a(href='/user/products') SPORTS & LEISURE [58]
+              li
+                a(href='/user/products') BOOKS & ENTERTAINMENTS [14]
+            br
+            .thumbnail
+              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
+              .caption
+                h5 Panasonic
+                h4(style='text-align:center')
+                  a.btn(href='/user/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
+              .caption
+                h5 Kindle
+                h4(style='text-align:center')
+                  a.btn(href='/user/product_details')
+                    i.icon-zoom-in
+                  a.btn(href='#')
+                    | Add to 
+                    i.icon-shopping-cart
+                  a.btn.btn-primary(href='#') $222.00
+            br
+            .thumbnail
+              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
+              .caption
+                h5 Payment Methods
+          // Sidebar end===============================================
+          .col-lg-9.col-md-9.col-sm-9
+            ul.breadcrumb
+              li
+                a(href='/user/homePage') Home
+                span.divider 
+              li.active Terms and Conditions
+            div
+              .process
+                .process-row
+                  .process-step
+                    button.btn.btn-warning.btn-circle#idPersonaldata(type='button')
+                      i.fa.fa-user.fa-3x
+                    p Personal data
+                  .process-step
+                    button.btn.btn-warning.btn-circle#idYourOrder(type='button')
+                      i.fa.fa-comments-o.fa-3x
+                    p Your Order
+                  .process-step
+                    button.btn.btn-warning.btn-circle(type='button')
+                      i.fa.fa-thumbs-up.fa-3x
+                    p Tiger comes
+                  .process-step
+                    button.btn.btn-warning.btn-circle(type='button')
+                      i.fa.fa-eur.fa-3x
+                    p You Pay           
+            div#Personaldata
+              .row
+                .col-md-7
+                  .well
+                    form
+                      .row
+                        .col-md-6
+                          .form-group
+                            label(for='name')
+                              | Account Settings
+                            .row
+                              .col-md-12.col-md-offset-1   
+                                a(href='') * Forgot Your Password?
+                                br
+                                a(href='') * Change Account Settings
+                          .form-group
+                            label(for='email')
+                              | Address Book
+                            .row
+                              .col-md-12.col-md-offset-1   
+                                a(href='') Add Your Address
+                                a(href='') Add New Address    
+                .col-md-4
+                  form
+                    legend
+                      span.glyphicon.glyphicon-globe
+                      |  Your Settings
+                    address
+                      strong Here you can edit your personal data
+                      br
+                      |                 Such as modifying the Password and your name e-mail and your location and other
+            div#YourOrder
+              .row
+                .col-md-7
+                  .well
+                    form
+                      .row
+                        .col-md-6
+                          .form-group
+                            label(for='name')
+                              | Your Order
+                            .row
+                              .col-md-12.col-md-offset-1   
+                                a(href='') * Forgot Your Password?
+                                br
+                                a(href='') * Change Account Settings
+                          .form-group
+                            label(for='email')
+                              | Address Book
+                            .row
+                              .col-md-12.col-md-offset-1   
+                                a(href='') Add Your Address
+                                a(href='') Add New Address
+                          
+                        
+                .col-md-4
+                  form
+                    legend
+                      span.glyphicon.glyphicon-globe
+                      |  Your Settings
+                    address
+                      strong Here you can edit your personal data
+                      br
+                      |                 Such as modifying the Password and your name e-mail and your location and other         
+                    
+                   
 
-        .recent-order-navs         
-          
-          i.glyphicon.glyphicon-lock
-          a(href='') Change your password  
+
+  script(src='/themes/js/jquery.js')
+  script(src='/themes/js/bootstrap.min.js')
+  script(src='/themes/js/google-code-prettify/prettify.js')
+  script(src='/themes/js/bootshop.js')
+  script(src='/js/account.js')  
+  script(src='/themes/js/jquery.lightbox-0.5.js')
+  script(src='/js/jquery.bootstrap.wizard.min.js')
+

@@ -1,9 +1,12 @@
-
 extends layout
 block sellerPage
 block itemSlide
 block listOnLeft
 block home
+  //- style(type='text/css').
+  //-   a[disabled="disabled"] {
+  //-   pointer-events: none;
+  //-   }
   #mainBody
       .container
         .row
@@ -157,57 +160,101 @@ block home
               .caption
                 h5 Payment Methods
           // Sidebar end===============================================
-          .col-lg-9.col-md-9.col-sm-9
+          .col-lg-9.col-md-9.col-sm-9.col-xs-9
             ul.breadcrumb
               li
                 a(href='/user/homePage') Home
                 span.divider 
-              li.active Terms and Conditions
+              li.active Your Location
             .row
-              .col-md-10.col-md-offset-1
-                .panel.panel-default
-                  // Default panel contents
-                  .panel-heading 
-                    h4#Reservationh4 Your Location
-                  .panel-body
-                    br
-                    .row
-                      .col-md-3.col-md-offset-1                     
-                        label.control-label city 
-                      .col-md-8
-                        select.textboxEditProfile#city(name= "city")
-                          option(value="-1") Travel trailer
-                    br
-                    .row
-                      .col-md-3.col-md-offset-1         
-                        label.control-label area
-                      .col-md-8
-                        select.textboxEditProfile(name="area" , id="area")
-                          option(value ="-1") Travel trailer
-                    br
-                    .row
-                      .col-md-3.col-md-offset-1
-                        label.control-label mahalla
-                      .col-md-8
-                        select.textboxEditProfile(name="mahalla" , id="mahalla")
-                          option(value ="-1") Travel trailer      
-                    br
-                    .row
-                      .col-md-3.col-md-offset-1
-                        label.control-label The nearestschool
-                      .col-md-8
-                        select.textboxEditProfile(name="nearestschool" , id="nearestschool")
-                          option(value ="-1") Travel trailer
-                    br
-                    .row
-                      .col-md-3.col-md-offset-1
-                        label.control-label The nearest point for your location
-                      .col-md-8
-                        textarea.form-control(id= "id_comments", rows= "3", placeholder="Additional comments")      
-
-
-  script(src='/themes/js/jquery.js', type='text/javascript')
-  script(src='/themes/js/bootstrap.min.js', type='text/javascript')
+              .col-md-8.col-md-offset-2.col-sn-8.col-sm-offset-2.col-xs-8.col-xs-offset-2.col-lg-8.col-lg-offset-2       
+                    #tab1.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your City
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='1')
+                              td.text-center
+                                span Tripole
+                      ul.pager.wizard
+                        li.next
+                          button#NextCity(type='submit') Next
+                                    
+                    #tab2.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your Area 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='2')
+                              td.text-center
+                                span X
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='')
+                              td.text-center
+                                span Y 
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousArea(type='submit') Previous
+                           //a#PreviousArea(href='') Previous
+                        li.next
+                          button#NextArea(type='submit') Next
+                           //a#NextArea(href='java') Next            
+                    #tab3.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center.text-center Select
+                            th.text-center Your Mahalla 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='3')
+                              td.text-center
+                                span M
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousMahalla(type='submit') Previous
+                        li.next
+                          button#NextMahalla(type='submit') Next          
+                    #tab4.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your School 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='4')
+                              td.text-center
+                                span A
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='')
+                              td.text-center
+                                span B
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousSchool(type='submit') Previous
+                        li.next
+                          button#NextSchool(type='submit') Confirm                
+  script(src='/themes/js/jquery.js')
+  script(src='/themes/js/bootstrap.min.js')
   script(src='/themes/js/google-code-prettify/prettify.js')
   script(src='/themes/js/bootshop.js')
   script(src='/themes/js/jquery.lightbox-0.5.js')
+  script(src='/js/youLocation.js')
+ 

@@ -7,7 +7,8 @@
 {
   "host" : "localhost",
   "user" : "root",
-  "password" : "102030",
-  "database" : "naga"
-}
+  "password" : "*****",
+  "database" : "*****"
+},
+"epassword": "******"
 }

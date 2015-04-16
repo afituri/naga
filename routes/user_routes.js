@@ -25,7 +25,7 @@ router.get('/editProfile', function(req, res) {
   res.render('editProfile', { title: 'editProfile' });
 });
 
-router.get('/forgotPassword?', function(req, res) {
+router.get('/forgotPassword', function(req, res) {
   i18n.setlang(req,res);
   res.render('forgotPassword', { title: 'myAcount' });
 });
@@ -62,11 +62,10 @@ router.get('/products', function(req, res) {
   res.render('products', { title: 'Seller' });
 });
 
-router.get('/Location', function(req, res) {
-  CityMgr.GetCity(function(err,result){
-    res.render('Location', { title: 'Location',cities:result});
-  });
-});
+router.get('/location', function(req, res) {
+  res.render('location', { title: ' location' });
+}); 
+
 
 
 router.get('/special_offer', function(req, res) {

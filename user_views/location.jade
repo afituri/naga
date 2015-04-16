@@ -3,7 +3,10 @@ block sellerPage
 block itemSlide
 block listOnLeft
 block home
-
+  //- style(type='text/css').
+  //-   a[disabled="disabled"] {
+  //-   pointer-events: none;
+  //-   }
   #mainBody
       .container
         .row
@@ -157,104 +160,101 @@ block home
               .caption
                 h5 Payment Methods
           // Sidebar end===============================================
-          .col-lg-9.col-md-9.col-sm-9
+          .col-lg-9.col-md-9.col-sm-9.col-xs-9
             ul.breadcrumb
               li
                 a(href='/user/homePage') Home
                 span.divider 
-              li.active control panal
-            div
-              .process
-                  // .process-row
-                  .process-step
-                    button.btn.btn-warning.btn-circle#idPersonaldata(type='button')
-                      i.fa.fa-user.fa-3x
-                    p Personal data
-                  .process-step
-                    button.btn.btn-warning.btn-circle#idYourOrder(type='button')
-                      i.fa.fa-comments-o.fa-3x
-                    p Your Order
-                  .process-step
-                    button.btn.btn-warning.btn-circle(type='button')
-                      i.fa.fa-thumbs-up.fa-3x
-                    p Tiger comes
-                  .process-step
-                    button.btn.btn-warning.btn-circle(type='button')
-                      i.fa.fa-eur.fa-3x
-                    p You Pay           
-            div#Personaldata
-              .row
-                .col-md-7
-                  .well
-                    form
-                      .row
-                        .col-md-6
-                          .form-group
-                            label(for='name')
-                              | Account Settings
-                            .row
-                              .col-md-12.col-md-offset-1   
-                                a(href='/user/forgotPassword') * Forgot Your Password?
-                                br
-                                a(href='/user/editProfile') * Change Account Settings
-                          .form-group
-                            label(for='email')
-                              | Address Book
-                            .row
-                              .col-md-12.col-md-offset-1   
-                                a(href='/user/location') Add Your Address
-                                   
-                .col-md-4
-                  form
-                    legend
-                      span.glyphicon.glyphicon-globe
-                      |  Your Settings
-                    address
-                      strong Here you can edit your personal data
-                      br
-                      |                 Such as modifying the Password and your name e-mail and your location and other
-            div#YourOrder
-              .row
-                .col-md-7
-                  .well
-                    form
-                      .row
-                        .col-md-6
-                          .form-group
-                            label(for='name')
-                              | Your Order
-                            .row
-                              .col-md-12.col-md-offset-1   
-                                a(href='') * Forgot Your Password?
-                                br
-                                a(href='') * Change Account Settings
-                          .form-group
-                            label(for='email')
-                              | Address Book
-                            .row
-                              .col-md-12.col-md-offset-1   
-                                a(href='') Add Your Address
-                                a(href='') Add New Address
-                          
-                        
-                .col-md-4
-                  form
-                    legend
-                      span.glyphicon.glyphicon-globe
-                      |  Your Settings
-                    address
-                      strong Here you can edit your personal data
-                      br
-                      |                 Such as modifying the Password and your name e-mail and your location and other         
-                    
-                   
-
-
+              li.active Your Location
+            .row
+              .col-md-8.col-md-offset-2.col-sn-8.col-sm-offset-2.col-xs-8.col-xs-offset-2.col-lg-8.col-lg-offset-2       
+                    #tab1.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your City
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='1')
+                              td.text-center
+                                span Tripole
+                      ul.pager.wizard
+                        li.next
+                          button#NextCity(type='submit') Next
+                                    
+                    #tab2.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your Area 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='2')
+                              td.text-center
+                                span X
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='')
+                              td.text-center
+                                span Y 
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousArea(type='submit') Previous
+                           //a#PreviousArea(href='') Previous
+                        li.next
+                          button#NextArea(type='submit') Next
+                           //a#NextArea(href='java') Next            
+                    #tab3.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center.text-center Select
+                            th.text-center Your Mahalla 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='3')
+                              td.text-center
+                                span M
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousMahalla(type='submit') Previous
+                        li.next
+                          button#NextMahalla(type='submit') Next          
+                    #tab4.tab-pane
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            th.text-center Select
+                            th.text-center Your School 
+                        tbody
+                            //for city in cities
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='4')
+                              td.text-center
+                                span A
+                            tr
+                              td.text-center
+                                input(type='radio', name='cityName', value='')
+                              td.text-center
+                                span B
+                      ul.pager.wizard
+                        li.previous
+                          button#PreviousSchool(type='submit') Previous
+                        li.next
+                          button#NextSchool(type='submit') Confirm                
   script(src='/themes/js/jquery.js')
   script(src='/themes/js/bootstrap.min.js')
   script(src='/themes/js/google-code-prettify/prettify.js')
   script(src='/themes/js/bootshop.js')
-  script(src='/js/account.js')  
   script(src='/themes/js/jquery.lightbox-0.5.js')
-  script(src='/js/jquery.bootstrap.wizard.min.js')
-
+  script(src='/js/youLocation.js')
+ 

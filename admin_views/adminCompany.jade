@@ -57,7 +57,7 @@ block Dashboard
                         button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
                           span.glyphicon.glyphicon-eye-open
                       td.text-right
-                        button#Addresse.btn.btn-info.btn-xs
+                        button#Addresses.btn.btn-info.btn-xs(value='#{i.idcompany}')
                           span.glyphicon.glyphicon-map-marker
                       td.text-right
                         button#seller.btn.btn-warning.btn-xs
@@ -113,5 +113,3 @@ block Dashboard
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')  
   script(src='/js/adminCompany.js')
-  script(src='/js/CompanyAddress.js')
-  script(src='/js/companySeller.js') 

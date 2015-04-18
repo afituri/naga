@@ -15,6 +15,17 @@ $(document).ready(function(){
     window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyView';
   });
 
+    $('body').on('click', '#Addresses', function () {
+    window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
+  });
+
+     $('body').on('click', '#seller', function () {
+      alert("working on it");
+   // window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
+  });
+
+   
+
 
 
 

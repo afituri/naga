@@ -43,8 +43,8 @@ block Dashboard
                         strong Latit
                       td
                         strong Longit
-                      td
-                        strong Branch
+                      //- td
+                      //-   strong Branch
                       td
                         strong School
                       td
@@ -54,18 +54,18 @@ block Dashboard
                       td.text-right
                         strong Trash 
                   tbody
-                    // foreach ($order->lineItems as $line) or some such thing here
-                    tr(data-id='#{1}')
+                  for i in address
+                    tr(data-id='#{i.idcompany_address}')
                       td 
-                        a.editable.editable-click(id='latit#{1}', href='#', data-type='text', data-pk='#{1}') 33.67
+                        a.editable.editable-click(id='latit#{i.idcompany_address}', href='#', data-type='text', data-pk='#{i.idcompany_address}') #{i.latit}
                       td
-                        a.editable.editable-click(id='longit#{1}', href='#', data-type='text', data-pk='#{1}') 77.38
+                        a.editable.editable-click(id='longit#{i.idcompany_address}', href='#', data-type='text', data-pk='#{i.idcompany_address}') #{i.longit}
+                      //- td 
+                      //-   a.editable.editable-click(id='branch#{1}', href='#', data-type='select', data-pk='#{1}') Main branch
                       td 
-                        a.editable.editable-click(id='branch#{1}', href='#', data-type='select', data-pk='#{1}') Main branch
+                        | #{i.na}
                       td 
-                        a.editable.editable-click(id='school#{1}', href='#', data-type='select', data-pk='#{1}') name
-                      td 
-                        a.editable.editable-click(id='description#{1}', href='#', data-type='textarea', data-pk='#{1}') ........
+                        a.editable.editable-click(id='description#{i.idcompany_address}', href='#', data-type='textarea', data-pk='#{i.idcompany_address}') #{i.address_desc}
                       td.text-right
                         button#enable.btn.btn-info.btn-xs(value='#{1}' ,data-title='Edit', data-toggle='modal')
                           span.glyphicon.glyphicon-pencil        

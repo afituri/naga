@@ -15,7 +15,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="longit"]').editable({
-    url: '/',
+    url: '/editCompanyLongit',
     type: 'text',
     pk: 1,
     name: 'longit',
@@ -26,7 +26,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="latit"]').editable({
-    url: '/',
+    url: '/editCompanyLatit',
     type: 'text',
     pk: 1,
     name: 'latit',
@@ -36,17 +36,7 @@ $(document).ready(function(){
     }
   });
 
-  $('a[id^="branch"]').editable({
-    url: '/',
-    type: 'select',
-    source: '/',
-    pk: 1,
-    name: 'branch',
-    title: 'Edit branch !',
-    validate: function(v) {
-      if(!v) return 'Please enter your branch';
-    }
-  });
+
   $('a[id^="school"]').editable({
     url: '/',
     type: 'select',
@@ -60,7 +50,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="description"]').editable({
-    url: '/',
+    url: '/editCompanyDesc',
     type: 'textarea',
     pk: 1,
     name: 'description',

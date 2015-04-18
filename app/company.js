@@ -17,7 +17,7 @@ exports.CompanyMgr = {
 
     GetCompanyInfoById :function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `company` WHERE `status` <> 0 and idcompany=?',id,  function(err, result) {
+      conn.query('SELECT *,`company`.level as lcompany FROM `company`,`company_seller` WHERE `company`.`status` <> 0 and `idcompany`=6 and `company_idcompany`=`idcompany`',id,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

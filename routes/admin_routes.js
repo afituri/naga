@@ -16,7 +16,8 @@ var GenreMgr =require('../app/genre').GenreMgr;
 var TogMgr =require('../app/tog').TogMgr;
 var CompanyMgr=require('../app/company').CompanyMgr;
 var user =require('../app/userHelpers');
-
+var  CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
+var CompanyAddressMgr=require('../app/company_address').CompanyAddressMgr;
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -236,9 +237,13 @@ router.get('/adminCompany', function(req, res) {
     res.render('adminCompany', { title: 'Company',company:result});
   });
 });
-
-router.get('/adminCompany/adminCompanyAddress', function(req, res) {
-  res.render('adminCompanyAddress', { title: 'CompanyAddress'});
+//888888888888888
+router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
+  console.log(req.params.id);
+  CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
+  console.log(result);
+  res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
+  });
 });
 
 router.get('/adminCompany/adminSellerCo', function(req, res) {
@@ -247,6 +252,7 @@ router.get('/adminCompany/adminSellerCo', function(req, res) {
 
 router.get('/adminCompany/:id/adminCompanyView', function(req, res) {
   CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){  
+    console.log(result);
     res.render('adminCompanyView', { title: 'Company view',com:result});
   });
 });
@@ -292,11 +298,68 @@ router.post('/editColorNameAr', function(req, res) {
   });
 });
 
+
+
+
 router.post('/editname', function(req, res) {
   CityMgr.UpdateCityNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
+
+router.post('/editCompanyName', function(req, res) {
+  CompanyMgr.UpdateCompanyNameAR (req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editCompanyNameEn', function(req, res) {
+  CompanyMgr.UpdateCompanyNameEN(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editCompanyLevel', function(req, res) {
+  CompanyMgr.UpdateCompanyLevel(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+router.post('/editCompanyEmail', function(req, res) {
+  CompanySellerMgr.UpdateCompanyEmail(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editCompanyPhone', function(req, res) {
+  CompanySellerMgr.UpdateCompanySellerPhone(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editCompanyLongit', function(req, res) {
+  CompanyAddressMgr.UpdateCompanyAddressLongit(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editCompanyLatit', function(req, res) {
+  CompanyAddressMgr.UpdateCompanyAddressLatit(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
+
+router.post('/editCompanyDesc', function(req, res) {
+  CompanyAddressMgr.UpdateCompanyAddressDesc(req.body,function(err,result){
+    res.send(true);
+  });
+});
+
 
 router.get('/delete/:id', function(req, res) {
   MeasureMgr.DeleteMeasure(req.params.id,function(err,result){

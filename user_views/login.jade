@@ -1,171 +1,45 @@
 extends layout
-block sellerPage
-block itemSlide
-block listOnLeft
-block home   
-  #mainBody
-    .container
-      .row
-        #sidebar.col-lg-3.col-md-3.col-sm-3
-          .well.well-small
-            a#myCart(href='product_summary.html')
-              img(src='themes/images/ico-cart.png', alt='cart')
-              | 3 Items in your cart  
-              span.badge.badge-warning.pull-right $155.00
-          ul#sideManu.nav.nav-tabs.nav-stacked
-            li.subMenu.open
-              a  ELECTRONICS [230]
-              ul
-                li
-                  a.active(href='products.html')
-                    i.icon-chevron-right
-                    | Cameras (100)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Computers, Tablets & laptop (30)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Mobile Phone (80)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Sound & Vision (15)
-            li.subMenu
-              a  CLOTHES [840] 
-              ul(style='display:none')
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Women's Clothing (45)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Women's Shoes (8)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Women's Hand Bags (5)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Men's Clothings  (45)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Men's Shoes (6)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Kids Clothing (5)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Kids Shoes (3)
-            li.subMenu
-              a FOOD AND BEVERAGES [1000]
-              ul(style='display:none')
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Angoves  (35)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Bouchard Aine & Fils (8)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | French Rabbit (5)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Louis Bernard  (45)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | BIB Wine (Bag in Box) (8)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Other Liquors & Wine (5)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Garden (3)
-                li
-                  a(href='products.html')
-                    i.icon-chevron-right
-                    | Khao Shong (11)
-            li
-              a(href='products.html') HEALTH & BEAUTY [18]
-            li
-              a(href='products.html') SPORTS & LEISURE [58]
-            li
-              a(href='products.html') BOOKS & ENTERTAINMENTS [14]
+block content
+  .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+    a(href="/adminLogin")
+      img#img-responsive(src="../img/nagaLogo1.png")
+    .panel.panel-warning    
+      .panel-body  
+        .row
+           .col-md-8.col-md-offset-1
+             h3#h5Login Sign in
+        form.form-horizontal#loginn(role="form",name="loginn")  
           br
-          .thumbnail
-            img(src='themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
-            .caption
-              h5 Panasonic
-              h4(style='text-align:center')
-                a.btn(href='product_details.html')
-                  i.icon-zoom-in
-                a.btn(href='#')
-                  | Add to 
-                  i.icon-shopping-cart
-                a.btn.btn-primary(href='#') $222.00
+          .form-group   
+            .row
+              .col-md-2.col-md-offset-2.col-sm-2.col-sm-offset-2.col-xs-3.col-xs-offset-2
+                label Email
+              .col-md-6.col-sm-6.col-xs-6   
+                input.form-control#email(type = "email", name = "email", placeholder = "Email")  
           br
-          .thumbnail
-            img(src='themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
-            .caption
-              h5 Kindle
-              h4(style='text-align:center')
-                a.btn(href='product_details.html')
-                  i.icon-zoom-in
-                a.btn(href='#')
-                  | Add to 
-                  i.icon-shopping-cart
-                a.btn.btn-primary(href='#') $222.00
-          br
-          .thumbnail
-            img(src='themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
-            .caption
-              h5 Payment Methods
-        // Sidebar end===============================================
-        .col-lg-9.col-md-9.col-sm-9
-          ul.breadcrumb
-            li
-              a(href='index.html') Home
-              span.divider /
-            li.active Login 
-          .panel.panel-warning
-            .panel-body
-              h3#Login Sign in
-              form.form-horizontal#loginn(role="form",name="loginn")
-                .form-group    
-                    label.control-label.col-md-1.col-md-offset-2 Email
-                    .col-md-6
-                      .form-group
-                        .col-md-11
-                          input.form-control#email( type = "email" , name = "email", placeholder = "Email")
-                            
-                  .form-group    
-                    label.control-label.col-md-1.col-md-offset-2  Password
-                    .col-md-6
-                      .form-group
-                        .col-md-11
-                          input.form-control#Password( type = "Password", placeholder = "Password",name="password")
-                      .form-group.internal
-                        .col-md-11
-                          a(href='#')   Forgot your password?
-                      .form-group.internal
-                        .col-md-11
-                          a(href='register')   I am a new customer  
-                  .form-group         
-                    .col-md-10.col-md-offset-4
-                      button.col-md-4#Loginbt(type= "submit") Login             
+          .form-group   
+            .row
+              .col-md-2.col-md-offset-2.col-sm-2.col-sm-offset-2.col-xs-3.col-xs-offset-2
+                label Password
+              .col-md-6.col-sm-6.col-xs-6   
+                input.form-control#Password(type = "Password", name = "Password", placeholder = "Password")    
+          
+          .form-group   
+            .row
+              .col-md-5.col-md-offset-1.col-sm-12.col-sm-offset-1.col-xs-12.col-xs-offset-1
+                a(href='#')   Forgot your password?
+
+            .row
+              .col-md-5.col-md-offset-1.col-sm-12.col-sm-offset-1.col-xs-12.col-xs-offset-1
+                a(href='#')   I am a new customer                
+ 
+            .row         
+              .col-md-12.col-md-offset-6.col-sm-12.col-sm-offset-6.col-xs-12.col-xs-offset-6
+               button#Loginbt(type= "submit") Login  
+
+
+
+                 
 
   //script(src='/themes/js/jquery.js')
   script(src='/js/jquery-1.11.2.min.js')

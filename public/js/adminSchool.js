@@ -5,22 +5,22 @@ $(document).ready(function(){
       name:{
         required: true,
       },
-      latitudes:{
+      latit:{
         required: true,
       },
-      city:{
+      city_idcity:{
         required: true,
       },
       name_en:{
         required: true,
       },
-      longitude:{
+      longit:{
         required: true,
       },
-      area:{
+      area_idarea:{
         required: true,
       },
-      mahalla:{
+      mahalla_idmahalla:{
         required: true,
       },
     },
@@ -28,22 +28,22 @@ $(document).ready(function(){
       name:{
         required: "Please enter school in arabic !",
       },
-      latitudes:{
+      latit:{
         required: "Please enter latitudes number !",
       },
-      city:{
+      city_idcity:{
         required: "Please select city name !",
       },
       name_en:{
         required: "Please enter school in english !",
       },
-      longitude:{
+      longit:{
         required: "Please enter longitude number !",
       },
-      area:{
+      area_idarea:{
         required: "Please select area name !",
       },
-      mahalla:{
+      mahalla_idmahalla:{
         required: "Please select mahalla name !",
       },
     },

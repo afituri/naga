@@ -101,7 +101,7 @@ block Dashboard
                           input#latit.form-control(type="text",name="latit", placeholder="latit",autofocus="")
                         .form-group
                           .h4 Branch
-                          select#default.form-control(type="text",name="default", placeholder="Branch",autofocus="")    
+                          select#Branch.form-control(type="text",name="default", placeholder="Branch",autofocus="")    
                         .form-group
                           .h4 Description 
                           textarea#Description(rows='10', cols='67',type="file",name="address_desc", placeholder="Description",autofocus="")
@@ -114,10 +114,13 @@ block Dashboard
                           select#School.form-control(type="text",name="school_idschool", placeholder="School",autofocus="")    
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change
+                  button#save.btn.btn-primary() Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js') 
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/editAddress.js')
+  script(src='/js/CompanyAddress.js')

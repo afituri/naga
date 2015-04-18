@@ -91,25 +91,30 @@ block Dashboard
                       .col-xs-6.col-md-6
                         .form-group
                           .h4 Name in Arabic
-                          input#nameArabic.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                          input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
                         .form-group
                           .h4 Type of Business
-                          select#tob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")    
+                          select#tob_idtob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")    
                         .form-group
                           .h4 logo
                           input#logo(type="file",name="logo", placeholder="logo",autofocus="")
                       .col-xs-6.col-md-6
                         .form-group
                           .h4 Name in English
-                          input#nameEnglish.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                          input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
                         .form-group
                           .h4 level
                           select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button.btn.btn-primary(type="submit") Save Change
+                  button#save.btn.btn-primary() Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')  
+  script(src='/js/sb-admin-2.js') 
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js') 
   script(src='/js/adminCompany.js')
+  script(src='/js/CompanyAddress.js')
+  script(src='/js/companySeller.js') 
+

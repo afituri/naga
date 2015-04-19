@@ -200,6 +200,33 @@ router.post('/addMeasure',function(req,res){
   });
 });
 
+router.post('/addColor',function(req,res){
+  console.log(req.body);
+  ColorMgr.AddColor(req.body,function(err,result){
+    ColorMgr.GetColorId(result.insertId,function(err,resultid){
+      var rel={"result":resultid,stat:true}
+      res.send(rel);
+    });
+  });
+});
+
+router.post('/addTob',function(req, res) {
+  validator.isTob(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    } 
+    else {
+      TobMgr.AddTob(req.body,function(err,result){
+        TobMgr.GetTobId(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
 router.get('/sizes/:id', function(req, res) {
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
     res.render('sizes', { title: 'sizes',size:result});

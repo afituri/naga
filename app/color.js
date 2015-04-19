@@ -15,6 +15,19 @@ exports.ColorMgr = {
     });
   },
 
+  GetColorId:function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `color` WHERE `status` <> 0 AND `idcolor`=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   AddColor : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `color` SET ?',body,  function(err, result) {

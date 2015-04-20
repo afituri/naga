@@ -169,89 +169,25 @@ block home
             .row
               .col-md-8.col-md-offset-2.col-sn-8.col-sm-offset-2.col-xs-8.col-xs-offset-2.col-lg-8.col-lg-offset-2       
                     #tab1.tab-pane
-                      table.table.table-striped.table-condensed
-                        thead
-                          tr
-                            th.text-center Select
-                            th.text-center Your City
-                        tbody
-                            //for city in cities
-                            tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='1')
-                              td.text-center
-                                span Tripole
-                      ul.pager.wizard
-                        li.next
-                          button#NextCity(type='submit') Next
-                                    
-                    #tab2.tab-pane
-                     
-                        table#tabletab2.table.table-striped.table-condensed
+                      form
+                        table.table.table-striped.table-condensed
                           thead
                             tr
                               th.text-center Select
-                              th.text-center Your Area 
+                              th.text-center Your City
                           tbody
                               //for city in cities
                               tr
                                 td.text-center
-                                  input#cityName(type='radio', name='cityName', value='2')
+                                  input#cityName(type='radio', name='cityName', value='Yes' )
                                 td.text-center
-                                  span X
-                              
-                        ul.pager.wizard
-                          li.previous
-                            button#PreviousArea(type='submit') Previous
-                             //a#PreviousArea(href='') Previous
-                          li.next
-                            button#NextArea(type='submit') Next
-                             //a#NextArea(href='java') Next            
-                    #tab3.tab-pane
-                      table.table.table-striped.table-condensed
-                        thead
-                          tr
-                            th.text-center.text-center Select
-                            th.text-center Your Mahalla 
-                        tbody
-                            //for city in cities
-                            tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='3')
-                              td.text-center
-                                span M
-                      ul.pager.wizard
-                        li.previous
-                          button#PreviousMahalla(type='submit') Previous
-                        li.next
-                          button#NextMahalla(type='submit') Next          
-                    #tab4.tab-pane
-                      table.table.table-striped.table-condensed
-                        thead
-                          tr
-                            th.text-center Select
-                            th.text-center Your School 
-                        tbody
-                            //for city in cities
-                            tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='4')
-                              td.text-center
-                                span A
-                            tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='')
-                              td.text-center
-                                span B
-                      ul.pager.wizard
-                        li.previous
-                          button#PreviousSchool(type='submit') Previous
-                        li.next
-                          button#NextSchool(type='submit') Confirm                
+                                  span Tripole
+                       
+                  
+                                     
   script(src='/themes/js/jquery.js')
   script(src='/themes/js/bootstrap.min.js')
   script(src='/themes/js/google-code-prettify/prettify.js')
   script(src='/themes/js/bootshop.js')
   script(src='/themes/js/jquery.lightbox-0.5.js')
-  script(src='/js/youLocation.js')
- 
+  script(src='/js/addCity.js')

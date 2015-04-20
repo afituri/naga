@@ -3,13 +3,11 @@ $(document).ready(function() {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
-
   $('#acceso').click(function(e) {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
-
-  $("#loginForm").validate({
+  $("#sellerForm").validate({
     rules:{
       email:{
         required: true,
@@ -25,7 +23,7 @@ $(document).ready(function() {
       },
       password:{
         required: "Please enter your password !"
-      }
+      },
     },
     highlight: function(element) {
       $(element).closest('.input-group').addClass('has-error');
@@ -42,17 +40,15 @@ $(document).ready(function() {
           error.insertAfter(element);
       }
     },
-  }); 
-});
+  });
 
+});
 $(".reveal").mousedown(function() {
     $(".pwd").replaceWith($('.pwd').clone().attr('type', 'text'));
 })
-
 .mouseup(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 })
-
 .mouseout(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });
@@ -64,15 +60,3 @@ $(window).load(function() {
   $('.showIn').removeClass('out');
   $('.showIn').addClass('flipInY');
 });
-
-//- this code will be used in the future !
-// setTimeout(function() { 
-//   NProgress.done(); 
-//   $('.showIn').removeClass('out');
-//   $('.showIn').addClass('flipInY');
-// }, 2000)
-// $('#btnLogin').on('click', function () {
-//     $(this).button('loading')
-//     // business logic...
-//      // $btn.button('complete')
-// });

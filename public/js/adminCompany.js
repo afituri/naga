@@ -59,9 +59,18 @@ $(document).ready(function(){
     window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyView';
   });
 
+    $('body').on('click', '#Addresses', function () {
+    window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
+  });
+
+     $('body').on('click', '#seller', function () {
+      window.location.href='/adminCompany/'+$(this).val()+'/adminSellerCo';
+  });
+
   $('body').on('click', '#save', function () {
     $('#formCompany').submit();
   });
+
 
 
 });

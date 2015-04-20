@@ -15,7 +15,20 @@ exports.TobMgr = {
     });
   },
 
-    GetIdTobByIdGenre :function(idg,cb){
+  GetTobId :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `tob` WHERE `status` <> 0 AND `idtob`=?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  GetIdTobByIdGenre :function(idg,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT tob_idtob FROM `genre` WHERE `status` <> 0 and idgenre=?',idg,  function(err, result) {
         conn.release();

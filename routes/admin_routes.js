@@ -24,6 +24,12 @@ router.get('/', function(req, res) {
   res.render('adminLogin', { title: 'Login' });
 });
 
+//testPhoto.jade
+
+router.get('/testPhoto', function(req, res) {
+  res.render('testPhoto', { title: 'Admin Page',NProgress:"fadeIn out" });
+});
+
 router.get('/adminPage', function(req, res) {
   res.render('adminPage', { title: 'Admin Page',NProgress:"fadeIn out" });
 });
@@ -201,6 +207,10 @@ router.post('/addMeasure',function(req,res){
     });
   });
 });
+//22222222222
+router.post('/savePhoto',function(req,res){
+  console.log("hi");
+});
 
 router.post('/addColor',function(req,res){
   console.log(req.body);
@@ -282,7 +292,6 @@ router.get('/adminCompany/:id/adminSellerCo', function(req, res) {
 
 router.get('/adminCompany/:id/adminCompanyView', function(req, res) {
   CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){  
-    console.log(result);
     res.render('adminCompanyView', { title: 'Company view',com:result});
   });
 });

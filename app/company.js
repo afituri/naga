@@ -2,6 +2,20 @@ var mysqlMgr = require('./mysql').mysqlMgr,
 util=require('util');
 exports.CompanyMgr = {
 /////////////////// COMPANY ///////////////////////////////////////////
+
+
+// add photo
+addPhoto : function(cb){
+  
+
+
+
+
+
+
+},
+
+
   GetCompany :function(cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `company` WHERE `status` <> 0',  function(err, result) {

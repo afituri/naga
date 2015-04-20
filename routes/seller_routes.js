@@ -68,6 +68,11 @@ router.get('/product_details', function(req, res) {
   res.render('product_details', { title: 'Seller' });
 });
 
+router.get('/companyInfo', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('companyInfo', { title: 'companyInfo' });
+});
+
 router.get('/:locale', function(req, res) {
   res.redirect("/seller");
 });

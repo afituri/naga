@@ -48,10 +48,14 @@ block Dashboard
                       li.list-group-item Email : 
                         i.fa.fa-envelope
                         a#email(href='#', data-type='text', data-pk='#{com[0].idcompany_seller}',  data-value='#{com[0].email}') #{com[0].email}
-                      li.list-group-item 
-                        input(type="file",name="logo", placeholder="logo",autofocus="")
+                  
+                      form(action="/savePhoto", method="post", enctype="multipart/form-data")
+                        input#photo(type="file",name="logo", placeholder="logo",autofocus="")
+                        p 
+                          button.btn.btn-primary(type="submit") Save Photo
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/photo.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')

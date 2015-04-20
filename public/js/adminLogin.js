@@ -3,62 +3,56 @@ $(document).ready(function() {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
+
   $('#acceso').click(function(e) {
     e.preventDefault();
     $('div#form-olvidado').toggle('500');
   });
+
   $("#loginForm").validate({
     rules:{
       email:{
         required: true,
         email: true,
       },
+      password:{
+        required:true,
+      }
     },
     messages:{
       email:{
         required: "Please enter your email address !",
       },
-    },
-    errorPlacement: function(error, element) {
-      if (element.attr("name") == "email") {
-        error.insertAfter("#form-group");
-      } 
-      else {
-        error.insertAfter(element);
+      password:{
+        required: "Please enter your password !"
       }
     },
     highlight: function(element) {
-      $('#form-group').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          $(this).removeClass('animated shake');
-      });
+      $(element).closest('.input-group').addClass('has-error');
     },
-  });
-  // $('body').on("click","#btnLogin",function(){
-  //   alert("test2222");
-  //   $("#loginForm").submit();
-  // });
-
-  // $('body').on("submit","#loginForm",function(data){
-  //   alert(data);
-  //   var obj=$('#loginForm').serializeObject();
-  //   if (obj.email)
-  //   {
-  //     $.post("/adminPage",obj,function(date){
-  //       alert("تم الدخول بنجاح");
-  //     });
-  //   }
-  //   else
-  //   {
-  //     alert("خطأأأأأأأأأأأأ");
-  //   }
-  // });  
+    unhighlight: function(element) {
+      $(element).closest('.input-group').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+      if(element.parent('.input-group').length) {
+          error.insertAfter(element.parent());
+      } else {
+          error.insertAfter(element);
+      }
+    },
+  }); 
 });
+
 $(".reveal").mousedown(function() {
     $(".pwd").replaceWith($('.pwd').clone().attr('type', 'text'));
 })
+
 .mouseup(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 })
+
 .mouseout(function() {
   $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
 });
@@ -70,19 +64,15 @@ $(window).load(function() {
   $('.showIn').removeClass('out');
   $('.showIn').addClass('flipInY');
 });
+
+//- this code will be used in the future !
 // setTimeout(function() { 
 //   NProgress.done(); 
 //   $('.showIn').removeClass('out');
 //   $('.showIn').addClass('flipInY');
 // }, 2000)
-
 // $('#btnLogin').on('click', function () {
 //     $(this).button('loading')
 //     // business logic...
 //      // $btn.button('complete')
 // });
-
-
-
-
-

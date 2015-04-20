@@ -11,16 +11,18 @@ block content
         #form-olvidado
           form#sellerForm(accept-charset='UTF-8' , name='seller-form')
             fieldset
-              .form-group.input-group
-                span.input-group-addon @
-                input.form-control(placeholder='Email', name='email', type='email', autofocus='')
-              .form-group.input-group
-                span.input-group-addon
-                  i.glyphicon.glyphicon-lock
-                input.form-control.pwd(placeholder='Password', name='password', type='password')
-                span.input-group-btn
-                  button.btn.btn-default.reveal(type='button')
-                    i.glyphicon.glyphicon-eye-open
+              .form-group
+                .input-group
+                  span.input-group-addon @
+                  input.form-control(placeholder='Email', name='email', type='email', autofocus='')
+              .form-group
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input.form-control.pwd(placeholder='Password', name='password', type='password')
+                  span.input-group-btn
+                    button.btn.btn-default.reveal(type='button')
+                      i.glyphicon.glyphicon-eye-open
               .form-group
                 button#btnLogin.btn.btn-block(type='submit') Log In
                 p.help-block

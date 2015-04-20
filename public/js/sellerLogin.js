@@ -25,17 +25,20 @@ $(document).ready(function() {
         required: "Please enter your password !"
       },
     },
-    errorPlacement: function (error, element) {
-      if ($(element).is('.form-group.input-group')) {
-          element.next().after(error);
+    highlight: function(element) {
+      $(element).closest('.input-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+      $(element).closest('.input-group').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+      if(element.parent('.input-group').length) {
+          error.insertAfter(element.parent());
       } else {
           error.insertAfter(element);
       }
-    },
-    highlight: function(element) {
-      $('.form-group.input-group').addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          $(this).removeClass('animated shake');
-      });
     },
   });
 

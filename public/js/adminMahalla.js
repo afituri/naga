@@ -77,8 +77,10 @@ $(document).ready(function(){
         // }
       } 
       else {
-        //'<tr data-id="'+data.result[0].idmahalla+'"><td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name+'</a></td><td class="text-center"><a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name_en+'</a></td><td class="text-center"><button id="enable" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-info btn-xs" data-original-title="Edit City"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center"><button id="delete" href="#del" data-toggle="modal" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-danger btn-xs" data-original-title="Delete City"><span class="glyphicon glyphicon-trash"></span></button></td></tr>'
-        $("#tbody").append('<tr data-id="'+data.result[0].idmahalla+'">'+
+        if($("#tbody").children().length>=10){
+          $("#tbody tr:last-child").remove();
+        }
+        $("#tbody").prepend('<tr data-id="'+data.result[0].idmahalla+'">'+
         '<td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName+'</a></td>'+
         '<td class="text-center"> <a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName_en+'</a></td>'+
         '<td class="text-center">'+data.result[0].areaName+'</td>'+

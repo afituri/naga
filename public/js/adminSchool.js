@@ -5,22 +5,22 @@ $(document).ready(function(){
       name:{
         required: true,
       },
-      latitudes:{
+      latit:{
         required: true,
       },
-      city:{
+      city_idcity:{
         required: true,
       },
       name_en:{
         required: true,
       },
-      longitude:{
+      longit:{
         required: true,
       },
-      area:{
+      area_idarea:{
         required: true,
       },
-      mahalla:{
+      mahalla_idmahalla:{
         required: true,
       },
     },
@@ -28,22 +28,22 @@ $(document).ready(function(){
       name:{
         required: "Please enter school in arabic !",
       },
-      latitudes:{
+      latit:{
         required: "Please enter latitudes number !",
       },
-      city:{
+      city_idcity:{
         required: "Please select city name !",
       },
       name_en:{
         required: "Please enter school in english !",
       },
-      longitude:{
+      longit:{
         required: "Please enter longitude number !",
       },
-      area:{
+      area_idarea:{
         required: "Please select area name !",
       },
-      mahalla:{
+      mahalla_idmahalla:{
         required: "Please select mahalla name !",
       },
     },
@@ -98,18 +98,20 @@ $(document).ready(function(){
         // }
       } 
       else {
-        //'<tr data-id="'+data.result[0].idmahalla+'"><td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name+'</a></td><td class="text-center"><a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled" tabindex="-1">'+data.result[0].name_en+'</a></td><td class="text-center"><button id="enable" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-info btn-xs" data-original-title="Edit City"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center"><button id="delete" href="#del" data-toggle="modal" data-value="'+data.result[0].idmahalla+'" data-placement="top" title="" class="btn btn-danger btn-xs" data-original-title="Delete City"><span class="glyphicon glyphicon-trash"></span></button></td></tr>'
-        // $("#tbody").append('<tr data-id="'+data.result[0].idmahalla+'">'+
-        // '<td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName+'</a></td>'+
-        // '<td class="text-center"> <a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName_en+'</a></td>'+
-        // '<td class="text-center">'+data.result[0].areaName+'</td>'+
-        // '<td class="text-center">'+data.result[0].areaName_en+'</td>'+
-        // '<td class="text-center">'+
-        //   '<button id="enable" value="'+data.result[0].idmahalla+'" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil">  </span></button>'+
-        // '</td><td class="text-center">'+
-        //   '<button id="delete" value="'+data.result[0].idmahalla+'" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>'+
-        // '</td></tr>');
-
+        if($("#tbody").children().length>=10){
+          $("#tbody tr:last-child").remove();
+        }
+        $("#tbody").prepend('<tr data-id="'+data.result[0].idschool+'">'+
+          '<td class="text-center"> <a id="name'+data.result[0].idschool+'" href="#" data-type="text" data-pk="'+data.result[0].idschool+'" class="editable editable-click editable-disabled">'+data.result[0].schoolName+'</a></td>'+
+          '<td class="text-center"> <a id="name_en'+data.result[0].idschool+'" href="#" data-type="text" data-pk="'+data.result[0].idschool+'" class="editable editable-click editable-disabled">'+data.result[0].schoolName_en+'</a></td>'+
+          '<td class="text-center">'+data.result[0].cityName+'</td>'+
+          '<td class="text-center">'+data.result[0].areaName+'</td>'+
+          '<td class="text-center">'+data.result[0].mahallaName+'</td>'+
+          '<td class="text-center"> <a id="latit'+data.result[0].idschool+'" href="#" data-type="text" data-pk="'+data.result[0].idschool+'" class="editable editable-click editable-disabled">'+data.result[0].latitude+'</a></td>'+
+          '<td class="text-center"> <a id="longit'+data.result[0].idschool+'" href="#" data-type="text" data-pk="'+data.result[0].idschool+'" class="editable editable-click editable-disabled">'+data.result[0].longitude+'</a></td>'+
+          '<td class="text-center">'+
+          '<button id="enable" data-placement="top" title="Edit School" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center">'+
+          '<button id="delete" value="'+data.result[0].idschool+'" href="#del" data-toggle="modal" data-placement="top" title="Delete School" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></td></tr>');
         $('#newschool').modal('hide');
         $.notify({
           title: "<strong>Successful:</strong> ",

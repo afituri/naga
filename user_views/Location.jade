@@ -186,30 +186,27 @@ block home
                           button#NextCity(type='submit') Next
                                     
                     #tab2.tab-pane
-                      table.table.table-striped.table-condensed
-                        thead
-                          tr
-                            th.text-center Select
-                            th.text-center Your Area 
-                        tbody
-                            //for city in cities
+                     
+                        table#tabletab2.table.table-striped.table-condensed
+                          thead
                             tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='2')
-                              td.text-center
-                                span X
-                            tr
-                              td.text-center
-                                input(type='radio', name='cityName', value='')
-                              td.text-center
-                                span Y 
-                      ul.pager.wizard
-                        li.previous
-                          button#PreviousArea(type='submit') Previous
-                           //a#PreviousArea(href='') Previous
-                        li.next
-                          button#NextArea(type='submit') Next
-                           //a#NextArea(href='java') Next            
+                              th.text-center Select
+                              th.text-center Your Area 
+                          tbody
+                              //for city in cities
+                              tr
+                                td.text-center
+                                  input#cityName(type='radio', name='cityName', value='2')
+                                td.text-center
+                                  span X
+                              
+                        ul.pager.wizard
+                          li.previous
+                            button#PreviousArea(type='submit') Previous
+                             //a#PreviousArea(href='') Previous
+                          li.next
+                            button#NextArea(type='submit') Next
+                             //a#NextArea(href='java') Next            
                     #tab3.tab-pane
                       table.table.table-striped.table-condensed
                         thead

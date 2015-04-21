@@ -111,30 +111,30 @@ block Dashboard
                     .glyphicon.glyphicon-plus
                     |  Add Mahala
                 .modal-body
-                  form#formMahala.form-signin(role="form")
-                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                      .form-group
-                        .h4 Name in Arabic
-                        input#nameArabic.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
-                    .col-xs-5.col-md-5
-                      .form-group      
-                        .h4 Name in English
-                        input#nameEnglish.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
-                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
-                      .form-group
-                        .h4 City
-                        select#city.form-control(type="text", name="city", autofocus="")
-                          option(value="-1", style='color: grey; display:none;') Please Select City
-                          for city in cities
-                            option(value="#{city.idcity}") #{city.name} #{city.name_en}
-                    .col-xs-5.col-md-5  
-                      .form-group
-                        .h4 Area
-                        select#area.form-control(type="text", name="area_idarea", autofocus="")
-              .modal-footer
-                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                button#save.btn.btn-primary() Save Change 
-           
+                  .row
+                    form#formMahala(role="form",name="formMahala")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                        .form-group
+                          .h4 Name in Arabic
+                          input#nameArabic.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                      .col-xs-5.col-md-5
+                        .form-group      
+                          .h4 Name in English
+                          input#nameEnglish.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
+                        .form-group
+                          .h4 City
+                          select#city.form-control(type="text", name="city", autofocus="")
+                            option(value="-1", style='color: grey; display:none;') Please Select City
+                            for city in cities
+                              option(value="#{city.idcity}") #{city.name} #{city.name_en}
+                      .col-xs-5.col-md-5  
+                        .form-group
+                          .h4 Area
+                          select#area.form-control(type="text", name="area_idarea", autofocus="")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#save.btn.btn-primary() Save Change      
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/bootstrap-notify.min.js')

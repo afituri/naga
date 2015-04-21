@@ -2,6 +2,28 @@ var mysqlMgr = require('./mysql').mysqlMgr,
 util=require('util');
 exports.CompanyMgr = {
 /////////////////// COMPANY ///////////////////////////////////////////
+
+
+// add photo
+addPhoto : function(id,path,cb){
+      mysqlMgr.connect(function (conn) {
+        console.log(path);
+      var date = new Date();
+      conn.query('UPDATE `company` SET `logo` = ?,`update_time`=? WHERE `idcompany` = ?',[path,date,id],function(err, result) {
+        conn.release();
+        if(err) { 
+          console.log(err);
+          cb(err,null);
+
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+
+},
+
+
   GetCompany :function(cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT * FROM `company` WHERE `status` <> 0',  function(err, result) {
@@ -17,7 +39,7 @@ exports.CompanyMgr = {
 
     GetCompanyInfoById :function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `company` WHERE `status` <> 0 and idcompany=?',id,  function(err, result) {
+      conn.query('SELECT *,`company`.level as lcompany FROM `company`,`company_seller` WHERE `company`.`status` <> 0 and `idcompany`=6 and `company_idcompany`=`idcompany`',id,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

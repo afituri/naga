@@ -1,4 +1,14 @@
 // config the uploader
+var fs = require('fs');
+  if (!fs.existsSync(__dirname +'/../public/uploaded')){
+    fs.mkdirSync(__dirname + '/../public/uploaded');
+  }
+  if (!fs.existsSync(__dirname +'/../public/uploaded/tmp')){
+    fs.mkdirSync(__dirname + '/../public/uploaded/tmp');
+  }
+  if (!fs.existsSync(__dirname +'/../public/uploaded/files')){
+    fs.mkdirSync(__dirname + '/../public/uploaded/files');
+  }
 var options = {
   tmpDir:  __dirname + '/../public/uploaded/tmp',
   publicDir: __dirname + '/../public/uploaded',
@@ -31,6 +41,18 @@ var options = {
 
     //var uploader = require('blueimp-file-upload-expressjs')(options);
 function setDir(iduser,it){
+  if (!fs.existsSync(__dirname +'/../public/uploaded/files/'+iduser)){
+    fs.mkdirSync(__dirname + '/../public/uploaded/files/'+iduser);
+  }
+  if (!fs.existsSync(__dirname +'/../public/uploaded/tmp/'+iduser)){
+    fs.mkdirSync(__dirname + '/../public/uploaded/tmp/'+iduser);
+  }
+  if (!fs.existsSync(__dirname +'/../public/uploaded/files/'+iduser+'/'+it)){
+    fs.mkdirSync(__dirname + '/../public/uploaded/files/'+iduser+'/'+it);
+  }
+  if (!fs.existsSync(__dirname +'/../public/uploaded/tmp/'+iduser+'/'+it)){
+    fs.mkdirSync(__dirname + '/../public/uploaded/tmp/'+iduser+'/'+it);
+  }
   options.tmpDir=  __dirname + '/../public/uploaded/tmp/'+iduser+'/'+it;
   options.publicDir= __dirname + '/../public/uploaded/'+iduser+'/'+it;
   options.uploadDir= __dirname + '/../public/uploaded/files/'+iduser+'/'+it;
@@ -48,8 +70,15 @@ function setDir(iduser,it){
       // });
 
       router.post('/upload', function(req, res) {
-        console.log("ssssssssss");
         options=setDir(1,2);
+        var uploader = require('blueimp-file-upload-expressjs')(options);
+        uploader.get(req, res, function (obj) {
+          res.send(JSON.stringify(obj)); 
+        });
+      });
+
+      router.post('/upload', function(req, res) {
+        options=setDir(3,300);
         var uploader = require('blueimp-file-upload-expressjs')(options);
         uploader.post(req, res, function (obj) {
           res.send(JSON.stringify(obj)); 
@@ -58,7 +87,7 @@ function setDir(iduser,it){
       });
 
       router.delete('/uploaded/files/:iduser/:IT/:name', function(req, res) {
-        options=setDir(1,2);
+        options=setDir(3,300);
         var uploader = require('blueimp-file-upload-expressjs')(options);
         uploader.delete(req, res, function (obj) {
           res.send(JSON.stringify(obj)); 

@@ -15,6 +15,20 @@ exports.CompanyAddressMgr = {
     });
   },
 
+   GetCompanyAddressByIdCompany :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      //('SELECT *,`school`.name FROM `company_address`,`school` WHERE `status` <> 0 and `company_idcompany`=? and  school_idschool=idschool',id,  function(err, result) {
+      conn.query('SELECT `company_address`.idcompany_address,`company_address`.latit,`company_address`.longit,`company_address`.address_desc,`school`.name as na   FROM `company_address`,`school` WHERE `company_address`.`status` <> 0 and `company_idcompany`=? and school_idschool=idschool',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
   AddCompanyAddress : function(body,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('INSERT INTO `company_address` SET ?',body,  function(err, result) {
@@ -45,6 +59,20 @@ exports.CompanyAddressMgr = {
     mysqlMgr.connect(function (conn) {
       var date = new Date();
       conn.query('UPDATE `company_address`  SET `longit` = ?,`update_time`=? WHERE `idcompany_address` = ?',  [body.value,date,body.pk],  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+   UpdateCompanyAddressDesc : function(body,cb){
+    mysqlMgr.connect(function (conn) {
+      var date = new Date();
+      conn.query('UPDATE `company_address`  SET `address_desc` = ?,`update_time`=? WHERE `idcompany_address` = ?',  [body.value,date,body.pk],  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

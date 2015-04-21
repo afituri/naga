@@ -49,9 +49,13 @@ $(document).ready(function(){
       },
     },
     highlight: function(element) {
+      $(element).closest('.form-group').addClass('has-error');
       $(element).addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
           $(this).removeClass('animated shake');
       });
+    },
+    unhighlight: function(element) {
+      $(element).closest('.form-group').removeClass('has-error');
     },
   });
   // var form = $( "#addAdmin" );

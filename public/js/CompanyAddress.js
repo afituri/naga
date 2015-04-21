@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#formAddres").validate({
+  /*$("#formAddres").validate({
         //ignore: ':not(select:visible, input:visible, textarea:visible)',
         rules:{
           latit:{
@@ -42,11 +42,20 @@ $(document).ready(function(){
         //       error.insertAfter(element);
         //   }
         // },
+  });*/
+
+$('body').on('click', '#delete', function () {
+     $('#deletee').val($(this).val());
+  });
+
+$('body').on('click', '#deletee', function () {
+     $.get('/deleteCompanySeller/'+$(this).val(),function(result){
+      window.location.href='/adminCompany/'+result[0].idcompany+'/adminSellerCo';
+    });
   });
 
   $('body').on('click', '#view', function () {
     window.location.href='/adminCompany/adminCompanyAddress';
-   // alert("moahhed");
     });
   
   $('body').on('click', '#save', function () {

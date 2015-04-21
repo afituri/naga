@@ -59,24 +59,18 @@ $(document).ready(function(){
     window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyView';
   });
 
-<<<<<<< HEAD
     $('body').on('click', '#Addresses', function () {
     window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
   });
 
      $('body').on('click', '#seller', function () {
-      alert("working on it");
-   // window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
+      window.location.href='/adminCompany/'+$(this).val()+'/adminSellerCo';
   });
 
-   
-
-
-=======
   $('body').on('click', '#save', function () {
     $('#formCompany').submit();
   });
->>>>>>> 17e19e3145296722568284534c8c3875596889c3
+
 
 
 });

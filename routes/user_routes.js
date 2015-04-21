@@ -87,6 +87,22 @@ router.get('/product_details', function(req, res) {
   i18n.setlang(req,res);
   res.render('product_details', { title: 'Seller' });
 });
+router.get('/addCity', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('addCity', { title: 'addCity' });
+});
+router.get('/addMahalla', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('addMahalla', { title: 'addMahalla' });
+});
+router.get('/addArea', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('addArea', { title: 'addArea' });
+});
+router.get('/addSchool', function(req, res) {
+  i18n.setlang(req,res);
+  res.render('addSchool', { title: 'addSchool' });
+});
 
 // set a cookie to requested locale
 router.get('/:locale', function (req, res) {

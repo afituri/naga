@@ -102,7 +102,6 @@ block Dashboard
                 button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
         #newMahala.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
-          form#formMahala(role="form",name="formMahala")  
             .modal-dialog
               .modal-content
                 .modal-headr.modal-header-success
@@ -113,25 +112,26 @@ block Dashboard
                     |  Add Mahala
                 .modal-body
                   .row
-                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
-                      .form-group
-                        .h4 Name in Arabic
-                        input#nameArabic.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
-                    .col-xs-5.col-md-5
-                      .form-group      
-                        .h4 Name in English
-                        input#nameEnglish.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
-                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
-                      .form-group
-                        .h4 City
-                        select#city.form-control(type="text", name="city", autofocus="")
-                          option(value="-1", style='color: grey; display:none;') Please Select City
-                          for city in cities
-                            option(value="#{city.idcity}") #{city.name} #{city.name_en}
-                    .col-xs-5.col-md-5  
-                      .form-group
-                        .h4 Area
-                        select#area.form-control(type="text", name="area_idarea", autofocus="")
+                    form#formMahala(role="form",name="formMahala")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                        .form-group
+                          .h4 Name in Arabic
+                          input#nameArabic.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                      .col-xs-5.col-md-5
+                        .form-group      
+                          .h4 Name in English
+                          input#nameEnglish.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
+                        .form-group
+                          .h4 City
+                          select#city.form-control(type="text", name="city", autofocus="")
+                            option(value="-1", style='color: grey; display:none;') Please Select City
+                            for city in cities
+                              option(value="#{city.idcity}") #{city.name} #{city.name_en}
+                      .col-xs-5.col-md-5  
+                        .form-group
+                          .h4 Area
+                          select#area.form-control(type="text", name="area_idarea", autofocus="")
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button#save.btn.btn-primary() Save Change      

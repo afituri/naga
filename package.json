@@ -24,7 +24,9 @@
     "nodemailer": "0.7.1",
     "should": "^5.2.0",
     "static-favicon": "~1.0.0",
-    "vhost": "^3.0.0"
+    "vhost": "^3.0.0",
+    "blueimp-file-upload-expressjs": "~0.3.2",
+    "fs": "0.0.2"
   },
   "devDependencies": {
     "mocha": "~2.2.0",

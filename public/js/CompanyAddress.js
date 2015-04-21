@@ -8,13 +8,22 @@ $(document).ready(function(){
           default:{
             required: true
           },
+          Area:{
+            required: true
+          },
+          school_idschool:{
+            required: true
+          },
           address_desc:{
-            required: true,
+            required: true
           },
           longit:{
             required: true
           },
-          school_idschool:{
+          City:{
+            required: true
+          },
+          Mahala:{
             required: true
           }
         },
@@ -25,14 +34,23 @@ $(document).ready(function(){
           default:{
             required: "Please select Branch !"
           },
+          Area:{
+            required: "Please select Area !"
+          },
+          school_idschool:{
+            required: "Please select School !"
+          },
           address_desc:{
             required: "Please enter Description !"
           },
           longit:{
             required: "Please enter longit !"
           },
-          school_idschool:{
-            required: "Please select School !"
+          City:{
+            required: "Please select City !"
+          },
+          Mahala:{
+            required: "Please select Mahala !"
           }
         }
         // errorPlacement: function (error, element) {

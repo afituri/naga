@@ -1,20 +1,20 @@
 $(document).ready(function(){
-  /*$("#formAddres").validate({
+  $("#formAddres").validate({
         //ignore: ':not(select:visible, input:visible, textarea:visible)',
         rules:{
           latit:{
             required: true
           },
-          Branch:{
+          default:{
             required: true
           },
-          Description:{
-            required: true
+          address_desc:{
+            required: true,
           },
           longit:{
             required: true
           },
-          School:{
+          school_idschool:{
             required: true
           }
         },
@@ -22,16 +22,16 @@ $(document).ready(function(){
           latit:{
             required: "Please enter latit !"
           },
-          Branch:{
+          default:{
             required: "Please select Branch !"
           },
-          Description:{
+          address_desc:{
             required: "Please enter Description !"
           },
           longit:{
             required: "Please enter longit !"
           },
-          School:{
+          school_idschool:{
             required: "Please select School !"
           }
         }
@@ -42,7 +42,7 @@ $(document).ready(function(){
         //       error.insertAfter(element);
         //   }
         // },
-  });*/
+  });
 
 $('body').on('click', '#delete', function () {
      $('#deletee').val($(this).val());

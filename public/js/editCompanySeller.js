@@ -1,4 +1,51 @@
 $(document).ready(function(){
+  $("#formSeller").validate({
+        //ignore: ':not(select:visible, input:visible, textarea:visible)',
+        rules:{
+          first_name:{
+            required: true
+          },
+          email:{
+            required: true,
+             email: true
+          },
+          level:{
+            required: true
+          },
+          last_name:{
+            required: true
+          },
+          password:{
+            required: true
+          }
+        },
+        messages:{
+          first_name:{
+            required: "Please enter first name !"
+          },
+          email:{
+            required: "Please enter email !"
+          },
+          level:{
+            required: "Please select level !"
+          },
+          last_name:{
+            required: "Please enter last name !"
+          },
+          password:{
+            required: "Please enter password !"
+          }
+        }
+        // errorPlacement: function (error, element) {
+        //   if ($(element).is('select')) {
+        //       element.next().after(error);
+        //   } else {
+        //       error.insertAfter(element);
+        //   }
+        // },
+  });
+
+
   var defaults = {
         disabled: true,
   };
@@ -67,4 +114,8 @@ $(document).ready(function(){
       if(!v) return 'Please enter your first name';
     }
   });
+
+  $('body').on('click', '#save', function () {
+    $('#formSeller').submit();
+    });
 });

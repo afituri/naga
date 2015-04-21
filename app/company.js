@@ -5,13 +5,21 @@ exports.CompanyMgr = {
 
 
 // add photo
-addPhoto : function(cb){
-  
+addPhoto : function(id,path,cb){
+      mysqlMgr.connect(function (conn) {
+        console.log(path);
+      var date = new Date();
+      conn.query('UPDATE `company` SET `logo` = ?,`update_time`=? WHERE `idcompany` = ?',[path,date,id],function(err, result) {
+        conn.release();
+        if(err) { 
+          console.log(err);
+          cb(err,null);
 
-
-
-
-
+        } else {
+          cb(null,result);
+        }
+      });
+    });
 
 },
 

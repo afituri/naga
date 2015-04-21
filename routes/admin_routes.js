@@ -19,6 +19,11 @@ var user =require('../app/userHelpers');
 var  CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
 var CompanyAddressMgr=require('../app/company_address').CompanyAddressMgr;
 var AdminMgr=require('../app/admin').AdminMgr;
+var formidable = require('formidable'),
+    http = require('http'),
+    util = require('util'),
+    fs   = require('fs-extra');
+var idaCompanyView=0;
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
@@ -207,9 +212,27 @@ router.post('/addMeasure',function(req,res){
     });
   });
 });
-//22222222222
-router.post('/savePhoto',function(req,res){
-  console.log("hi");
+
+
+router.post('/savePhoto',function(req, res) {
+  if (req.url == '/savePhoto') {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+        var temp_path = files.logo.path;
+        var file_name = files.logo.name;
+        var new_location = 'company_picture/';
+        fs.copy(temp_path, new_location + file_name, function(err) {  
+            if (err) {
+                console.error(err);
+            } else {
+                CompanyMgr.addPhoto(idaCompanyView,new_location+file_name,function(err,result){  
+                console.log(result);
+                });
+                res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
+            }
+        });     
+    });
+  }
 });
 
 router.post('/addColor',function(req,res){
@@ -291,6 +314,7 @@ router.get('/adminCompany/:id/adminSellerCo', function(req, res) {
 });
 
 router.get('/adminCompany/:id/adminCompanyView', function(req, res) {
+  idaCompanyView=req.params.id;
   CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){  
     res.render('adminCompanyView', { title: 'Company view',com:result});
   });

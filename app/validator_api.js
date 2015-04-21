@@ -34,6 +34,20 @@ module.exports = {
     }
   },
 
+  isSchool : function (req,cb) {
+    isName(req,'name',' name required');           //Validate name
+    isName(req,'name_en',' name_en required');
+    isName(req,'latit',' latit required');
+    isName(req,'longit',' longit required');
+    isName(req,'mahalla_idmahalla',' mahalla required');
+    var errors = req.validationErrors();  
+    if( !errors){  
+      cb(null,true);
+    }else {   //Display errors to user
+      cb(null,errors);
+    }
+  },
+
   isTob : function (req,cb) {
     isName(req,'name',' name required');           //Validate name
     isName(req,'name_en',' name_en required');

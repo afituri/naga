@@ -49,6 +49,9 @@ $(document).ready(function(){
         //   $("#err").append('<h1>'+data.result[err].msg+'</h1>');
         // }
       }else{
+        if($("#tbody").children().length>=10){
+          $("#tbody tr:last-child").remove();
+        }
         $("#tbody").prepend('<tr data-id="'+data.result[0].idarea+'">'+
           '<td class="text-center"> <a id="name'+data.result[0].idarea+'" href="#" data-type="text" data-pk="'+data.result[0].idarea+'" class="editable editable-click editable-disabled">'+data.result[0].areaName+'</a></td>'+
           '<td class="text-center"> <a id="name_en'+data.result[0].idarea+'" href="#" data-type="text" data-pk="'+data.result[0].idarea+'" class="editable editable-click editable-disabled">'+data.result[0].areaName_en+'</a></td>'+

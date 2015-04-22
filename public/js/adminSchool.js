@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $('#Area').hide();
+  $('#Mahalla').hide();
   $("#formSchool").validate({
     ignore: ':not(select:hidden, input:visible, textarea:visible)',
     rules:{
@@ -67,7 +69,10 @@ $(document).ready(function(){
 
   $('#city_idcity').on('change',function() {
     var id = $('#city_idcity').val();
+      $('#Area').hide();
+      $('#Mahalla').hide();
     $.get('/getarea/'+id,function(result){
+      $('#Area').show(300);
       $('#area').empty();
       $('#mahalla').empty();
       for ( var i = 0; i < result.length;  i++ ) {
@@ -78,7 +83,9 @@ $(document).ready(function(){
 
   $('#area').on('change',function() {
     var id = $('#area').val();
+    $('#mahalla').empty();
     $.get('/getmahalla/'+id,function(result){
+      $('#Mahalla').show(300);
       for ( var i = 0; i < result.length;  i++ ) {
         $('#mahalla').append("<option value = '"+result[i].idmahalla+"'>"+result[i].name+"</option>");
       }

@@ -573,19 +573,21 @@ router.get('/getmahalla/:id', function(req, res) {
 });
 
 router.post('/addschool',function(req,res){
-  // validator.isMahala(req,function(err,result){
-  //   if(result!=true){
-  //     var rel={"result":result,stat:false}
-  //     res.send(rel);
-  //   }else {
+  validator.isSchool(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }else {
       delete req.body['area_idarea'];
       delete req.body['city_idcity'];
       SchoolMgr.AddSchool(req.body,function(err,result){
-        var rel={stat:true}
-        res.send(rel);
+        SchoolMgr.getSchoolID(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
       });
-    // }
-  // });
+    }
+  });
 });
 
 router.post('/addAreas',function(req,res){

@@ -224,9 +224,10 @@ router.post('/savePhoto',function(req, res) {
         fs.copy(temp_path, new_location + file_name, function(err) {  
             if (err) {
                 console.error(err);
+                console.log(err);
             } else {
+              console.log("success");
                 CompanyMgr.addPhoto(idaCompanyView,new_location+file_name,function(err,result){  
-                console.log(result);
                 });
                 res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
             }
@@ -315,7 +316,7 @@ router.get('/adminCompany/:id/adminSellerCo', function(req, res) {
 
 router.get('/adminCompany/:id/adminCompanyView', function(req, res) {
   idaCompanyView=req.params.id;
-  CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){  
+  CompanyMgr.GetCompanyInfoById(req.params.id,function(err,result){ 
     res.render('adminCompanyView', { title: 'Company view',com:result});
   });
 });

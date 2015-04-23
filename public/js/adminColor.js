@@ -22,7 +22,10 @@ $(document).ready(function(){
         // }
       } 
       else {
-        $("#colorTable").append('<tr data-id="'+data.result[0].idcolor+'">'+
+        if($("#colorTable").children().length>=10){
+            $("#colorTable tr:last-child").remove();
+        }
+        $("#colorTable").prepend('<tr data-id="'+data.result[0].idcolor+'">'+
         '<td class="text-center"><a id="name'+data.result[0].idcolor+'" href="#" data-type="text" data-pk="'+data.result[0].idcolor+'" class="editable editable-click editable-disabled">'+data.result[0].name+'</a></td>'+
         '<td class="text-center"><a id="name_en'+data.result[0].idcolor+'" href="#" data-type="text" data-pk="'+data.result[0].idcolor+'" class="editable editable-click editable-disabled">'+data.result[0].name_en+'</a></td>'+
         '<td class="text-center"><button id="enable" value="'+data.result[0].idcolor+'" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+

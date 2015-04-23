@@ -296,7 +296,9 @@ router.get('/adminTypeBusiness/adminGenre/:id/adminTypeGenre', function(req, res
 
 router.get('/adminCompany', function(req, res) {
   CompanyMgr.GetCompany(function(err,result){
-    res.render('adminCompany', { title: 'Company',company:result});
+    TobMgr.GetTob(function(err,result1){
+      res.render('adminCompany', { title: 'Company',company:result,tob:result1});
+    });
   });
 });
 

@@ -37,9 +37,6 @@ $(document).ready(function(){
     window.location.href='/sizes/'+$(this).val();
   });
 
-  $('body').on('click', '#save', function () {
-    $('#formMeasure').submit();
-  });
 
   $("#formMeasure").submit(function() {
     $.post("/addMeasure", $("form").serializeObject(), function(data, error){

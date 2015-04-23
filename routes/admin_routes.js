@@ -220,14 +220,12 @@ router.post('/savePhoto',function(req, res) {
     form.parse(req, function(err, fields, files) {
         var temp_path = files.logo.path;
         var file_name = files.logo.name;
-        var new_location = 'company_picture/';
+        var new_location = 'public/company_picture/';
         fs.copy(temp_path, new_location + file_name, function(err) {  
             if (err) {
-                console.error(err);
-                console.log(err);
+              
             } else {
-              console.log("success");
-                CompanyMgr.addPhoto(idaCompanyView,new_location+file_name,function(err,result){  
+                CompanyMgr.addPhoto(idaCompanyView,file_name,function(err,result){  
                 });
                 res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
             }
@@ -237,7 +235,6 @@ router.post('/savePhoto',function(req, res) {
 });
 
 router.post('/addColor',function(req,res){
-  console.log(req.body);
   ColorMgr.AddColor(req.body,function(err,result){
     ColorMgr.GetColorId(result.insertId,function(err,resultid){
       var rel={"result":resultid,stat:true}
@@ -301,9 +298,7 @@ router.get('/adminCompany', function(req, res) {
 });
 
 router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
-  console.log(req.params.id);
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
-  console.log(result);
   res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
   });
 });
@@ -632,7 +627,6 @@ router.get('/adminMahala', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      //console.log(result[0]);
       CityMgr.GetCity(function(err,result1){
         res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination,cities:result1});
       });
@@ -694,7 +688,6 @@ router.get('/adminSerialNumber', function(req, res) {
 
 router.get('/viewAdmin', function(req, res) {
   AdminMgr.GetAllAdmin(function(err,result){  
-    console.log(result);
   res.render('viewAdmin', { title: 'view Admins' ,admin:result,NProgress:"fadeIn out"});
   });
 });

@@ -7,6 +7,10 @@ $(document).ready(function(){
       email:{
         required: true,
         email: true,
+        remote: {
+          url: "/checkEmail",
+          type: "post"
+        }
       },
       reEnterEmail:{
         required: true,
@@ -31,6 +35,8 @@ $(document).ready(function(){
       },
       email:{
         required: "Please enter the email address !",
+        email:"Please enter a correct email",
+        remote:"this email already exist please enter another one"
       },
       reEnterEmail:{
         required: "Please Re-enter the email address !",
@@ -58,26 +64,17 @@ $(document).ready(function(){
       $(element).closest('.form-group').removeClass('has-error');
     },
   });
-  // var form = $( "#addAdmin" );
-  // form.validate();
-  // $( "button" ).click(function() {
-  //   $.notify({
-  //       title: "<strong>Successful:</strong> ",
-  //       message: "Add a new admin has successfully"
-  //     },{
-  //       type: 'danger',
-  //       allow_dismiss: true,
-  //       showProgressbar: false,
-  //       placement: {
-  //         from: 'top',
-  //         align: 'center'
-  //       },
-  //       mouse_over: null,
-  //       newest_on_top: true,
-  //       animate: {
-  //         enter: 'animated flipInY',
-  //         exit: 'animated flipOutX'
-  //       },
-  //     });
-  // });
+  /* add Admin */
+  $('body').on('click', '#btnSubmit', function (e) {
+    e.preventDefault();
+    $('#addAdmin').submit();
+  });
+  $("#addAdmin").submit(function(e) {
+    var isvalidate=$("#addAdmin").valid();
+      if(isvalidate){
+        $.post("/addAdmin", $("#addAdmin").serializeObject(), function(data, error){
+          console.log(data);
+        });
+      }
+  });
 });

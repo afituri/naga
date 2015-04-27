@@ -711,6 +711,19 @@ router.get('/viewItem', function(req, res) {
 
 router.get('/addItem', function(req, res) {
   res.render('addItem', { title: 'Add Item'});
+
+router.post('/addAdmin',function(req,res){
+  console.log(req.body);
+  res.send(req.body);
+});
+
+router.post('/checkEmail',function(req,res){
+  AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
+    if(result[0]==undefined)
+      res.send(true);
+    else
+      res.send(false);
+  })
 });
 
 module.exports = router;

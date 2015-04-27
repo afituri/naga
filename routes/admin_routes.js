@@ -705,4 +705,18 @@ router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
 });
 
+router.post('/addAdmin',function(req,res){
+  console.log(req.body);
+  res.send(req.body);
+});
+
+router.post('/checkEmail',function(req,res){
+  AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
+    if(result[0]==undefined)
+      res.send(true);
+    else
+      res.send(false);
+  })
+});
+
 module.exports = router;

@@ -15,3 +15,5 @@ CREATE TABLE IF NOT EXISTS `naga`.`brand` (
   `update_time` DATETIME NULL,
   PRIMARY KEY (`idbrand`))
 ENGINE = InnoDB;
+
+ALTER TABLE `item` ADD `item_desc` TEXT NOT NULL AFTER `discount_flag`;

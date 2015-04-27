@@ -16,6 +16,7 @@ $(document).ready(function(){
   $('body').on('click', '#save', function () {
     $('#formtob').submit();
   });
+
   $("#formtob").submit(function() {
     $.post("/addTob", $("form").serializeObject(), function(data, error){
       if(data.stat !=true){
@@ -42,8 +43,7 @@ $(document).ready(function(){
             exit: 'animated flipOutX'
           },
         });
-      } 
-      else {
+      } else {
         $("#TOB").append('<tr data-id="'+data.result[0].idtob+'">'+
           '<td> <a id="name'+data.result[0].idtob+'" href="#" data-type="text" data-pk="'+data.result[0].idtob+'" class="editable editable-click editable-disabled">'+data.result[0].name+'</a></td>'+
           '<td> <a id="name_en'+data.result[0].idtob+'" href="#" data-type="text" data-pk="'+data.result[0].idtob+'" class="editable editable-click editable-disabled">'+data.result[0].name_en+'</a></td>'+
@@ -76,10 +76,4 @@ $(document).ready(function(){
     });
     return false;
   });
-
-
-
-
-
-
 });

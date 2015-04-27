@@ -705,4 +705,12 @@ router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
 });
 
+router.get('/viewItem', function(req, res) {
+  res.render('viewItem', { title: 'View Item'});
+});
+
+router.get('/addItem', function(req, res) {
+  res.render('addItem', { title: 'Add Item'});
+});
+
 module.exports = router;

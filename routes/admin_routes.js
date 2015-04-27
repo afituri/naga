@@ -723,7 +723,8 @@ router.post('/checkEmail',function(req,res){
       res.send(true);
     else
       res.send(false);
-  })
+    })
+  });
 });
 
 module.exports = router;

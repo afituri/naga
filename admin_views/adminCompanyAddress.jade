@@ -52,8 +52,8 @@ block Dashboard
                       td.text-right
                         strong Edit    
                       td.text-right
-                        strong Trash 
-                  tbody
+                        strong Trash
+                  tbody#tbody 
                   for i in address
                     tr(data-id='#{i.idcompany_address}')
                       td 
@@ -67,7 +67,7 @@ block Dashboard
                       td 
                         a.editable.editable-click(id='description#{i.idcompany_address}', href='#', data-type='textarea', data-pk='#{i.idcompany_address}') #{i.address_desc}
                       td.text-right
-                        button#enable.btn.btn-info.btn-xs(value='#{1}' ,data-title='Edit', data-toggle='modal')
+                        button#enable.btn.btn-info.btn-xs(value='#{address.idcompany_address}' ,data-title='Edit', data-toggle='modal', name='sa')
                           span.glyphicon.glyphicon-pencil        
                       td.text-right 
                         button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal')
@@ -94,40 +94,50 @@ block Dashboard
                     |  Add Company Addres
                 .row 
                   .modal-body
-                    form#formAddres.form-signin(role="form" , action="", method="post")
+                    form#formAddres.form-signin(role="form",name="formAddres")
                       .col-xs-6.col-md-6
                         .form-group
                           .h4 latit
                           input#latit.form-control(type="text",name="latit", placeholder="latit",autofocus="")
                         .form-group
                           .h4 Branch
-                          select#default.form-control(type="text",name="default", placeholder="Branch",autofocus="")    
-                        .form-group
+                          select#default.form-control(type="text",name="default", placeholder="default",autofocus="")    
+                            option(value="", style='color:grey; display:none;') Please Select Branch
+                            option(value="1",data-subtext='') Main branch
+                            option(value="2",data-subtext='') Subsection 
+                        .form-group#Area
                           .h4 Area
-                          select#Area.form-control(type="text",name="Area", placeholder="Area",autofocus="")
-                        .form-group
+                          select#area.form-control(type="text", name="area", autofocus="")
+                            option(value="", style='color:grey; display:none;') Please Select Area
+                        .form-group#School
                           .h4 School
-                          select#school_idschool.form-control(type="text",name="school_idschool", placeholder="School",autofocus="")
+                          select#idschool.form-control(type="text",name="idschool", placeholder="School",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select Mahalla
                         .form-group
                           .h4 Description 
-                          textarea#address_desc(rows='10', cols='67',type="text",name="address_desc", placeholder="Description",autofocus="")
+                          textarea#address_desc(rows='10', cols='78',type="text",name="address_desc", placeholder="Description",autofocus="")
                       .col-xs-6.col-md-6
                         .form-group
                           .h4 longit
                           input#longit.form-control(type="text",name="longit", placeholder="longit",autofocus="")
                         .form-group
                           .h4 City
-                          select#City.form-control(type="text",name="City", placeholder="City",autofocus="")    
-                        .form-group
-                          .h4 Mahala
-                          select#Mahala.form-control(type="text",name="Mahala", placeholder="Mahala",autofocus="")
+                          select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select City
+                            for city in cities
+                              option(value="#{city.idcity}",data-subtext='#{city.name_en}') #{city.name}    
+                        .form-group#Mahalla
+                          .h4 Mahalla
+                          select#mahalla.form-control(type="text",name="mahalla",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select Mahalla
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
-                  button#save.btn.btn-primary() Save Change
+                  button#save.btn.btn-primary Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
+  script(src='/js/helpers.js')  
   script(src="/js/jquery.validate.min.js")
   script(src='/js/bootstrap-select.min.js') 
   script(src='/js/bootstrap-editable.min.js')

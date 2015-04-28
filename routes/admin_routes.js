@@ -16,7 +16,7 @@ var GenreMgr =require('../app/genre').GenreMgr;
 var TogMgr =require('../app/tog').TogMgr;
 var CompanyMgr=require('../app/company').CompanyMgr;
 var user =require('../app/userHelpers');
-var  CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
+var CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
 var CompanyAddressMgr=require('../app/company_address').CompanyAddressMgr;
 var AdminMgr=require('../app/admin').AdminMgr;
 var formidable = require('formidable'),
@@ -29,6 +29,7 @@ router.get('/', function(req, res) {
   res.render('adminLogin', { title: 'Login' });
 });
 
+var idcompany=0;
 //testPhoto.jade
 
 router.get('/testPhoto', function(req, res) {
@@ -280,7 +281,7 @@ router.get('/adminTypeBusiness', function(req, res) {
 });
 
 router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
-  GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){
+  GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){  
   res.render('adminGenre', { title: 'Genre',genre:result});
   });
 });
@@ -299,8 +300,14 @@ router.get('/adminCompany', function(req, res) {
 });
 
 router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
+  idcompany=req.params.id;
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
-  res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
+    // var x =result;
+    CityMgr.GetCity(function(err,result1){  
+      // //console.log(result1);
+      // console.log(x);
+      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1});
+    });
   });
 });
 
@@ -568,6 +575,12 @@ router.get('/getmahalla/:id', function(req, res) {
   });
 });
 
+router.get('/getschool/:id', function(req, res) {
+  SchoolMgr.getSchoolID(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
 router.post('/addschool',function(req,res){
   validator.isSchool(req,function(err,result){
     if(result!=true){
@@ -595,6 +608,24 @@ router.post('/addAreas',function(req,res){
     else {
       AreaMgr.addArea(req.body,function(err,result){
         AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
+router.post('/addAddres',function(req,res){
+  validator.isAddres(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }
+    else {
+      //console.log(idcompany);
+      CompanyAddressMgr.AddCompanyAddress(req.body,idcompany,function(err,result){
+         CompanyAddressMgr.getCompanyAddressInfoById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);
         });
@@ -649,6 +680,7 @@ router.get('/adminSchools', function(req, res) {
     }
   });
 });
+
 
 router.get('/adminInvoice', function(req, res) {
   res.render('adminInvoice', { title: 'Invoice'});

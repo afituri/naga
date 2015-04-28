@@ -66,6 +66,7 @@ exports.AdminMgr = {
       });
     });
   },
+  
   GetLevelById : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('SELECT `level` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {

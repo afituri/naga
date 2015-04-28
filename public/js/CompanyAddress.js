@@ -11,7 +11,7 @@ $(document).ready(function(){
       default:{
         required: true
       },
-      Area:{
+      area:{
         required: true
       },
       idschool:{
@@ -26,7 +26,7 @@ $(document).ready(function(){
       city_idcity:{
         required: true
       },
-      Mahala:{
+      mahalla:{
         required: true
       }
     },
@@ -37,7 +37,7 @@ $(document).ready(function(){
       default:{
         required: "Please select Branch !"
       },
-      Area:{
+      area:{
         required: "Please select Area !"
       },
       idschool:{
@@ -49,10 +49,10 @@ $(document).ready(function(){
       longit:{
         required: "Please enter longit !"
       },
-      City:{
+      city_idcity:{
         required: "Please select City !"
       },
-      Mahala:{
+      mahalla:{
         required: "Please select Mahala !"
       }
     },
@@ -113,11 +113,21 @@ $(document).ready(function(){
       }
     });
   });
+  
+  $('body').on('click', '#delete', function () {
+    $('#deletee').val($(this).val());
+  });
+
+  $('body').on('click', '#deletee', function () {
+    $.get('/deleteCompanySeller/'+$(this).val(),function(result){
+    window.location.href='/adminCompany/'+result[0].idcompany+'/adminSellerCo';
+    });
+  });
 
   $('body').on('click', '#view', function () {
-    window.location.href='/adminCompany/adminCompanyAddress';
-    });
-  
+      window.location.href='/adminCompany/adminCompanyAddress';
+  });
+
   $('body').on('click', '#save', function () {
     $('#formAddres').submit();
     });
@@ -166,5 +176,4 @@ $(document).ready(function(){
     });
     return false;
   });
-
 });

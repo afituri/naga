@@ -1,43 +1,19 @@
-ALTER TABLE `area` ADD `status` TINYINT(1) NOT NULL DEFAULT '1' AFTER `name_en`;
-ALTER TABLE `prepaid_live` ADD `customer_idcustomer` INT NULL DEFAULT NULL AFTER `amount`;
-ALTER TABLE `mahalla` ADD `status` TINYINT(1) NULL DEFAULT '1' AFTER `name_en`;
-ALTER TABLE `school` ADD `status` TINYINT(1) NOT NULL DEFAULT '1' AFTER `longit`;
+ALTER TABLE `company_address` CHANGE `idcompany_address` `idcompany_address` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `customer_address` CHANGE `idcustomer_address` `idcustomer_address` INT(11) NOT NULL AUTO_INCREMENT;
 
-
-DROP TABLE IF EXISTS `naga`.`vendor_has_prepaid`;
+ALTER TABLE `item` ADD `brand_idbrand` INT NULL DEFAULT NULL AFTER `tob_idtob`;
 -- -----------------------------------------------------
--- Table `naga`.`vendor`
+-- Table `naga`.`brand`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `naga`.`vendor` (
-  `idvendor` INT NOT NULL,
-  `name` VARCHAR(500) NULL,
-  `phone` VARCHAR(45) NULL,
-  `has_id` BIGINT(8) NULL,
+CREATE TABLE IF NOT EXISTS `naga`.`brand` (
+  `idbrand` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(200) NULL,
+  `origin` VARCHAR(150) NULL,
+  `origin_en` VARCHAR(45) NULL,
   `status` TINYINT(1) NULL DEFAULT 1,
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` DATETIME NULL,
-  PRIMARY KEY (`idvendor`))
+  PRIMARY KEY (`idbrand`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `naga`.`vendor_has_prepaid`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `naga`.`vendor_has_prepaid` (
-  `idvendor_has_prepaid` INT NOT NULL,
-  `serial_from` BIGINT(8) NULL,
-  `serial_to` BIGINT(8) NULL,
-  `quantity` INT NULL,
-  `amount` INT NULL,
-  `status` TINYINT(1) NULL DEFAULT 1,
-  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` DATETIME NULL,
-  `vendor_idvendor` INT NOT NULL,
-  PRIMARY KEY (`idvendor_has_prepaid`, `vendor_idvendor`),
-  INDEX `fk_vendor_has_prepaid_vendor1_idx` (`vendor_idvendor` ASC),
-  CONSTRAINT `fk_vendor_has_prepaid_vendor1`
-    FOREIGN KEY (`vendor_idvendor`)
-    REFERENCES `naga`.`vendor` (`idvendor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ALTER TABLE `item` ADD `item_desc` TEXT NOT NULL AFTER `discount_flag`;

@@ -48,6 +48,23 @@ module.exports = {
     }
   },
 
+  isAddres : function (req,cb) {
+    isName(req,'latit',' latit required');           //Validate name
+    isName(req,'longit',' longit required');
+    isName(req,'default',' default required');
+    isName(req,'idschool',' idschool required');
+    isName(req,'address_desc',' address_desc required');
+    isName(req,'mahalla',' mahalla required');
+    isName(req,'city_idcity',' city_idcity required');
+    isName(req,'area',' area required');
+    var errors = req.validationErrors();  
+    if( !errors){  
+      cb(null,true);
+    }else {   //Display errors to user
+      cb(null,errors);
+    }
+  },
+
   isTob : function (req,cb) {
     isName(req,'name',' name required');           //Validate name
     isName(req,'name_en',' name_en required');

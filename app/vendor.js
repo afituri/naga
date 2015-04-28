@@ -101,7 +101,7 @@ exports.VendorMgr = {
   deleteVendor : function(id,cb){
     mysqlMgr.connect(function (conn) {
       var date = new Date();
-      conn.query('UPDATE `vendor` SET `status` = 0,`update_time`=? WHERE `idadmin` = ?',  [date,id],  function(err, result) {
+      conn.query('UPDATE `vendor` SET `status` = 0,`update_time`=? WHERE `idvendor` = ?',  [date,id],  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);
@@ -111,5 +111,25 @@ exports.VendorMgr = {
       });
     });
   },
+
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `vendor` WHERE `idvendor` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
+
+
+
+
+
+
+
 
 	};

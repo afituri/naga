@@ -4,12 +4,12 @@ exports.CityMgr = {
 /////////////////// CITY ///////////////////////////////////////////
   GetCity :function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `city` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT * FROM `city` WHERE `status` <> 0',  function(err, result1) {
         conn.release();
         if(err) {
           cb(err,null);
         } else {
-          cb(null,result);
+          cb(null,result1);
         }
       });
     });

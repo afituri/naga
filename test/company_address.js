@@ -42,7 +42,7 @@ var obj = require('../TestUser/mochaObj.json').companyAddress;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
   describe('#AddCompanyAddress()',function(){
     it('Should inser without an error', function(done){
-      CompanyAddMgr.AddCompanyAddress(obj["addaddress"],function(err,result){
+      CompanyAddMgr.AddCompanyAddress(obj["addaddress"],company["add_company"].idcompany,function(err,result){
         if (err) throw err;
         done();
       });

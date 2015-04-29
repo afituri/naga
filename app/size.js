@@ -23,7 +23,7 @@ exports.SizeMgr = {
         if(err) {
           util.log(err);
         } else {
-
+          console.log(result);
           cb(null,result);
         }
       });
@@ -43,9 +43,13 @@ exports.SizeMgr = {
     });
   },
 
-  AddSize : function(body,cb){
+  AddSize : function(body,id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `size` SET ?',body,  function(err, result) {
+      var name = body.name;
+      var name_en = body.name_en;
+      console.log("lllll");
+      console.log(id);
+      conn.query('INSERT INTO `size`(`name`, `name_en`, `measure_idmeasure`) VALUES (?,?,?)',[name, name_en, id],  function(err, result) {
         conn.release();
         if(err) {
           util.log(err);

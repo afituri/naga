@@ -1,0 +1,83 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admin Manger
+          small  View Admins
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  Admin Manger
+          li.active
+            i.fa  View Admins.col-md-10
+        #normal-toggle-button
+          input(type='checkbox', checked='checked')
+           
+           
+        //- .btn-group.btn-toggle
+        //-   button.btn.btn-default#ooo(data-toggle='collapse', data-target='#collapsible') Open
+        //-   button.btn.btn-primary.active#ccc(data-toggle='collapse', data-target='#coll') Close
+        //- #collapsible
+        
+        //-  .row
+        //-     .col-md-8.col-md-offset-2
+        //-       form.form-horizontal(role='form')
+        //-         fieldset
+        //-           // Form Name
+        //-           legend Address Details
+        //-           // Text input
+        //-           .form-group
+        //-             label.col-sm-2.control-label name
+        //-             .col-sm-8
+        //-               input.form-control(type='text', placeholder='Vendor Name')
+        //-           // Text input
+        //-           .form-group
+        //-             label.col-sm-2.control-label phone
+        //-             .col-sm-8
+        //-               input.form-control(type='phone', placeholder='Vendor phone')
+        //-           // Text input
+        //-           .form-group
+        //-             label.col-sm-2.control-label amount
+        //-             .col-sm-8
+        //-               select#level.form-control(type="text",name="level", placeholder="amount",autofocus="")
+        //-                 option(data-icon='glyphicon glyphicon-music') 100
+        //-                 option(data-icon='glyphicon glyphicon-star') 50
+        //-                 option(data-icon='glyphicon glyphicon-heart') 20
+                 
+        //-           // Text input
+        //-           .form-group
+        //-             label.col-sm-2.control-label  serial_from
+        //-             .col-sm-8
+        //-               input.form-control(type='text', placeholder='serial_from')
+        //-           .form-group      
+        //-             label.col-sm-2.control-label serial_to
+        //-             .col-sm-8
+        //-               input.form-control(type='text', placeholder='serial_to')
+        //-           // Text input
+        //-           .form-group
+        //-             label.col-sm-2.control-label quantity
+        //-             .col-sm-8
+        //-               input.form-control(type='text', placeholder='quantity')
+        //-           .form-group
+        //-             .col-sm-offset-2.col-sm-8
+        //-               .pull-right
+        //-                 button.btn.btn-default(type='submit') Cancel
+        //-                 button.btn.btn-primary(type='submit') Save
+        //- #coll
+        //-   .form-group
+        //-     .col-sm-offset-2.col-sm-8
+        //-       .pull-right
+        //-         button.btn.btn-default(type='submit') Cancel
+        //-         button.btn.btn-primary(type='submit') Save
+
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/admin.js')
+  script(src='/js/vendor.js')

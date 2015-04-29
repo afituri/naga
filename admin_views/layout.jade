@@ -20,6 +20,7 @@ html(lang='en')
     link(href="/css/nprogress.css" rel="stylesheet")
     link(href="/css/animate.min.css" rel="stylesheet")
     link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-switch.min.css" rel="stylesheet")
   body.animated.fadeIn(style='display: none')
     block content
       block navigation
@@ -271,6 +272,16 @@ html(lang='en')
                     a(href="/adminSerialNumber")
                       i.glyphicon.glyphicon-check
                       |  Prepaid Card Manger
+                  li
+                    a(href="#")
+                      i.fa.fa-cart-arrow-down
+                      |  Item Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/viewItem") View Items
+                      li
+                        a(href="/newItem") New Item 
                   li
                     a(href="#")
                       i.fa.fa-sitemapfa-fw Multi-Level Dropdown

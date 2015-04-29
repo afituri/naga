@@ -128,9 +128,9 @@
     "add_vendor":{"idvendor":10000000,"name":"احمر","phone":"123456"},
      "update_name":{"value":"hhhh","pk":10000000}
   },
-
+ 
   "vhp":{
-    "add_vendor":{"idvendor":10000000,"name":"احمر","phone":"123456"},
+    "add_vendor":{"idvendor_has_prepaid":10000000,"serial_from":100,"serial_to":200,"quantity":5,"amount":55},
      "update_name":{"value":"hhhh","pk":10000000}
   }
 

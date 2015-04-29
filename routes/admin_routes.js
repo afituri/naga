@@ -756,13 +756,16 @@ router.get('/testPage', function(req, res) {
 router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
 });
+router.get('/vendor', function(req, res) {
+  res.render('vendor', { title: 'vendor'});
+});
 
 router.get('/viewItem', function(req, res) {
   res.render('viewItem', { title: 'View Item'});
 });
 
-router.get('/addItem', function(req, res) {
-  res.render('addItem', { title: 'Add Item'});
+router.get('/newItem', function(req, res) {
+  res.render('newItem', { title: 'New Item'});
 
 router.post('/addAdmin',function(req,res){
   console.log(req.body);

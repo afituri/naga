@@ -167,10 +167,17 @@ exports.VHPMgr = {
   },
 
 
+  deleteTest : function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('DELETE from `vendor_has_prepaid` WHERE `idvendor_has_prepaid` = ?',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  }
 
-
-
-	
-
-
-	};
+};

@@ -15,6 +15,19 @@ exports.CompanyAddressMgr = {
     });
   },
 
+  getCompanyAddressInfoById :function(id,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT `company_address`.idcompany_address,`company_address`.latit,`company_address`.longit,`company_address`.address_desc,`school`.name as na   FROM `company_address`,`school` WHERE `company_address`.`status` <> 0 and `idcompany_address`=? and school_idschool=idschool',id,  function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
    GetCompanyAddressByIdCompany :function(id,cb){
     mysqlMgr.connect(function (conn) {
       //('SELECT *,`school`.name FROM `company_address`,`school` WHERE `status` <> 0 and `company_idcompany`=? and  school_idschool=idschool',id,  function(err, result) {
@@ -29,9 +42,15 @@ exports.CompanyAddressMgr = {
     });
   },
 
-  AddCompanyAddress : function(body,cb){
+  AddCompanyAddress : function(body,id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('INSERT INTO `company_address` SET ?',body,  function(err, result) {
+      var latit = body.latit;
+      var longit = body.longit;
+      var bb = body.default;
+      var company_idcompany = id;
+      var school_idschool = body.idschool;
+      var address_desc = body.address_desc;
+      conn.query('INSERT INTO `company_address`(`latit`, `longit`, `default`, `company_idcompany`, `school_idschool`, `address_desc`) VALUES (?,?,?,?,?,?)',[latit, longit, bb, company_idcompany, school_idschool, address_desc],  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

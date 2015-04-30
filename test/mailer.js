@@ -5,7 +5,7 @@ var obj = {
   template : "activate_seller",
   subject : "Naga account activation",
   locals : {
-    email : "ahmed.elfituri@gmail.com",
+    email : "abdullah.el_ameer@gmail.com",
     user : {
       name : "Ahmed Fituri",
       link : "http://naga.ly/activate/SDFSDKLJHDFSSLDKF23424N234L234H234"

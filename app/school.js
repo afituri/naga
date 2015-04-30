@@ -30,7 +30,7 @@ exports.SchoolMgr = {
 
   getSchoolID :function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `s`.`idschool`,`s`.`name` AS schoolName, `s`.`name_en` AS schoolName_en, `s`.`latit` AS latitude, `s`.`longit` AS longitude, `m`.`name` AS mahallaName, `a`.`name` AS areaName, `c`.`name` AS cityName FROM `school` s,`mahalla` m,`area` a,`city` c WHERE  `s`.`status` <> 0  and `s`.`mahalla_idmahalla`=`m`.`idmahalla` AND `m`.`area_idarea`=`a`.`idarea` AND `a`.`city_idcity`=`c`.`idcity` AND `s`.`idschool` = ?  ',id, function(err, result) {
+      conn.query('SELECT `s`.`idschool`,`s`.`name` AS schoolName, `s`.`name_en` AS schoolName_en, `s`.`latit` AS latitude, `s`.`longit` AS longitude, `m`.`name` AS mahallaName, `a`.`name` AS areaName, `c`.`name` AS cityName FROM `school` s,`mahalla` m,`area` a,`city` c WHERE  `s`.`status` <> 0  and `s`.`mahalla_idmahalla`=`m`.`idmahalla` AND `m`.`area_idarea`=`a`.`idarea` AND `a`.`city_idcity`=`c`.`idcity` AND `s`.`mahalla_idmahalla` = ?  ',id, function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

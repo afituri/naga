@@ -736,6 +736,10 @@ router.get('/testPage', function(req, res) {
 router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
 });
+router.get('/prepaidVendor', function(req, res) {
+  res.render('prepaidVendor', { title: 'prepaidVendor'});
+});
+
 router.get('/vendor', function(req, res) {
   res.render('vendor', { title: 'vendor'});
 });

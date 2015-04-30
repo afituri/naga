@@ -30,6 +30,7 @@ router.get('/', function(req, res) {
 });
 
 var idcompany=0;
+var idSize=0;
 //testPhoto.jade
 
 router.get('/testPhoto', function(req, res) {
@@ -214,6 +215,24 @@ router.post('/addMeasure',function(req,res){
   });
 });
 
+router.post('/addSizes',function(req,res){
+  console.log(idSize);
+  validator.isSize(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }
+    else {
+      SizeMgr.AddSize(req.body,idSize,function(result){
+         SizeMgr.GetSizebyId(result.insertId,function(err,resultid){
+          console.log(resultid);
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
 
 router.post('/savePhoto',function(req, res) {
   if (req.url == '/savePhoto') {
@@ -262,6 +281,7 @@ router.post('/addTob',function(req, res) {
 });
 
 router.get('/sizes/:id', function(req, res) {
+  idSize=req.params.id;
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
     res.render('sizes', { title: 'sizes',size:result});
   });

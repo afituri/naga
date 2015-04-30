@@ -18,60 +18,120 @@ block Dashboard
               .h5(style ="font-weight: bold; color:#FF9900 ;") Is It Company !
               input#discount_flag(type='checkbox', name='discount_flag')    
         .row        
-          .col-md-8.col-md-offset-2
-                form.form-horizontal#Hide1(role='form')
+          .col-md-10.col-md-offset-1
+              form.form-horizontal#Hide1(role='form')
+                .panel.panel-default
+                  .panel-heading
+                    .row
+                      .col-md-5
+                        h2.panel-title 
+                          strong  List of Vendor
+                      .col-md-5
+                        form(role='search')
+                          .input-group
+                            input.form-control(type='text', placeholder='Search by name')
+                            .input-group-btn
+                              button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+                      .col-md-2
                   .table-responsive
                     table.table.table-striped.table-condensed
                       thead
                         tr
                           td.text-center
-                            strong Name in Arabic
+                            strong Name of Vendor
                           td.text-center
-                            strong Name in English  
+                            strong phoun of Vendor
                           td.text-center
                             strong Edit  
                           td.text-center
                             strong Trash 
+                          td.text-center
+                            strong View  
                       tbody#colorTable
                        
                           tr(data-id='')
                             td.text-center 
-                               a.editable.editable-click(id='name', href='#', data-type='text', data-pk='') 
+                               a.editable.editable-click(id='name_of_vendor', href='#', data-type='text', data-pk='') 
                             td.text-center
-                              a.editable.editable-click(id='name_en', href='#', data-type='text', data-pk='')  
+                              a.editable.editable-click(id='phoun_of_vendor', href='#', data-type='text', data-pk='')  
                             td.text-center
                               button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
                                 span.glyphicon.glyphicon-pencil     
                             td.text-center
-                              button#delete.btn.btn-danger.btn-xs(href='', data-toggle='modal',value='')
-                                span.glyphicon.glyphicon-trash   
+                              button#delete.btn.btn-danger.btn-xs(href='#devo', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash
+                            td.text-center
+                              button#View.btn.btn-primary.btn-xs(href='#View', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash      
+                #devo.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+                  .modal-dialog
+                    .modal-content
+                      .modal-headr.modal-header-danger
+                        p.h1 Sure you want to delete?
+                      .modal-body
+                        p.h2 Are you sure
+                        p 
+                      .modal-footer
+                        button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                        button.btn.btn-success(data-dismiss='modal', type='button') Cancel                
                       
-                form.form-horizontal#Hide(role='form')
+              form.form-horizontal#Hide(role='form')
+                .panel.panel-default
+                  .panel-heading
+                    .row
+                      .col-md-5
+                        h2.panel-title 
+                          strong  List of Company
+                      .col-md-5
+                        form(role='search')
+                          .input-group
+                            input.form-control(type='text', placeholder='Search by name')
+                            .input-group-btn
+                              button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+                      .col-md-2
                   .table-responsive
                     table.table.table-striped.table-condensed
                       thead
                         tr
                           td.text-center
-                            strong Name in Arabic
+                            strong Name of Company
                           td.text-center
-                            strong Name in English  
+                            strong phoun of Company  
                           td.text-center
                             strong Edit  
                           td.text-center
                             strong Trash 
+                          td.text-center
+                            strong View   
                       tbody#colorTable
                        
                           tr(data-id='')
                             td.text-center 
-                               a.editable.editable-click(id='name', href='#', data-type='text', data-pk='') 
+                               a.editable.editable-click(id='name_of_Company', href='#', data-type='text', data-pk='') 
                             td.text-center
-                              a.editable.editable-click(id='name_en', href='#', data-type='text', data-pk='')  
+                              a.editable.editable-click(id='phoun_of_Company', href='#', data-type='text', data-pk='')  
                             td.text-center
                               button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
                                 span.glyphicon.glyphicon-pencil     
                             td.text-center
-                              button#delete.btn.btn-danger.btn-xs(href='', data-toggle='modal',value='')
-                                span.glyphicon.glyphicon-trash   
+                              button#delete.btn.btn-danger.btn-xs(href='#deco', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash 
+                            td.text-center
+                              button#View.btn.btn-primary.btn-xs(href='#View', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash    
+                #deco.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+                  .modal-dialog
+                    .modal-content
+                      .modal-headr.modal-header-danger
+                        p.h1 Sure you want to delete?
+                      .modal-body
+                        p.h2 Are you sure
+                        p 
+                      .modal-footer
+                        button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                        button.btn.btn-success(data-dismiss='modal', type='button') Cancel                  
 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
@@ -81,3 +141,4 @@ block Dashboard
   script(src='/js/admin.js')
   script(src="/js/bootstrap-switch.min.js")
   script(src='/js/vendor.js')  
+  script(src='/js/vendorHasPrepaid.js')

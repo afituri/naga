@@ -757,12 +757,15 @@ router.get('/testPage', function(req, res) {
 router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
 });
-router.get('/prepaidVendor', function(req, res) {
-  res.render('prepaidVendor', { title: 'prepaidVendor'});
+router.get('/addPrepaidVendor', function(req, res) {
+  res.render('addPrepaidVendor', { title: 'prepaidVendor'});
 });
 
 router.get('/vendor', function(req, res) {
   res.render('vendor', { title: 'vendor'});
+});
+router.get('/vendor/vendorHasPrepaid', function(req, res) {
+  res.render('vendorHasPrepaid', { title: 'vendorHasPrepaid'});
 });
 
 router.get('/viewItem', function(req, res) {

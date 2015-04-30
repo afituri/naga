@@ -1,3 +1,4 @@
+
 $("[name='discount_flag']").bootstrapSwitch('state', false);
     $(document).ready(function(){
       $("#Hide1").show(400); //-.addClass('animated fadeInDown');
@@ -36,4 +37,5 @@ $("[name='discount_flag']").bootstrapSwitch('state', false);
             exit: 'animated flipOutX'
           },
       }); 
-    });  
+    });
+       

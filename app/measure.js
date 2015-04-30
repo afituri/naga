@@ -34,6 +34,7 @@ exports.MeasureMgr = {
     mysqlMgr.connect(function (conn) {
       //SELECT o.idorder FROM orders   WHERE o.deleted =1  limit ?,10; SELECT COUNT(*) as cnt FROM orders as o, employee as emp ,department as dept WHERE o.deleted=1  AND  o.requestEmploye=emp.idemployee AND dept.iddepartments=emp.iddepartment;',[limit],function(err, result1) {
      conn.query('SELECT * FROM `measure` WHERE `status` <> 0 AND `idmeasure`=?',id, function(err, result) {
+      console.log(id);
         conn.release();
         if(err) {
           cb(err,null);

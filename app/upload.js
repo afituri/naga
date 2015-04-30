@@ -61,8 +61,16 @@ function setDir(iduser,it){
 }
 
     module.exports = function (router) {
-      router.get('/upload', function(req, res) {
-        options=setDir(3,300);
+      // router.get('/upload', function(req, res) {
+      //   options=setDir(1,2);
+      //   var uploader = require('blueimp-file-upload-expressjs')(options);
+      //   uploader.get(req, res, function (obj) {
+      //     res.send(JSON.stringify(obj)); 
+      //   });
+      // });
+
+      router.post('/upload', function(req, res) {
+        options=setDir(1,2);
         var uploader = require('blueimp-file-upload-expressjs')(options);
         uploader.get(req, res, function (obj) {
           res.send(JSON.stringify(obj)); 

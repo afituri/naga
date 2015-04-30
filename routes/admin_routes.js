@@ -101,57 +101,56 @@ router.post('/MeasurEditNameEn', function(req, res) {
 });
 
 router.post('/SizeEditNameEn', function(req, res) {
- SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
+  SizeMgr.UpdateSizeNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/SizeEditNameAr', function(req, res) {
- SizeMgr.UpdateSizeNameAR(req.body,function(err,result){
+  SizeMgr.UpdateSizeNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/editMahalla', function(req, res) {
- MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
+  MahallaMgr.UpdateMahallaNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/editMahallaEn', function(req, res) {
- MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
+  MahallaMgr.UpdateMahallaNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/SchoolEditName', function(req, res) {
- SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
+  SchoolMgr.UpdateSchoolNameAR(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/SchoolEditNameEn', function(req, res) {
- SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
+  SchoolMgr.UpdateSchoolNameEN(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/editlatitSchool', function(req, res) {
- SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
+  SchoolMgr.UpdateSchoolLatit(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/editlongitSchool', function(req, res) {
- SchoolMgr.UpdateSchoolLongit(req.body,function(err,result){
+  SchoolMgr.UpdateSchoolLongit(req.body,function(err,result){
     res.send(true);
   });
 });
 
 router.post('/MeasurEditName', function(req, res) {
   MeasureMgr.UpdateMeasureNameAR(req.body,function(err,result){
-    res.send(true);
-   
+    res.send(true);   
   });
 });
 
@@ -208,6 +207,7 @@ router.post('/addMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(err,result){
     MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
       var rel={"result":resultid,stat:true}
+      console.log(resultid[1])
       res.send(rel);
     });
   });
@@ -218,26 +218,23 @@ router.post('/savePhoto',function(req, res) {
   if (req.url == '/savePhoto') {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
-        var temp_path = files.logo.path;
-        var file_name = files.logo.name;
-        var new_location = 'company_picture/';
-        fs.copy(temp_path, new_location + file_name, function(err) {  
-            if (err) {
-                console.error(err);
-                console.log(err);
-            } else {
-              console.log("success");
-                CompanyMgr.addPhoto(idaCompanyView,new_location+file_name,function(err,result){  
-                });
-                res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
-            }
-        });     
+      var temp_path = files.logo.path;
+      var file_name = files.logo.name;
+      var new_location = 'public/company_picture/';
+      fs.copy(temp_path, new_location + file_name, function(err) {  
+          if (err) {
+            
+          } else {
+              CompanyMgr.addPhoto(idaCompanyView,file_name,function(err,result){  
+            });
+              res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
+          }
+      });     
     });
   }
 });
 
 router.post('/addColor',function(req,res){
-  console.log(req.body);
   ColorMgr.AddColor(req.body,function(err,result){
     ColorMgr.GetColorId(result.insertId,function(err,resultid){
       var rel={"result":resultid,stat:true}
@@ -277,20 +274,20 @@ router.get('/adminColors', function(req, res) {
 
 router.get('/adminTypeBusiness', function(req, res) {
   TobMgr.GetTob(function(err,result){
-  res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});
+    res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});
   });
 });
 
 router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
   GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){
-  res.render('adminGenre', { title: 'Genre',genre:result});
+    res.render('adminGenre', { title: 'Genre',genre:result});
   });
 });
 
 
 router.get('/adminTypeBusiness/adminGenre/:id/adminTypeGenre', function(req, res) {
   TogMgr.GetTogById(req.params.id,function(err,result){
-  res.render('adminTypeGenre', { title: 'Type of Genre',tog:result});
+    res.render('adminTypeGenre', { title: 'Type of Genre',tog:result});
   });
 });
 
@@ -303,16 +300,14 @@ router.get('/adminCompany', function(req, res) {
 });
 
 router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
-  console.log(req.params.id);
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
-  console.log(result);
-  res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
+    res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
   });
 });
 
 router.get('/adminCompany/:id/adminSellerCo', function(req, res) {
   CompanySellerMgr.GetCompanySeller(req.params.id,function(err,result){ 
-  res.render('adminSellerCo', { title: 'Company Seller',seller:result});
+    res.render('adminSellerCo', { title: 'Company Seller',seller:result});
   });
 });
 
@@ -334,8 +329,7 @@ router.post('/addcity',function(req, res) {
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    } 
-    else {
+    } else {
       CityMgr.AddCity(req.body,function(err,result){
         CityMgr.GetCityById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
@@ -501,17 +495,17 @@ router.get('/deleteColor/:id', function(req, res) {
 });
 
 router.get('/deleteTOB/:id', function(req, res) {
-   TobMgr.DeleteTob(req.params.id,function(err,result){
+  TobMgr.DeleteTob(req.params.id,function(err,result){
     res.send(result);
-   });
+  });
 });
 
 
 router.get('/deleteTog/:id', function(req, res) {
-   TogMgr.GetidgenreByidtog(req.params.id,function(err,id){ 
+  TogMgr.GetidgenreByidtog(req.params.id,function(err,id){ 
     TogMgr.DeleteTog(req.params.id,function(err,result){
-   res.send(id);
-  });
+      res.send(id);
+    });
   });
 });
 
@@ -523,34 +517,34 @@ router.get('/deleteCompany/:id', function(req, res) {
 
 
 router.get('/deleteMahalla/:id', function(req, res) {
-   MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
+  MahallaMgr.DeleteMahalla(req.params.id,function(err,result){
     res.send(result);
-   });
+  });
 });
 
 router.get('/deleteSchool/:id', function(req, res) {
-   SchoolMgr.DeleteSchool(req.params.id,function(err,result){
+  SchoolMgr.DeleteSchool(req.params.id,function(err,result){
     res.send(result);
-   });
+  });
 });
 
 router.get('/deleteCity/:id', function(req, res) {
-   CityMgr.DeleteCity(req.params.id,function(err,result){
+  CityMgr.DeleteCity(req.params.id,function(err,result){
     res.send(result);
   });
 });
 
 router.get('/deleteArea/:id', function(req, res) {
-   AreaMgr.DeleteArea(req.params.id,function(err,result){
+  AreaMgr.DeleteArea(req.params.id,function(err,result){
     res.send(result);
   });
 });
 
 router.get('/deletegenreee/:id', function(req, res) {
-   TobMgr.GetIdTobByIdGenre(req.params.id,function(err,idtob){
-   GenreMgr.DeleteGenre(req.params.id,function(err,result){
-    res.send(idtob);
-     });
+  TobMgr.GetIdTobByIdGenre(req.params.id,function(err,idtob){
+    GenreMgr.DeleteGenre(req.params.id,function(err,result){
+      res.send(idtob);
+    });
   });
 });
 
@@ -579,7 +573,7 @@ router.post('/addschool',function(req,res){
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    }else {
+    } else {
       delete req.body['area_idarea'];
       delete req.body['city_idcity'];
       SchoolMgr.AddSchool(req.body,function(err,result){
@@ -614,7 +608,7 @@ router.post('/addMahala',function(req,res){
     if(result!=true){
       var rel={"result":result,stat:false}
       res.send(rel);
-    }else {
+    } else {
       delete req.body['city'];
       MahallaMgr.addMahalla(req.body,function(err,result){
         MahallaMgr.getMahallaId(result.insertId,function(err,resultid){
@@ -634,7 +628,6 @@ router.get('/adminMahala', function(req, res) {
     if(result[1][0] != undefined ){
       var pageCount = user.getPageCount(result[1][0].cnt); 
       var pagination = user.paginate(page,pageCount);
-      //console.log(result[0]);
       CityMgr.GetCity(function(err,result1){
         res.render('adminMahala', { title: 'Mahala',mahala:result[0],pagination:pagination,cities:result1});
       });
@@ -696,8 +689,7 @@ router.get('/adminSerialNumber', function(req, res) {
 
 router.get('/viewAdmin', function(req, res) {
   AdminMgr.GetAllAdmin(function(err,result){  
-    console.log(result);
-  res.render('viewAdmin', { title: 'view Admins' ,admin:result,NProgress:"fadeIn out"});
+    res.render('viewAdmin', { title: 'view Admins' ,admin:result,NProgress:"fadeIn out"});
   });
 });
 
@@ -712,7 +704,29 @@ router.get('/testPage', function(req, res) {
 });
 
 router.get('/addAdmin', function(req, res) {
-    res.render('addAdmin', { title: 'Add Admin'});
+  res.render('addAdmin', { title: 'Add Admin'});
+});
+
+router.get('/viewItem', function(req, res) {
+  res.render('viewItem', { title: 'View Item'});
+});
+
+router.get('/addItem', function(req, res) {
+  res.render('addItem', { title: 'Add Item'});
+
+router.post('/addAdmin',function(req,res){
+  console.log(req.body);
+  res.send(req.body);
+});
+
+router.post('/checkEmail',function(req,res){
+  AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
+    if(result[0]==undefined)
+      res.send(true);
+    else
+      res.send(false);
+    })
+  });
 });
 
 module.exports = router;

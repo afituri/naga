@@ -16,6 +16,7 @@ $(document).ready(function(){
   $('body').on('click', '#save', function () {
     $('#formtob').submit();
   });
+
   $("#formtob").submit(function() {
     $.post("/addTob", $("form").serializeObject(), function(data, error){
       if(data.stat !=true){
@@ -46,8 +47,7 @@ $(document).ready(function(){
       else {
         if($("#TOB").children().length>=10){
           $("#TOB tr:last-child").remove();
-        }
-        $("#TOB").prepend('<tr data-id="'+data.result[0].idtob+'">'+
+        $("#TOB").append('<tr data-id="'+data.result[0].idtob+'">'+
           '<td> <a id="name'+data.result[0].idtob+'" href="#" data-type="text" data-pk="'+data.result[0].idtob+'" class="editable editable-click editable-disabled">'+data.result[0].name+'</a></td>'+
           '<td> <a id="name_en'+data.result[0].idtob+'" href="#" data-type="text" data-pk="'+data.result[0].idtob+'" class="editable editable-click editable-disabled">'+data.result[0].name_en+'</a></td>'+
           '<td class="text-right"><button id="view" value="'+data.result[0].idtob+'" data-title="Edit" data-toggle="modal" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>'+
@@ -79,10 +79,4 @@ $(document).ready(function(){
     });
     return false;
   });
-
-
-
-
-
-
 });

@@ -44,7 +44,10 @@ $(document).ready(function(){
         // }
       } 
       else {
-        $("#MeasureTable").append('<tr data-id="'+data.result[0].idmeasure+'">'+
+        if($("#MeasureTable").children().length>=10){
+          $("#MeasureTable tr:last-child").remove();
+        }
+        $("#MeasureTable").prepend('<tr data-id="'+data.result[0].idmeasure+'">'+
         '<td class="text-center"><a id="name'+data.result[0].idmeasure+'" href="#" data-type="text" data-pk="'+data.result[0].idmeasure+'" class="editable editable-click editable-disabled">'+data.result[0].name+'</a></td>'+
         '<td class="text-center"><a id="name_en'+data.result[0].idmeasure+'" href="#" data-type="text" data-pk="'+data.result[0].idmeasure+'" class="editable editable-click editable-disabled">'+data.result[0].name_en+'</a></td>'+
         '<td class="text-center"><button id="view" value="'+data.result[0].idmeasure+'" data-title="Edit" data-toggle="modal" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>'+

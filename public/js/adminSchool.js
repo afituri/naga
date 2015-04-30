@@ -75,6 +75,7 @@ $(document).ready(function(){
       $('#Area').show(300);
       $('#area').empty();
       $('#mahalla').empty();
+      $('#area').append('<option value="" style="color:grey; display:none;">Please Select Area</option>');
       for ( var i = 0; i < result.length;  i++ ) {
         $('#area').append("<option value = '"+result[i].idarea+"'>"+result[i].name+"</option>");
       }
@@ -86,6 +87,7 @@ $(document).ready(function(){
     $('#mahalla').empty();
     $.get('/getmahalla/'+id,function(result){
       $('#Mahalla').show(300);
+      $('#mahalla').append('<option value="" style="color:grey; display:none;">Please Select mahalla</option>');
       for ( var i = 0; i < result.length;  i++ ) {
         $('#mahalla').append("<option value = '"+result[i].idmahalla+"'>"+result[i].name+"</option>");
       }

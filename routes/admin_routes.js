@@ -209,7 +209,6 @@ router.post('/addMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(err,result){
     MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
       var rel={"result":resultid,stat:true}
-      console.log(resultid[1])
       res.send(rel);
     });
   });

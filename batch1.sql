@@ -17,3 +17,6 @@ CREATE TABLE IF NOT EXISTS `naga`.`brand` (
 ENGINE = InnoDB;
 
 ALTER TABLE `item` ADD `item_desc` TEXT NOT NULL AFTER `discount_flag`;
+ALTER TABLE `item_has_size` DROP `color_idcolor`;
+ALTER TABLE `item_has_size` ADD `quantity` INT NULL ;
+ALTER TABLE `item` ADD `color_idcolor` INT NULL AFTER `brand_idbrand`, ADD `quantity` INT NOT NULL DEFAULT '0' AFTER `color_idcolor`;

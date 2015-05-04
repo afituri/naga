@@ -1,3 +1,10 @@
+.cursor {
+    cursor: pointer;
+}
+.result{
+    margin-top:20px;
+}
+
 #row {
   padding-top: 100px; 
 }
@@ -294,3 +301,4 @@ ul.pagination {
 .filterable .filters input[disabled]:-ms-input-placeholder {
   color: #333;
 }
+

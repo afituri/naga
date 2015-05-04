@@ -16,7 +16,7 @@ var GenreMgr =require('../app/genre').GenreMgr;
 var TogMgr =require('../app/tog').TogMgr;
 var CompanyMgr=require('../app/company').CompanyMgr;
 var user =require('../app/userHelpers');
-var  CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
+var CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
 var CompanyAddressMgr=require('../app/company_address').CompanyAddressMgr;
 var AdminMgr=require('../app/admin').AdminMgr;
 var formidable = require('formidable'),
@@ -29,6 +29,8 @@ router.get('/', function(req, res) {
   res.render('adminLogin', { title: 'Login' });
 });
 
+var idcompany=0;
+var idSize=0;
 //testPhoto.jade
 
 router.get('/testPhoto', function(req, res) {
@@ -207,12 +209,29 @@ router.post('/addMeasure',function(req,res){
   MeasureMgr.AddMeasure(req.body,function(err,result){
     MeasureMgr.GetMeasureId(result.insertId,function(err,resultid){
       var rel={"result":resultid,stat:true}
-      console.log(resultid[1])
       res.send(rel);
     });
   });
 });
 
+router.post('/addSizes',function(req,res){
+  console.log(idSize);
+  validator.isSize(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }
+    else {
+      SizeMgr.AddSize(req.body,idSize,function(result){
+         SizeMgr.GetSizebyId(result.insertId,function(err,resultid){
+          console.log(resultid);
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
 
 router.post('/savePhoto',function(req, res) {
   if (req.url == '/savePhoto') {
@@ -261,6 +280,7 @@ router.post('/addTob',function(req, res) {
 });
 
 router.get('/sizes/:id', function(req, res) {
+  idSize=req.params.id;
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
     res.render('sizes', { title: 'sizes',size:result});
   });
@@ -279,8 +299,8 @@ router.get('/adminTypeBusiness', function(req, res) {
 });
 
 router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
-  GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){
-    res.render('adminGenre', { title: 'Genre',genre:result});
+  GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){  
+  res.render('adminGenre', { title: 'Genre',genre:result});
   });
 });
 
@@ -293,13 +313,21 @@ router.get('/adminTypeBusiness/adminGenre/:id/adminTypeGenre', function(req, res
 
 router.get('/adminCompany', function(req, res) {
   CompanyMgr.GetCompany(function(err,result){
-    res.render('adminCompany', { title: 'Company',company:result});
+    TobMgr.GetTob(function(err,result1){
+      res.render('adminCompany', { title: 'Company',company:result,tob:result1});
+    });
   });
 });
 
 router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
+  idcompany=req.params.id;
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
-    res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result});
+    // var x =result;
+    CityMgr.GetCity(function(err,result1){  
+      // //console.log(result1);
+      // console.log(x);
+      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1});
+    });
   });
 });
 
@@ -566,6 +594,12 @@ router.get('/getmahalla/:id', function(req, res) {
   });
 });
 
+router.get('/getschool/:id', function(req, res) {
+  SchoolMgr.getSchoolID(req.params.id,function(err,result){
+    res.send(result);
+  });
+});
+
 router.post('/addschool',function(req,res){
   validator.isSchool(req,function(err,result){
     if(result!=true){
@@ -593,6 +627,24 @@ router.post('/addAreas',function(req,res){
     else {
       AreaMgr.addArea(req.body,function(err,result){
         AreaMgr.getAreaInfoById(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
+router.post('/addAddres',function(req,res){
+  validator.isAddres(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }
+    else {
+      //console.log(idcompany);
+      CompanyAddressMgr.AddCompanyAddress(req.body,idcompany,function(err,result){
+         CompanyAddressMgr.getCompanyAddressInfoById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);
         });
@@ -647,6 +699,7 @@ router.get('/adminSchools', function(req, res) {
     }
   });
 });
+
 
 router.get('/adminInvoice', function(req, res) {
   res.render('adminInvoice', { title: 'Invoice'});
@@ -703,6 +756,38 @@ router.get('/testPage', function(req, res) {
 
 router.get('/addAdmin', function(req, res) {
   res.render('addAdmin', { title: 'Add Admin'});
+});
+router.get('/addPrepaidVendor', function(req, res) {
+  res.render('addPrepaidVendor', { title: 'prepaidVendor'});
+});
+
+router.get('/vendor', function(req, res) {
+  res.render('vendor', { title: 'vendor'});
+});
+router.get('/vendor/vendorHasPrepaid', function(req, res) {
+  res.render('vendorHasPrepaid', { title: 'vendorHasPrepaid'});
+});
+
+router.get('/viewItem', function(req, res) {
+  res.render('viewItem', { title: 'View Item'});
+});
+
+router.get('/newItem', function(req, res) {
+  res.render('newItem', { title: 'New Item'});
+
+router.post('/addAdmin',function(req,res){
+  console.log(req.body);
+  res.send(req.body);
+});
+
+router.post('/checkEmail',function(req,res){
+  AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
+    if(result[0]==undefined)
+      res.send(true);
+    else
+      res.send(false);
+    })
+  });
 });
 
 module.exports = router;

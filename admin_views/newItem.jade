@@ -1,0 +1,85 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Item Manger
+          small  New Item
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-cart-arrow-down  Item Manger
+          li.active
+            i.fa  New Item
+        //- code start
+        form#formNewItem.form-signin(role="form",name='formNewItem')
+          .panel.panel-default
+            .panel-heading
+              .h3.panel-title Name & Descrption
+            .panel-body
+              .row
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group
+                    .h5 Item in Arabic
+                    input#name.form-control(type="text",name="name", placeholder="Name in Arabic")
+                .col-xs-6.col-md-5
+                  .form-group      
+                    .h5 Item in English
+                    input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
+                .col-xs-12.col-md-10.col-md-offset-1
+                  .form-group
+                    .h5 Descrption
+                    textarea#item_desc.form-control(name="item_desc" placeholder="Please enter descrption here..." rows="10")
+            .panel-heading
+              .h3.panel-title Price & Discount
+            .panel-body
+              .row
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group
+                    .h5 Price
+                    .input-group
+                      span.input-group-addon $
+                      input#price.form-control(type='text',name="price" ,placeholder="Enter price")
+                .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                  .form-group      
+                    .h5 Discount State
+                    input#discount_flag(type='checkbox', name='discount_flag')
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group#Hide(style='display:none')
+                    .h5 Discount
+                    .input-group
+                      span.input-group-addon %
+                      input#discount.form-control(type="text",name="discount", placeholder="Enter discount")
+                .col-xs-6.col-md-5
+                  .form-group#Hide1(style='display:none')
+                    .h5 Discount Expiration Date
+                    .input-group
+                      span.input-group-addon 
+                       i.fa.fa-calendar
+                      input#discount_exp.form-control(type='text', placeholder="Enter exp date")
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src="/js/bootstrap-switch.min.js")
+  script.
+    $("[name='discount_flag']").bootstrapSwitch('state', false);
+    $(document).ready(function(){
+      $("[name='discount_flag']").on('switchChange.bootstrapSwitch', function (e, data) {
+        var state=$(this).bootstrapSwitch('state');
+        if(state)
+        {
+          $("#Hide").show(400); //-.addClass('animated fadeInDown');
+          $("#Hide1").show(400);//- .addClass('animated fadeInDown');
+        }
+        else
+        {
+          $("#Hide").hide(400);//-.addClass('animated fadeInUp');
+          $("#Hide1").hide(400);//- .addClass('animated fadeInUp');
+        }
+      });
+    });

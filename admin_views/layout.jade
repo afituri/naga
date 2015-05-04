@@ -20,6 +20,7 @@ html(lang='en')
     link(href="/css/nprogress.css" rel="stylesheet")
     link(href="/css/animate.min.css" rel="stylesheet")
     link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-switch.min.css" rel="stylesheet")
   body.animated.fadeIn(style='display: none')
     block content
       block navigation
@@ -273,11 +274,34 @@ html(lang='en')
                       |  Prepaid Card Manger
                   li
                     a(href="#")
-                      i.fa.fa-sitemapfa-fw Multi-Level Dropdown
+                      i.fa.fa-cart-arrow-down
+                      |  Item Manger
                       span.fa.arrow
                     ul.nav.nav-second-level
                       li
-                        a(href="#") Second Level Item
+                        a(href="/viewItem") View Items
+                      li
+                        a(href="/newItem") New Item 
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                       | Vendor Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/vendor") Vendor
+                          span.fa.arrow
+                  
+                      li
+                        a(href="/addPrepaidVendor") addPrepaidVendor
+                          span.fa.arrow             
+                  li
+                    a(href="#")
+                      i.fa.fa-sitemapfa-fw Third Level Item
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Third Level Item
                           span.fa.arrow
                         ul.nav.nav-third-level
                           li

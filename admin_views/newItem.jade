@@ -60,12 +60,61 @@ block Dashboard
                       span.input-group-addon 
                        i.fa.fa-calendar
                       input#discount_exp.form-control(type='text', placeholder="Enter exp date")
+            .panel-heading
+              .h3.panel-title Company
+            .panel-body
+              .row
+                .col-md-8.col-md-offset-2
+                  .h4 Select Company 
+              .row
+                .col-md-5.col-md-offset-2
+                  select#company_idcompany.form-control.selectpicker.show-tick(type="text",name="company_idcompany",data-show-subtext='true',data-size='5',data-live-search='true')
+                    option(value="", style='color:grey; display:none;') Please Select Company
+                .col-md-5
+                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal') 
+                    i.glyphicon.glyphicon-plus
+                    |  New Company
+        #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") ×
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  New Company
+              .row 
+                .modal-body
+                  form#formCompany.form-signin(role="form" , action="", method="post")
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in Arabic     
+                        input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                      .form-group
+                        .h4 Type of Business
+                        select#tob_idtob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")  
+                      .form-group
+                        .h4 logo
+                        input#logo(type="file",name="logo", placeholder="logo",autofocus="")
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in English
+                        input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                      .form-group
+                        .h4 level
+                        select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
+                          for i in [1,2,3,4,5]
+                            option(value="#{i}",data-subtext='#{i}') #{i}   
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button#save.btn.btn-primary() Save Change
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src="/js/jquery.validate.min.js")
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
   script(src="/js/bootstrap-switch.min.js")
+  script(src='/js/bootstrap-select.min.js')
   script.
     $("[name='discount_flag']").bootstrapSwitch('state', false);
     $(document).ready(function(){

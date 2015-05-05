@@ -45,4 +45,5 @@ ALTER TABLE `item` ADD `item_core_iditem_core` BIGINT NOT NULL AFTER `quantity`;
 
 
 ALTER TABLE `item` DROP `name`, DROP `name_en`, DROP `item_desc`, DROP `company_idcompany`, DROP `tog_idtog`, DROP `genre_idgenre`, DROP `tob_idtob`, DROP `brand_idbrand`;
+ALTER TABLE `stock` ADD `latit` VARCHAR(100) NOT NULL AFTER `phone`, ADD `longit` VARCHAR(100) NOT NULL AFTER `latit`;
 

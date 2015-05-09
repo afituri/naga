@@ -774,10 +774,17 @@ router.get('/viewItem', function(req, res) {
 
 router.get('/newItem', function(req, res) {
   res.render('newItem', { title: 'New Item'});
+});
 
 router.post('/addAdmin',function(req,res){
-  console.log(req.body);
-  res.send(req.body);
+  AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
+    if(result[0]==undefined)
+      user.addAdmin(req.body,function(results){
+        res.send(true);
+      });
+    else
+      res.send(false);
+  });
 });
 
 router.post('/checkEmail',function(req,res){
@@ -786,7 +793,6 @@ router.post('/checkEmail',function(req,res){
       res.send(true);
     else
       res.send(false);
-    })
   });
 });
 

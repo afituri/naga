@@ -19,6 +19,7 @@ var user =require('../app/userHelpers');
 var CompanySellerMgr=require('../app/company_seller').CompanySellerMgr;
 var CompanyAddressMgr=require('../app/company_address').CompanyAddressMgr;
 var AdminMgr=require('../app/admin').AdminMgr;
+var login = require('../app/admin_login')(router);
 var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),

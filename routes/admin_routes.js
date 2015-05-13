@@ -773,7 +773,11 @@ router.get('/viewItem', function(req, res) {
 });
 
 router.get('/newItem', function(req, res) {
-  res.render('newItem', { title: 'New Item'});
+  CompanyMgr.GetCompany(function(err,result){
+    TobMgr.GetTob(function(err,result1){
+      res.render('newItem', { title: 'New Item',companys:result,tobs:result1});
+    });
+  });
 });
 
 router.post('/addAdmin',function(req,res){

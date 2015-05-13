@@ -70,6 +70,8 @@ block Dashboard
                 .col-md-5.col-md-offset-2
                   select#company_idcompany.form-control.selectpicker.show-tick(type="text",name="company_idcompany",data-show-subtext='true',data-size='5',data-live-search='true')
                     option(value="", style='color:grey; display:none;') Please Select Company
+                    for company in companys
+                      option(value="#{company.idcompany}") #{company.name} 
                 .col-md-5
                   a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal') 
                     i.glyphicon.glyphicon-plus
@@ -85,14 +87,17 @@ block Dashboard
                   |  New Company
               .row 
                 .modal-body
-                  form#formCompany.form-signin(role="form" , action="", method="post")
+                  form#formCompany.form-signin(role="form", enctype="multipart/form-data")
                     .col-xs-6.col-md-6
                       .form-group
                         .h4 Name in Arabic     
                         input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
                       .form-group
                         .h4 Type of Business
-                        select#tob_idtob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")  
+                        select#tob_idtob.form-control.selectpicker.show-tick(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="",data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select Type of Business
+                          for tob in tobs
+                            option(value="#{tob.idtob}") #{tob.name}
                       .form-group
                         .h4 logo
                         input#logo(type="file",name="logo", placeholder="logo",autofocus="")
@@ -111,6 +116,8 @@ block Dashboard
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
   script(src="/js/jquery.validate.min.js")
+  script(src="/js/newItem.js")
+  script(src='/js/helpers.js')
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
   script(src="/js/bootstrap-switch.min.js")

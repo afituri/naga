@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   $.fn.name_en = function(){
     $('a[id^="name_en"]').editable({
-      url: '/editnameEn',
+      url: '/address/editnameEn',
       type: 'text',
       pk: 1,
       name: 'name_en',
@@ -27,7 +27,7 @@ $(document).ready(function(){
   $.fn.name_en();
   $.fn.name = function(){
     $('a[id^="name"]').editable({
-      url: '/editname',
+      url: '/address/editname',
       type: 'text',
       pk: 1,
       name: 'name',

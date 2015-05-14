@@ -1,9 +1,24 @@
 var easyPbkdf2 = require("easy-pbkdf2")(),
-  url=require('url')
+    adminMgr= require("../app/admin").AdminMgr,
+    url=require('url');
 
 module.exports = {
   /* here we add a new user to the system */
-  
+  addAdmin: function (body, cb) {
+    var salt = easyPbkdf2.generateSalt(); //we generate a new salt for every new user
+    easyPbkdf2.secureHash( body.password, salt, function( err, passwordHash, originalSalt ) {
+      var obj={
+            name : body.name,
+            email : body.email,
+            password : passwordHash,
+            salt : originalSalt,
+            level : body.level
+          }
+      adminMgr.AddAdmin(obj, function(result){
+        cb(result);  
+      });
+    });
+  },
   /* here we check if the user have root access */
   isRoot : function (req,res,next) {
     if (req.isAuthenticated() && req.session.level<=0) { return next(); }
@@ -23,13 +38,6 @@ module.exports = {
     if(req.isAuthenticated() && req.session.level==2 && req.params.oid==req.session.office_idoffice){ return next(); }
     if(!req.isAuthenticated()){res.redirect('/users/login')}
     res.redirect('/office/'+ req.session.office_idoffice)
-  },
-  isCenter: function (req,res,next) {
-    if (req.isAuthenticated() && req.session.level<2) { return next(); }
-    centerMgr.iscenter(req.params.cid,req.session.office_idoffice,function(result){
-      if(result){ return next(); }
-      res.redirect('/office/'+ req.session.office_idoffice);
-    });
   },
    /* here we check if the manager have access to office */
   isAcsees : function (req,res,next) {

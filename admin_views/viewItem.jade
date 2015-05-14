@@ -19,14 +19,14 @@ block Dashboard
             .row
               .col-xs-3.col-md-2
                 h3.panel-title#title
-                  strong List of Admins
+                  strong List of Items
               .pull-right
                 button#space.btn.btn-primary.btn-filter
                   i.glyphicon.glyphicon-filter
                   |  Filter of Search
                 a#space.btn.btn-success(href='/addAdmin', role='button',data-toggle='modal')
                   i.glyphicon.glyphicon-plus
-                  |  Add Admin
+                  |  New Item
                 button#space.btn.btn.btn-info
                   i.glyphicon.glyphicon-print
                   |  Print
@@ -129,7 +129,7 @@ block Dashboard
                       span.glyphicon.glyphicon-trash
             .col-md-12
               .result.pull-left
-                strong Mostrando 1 até 6 de 5000
+                strong Showing 1 to 6, 5000
               ul.pagination.pull-right
                 li
                   a(href='#') «
@@ -155,75 +155,75 @@ block Dashboard
                   h4#myModalLabel.modal-title
                     i.text-muted.fa.fa-shopping-cart
                     strong 02051
-                    |  - Nome do Produto
+                    |  - Product Name
                 .modal-body
                   table.pull-left.col-md-8
                     tbody
                       tr
                         td.h6
-                          strong Código
+                          strong Code
                         td  
                         td.h5 02051
                       tr
                         td.h6
-                          strong Descrição
+                          strong Description
                         td  
-                        td.h5 descrição do produto
+                        td.h5 Product Description
                       tr
                         td.h6
-                          strong Marca/Fornecedor
+                          strong Brand / Supplier
                         td  
-                        td.h5 Marca do produto
+                        td.h5 Product Brand
                       tr
                         td.h6
-                          strong Número Original
+                          strong Original number
                         td  
                         td.h5 0230316
                       tr
                         td.h6
-                          strong Código N.C.M
+                          strong N.C.M code
                         td  
                         td.h5 032165
                       tr
                         td.h6
-                          strong Código de Barras
+                          strong Bar code
                         td  
                         td.h5 0321649843
                       tr
                         td.h6
-                          strong Unid. por Embalagem
+                          strong Pcs. by Packaging
                         td  
                         td.h5 50
                       tr
                         td.h6
-                          strong Quantidade Mínima
+                          strong Minimum
                         td  
                         td.h5 50
                       tr
                         td.h6
-                          strong Preço Atacado
+                          strong Wholesale price
                         td  
                         td.h5 R$ 35,00
                       tr
-                        td.btn-mais-info.text-primary
+                        td.btn-mais-info.text-primary.cursor
                           i.open_info.fa.fa-plus-square-o
                           i.open_info.hide.fa.fa-minus-square-o
-                          |  informações
+                          |  information
                         td  
                         td.h5
                   .col-md-4
                     img.img-thumbnail(src='http://lorempixel.com/150/150/technics/', alt='teste')
                   .clearfix
                   p.open_info.hide
-                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    | Lorem ipsum dolor sit amet, consectetur rebates, but do eiusmod tempor and vitality, so that labor and obesity. Over the years, I will come, who will nostrud aliquip advantage from it, but for to exercise, work, school district. Cillum irure travail upon a woman has been criticized in the Duis velit esse dolore eu flee that produces no resultant pleasure.
                 .modal-footer
                   .text-right.pull-right.col-md-3
-                    | Varejo: 
+                    | Retail: 
                     br
                     span.h3.text-muted
                       strong  R$50,00 
                   .text-right.pull-right.col-md-3
-                    | Atacado: 
+                    | Wholesale:
                     br
                     span.h3.text-muted
                       strong R$35,00
@@ -234,12 +234,6 @@ block Dashboard
   script(src='/js/searchFilter.js')
   script.
     $(function () {
-      /* BOOTSNIPP FULLSCREEN FIX */
-      if (window.location == window.parent.location) {
-          $('#back-to-bootsnipp').removeClass('hide');
-          $('.alert').addClass('hide');
-      } 
-      
       $('.cursor').on('click', function(event) {
           event.preventDefault();
           $('#myModal').modal('show');

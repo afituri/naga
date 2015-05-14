@@ -62,7 +62,7 @@ block Dashboard
                               button#delete.btn.btn-danger.btn-xs(href='#devo', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash
                             td.text-center
-                              button#View.btn.btn-primary.btn-xs(href='#View', data-toggle='modal',value='')
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash      
                 #devo.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
                   .modal-dialog
@@ -119,7 +119,7 @@ block Dashboard
                               button#delete.btn.btn-danger.btn-xs(href='#deco', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash 
                             td.text-center
-                              button#View.btn.btn-primary.btn-xs(href='#View', data-toggle='modal',value='')
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash    
                 #deco.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
                   .modal-dialog
@@ -135,10 +135,11 @@ block Dashboard
 
   script(src='/js/jquery-1.11.2.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/vendorHasPrepaid.js')  
   script(src='/metisMenu/dist/metisMenu.min.js') 
   script(src='/js/sb-admin-2.js')
   script(src='/js/searchFilter.js')
   script(src='/js/admin.js')
   script(src="/js/bootstrap-switch.min.js")
   script(src='/js/vendor.js')  
-  script(src='/js/vendorHasPrepaid.js')
+  

@@ -5,8 +5,8 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-    $.get('/deleteColor/'+$(this).val(),function(result){
-      window.location.href='/adminColors';
+    $.get('/measure/deleteColor/'+$(this).val(),function(result){
+      window.location.href='/measure/adminColors';
     });
   });
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
   $("#formColors").submit(function(e) {
     var isvalidate=$("#formColors").valid();
     if(isvalidate){
-      $.post("/addColor", $("form").serializeObject(), function(data, error){
+      $.post("/measure/addColor", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {

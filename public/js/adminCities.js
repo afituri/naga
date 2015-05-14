@@ -21,8 +21,8 @@ $(document).ready(function(){
     $('#deletee').val($(this).val());
   });
   $('body').on('click','#deletee', function(){
-    $.get('/deleteCity/'+$(this).val(),function(result){
-      window.location.href='/adminCities';
+    $.get('/address/deleteCity/'+$(this).val(),function(result){
+      window.location.href='/address/adminCities';
     });
   });
   $('body').on('click', '#sub', function (e) {
@@ -32,7 +32,7 @@ $(document).ready(function(){
   $("#formCitie").submit(function(e) {
     var isvalidate=$("#formCitie").valid();
     if(isvalidate){
-      $.post("/addcity", $("form").serializeObject(), function(data, error){
+      $.post("/address/addcity", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
         } 
         else {

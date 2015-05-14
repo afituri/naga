@@ -44,7 +44,7 @@ $(document).ready(function(){
   $("#formArea").submit(function(e) {
     var isvalidate=$("#formArea").valid();
     if(isvalidate){
-      $.post("/addAreas", $("form").serializeObject(), function(data, error){
+      $.post("/address/addAreas", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {
@@ -96,8 +96,8 @@ $(document).ready(function(){
    }) ;
 
   $('body').on('click','#deletee',function(){
-      $.get('/deleteArea/'+$(this).val(),function(result){
-          window.location.href='/adminAreas';
+      $.get('/address/deleteArea/'+$(this).val(),function(result){
+          window.location.href='/address/adminAreas';
       });
   }) ;
 

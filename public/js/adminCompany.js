@@ -49,22 +49,22 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-    $.get('/deleteCompany/'+$(this).val(),function(result){
-      window.location.href='/adminCompany';
+    $.get('/compan/deleteCompany/'+$(this).val(),function(result){
+      window.location.href='/company/adminCompany';
     });
   });
 
   $('body').on('click', '#View', function () {
   	//alert($(this).val());
-    window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyView';
+    window.location.href='/company/adminCompany/'+$(this).val()+'/adminCompanyView';
   });
 
     $('body').on('click', '#Addresses', function () {
-    window.location.href='/adminCompany/'+$(this).val()+'/adminCompanyAddress';
+    window.location.href='/company/adminCompany/'+$(this).val()+'/adminCompanyAddress';
   });
 
      $('body').on('click', '#seller', function () {
-      window.location.href='/adminCompany/'+$(this).val()+'/adminSellerCo';
+      window.location.href='/company/adminCompany/'+$(this).val()+'/adminSellerCompany';
   });
 
   $('body').on('click', '#save', function () {

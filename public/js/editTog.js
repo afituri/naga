@@ -11,7 +11,7 @@ $(document).ready(function(){
   }); 
 
     $('a[id^="name_en"]').editable({	
-    url: '/editTogNameEn',
+    url: '/typeBusiness/editTogNameEn',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -22,7 +22,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="name"]').editable({
-    url: '/editTogName',
+    url: '/typeBusiness/editTogName',
     type: 'text',
     pk: 1,
     name: 'name',

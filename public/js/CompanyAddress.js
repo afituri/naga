@@ -70,8 +70,8 @@ $(document).ready(function(){
     });
 
   $('body').on('click', '#deletee', function () {
-       $.get('/deleteCompanySeller/'+$(this).val(),function(result){
-        window.location.href='/adminCompany/'+result[0].idcompany+'/adminSellerCo';
+       $.get('/company/deleteCompanySeller/'+$(this).val(),function(result){
+        window.location.href='/company/adminCompany/'+result[0].idcompany+'/adminSellerCompany';
       });
     });
 
@@ -79,7 +79,7 @@ $(document).ready(function(){
     var id = $('#city_idcity').val();
       $('#Area').hide();
       $('#Mahalla').hide();
-    $.get('/getarea/'+id,function(result){
+    $.get('/address/getarea/'+id,function(result){
       $('#Area').show(300);
       $('#area').empty();
       $('#mahalla').empty();
@@ -93,7 +93,7 @@ $(document).ready(function(){
     var id = $('#area').val();
     $('#Mahalla').hide();
     $('#School').hide();
-    $.get('/getmahalla/'+id,function(result){
+    $.get('/address/getmahalla/'+id,function(result){
       $('#Mahalla').show(300);
       $('#mahalla').empty();
       $('#idschool').empty();
@@ -105,7 +105,7 @@ $(document).ready(function(){
   
   $('#mahalla').on('change',function() {
     var id = $('#mahalla').val();
-    $.get('/getschool/'+id,function(result){
+    $.get('/address/getschool/'+id,function(result){
       $('#School').show(300);
       $('#idschool').empty();
       for ( var i = 0; i < result.length;  i++ ) {
@@ -113,19 +113,9 @@ $(document).ready(function(){
       }
     });
   });
-  
-  $('body').on('click', '#delete', function () {
-    $('#deletee').val($(this).val());
-  });
-
-  $('body').on('click', '#deletee', function () {
-    $.get('/deleteCompanySeller/'+$(this).val(),function(result){
-    window.location.href='/adminCompany/'+result[0].idcompany+'/adminSellerCo';
-    });
-  });
 
   $('body').on('click', '#view', function () {
-      window.location.href='/adminCompany/adminCompanyAddress';
+      window.location.href='/company/adminCompany/adminCompanyAddress';
   });
 
   $('body').on('click', '#save', function () {
@@ -134,7 +124,7 @@ $(document).ready(function(){
 
 
   $("#formAddres").submit(function() {
-    $.post("/addAddres", $("form#formAddres").serializeObject(), function(data, error){
+    $.post("/company/addAddress", $("form#formAddres").serializeObject(), function(data, error){
       if(data.stat !=true){
         alert("error");
         // $("#err").empty();

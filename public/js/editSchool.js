@@ -15,7 +15,7 @@ $(document).ready(function(){
   }); 
 
   $('a[id^="latit"]').editable({
-    url: '/editlatitSchool',
+    url: '/address/editlatitSchool',
     type: 'text',
     pk: 1,
     name: 'name',
@@ -26,7 +26,7 @@ $(document).ready(function(){
   });
 
     $('a[id^="longit"]').editable({
-    url: '/editlongitSchool',
+    url: '/address/editlongitSchool',
     type: 'text',
     pk: 1,
     name: 'name',
@@ -37,7 +37,7 @@ $(document).ready(function(){
   });
   
   $('a[id^="name_en"]').editable({
-    url: '/SchoolEditNameEn',
+    url: '/address/SchoolEditNameEn',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -48,7 +48,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="name"]').editable({
-    url: '/SchoolEditName',
+    url: '/address/SchoolEditName',
     type: 'text',
     pk: 1,
     name: 'name',

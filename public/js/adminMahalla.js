@@ -49,14 +49,14 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-   $.get('/deleteMahalla/'+$(this).val(),function(result){
-     window.location.href='/adminMahala';
+   $.get('/address/deleteMahalla/'+$(this).val(),function(result){
+     window.location.href='/address/adminMahala';
    });
   });
 
   $('#city').on('change',function() {
     var id = $('#city').val();
-    $.get('/getarea/'+id,function(result){
+    $.get('/address/getarea/'+id,function(result){
       $('#area').empty();
       for ( var i = 0; i < result.length;  i++ ) {
         $('#area').append("<option value = '"+result[i].idarea+"'>"+result[i].name+"</option>");
@@ -72,7 +72,7 @@ $(document).ready(function(){
   $("#formMahala").submit(function(e) {
     var isvalidate=$("#formMahala").valid();
     if(isvalidate){
-      $.post("/addMahala", $("form").serializeObject(), function(data, error){
+      $.post("/address/addMahala", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {

@@ -50,7 +50,7 @@ block Dashboard
                         a#email(href='#', data-type='text', data-pk='#{com[0].idcompany_seller}',  data-value='#{com[0].email}') #{com[0].email}
  
 
-                    form(action="/savePhoto", method="post", enctype="multipart/form-data")
+                    form(action="company/savePhoto", method="post", enctype="multipart/form-data")
                       input#uploadForm(type="file",name="logo", placeholder="logo",autofocus="")
                       button.btn.btn-primary(type="submit") Save
   

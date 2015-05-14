@@ -105,6 +105,8 @@ block Dashboard
                         .form-group
                           .h4 level
                           select#level.form-control(type="text",name="level", placeholder="level",autofocus="")
+                            for i in [1,2,3,4,5]
+                              option(value="#{i}",data-subtext='#{i}') #{i}   
                       .col-xs-6.col-md-6
                         .form-group
                           .h4 Last Name
@@ -123,3 +125,4 @@ block Dashboard
   script(src='/js/bootstrap-select.min.js')
   script(src='/js/bootstrap-editable.min.js')     
   script(src='/js/editCompanySeller.js')
+  script(src='/js/companySeller.js') 

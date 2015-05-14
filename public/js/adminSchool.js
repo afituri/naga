@@ -62,8 +62,8 @@ $(document).ready(function(){
     $('#deletee').val($(this).val());
   });
   $('body').on('click', '#deletee', function(){
-    $.get('/deleteSchool/'+$(this).val(),function(result){
-      window.location.href='/adminSchools';
+    $.get('/address/deleteSchool/'+$(this).val(),function(result){
+      window.location.href='/address/adminSchools';
     });
   });
 
@@ -71,7 +71,7 @@ $(document).ready(function(){
     var id = $('#city_idcity').val();
       $('#Area').hide();
       $('#Mahalla').hide();
-    $.get('/getarea/'+id,function(result){
+    $.get('/address/getarea/'+id,function(result){
       $('#Area').show(300);
       $('#area').empty();
       $('#mahalla').empty();
@@ -85,7 +85,7 @@ $(document).ready(function(){
   $('#area').on('change',function() {
     var id = $('#area').val();
     $('#mahalla').empty();
-    $.get('/getmahalla/'+id,function(result){
+    $.get('/address/getmahalla/'+id,function(result){
       $('#Mahalla').show(300);
       $('#mahalla').append('<option value="" style="color:grey; display:none;">Please Select mahalla</option>');
       for ( var i = 0; i < result.length;  i++ ) {
@@ -102,7 +102,7 @@ $(document).ready(function(){
   $("#formSchool").submit(function(e) {
     var isvalidate=$("#formSchool").valid();
     if(isvalidate){
-      $.post("/addschool", $("form").serializeObject(), function(data, error){
+      $.post("/address/addschool", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {

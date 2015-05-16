@@ -42,12 +42,12 @@ exports.CompanyAddressMgr = {
     });
   },
 
-  AddCompanyAddress : function(body,id,cb){
+  AddCompanyAddress : function(body,cb){
     mysqlMgr.connect(function (conn) {
       var latit = body.latit;
       var longit = body.longit;
       var bb = body.default;
-      var company_idcompany = id;
+      var company_idcompany = body.idcompany;
       var school_idschool = body.idschool;
       var address_desc = body.address_desc;
       conn.query('INSERT INTO `company_address`(`latit`, `longit`, `default`, `company_idcompany`, `school_idschool`, `address_desc`) VALUES (?,?,?,?,?,?)',[latit, longit, bb, company_idcompany, school_idschool, address_desc],  function(err, result) {

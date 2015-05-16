@@ -319,13 +319,9 @@ router.get('/adminCompany', function(req, res) {
 });
 
 router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
-  idcompany=req.params.id;
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
-    // var x =result;
     CityMgr.GetCity(function(err,result1){  
-      // //console.log(result1);
-      // console.log(x);
-      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1});
+      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1,id:req.params.id});
     });
   });
 });
@@ -641,8 +637,7 @@ router.post('/addAddres',function(req,res){
       res.send(rel);
     }
     else {
-      //console.log(idcompany);
-      CompanyAddressMgr.AddCompanyAddress(req.body,idcompany,function(err,result){
+      CompanyAddressMgr.AddCompanyAddress(req.body,function(err,result){
          CompanyAddressMgr.getCompanyAddressInfoById(result.insertId,function(err,resultid){
           var rel={"result":resultid,stat:true}
           res.send(rel);

@@ -23,8 +23,8 @@ $(document).ready(function(){
       $('#del').val($(this).val());
   });
   $('body').on('click', '#del', function () {
-     $.get('/deleteSize/'+$(this).val(),function(result){
-      window.location.href='/sizes/'+result[0].measure_idmeasure;
+     $.get('/measure/deleteSize/'+$(this).val(),function(result){
+      window.location.href='/measure/sizes/'+result[0].measure_idmeasure;
      });
   });
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 
   $("#formSizes").submit(function() {
-    $.post("/addSizes", $("form#formSizes").serializeObject(), function(data, error){
+    $.post("/measure/addSizes", $("form#formSizes").serializeObject(), function(data, error){
       if(data.stat !=true){
         alert("error");
         // $("#err").empty();

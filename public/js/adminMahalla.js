@@ -49,14 +49,14 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-   $.get('/deleteMahalla/'+$(this).val(),function(result){
-     window.location.href='/adminMahala';
+   $.get('/address/deleteMahalla/'+$(this).val(),function(result){
+     window.location.href='/address/adminMahala';
    });
   });
 
   $('#city').on('change',function() {
     var id = $('#city').val();
-    $.get('/getarea/'+id,function(result){
+    $.get('/address/getarea/'+id,function(result){
       $('#area').empty();
       for ( var i = 0; i < result.length;  i++ ) {
         $('#area').append("<option value = '"+result[i].idarea+"'>"+result[i].name+"</option>");
@@ -64,54 +64,62 @@ $(document).ready(function(){
     });
   });
 
-  $('body').on('click', '#save', function () {
+  $('body').on('click', '#save', function (e) {
+    e.preventDefault();
     $('#formMahala').submit();
   });
 
-  $("#formMahala").submit(function() {
-    $.post("/addMahala", $("form").serializeObject(), function(data, error){
-      if(data.stat !=true){
-        // $("#err").empty();
-        // for (err in data.result) {
-        //   $("#err").append('<h1>'+data.result[err].msg+'</h1>');
-        // }
-      } 
-      else {
-        if($("#tbody").children().length>=10){
-          $("#tbody tr:last-child").remove();
-        }
-        $("#tbody").prepend('<tr data-id="'+data.result[0].idmahalla+'">'+
-        '<td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName+'</a></td>'+
-        '<td class="text-center"> <a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName_en+'</a></td>'+
-        '<td class="text-center">'+data.result[0].areaName+'</td>'+
-        '<td class="text-center">'+data.result[0].areaName_en+'</td>'+
-        '<td class="text-center">'+
-          '<button id="enable" value="'+data.result[0].idmahalla+'" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil">  </span></button>'+
-        '</td><td class="text-center">'+
-          '<button id="delete" value="'+data.result[0].idmahalla+'" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>'+
-        '</td></tr>');
+  $("#formMahala").submit(function(e) {
+    var isvalidate=$("#formMahala").valid();
+    if(isvalidate){
+      $.post("/address/addMahala", $("form").serializeObject(), function(data, error){
+        if(data.stat !=true){
+          // $("#err").empty();
+          // for (err in data.result) {
+          //   $("#err").append('<h1>'+data.result[err].msg+'</h1>');
+          // }
+        } 
+        else {
+          $('#nameArabic').val("");
+          $('#nameEnglish').val("");
+          $('#city').val('');
+          $('#area').empty();
+          if($("#tbody").children().length>=10){
+            $("#tbody tr:last-child").remove();
+          }
+          $("#tbody").prepend('<tr data-id="'+data.result[0].idmahalla+'">'+
+          '<td class="text-center"><a id="name'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName+'</a></td>'+
+          '<td class="text-center"> <a id="name_en'+data.result[0].idmahalla+'" href="#" data-type="text" data-pk="'+data.result[0].idmahalla+'" class="editable editable-click editable-disabled">'+data.result[0].mahallaName_en+'</a></td>'+
+          '<td class="text-center">'+data.result[0].areaName+'</td>'+
+          '<td class="text-center">'+data.result[0].areaName_en+'</td>'+
+          '<td class="text-center">'+
+            '<button id="enable" value="'+data.result[0].idmahalla+'" data-title="Edit" data-toggle="modal" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil">  </span></button>'+
+          '</td><td class="text-center">'+
+            '<button id="delete" value="'+data.result[0].idmahalla+'" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>'+
+          '</td></tr>');
 
-        $('#newMahala').modal('hide');
-        $.notify({
-          title: "<strong>Successful:</strong> ",
-          message: "Add a new Mahala has successfully"
-        },{
-          type: 'success',
-          allow_dismiss: true,
-          showProgressbar: false,
-          placement: {
-            from: 'top',
-            align: 'center'
-          },
-          mouse_over: null,
-          newest_on_top: true,
-          animate: {
-            enter: 'animated flipInY',
-            exit: 'animated flipOutX'
-          },
-        });
-      }
-    });
+          $('#newMahala').modal('hide');
+          $.notify({
+            title: "<strong>Successful:</strong> ",
+            message: "Add a new Mahala has successfully"
+          },{
+            type: 'success',
+            allow_dismiss: true,
+            showProgressbar: false,
+            placement: {
+              from: 'top',
+              align: 'center'
+            },
+            mouse_over: null,
+            newest_on_top: true,
+            animate: {
+              enter: 'animated flipInY',
+              exit: 'animated flipOutX'
+            },
+          });
+        }
+      });
+    }
     return false;
   });
 

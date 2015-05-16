@@ -1,6 +1,4 @@
 {
-
-  
   "city":{
     "add_city": {"idcity":1000,"name":"الخمس","name_en":"Elkhoms", "status":1},
     "update_city_name":{"value":"خمس","pk":1000},

@@ -12,7 +12,7 @@ $(document).ready(function(){
   });
 
     $('a[id^="name_en"]').editable({
-    url: '/editMahallaEn',
+    url: '/address/editMahallaEn',
     type: 'text',
     pk: 1,
     name: 'name',
@@ -24,7 +24,7 @@ $(document).ready(function(){
 
   
   $('a[id^="name"]').editable({
-    url: '/editMahalla',
+    url: '/address/editMahalla',
     type: 'text',
     pk: 1,
     name: 'name',

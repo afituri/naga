@@ -62,7 +62,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="level"]').editable({
-    url: '/UpdateCompanyLevel',
+    url: '/company/UpdateCompanyLevel',
     type: 'text',
     pk: 1,
     name: 'level',
@@ -73,7 +73,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="password"]').editable({
-    url: '/editCompanySellerPass',
+    url: '/company/editCompanySellerPass',
     type: 'text',
     pk: 1,
     name: 'password',
@@ -84,7 +84,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="email"]').editable({
-    url: '/editCompanySellerEmail',
+    url: '/company/editCompanySellerEmail',
     type: 'text',
     pk: 1,
     name: 'email',
@@ -94,7 +94,7 @@ $(document).ready(function(){
     }
   });
   $('a[id^="last_name"]').editable({
-    url: '/editCompanySellerLname',
+    url: '/company/editCompanySellerLname',
     type: 'text',
     pk: 1,
     name: 'last_name',
@@ -105,7 +105,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="first_name"]').editable({
-    url: '/editCompanySellerFname',
+    url: '/company/editCompanySellerFname',
     type: 'text',
     pk: 1,
     name: 'first_name',

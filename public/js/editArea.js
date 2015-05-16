@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 
      $('a[id^="name_en"]').editable({
-    url: '/editAreaNameEn',
+    url: '/address/editAreaNameEn',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
    $('a[id^="name"]').editable({
-    url: '/editAreaName',
+    url: '/address/editAreaName',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 
       $('a[id^="name"]').editable({
-    url: '/editAreaName',
+    url: '/address/editAreaName',
     type: 'select',
     pk: 1,
     name: 'name_en',

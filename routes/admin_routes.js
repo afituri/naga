@@ -10,13 +10,10 @@ var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),
     fs   = require('fs-extra');
-var idaCompanyView=0;
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
 });
-var idcompany=0;
-var idSize=0;
 router.get('/testPhoto', function(req, res) {
   res.render('testPhoto', { title: 'Admin Page',NProgress:"fadeIn out" });
 });

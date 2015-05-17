@@ -57,7 +57,7 @@
  },
 
   "companyAddress":{
-    "addaddress":{"idcompany_address":10000000,"latit":"af4564","longit":"asddf5564","company_idcompany":10000000,"school_idschool":1},
+    "addaddress":{"idcompany_address":10000000,"latit":"af4564","longit":"asddf5564","idcompany":10000000,"idschool":10000000},
     "update_Address_latit":{"value":"gsfghsfh","pk":10000000},
     "update_Address_longit":{"value":"sdg","pk":10000000},
     "update_Address_default":{"value":0,"pk":10000000},

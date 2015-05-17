@@ -134,6 +134,10 @@ $(document).ready(function(){
             '<button id="enable" data-placement="top" title="Edit School" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center">'+
             '<button id="delete" value="'+data.result[0].idschool+'" href="#del" data-toggle="modal" data-placement="top" title="Delete School" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></td></tr>');
           $('#newschool').modal('hide');
+          $.fn.name();
+          $.fn.name_en();
+          $.fn.latit();
+          $.fn.longit();
           $.notify({
             title: "<strong>Successful:</strong> ",
             message: "Add a new Mahala has successfully"
@@ -157,4 +161,75 @@ $(document).ready(function(){
     }
     return false;
   });
+
+  var defaults = {
+    disabled: true,
+  };
+
+  $.extend($.fn.editable.defaults, defaults);
+    $('body').on('click','#enable', function(){
+      id=$(this).parent().parent().data('id');
+      $('#name'+id).editable('toggleDisabled');
+      $('#name_en'+id).editable('toggleDisabled');
+      $('#latit'+id).editable('toggleDisabled');
+      $('#longit'+id).editable('toggleDisabled');
+
+  }); 
+
+  $.fn.latit =function(){ 
+    $('a[id^="latit"]').editable({
+      url: '/address/editlatitSchool',
+      type: 'text',
+      pk: 1,
+      name: 'name',
+      title: 'Edit Measure name in Arabic !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Measure name in Arabic';
+      }
+    });
+  };
+  $.fn.latit();
+
+  $.fn.longit =function(){
+    $('a[id^="longit"]').editable({
+      url: '/address/editlongitSchool',
+      type: 'text',
+      pk: 1,
+      name: 'name',
+      title: 'Edit Measure name in Arabic !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Measure name in Arabic';
+      }
+    });
+  };
+  $.fn.longit();
+  
+  $.fn.name_en = function(){
+    $('a[id^="name_en"]').editable({
+      url: '/address/SchoolEditNameEn',
+      type: 'text',
+      pk: 1,
+      name: 'name_en',
+      title: 'Edit Measure name in English !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Measure name in English';
+      }
+    });
+  };
+  $.fn.name_en();
+
+  $.fn.name = function(){
+    $('a[id^="name"]').editable({
+      url: '/address/SchoolEditName',
+      type: 'text',
+      pk: 1,
+      name: 'name',
+      title: 'Edit Measure name in Arabic !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Measure name in Arabic';
+      }
+    });
+  };
+  $.fn.name();
+
 });

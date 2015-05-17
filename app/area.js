@@ -17,7 +17,7 @@ exports.AreaMgr = {
 
   getAreaInfo : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT area.idarea,area.name as areaName, area.name_en as areaName_en, city.name as cityName, city.name_en as cityName_en FROM `area`,`city` WHERE area.status <> 0 AND idcity=city_idcity ',  function(err, result) {
+      conn.query('SELECT area.idarea,area.name as areaName, area.name_en as areaName_en, city.name as cityName, city.name_en as cityName_en FROM `area`,`city` WHERE area.status <> 0 AND idcity=city_idcity ORDER BY  `area`.`idarea` DESC ',  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

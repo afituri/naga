@@ -98,7 +98,7 @@ router.get('/adminCompany/:id/adminCompanyAddress', function(req, res) {
   idcompany=req.params.id;
   CompanyAddressMgr.GetCompanyAddressByIdCompany(req.params.id,function(err,result){
     CityMgr.GetCity(function(err,result1){  
-      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1,,id:req.params.id});
+      res.render('adminCompanyAddress', { title: 'CompanyAddress',address:result,cities:result1,id:req.params.id});
     });
   });
 });

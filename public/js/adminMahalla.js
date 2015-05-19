@@ -49,14 +49,14 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-   $.get('/deleteMahalla/'+$(this).val(),function(result){
-     window.location.href='/adminMahala';
+   $.get('/address/deleteMahalla/'+$(this).val(),function(result){
+     window.location.href='/address/adminMahala';
    });
   });
 
   $('#city').on('change',function() {
     var id = $('#city').val();
-    $.get('/getarea/'+id,function(result){
+    $.get('/address/getarea/'+id,function(result){
       $('#area').empty();
       for ( var i = 0; i < result.length;  i++ ) {
         $('#area').append("<option value = '"+result[i].idarea+"'>"+result[i].name+"</option>");
@@ -72,7 +72,7 @@ $(document).ready(function(){
   $("#formMahala").submit(function(e) {
     var isvalidate=$("#formMahala").valid();
     if(isvalidate){
-      $.post("/addMahala", $("form").serializeObject(), function(data, error){
+      $.post("/address/addMahala", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {
@@ -99,6 +99,8 @@ $(document).ready(function(){
           '</td></tr>');
 
           $('#newMahala').modal('hide');
+          $.fn.name_en();
+          $.fn.name();
           $.notify({
             title: "<strong>Successful:</strong> ",
             message: "Add a new Mahala has successfully"
@@ -123,5 +125,41 @@ $(document).ready(function(){
     return false;
   });
 
+  var defaults = {
+        disabled: true,
+  };
 
+  $.extend($.fn.editable.defaults, defaults);
+  $('body').on('click','#enable', function(){
+    id=$(this).parent().parent().data('id');
+    $('#name'+id).editable('toggleDisabled');
+    $('#name_en'+id).editable('toggleDisabled');
+  });
+
+  $.fn.name_en = function(){  
+    $('a[id^="name_en"]').editable({
+      url: '/address/editMahallaEn',
+      type: 'text',
+      pk: 1,
+      name: 'name',
+      title: 'Edit Mahalla name in English !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Mahalla name in english';
+      }
+    }); 
+  };
+  $.fn.name_en();
+  $.fn.name = function(){
+    $('a[id^="name"]').editable({
+      url: '/address/editMahalla',
+      type: 'text',
+      pk: 1,
+      name: 'name',
+      title: 'Edit Mahalla name in Arabic !',
+      validate: function(v) {
+        if(!v) return 'Please enter your Mahalla name in Arabic';
+      }
+    });
+  };
+  $.fn.name();
 });

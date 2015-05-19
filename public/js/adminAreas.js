@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  
   $("#formArea").validate({
     ignore: ':not(select:hidden, input:visible, textarea:visible)',
     rules:{
@@ -32,19 +32,22 @@ $(document).ready(function(){
       }
     },
   });
+
   $('body').on('click', '#save', function (e) {
     e.preventDefault();
     $('#formArea').submit();
   });
+
   $('body').on('click', '#cancel', function () {
     $('#name').val("");
     $('#name_en').val("");
     $('.selectpicker').selectpicker('val', '');
   });
+
   $("#formArea").submit(function(e) {
     var isvalidate=$("#formArea").valid();
     if(isvalidate){
-      $.post("/addAreas", $("form").serializeObject(), function(data, error){
+      $.post("/address/addAreas", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $("#err").empty();
           // for (err in data.result) {
@@ -66,6 +69,8 @@ $(document).ready(function(){
             '<button id="enable" data-value="'+data.result[0].idarea+'" data-placement="top" title="Edit City" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td><td class="text-center">'+
             '<button id="delete" href="#del" data-toggle="modal" data-placement="top" title="Delete" value="'+data.result[0].idarea+'" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash">  </span></button></td></tr>');
           $('#newArea').modal('hide');
+          $.fn.name_en();
+          $.fn.name();
           $.notify({
             title: "<strong>Successful:</strong> ",
             message: "Add a new Area has successfully"
@@ -89,19 +94,56 @@ $(document).ready(function(){
     }
     return false;
   });
-//-add your new fanction
 
   $('body').on('click','#delete',function(){
       $('#deletee').val($(this).val());
    }) ;
 
   $('body').on('click','#deletee',function(){
-      $.get('/deleteArea/'+$(this).val(),function(result){
-          window.location.href='/adminAreas';
-      });
+    $.get('/address/deleteArea/'+$(this).val(),function(result){
+        window.location.href='/address/adminAreas';
+    });
   }) ;
 
+  var defaults = {
+        disabled: true,
+  };
 
+  $.extend($.fn.editable.defaults, defaults);
+
+  $('body').on('click','#enable', function(){
+    id=$(this).parent().parent().data('id');
+    $('#name'+id).editable('toggleDisabled');
+    $('#name_en'+id).editable('toggleDisabled');
+  }); 
+
+  $.fn.name_en = function(){
+    $('a[id^="name_en"]').editable({
+      url: '/address/editAreaNameEn',
+      type: 'text',
+      pk: 1,
+      name: 'name_en',
+      title: 'Edit city name in English !',
+      validate: function(v) {
+        if(!v) return 'Please enter your school name in English';
+      }
+    });
+  };
+  $.fn.name_en();
+
+  $.fn.name = function(){
+    $('a[id^="name"]').editable({
+      url: '/address/editAreaName',
+      type: 'text',
+      pk: 1,
+      name: 'name_en',
+      title: 'Edit city name in English !',
+      validate: function(v) {
+        if(!v) return 'Please enter your school name in English';
+      }
+    });
+  };
+  $.fn.name();
 
 });
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('body').on('click', '#view', function () {
-    window.location.href='/adminTypeBusiness/'+$(this).val()+'/adminGenre';
+    window.location.href='/typeBusiness/adminTypeBusiness/'+$(this).val()+'/adminGenre';
   });
 
   $('body').on('click','#delete',function () {
@@ -8,8 +8,8 @@ $(document).ready(function(){
   });
   
   $('body').on('click','#deletee',function () {
-    $.get('/deleteTOB/'+$(this).val(),function(result){
-      window.location.href='/adminTypeBusiness';
+    $.get('/typeBusiness/deleteTOB/'+$(this).val(),function(result){
+      window.location.href='/typeBusiness/adminTypeBusiness';
     })
   });
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
   $("#formtob").submit(function() {
     var isvalidate=$("#formtob").valid();
     if(isvalidate){
-      $.post("/addTob", $("form").serializeObject(), function(data, error){
+      $.post("/typeBusiness/addTob", $("form").serializeObject(), function(data, error){
         if(data.stat !=true){
           // $('#newtob').modal('hide');
           // var e ="";

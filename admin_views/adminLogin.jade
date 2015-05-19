@@ -9,7 +9,7 @@ block content
           i.glyphicon.glyphicon-user
           |     Admin Access
         #form-olvidado
-          form#loginForm(accept-charset='UTF-8' , name='login-form')
+          form#loginForm(role='form')
             fieldset
               .form-group
                 .input-group
@@ -30,7 +30,7 @@ block content
                     small Forgot your password ?     
         #form-olvidado(style='display: none;')
           h4(style='color:#F49B23;') Forgot your password? 
-          form#loginReset(accept-charset='UTF-8' , name='login-reset' , role='form', method='post' , action='')
+          form#loginReset(role='form')
             fieldset
               span.help-block  Email address you use to log in to your account
                 br

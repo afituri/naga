@@ -9,6 +9,7 @@ var CompanyMgr=require('../app/company').CompanyMgr;
 var TobMgr=require('../app/tob').TobMgr;
 var userHelpers = require('../app/userHelpers');
 var AdminMgr=require('../app/admin').AdminMgr;
+var login = require('../app/admin_login')(router);
 var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),

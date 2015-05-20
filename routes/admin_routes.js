@@ -57,25 +57,7 @@ router.get('/adminTest', function(req, res) {
 router.get('/adminShowOrder', function(req, res) {
   res.render('adminShowOrder', { title: 'Admin Show Order',NProgress:"fadeIn out"});
 });
-// router.post('/savePhoto',function(req, res) {
-//   if (req.url == '/savePhoto') {
-//     var form = new formidable.IncomingForm();
-//     form.parse(req, function(err, fields, files) {
-//       var temp_path = files.logo.path;
-//       var file_name = files.logo.name;
-//       var new_location = 'public/company_picture/';
-//       fs.copy(temp_path, new_location + file_name, function(err) {  
-//           if (err) {
-            
-//           } else {
-//               CompanyMgr.addPhoto(idaCompanyView,file_name,function(err,result){  
-//             });
-//               res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
-//           }
-//       });     
-//     });
-//   }
-// });
+
 router.get('/deleteAdmin/:id', function(req, res) {
   AdminMgr.DeleteAdmin(req.params.id,function(err,result){
     res.send(true);
@@ -141,6 +123,8 @@ router.post('/checkEmail',function(req,res){
     else
       res.send(false);
   });
-});
+
+  });
+
 
 module.exports = router;

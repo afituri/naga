@@ -2,11 +2,14 @@ $(document).ready(function(){
  
   $('body').on('click','#delete', function(){
     $('#deletee').val($(this).val());
+    $("#colorsid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
+
   });
 
   $('body').on('click','#deletee', function(){
+    var id=$(this).val();
     $.get('/measure/deleteColor/'+$(this).val(),function(result){
-      window.location.href='/measure/adminColors';
+      $('[data-id = "'+id+'"]').remove();
     });
   });
 

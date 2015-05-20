@@ -60,10 +60,13 @@ $(document).ready(function(){
 
   $('body').on('click', '#delete', function(){
     $('#deletee').val($(this).val());
+    // alert($(this).val());
+    $("#schoolid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
   });
   $('body').on('click', '#deletee', function(){
+    var id=$(this).val();
     $.get('/address/deleteSchool/'+$(this).val(),function(result){
-      window.location.href='/address/adminSchools';
+      $('[data-id = "'+id+'"]').remove();
     });
   });
 

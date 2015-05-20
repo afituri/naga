@@ -17,7 +17,7 @@ exports.MahallaMgr = {
 
   getMahallaInfo : function(cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0',  function(err, result) {
+      conn.query('SELECT * FROM `mahalla` WHERE `status` <> 0 ORDER BY  `mahalla`.`idmahalla` DESC ',  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

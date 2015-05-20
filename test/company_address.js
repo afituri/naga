@@ -5,9 +5,11 @@ var adminMgr = require('../app/admin').AdminMgr;  // our module
 var tobMgr = require('../app/tob').TobMgr;  // our module
 var company = require('../TestUser/mochaObj.json').company;
 var admin = require('../TestUser/mochaObj.json').admin;
+var SchoolMgr = require('../app/school').SchoolMgr;
 var tob = require('../TestUser/mochaObj.json').tob;
 var obj = require('../TestUser/mochaObj.json').companyAddress;
-
+var school = require('../TestUser/mochaObj.json').school;
+  
   describe('Module company Address', function(){
     it('company is an object with a fucntion called Addcompany', function(){
       assert.equal(typeof CompanyAddMgr, 'object');
@@ -40,9 +42,18 @@ var obj = require('../TestUser/mochaObj.json').companyAddress;
     })
   }),
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+  describe('#AddSchool()',function(){
+    it('Should inser without an error', function(done){
+      SchoolMgr.AddSchool(school["add_school"],function(err,result){
+        if (err) throw err;
+        done();
+      });
+    })
+  }),
+
   describe('#AddCompanyAddress()',function(){
     it('Should inser without an error', function(done){
-      CompanyAddMgr.AddCompanyAddress(obj["addaddress"],company["add_company"].idcompany,function(err,result){
+      CompanyAddMgr.AddCompanyAddress(obj["addaddress"],function(err,result){
         if (err) throw err;
         done();
       });

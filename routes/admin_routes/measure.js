@@ -80,7 +80,7 @@ router.post('/addSizes',function(req,res){
       res.send(rel);
     }
     else {
-      SizeMgr.AddSize(req.body,idSize,function(result){
+      SizeMgr.AddSize(req.body,function(result){
          SizeMgr.GetSizebyId(result.insertId,function(err,resultid){
           console.log(resultid);
           var rel={"result":resultid,stat:true}
@@ -108,7 +108,7 @@ router.post('/sizeEditNameAr', function(req, res) {
 router.get('/sizes/:id', function(req, res) {
   idSize=req.params.id;
   SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
-    res.render('sizes', { title: 'sizes',size:result});
+    res.render('sizes', { title: 'sizes',size:result,id:req.params.id});
   });
 });
 router.get('/deleteSize/:id', function(req, res) {

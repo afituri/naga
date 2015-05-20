@@ -1,5 +1,8 @@
 var easyPbkdf2 = require("easy-pbkdf2")(),
     adminMgr= require("../app/admin").AdminMgr,
+    itemCoreMgr= require("../app/item_core").itemCoreMgr,
+    ItemMgr= require("../app/item").ItemMgr,
+    itemSizeMgr= require("../app/item_has_size").itemSizeMgr,
     url=require('url');
 
 module.exports = {
@@ -16,6 +19,50 @@ module.exports = {
           }
       adminMgr.AddAdmin(obj, function(result){
         cb(result);  
+      });
+    });
+  },
+
+  addItem: function (body,cb) {
+    var core_obj={
+      name : body.name,
+      name_en : body.name_en,
+      company_idcompany : body.company_idcompany,
+      tog_idtog : body.tog_idtog,
+      genre_idgenre : body.genre_idgenre,
+      tob_idtob : body.tob_idtob,
+      item_desc : body.item_desc,
+      brand_idbrand : body.brand_idbrand,
+      admin_idadmin : body.admin_idadmin
+    }
+    itemCoreMgr.addItemCore(core_obj,function(err,result){
+      var item_obj={
+        price : body.price,
+        discount : body.discount,
+        discount_exp : body.discount_exp,
+        color_idcolor : body.color_idcolor,
+        quantity : body.quantity,
+        item_core_iditem_core : result.insertId,
+        unix_date : body.unix_date,
+        stock_idstock : body.stock_idstock,
+        admin_idadmin : body.admin_idadmin
+      }
+      ItemMgr.AddItem(item_obj,function(err,resultitem){
+        for (var i=0;i<body.size_idsize.length;i++) {
+          if (body.size_idsize[i] != 0 || body.size_idsize[i] != null){ 
+            var item_has_size={
+              item_iditem : resultitem.insertId,
+              size_idsize : body.size_idsize[i],
+              measure_idmeasure : body.measure_idmeasure,
+              quantity : body.quantityc[i]
+            }
+            itemSizeMgr.addItemSize(item_has_size,function(err,resultSize){
+              cb(resultSize);
+            });
+          }
+        }
+
+
       });
     });
   },

@@ -15,7 +15,7 @@ block Dashboard
               i.fa
               a(href='/adminCompany')  Company
             li.active
-              i.fa  Address
+              i.fa  Address  
       .panel.panel-default
             .panel-heading
               .row
@@ -130,6 +130,7 @@ block Dashboard
                           .h4 Mahalla
                           select#mahalla.form-control(type="text",name="mahalla",data-show-subtext='true',data-size='5',data-live-search='true')
                             option(value="", style='color:grey; display:none;') Please Select Mahalla
+                          input.form-control.text-left(type="hidden",name="idcompany",value="#{id}")
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button#save.btn.btn-primary Save Change

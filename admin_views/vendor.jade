@@ -43,27 +43,29 @@ block Dashboard
                           td.text-center
                             strong phoun of Vendor
                           td.text-center
+                            strong View  
+                          td.text-center
                             strong Edit  
                           td.text-center
                             strong Trash 
-                          td.text-center
-                            strong View  
+                            
                       tbody#colorTable
                        
                           tr(data-id='')
                             td.text-center 
                                a.editable.editable-click(id='name_of_vendor', href='#', data-type='text', data-pk='') 
                             td.text-center
-                              a.editable.editable-click(id='phoun_of_vendor', href='#', data-type='text', data-pk='')  
+                              a.editable.editable-click(id='phoun_of_vendor', href='#', data-type='text', data-pk='')
+                            td.text-center
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-eye-open    
                             td.text-center
                               button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
                                 span.glyphicon.glyphicon-pencil     
                             td.text-center
                               button#delete.btn.btn-danger.btn-xs(href='#devo', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash
-                            td.text-center
-                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
-                                span.glyphicon.glyphicon-trash      
+                                  
                 #devo.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
                   .modal-dialog
                     .modal-content
@@ -100,27 +102,29 @@ block Dashboard
                           td.text-center
                             strong phoun of Company  
                           td.text-center
+                            strong View  
+                          td.text-center
                             strong Edit  
                           td.text-center
                             strong Trash 
-                          td.text-center
-                            strong View   
+                             
                       tbody#colorTable
                        
                           tr(data-id='')
                             td.text-center 
                                a.editable.editable-click(id='name_of_Company', href='#', data-type='text', data-pk='') 
                             td.text-center
-                              a.editable.editable-click(id='phoun_of_Company', href='#', data-type='text', data-pk='')  
+                              a.editable.editable-click(id='phoun_of_Company', href='#', data-type='text', data-pk='') 
+                            td.text-center
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-eye-open   
                             td.text-center
                               button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
                                 span.glyphicon.glyphicon-pencil     
                             td.text-center
                               button#delete.btn.btn-danger.btn-xs(href='#deco', data-toggle='modal',value='')
                                 span.glyphicon.glyphicon-trash 
-                            td.text-center
-                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
-                                span.glyphicon.glyphicon-trash    
+                                
                 #deco.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
                   .modal-dialog
                     .modal-content

@@ -93,11 +93,12 @@ $(document).ready(function(){
 
   $('body').on('click','#delete',function(){
       $('#deletee').val($(this).val());
+      $("#Areaid").append(" "+$('[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
    }) ;
 
   $('body').on('click','#deletee',function(){
       $.get('/address/deleteArea/'+$(this).val(),function(result){
-          window.location.href='/address/adminAreas';
+          $("#tbody tr:last-child").remove();
       });
   }) ;
 

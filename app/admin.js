@@ -40,10 +40,22 @@ exports.AdminMgr = {
       });
     });
   },
-
-  GetNameById : function(id,cb){
+  GetAdminById : function(id,cb){
     mysqlMgr.connect(function (conn) {
-      conn.query('SELECT `name` FROM `admin` WHERE `status` <> 0 AND`idadmin` = ? ',id,  function(err, result) {
+      conn.query('SELECT * FROM `admin` WHERE `status` <> 0 AND `idadmin` = ?',id,function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
+
+  getAdminByEmail : function(email,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `admin` WHERE `status` <> 0 AND`email` = ? ',email,  function(err, result) {
         conn.release();
         if(err) {
           cb(err,null);

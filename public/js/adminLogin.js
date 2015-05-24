@@ -43,36 +43,37 @@ $(document).ready(function() {
       }
     },
   }); 
-});
-
-$(".reveal").mousedown(function() {
+  $(".reveal").mousedown(function() {
     $(".pwd").replaceWith($('.pwd').clone().attr('type', 'text'));
-})
+  })
 
-.mouseup(function() {
-  $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
-})
+  .mouseup(function() {
+    $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+  })
 
-.mouseout(function() {
-  $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+  .mouseout(function() {
+    $(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+  });
+
+  $('body').show();
+  NProgress.start();
+  $(window).load(function() {
+    NProgress.done(); 
+    $('.showIn').removeClass('out');
+    $('.showIn').addClass('flipInY');
+  });
+
+  $('body').on('click', '#btnLogin', function (e) {
+    e.preventDefault();
+    $('#loginForm').submit();
+  });
+  $("#loginForm").submit(function(e) {
+    var isvalidate=$("#loginForm").valid();
+      if(isvalidate){
+        $.post("/login", $("#loginForm").serializeObject(), function(data, error){
+          console.log(data);
+        });
+      }
+  });
 });
 
-$('body').show();
-NProgress.start();
-$(window).load(function() {
-  NProgress.done(); 
-  $('.showIn').removeClass('out');
-  $('.showIn').addClass('flipInY');
-});
-
-//- this code will be used in the future !
-// setTimeout(function() { 
-//   NProgress.done(); 
-//   $('.showIn').removeClass('out');
-//   $('.showIn').addClass('flipInY');
-// }, 2000)
-// $('#btnLogin').on('click', function () {
-//     $(this).button('loading')
-//     // business logic...
-//      // $btn.button('complete')
-// });

@@ -20,11 +20,13 @@ $(document).ready(function(){
 
   $('body').on('click','#delete', function(){
     $('#deletee').val($(this).val());
+    $("#Cityid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
+
   });
 
   $('body').on('click','#deletee', function(){
     $.get('/address/deleteCity/'+$(this).val(),function(result){
-      window.location.href='/address/adminCities';
+      $("#tbody tr:last-child").remove();
     });
   });
 

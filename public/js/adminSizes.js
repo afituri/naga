@@ -21,10 +21,12 @@ $(document).ready(function(){
 
   $('body').on('click', '#delete', function () {
       $('#del').val($(this).val());
+      $("#Sizesid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
   });
   $('body').on('click', '#del', function () {
+    var id=$(this).val();
      $.get('/measure/deleteSize/'+$(this).val(),function(result){
-      window.location.href='/measure/sizes/'+result[0].measure_idmeasure;
+      $('[data-id = "'+id+'"]').remove();
      });
   });
 

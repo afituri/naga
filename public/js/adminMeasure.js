@@ -1,11 +1,13 @@
 $(document).ready(function(){
   $('body').on('click', '#delete', function(){
     $('#dell').val($(this).val());
+    $("#Measureid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
   });
 
   $('body').on('click', '#dell', function(){
+    var id=$(this).val();
     $.get('/measure/deleteMeasure/'+$(this).val(),function(result){
-      window.location.href='/measure/adminMeasure';
+      $('[data-id = "'+id+'"]').remove();
     });
   });
 

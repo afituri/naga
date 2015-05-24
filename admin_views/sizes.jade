@@ -14,7 +14,7 @@ block Dashboard
             i.fa  
             a(href='/adminMeasure')  Measure
           li.active
-            i.fa  Sizes 
+            i.fa  Sizes   
         .panel.panel-default.filterable
           .panel-heading
             .row
@@ -64,7 +64,7 @@ block Dashboard
           .modal-dialog
             .modal-content
               .modal-headr.modal-header-danger
-                p.h1 Sure you want to delete?
+                p.h1#Sizesid Sure you want to delete
               .modal-body
                 p.h2 Are you sure
                 p 
@@ -91,6 +91,7 @@ block Dashboard
                       .form-group      
                         .h4 Name in English
                         input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                        input.form-control.text-left(type="hidden",name="idmeasure",value="#{id}")
               .modal-footer
                 button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                 button#save.btn.btn-primary Save Change 

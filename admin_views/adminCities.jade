@@ -65,21 +65,12 @@ block Dashboard
                       td.text-center
                         button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='#{city.idcity}')
                           span.glyphicon.glyphicon-trash      
-              //- if pagination
-              //-   .text-center
-              //-     ul.pagination
-              //-       li(class='#{pagination.previous.disabled}')
-              //-         a(href='?p=#{pagination.previous.n}') Previous
-              //-       for page in pagination.pages
-              //-         li(class="#{page.active}")
-              //-           a(href='?p=#{page.n}') #{page.n}
-              //-       li(class="#{pagination.next.disabled}")
-              //-         a(href='?p=#{pagination.next.n}') Next
+
         #delll.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
               .modal-headr.modal-header-danger
-                p.h1 Sure you want to delete?
+                p.h1#Cityid Sure you want to delete
               .modal-body
                 p.h2 Are you sure
                 p
@@ -115,7 +106,6 @@ block Dashboard
   script(src='/metisMenu/dist/metisMenu.min.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/bootstrap-notify.min.js')
-  script(src='/js/editCity.js') 
   script(src='/js/adminCities.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/helpers.js')

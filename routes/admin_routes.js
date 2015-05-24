@@ -5,18 +5,19 @@ var users = require('../TestUser/testjson').users;
 var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 var user =require('../app/userHelpers');
+var CompanyMgr=require('../app/company').CompanyMgr;
+var TobMgr=require('../app/tob').TobMgr;
+var userHelpers = require('../app/userHelpers');
 var AdminMgr=require('../app/admin').AdminMgr;
+var login = require('../app/admin_login')(router);
 var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),
     fs   = require('fs-extra');
-var idaCompanyView=0;
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });
 });
-var idcompany=0;
-var idSize=0;
 router.get('/testPhoto', function(req, res) {
   res.render('testPhoto', { title: 'Admin Page',NProgress:"fadeIn out" });
 });
@@ -27,29 +28,36 @@ router.get('/adminTest', function(req, res) {
   res.render('adminTest', { title: 'Admin Test' });
 });
 
-
+// router.get('/new',function(req,res){
+//   obj={
+//     name : 'test',
+//     name_en : 'body.name_en',
+//     company_idcompany : 1000000,
+//     tog_idtog : 1000000,
+//     genre_idgenre : 1000000,
+//     tob_idtob : 1000000,
+//     item_desc : 'body.item_desc',
+//     brand_idbrand : 1000000,
+//     admin_idadmin : 1000000,
+//     price :30.5,
+//     discount : 10,
+//     discount_exp : 'body.discount_exp',
+//     color_idcolor : 1000000,
+//     quantity : 10,
+//     unix_date : 123456789,
+//     stock_idstock : 1000000,
+//     size_idsize : [1,2,3],
+//     measure_idmeasure : 10000000,
+//     quantityc : [10,11,12]
+//   }
+//   userHelpers.addItem(obj,function(result){
+//     console.log(result);
+//   });
+// });
 router.get('/adminShowOrder', function(req, res) {
   res.render('adminShowOrder', { title: 'Admin Show Order',NProgress:"fadeIn out"});
 });
-// router.post('/savePhoto',function(req, res) {
-//   if (req.url == '/savePhoto') {
-//     var form = new formidable.IncomingForm();
-//     form.parse(req, function(err, fields, files) {
-//       var temp_path = files.logo.path;
-//       var file_name = files.logo.name;
-//       var new_location = 'public/company_picture/';
-//       fs.copy(temp_path, new_location + file_name, function(err) {  
-//           if (err) {
-            
-//           } else {
-//               CompanyMgr.addPhoto(idaCompanyView,file_name,function(err,result){  
-//             });
-//               res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
-//           }
-//       });     
-//     });
-//   }
-// });
+
 router.get('/deleteAdmin/:id', function(req, res) {
   AdminMgr.DeleteAdmin(req.params.id,function(err,result){
     res.send(true);
@@ -116,5 +124,8 @@ router.post('/checkEmail',function(req,res){
       res.send(false);
   });
 });
+
+  });
+
 
 module.exports = router;

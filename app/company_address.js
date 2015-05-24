@@ -1,5 +1,5 @@
 var mysqlMgr = require('./mysql').mysqlMgr,
-util=require('util');
+delutil=require('util');
 exports.CompanyAddressMgr = {
 /////////////////// COMPANY ADDRESS ///////////////////////////////////////////
   GetCompanyAddress :function(cb){

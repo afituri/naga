@@ -12,7 +12,7 @@ $(document).ready(function(){
   }); 
   
   $('a[id^="name_en"]').editable({
-    url: '/editColorNameEn',
+    url: '/measure/editColorNameEn',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -23,7 +23,7 @@ $(document).ready(function(){
   });
 
   $('a[id^="name"]').editable({
-    url: '/editColorNameAr',
+    url: '/measure/editColorNameAr',
     type: 'text',
     pk: 1,
     name: 'name',

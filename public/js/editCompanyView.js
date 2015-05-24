@@ -11,7 +11,7 @@ var defaults = {
   }); 
   
   $('#name').editable({
-    url: '/editCompanyName',
+    url: '/company/editCompanyName',
     type: 'text',
     pk: 1,
     name: 'name',
@@ -23,7 +23,7 @@ var defaults = {
 
 
   $('#name_en').editable({
-    url: '/editCompanyNameEn',
+    url: '/company/editCompanyNameEn',
     type: 'text',
     pk: 1,
     name: 'name_en',
@@ -34,7 +34,7 @@ var defaults = {
   });
 
    $('#level').editable({
-    url: '/editCompanyLevel',
+    url: '/company/editCompanyLevel',
     type: 'text',
     pk: 1,
     name: 'level',
@@ -46,7 +46,7 @@ var defaults = {
 
 
    $('#phone').editable({
-    url: '/editCompanyPhone',
+    url: '/company/editCompanyPhone',
     type: 'text',
     pk: 1,
     name: 'phone',
@@ -57,7 +57,7 @@ var defaults = {
   });
 
    $('#email').editable({
-    url: '/editCompanyEmail',
+    url: '/company/editCompanyEmail',
     type: 'text',
     pk: 1,
     name: 'phone',

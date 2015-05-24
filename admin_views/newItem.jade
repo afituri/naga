@@ -131,71 +131,114 @@ block Dashboard
                   //- .col-xs-12.col-md-12
               .form-group#HideSizeXL(style='display:none')
                 .row
-                  .col-md-2
-                    .checkbox
-                      label(style='font-size: 1.5em')
+                  .col-md-3
+                    .checkbox#XS
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | XS
+                  
+                    .checkbox#S
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | S
-                  .col-md-2 
-                    .checkbox
-                      label(style='font-size: 1.5em')
+                  
+                    .checkbox#M
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | M
-                  .col-md-2
+                  
                     .checkbox
-                      label(style='font-size: 1.5em')
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | L
-                  .col-md-2  
+                  
                     .checkbox
-                      label(style='font-size: 1.5em')
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | XL
-                  .col-md-2
+                  .col-md-3
                     .checkbox
-                      label(style='font-size: 1.5em')
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | XXL
-                  .col-md-2
+                  
                     .checkbox
-                      label(style='font-size: 1.5em')
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | XXXL
+                  
+                    .checkbox
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | 4XL
+                  
+                    .checkbox
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | 5XL
+                  
+                    .checkbox
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | 6XL
+                  
+                    .checkbox
+                      label(style='font-size: 1em')
+                        input(type='checkbox', value='', checked=false)
+                        span.cr
+                          i.cr-icon.fa.fa-check
+                        | 7XL
+                  
+                    .checkbox
+                      label(style='font-size: 1em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | XXXL
               .form-group#HideSML(style='display:none')
                 .row
-                  .col-md-2.col-md-offset-3
-                    .checkbox
+                  .col-md-6.col-md-offset-3
+                    .checkbox#small
                       label(style='font-size: 1.5em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | Small
-                  .col-md-2 
-                    .checkbox
+                      .col-md-6.pull-right
+                    .checkbox#mediam
                       label(style='font-size: 1.5em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | Mediam
-                  .col-md-2
-                    .checkbox
+                      .col-md-6.pull-right
+                    .checkbox#large
                       label(style='font-size: 1.5em')
                         input(type='checkbox', value='', checked=false)
                         span.cr
                           i.cr-icon.fa.fa-check
                         | Large
+                      .col-md-6.pull-right
   #newtob.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
     .modal-dialog
       .modal-content
@@ -328,4 +371,33 @@ block Dashboard
         }
       });
 
+      $('#small :checkbox').click(function() {
+        var $this = $(this);
+        // $this will contain a reference to the checkbox   
+        if ($this.is(':checked')) {
+            $("#small .col-md-6").append("<div class='row'><div id='SQuantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='MM' type='text'></div></div>")
+        } else {
+            $("#small #SQuantity").remove();
+        }
+      });
+
+      $('#mediam :checkbox').click(function() {
+        var $this = $(this);
+        // $this will contain a reference to the checkbox   
+        if ($this.is(':checked')) {
+            $("#mediam .col-md-6").append("<div class='row'><div id='MQuantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='MM' type='text'></div></div>")
+        } else {
+            $("#mediam #MQuantity").remove();
+        }
+      });
+
+      $('#large :checkbox').click(function() {
+        var $this = $(this);
+        // $this will contain a reference to the checkbox   
+        if ($this.is(':checked')) {
+            $("#large .col-md-6").append("<div class='row'><div id='LQuantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='MM' type='text'></div></div>")
+        } else {
+            $("#large #LQuantity").remove();
+        }
+      });
     });

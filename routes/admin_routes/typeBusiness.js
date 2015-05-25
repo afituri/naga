@@ -45,6 +45,12 @@ router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
   res.render('adminGenre', { title: 'Genre',genre:result});
   });
 });
+
+router.get('/getGenre/:id', function(req, res) {
+  GenreMgr.getGenreByIdCombany(req.params.id,function(err,result){  
+    res.send(result);
+  });
+});
 router.get('/adminTypeBusiness', function(req, res) {
   TobMgr.GetTob(function(err,result){
     res.render('adminTypeBusiness', { title: 'Type of Business',TOB:result});

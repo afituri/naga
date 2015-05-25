@@ -101,7 +101,7 @@ router.get('/viewItem', function(req, res) {
 router.get('/newItem', function(req, res) {
   CompanyMgr.GetCompany(function(err,result){
     TobMgr.GetTob(function(err,result1){
-      res.render('newItem', { title: 'New Item',companys:result,tobs:result1});
+      res.render('newItem', { title: 'New Item',companys:result});
     });
   });
 });
@@ -123,8 +123,6 @@ router.post('/checkEmail',function(req,res){
     else
       res.send(false);
   });
-
-  });
-
+});
 
 module.exports = router;

@@ -33,6 +33,7 @@ router.post('/addTob',function(req, res) {
       });
     }
   });
+  
 });
 router.get('/adminTypeBusiness', function(req, res) {
   TobMgr.GetTob(function(err,result){

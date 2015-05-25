@@ -9,6 +9,23 @@ var TobMgr=require('../../app/tob').TobMgr;
 var CityMgr = require('../../app/city').CityMgr;
 
 // Company ///
+router.post('/addCompany',function(req,res){
+  validator.isCompany(req,function(err,result){
+    if(result!=true){
+      var rel={"result":result,stat:false}
+      res.send(rel);
+    }
+    else {
+      CompanyMgr.AddCompany(req.body,function(err,result){
+        CompanyMgr.getCompanyId(result.insertId,function(err,resultid){
+          var rel={"result":resultid,stat:true}
+          res.send(rel);
+        });
+      });
+    }
+  });
+});
+
 router.get('/adminCompany', function(req, res) {
   CompanyMgr.GetCompany(function(err,result){
     TobMgr.GetTob(function(err,result1){

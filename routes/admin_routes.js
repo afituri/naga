@@ -116,6 +116,7 @@ router.post('/addAdmin',function(req,res){
       res.send(false);
   });
 });
+
 router.post('/checkEmail',function(req,res){
   AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
     if(result[0]==undefined)

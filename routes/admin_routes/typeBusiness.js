@@ -33,6 +33,7 @@ router.post('/addTob',function(req, res) {
       });
     }
   });
+  
 });
 router.get('/adminTypeBusiness', function(req, res) {
   TobMgr.GetTob(function(err,result){
@@ -42,6 +43,12 @@ router.get('/adminTypeBusiness', function(req, res) {
 router.get('/adminTypeBusiness/:id/adminGenre', function(req, res) {
   GenreMgr.GetGenreByIdtob(req.params.id,function(err,result){  
   res.render('adminGenre', { title: 'Genre',genre:result});
+  });
+});
+
+router.get('/getGenre/:id', function(req, res) {
+  GenreMgr.getGenreByIdCombany(req.params.id,function(err,result){  
+    res.send(result);
   });
 });
 router.get('/adminTypeBusiness', function(req, res) {

@@ -20,9 +20,9 @@ exports.ItemMgr = {
       conn.query('INSERT INTO `item` SET ?',body,  function(err, result) {
         conn.release();
         if(err) {
-          util.log(err);
+          util.log(err,null);
         } else {
-          cb(result);
+          cb(null,result);
         }
       });
     });

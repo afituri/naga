@@ -5,11 +5,14 @@ $(document).ready(function(){
 
   $('body').on('click','#delete',function () {
     $('#deletee').val($(this).val());
+    $("#topid").append($(" "+'[data-id = "'+$(this).val()+'"] a:first').text()+" ?");
+
   });
   
   $('body').on('click','#deletee',function () {
+    var id=$(this).val();
     $.get('/typeBusiness/deleteTOB/'+$(this).val(),function(result){
-      window.location.href='/typeBusiness/adminTypeBusiness';
+      $('[data-id = "'+id+'"]').remove();
     })
   });
 

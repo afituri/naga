@@ -111,10 +111,11 @@ block Dashboard
           .modal-dialog
             .modal-content
               .modal-headr.modal-header-danger
-                p.h1 Sure you want to delete?
+                p.h1#schoolid Sure you want to delete
+                
               .modal-body
                 p.h2 Are you sure
-                p 
+                
               .modal-footer
                 button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
                 button.btn.btn-success(data-dismiss='modal', type='button') Cancel
@@ -171,6 +172,5 @@ block Dashboard
   script(src='/js/bootstrap-select.min.js')
   script(src='/js/sb-admin-2.js')
   script(src='/js/helpers.js')
-  script(src='/js/editSchool.js')
   script(src='/js/adminSchool.js')
   script(src='/js/searchFilter.js')

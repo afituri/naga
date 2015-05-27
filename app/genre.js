@@ -29,7 +29,18 @@ exports.GenreMgr = {
       });
   },
 
-
+  getGenreByIdCombany :function(idcom,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('SELECT * FROM `genre` WHERE `status` <> 0 and `tob_idtob` = (SELECT `tob_idtob` FROM `company` WHERE `idcompany`= ?)',idcom,function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }
+      });
+    });
+  },
 
 
 

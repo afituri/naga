@@ -115,5 +115,5 @@ router.post('/checkEmail',function(req,res){
     else
       res.send(false);
   });
-
+});
 module.exports = router;

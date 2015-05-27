@@ -11,6 +11,7 @@ var company = require('./routes/admin_routes/company');
 var address = require('./routes/admin_routes/address');
 var measure = require('./routes/admin_routes/measure');
 var typeBusiness = require('./routes/admin_routes/typeBusiness');
+var stock = require('./routes/stock_routes');
 var admin = express();
 var expressValidator = require('express-validator');   
 admin.set('views', path.join(__dirname, 'admin_views'));
@@ -38,6 +39,7 @@ admin.use('/',routes);
 admin.use('/company',company);
 admin.use('/address',address);
 admin.use('/measure',measure);
+admin.use('/stock',stock);
 admin.use('/typeBusiness',typeBusiness);
 
 

@@ -113,7 +113,7 @@ block Dashboard
 
             //- 
             .panel-heading
-              .h3.panel-title Genre & Size
+              .h3.panel-title Measure & Size
             .panel-body
               .row
                 .col-xs-6.col-md-2.col-md-offset-1
@@ -125,9 +125,10 @@ block Dashboard
                     .h5 Select Genre
                     select#genre_idSize.form-control.selectpicker.show-tick(type="text",name="genre_idSize",data-show-subtext='true',data-size='5',data-live-search='true')
                       option(value="", style='color:grey; display:none;') Please Select Genre
-                      option(value="1") S, M, L, XL, XXL, XXXL
-                      option(value="2") Small, Mediam, Large
-                      option(value="3") 10, 30, ......,45
+                      for measure in measures
+                        option(value="#{measure.idmeasure}") #{measure.name} 
+
+                      
                   //- .col-xs-12.col-md-12
               .form-group#HideSizeXL(style='display:none')
                 .row
@@ -218,9 +219,7 @@ block Dashboard
                         | 8XL
                       .col-md-6.pull-right
 
-
-
-              .form-group#HideSize123(style='display:none')
+              .form-group#HideSize123()
                 .row
                   .col-md-4
                     .checkbox#1
@@ -611,7 +610,6 @@ block Dashboard
                         | 55
                       .col-md-6.pull-right
 
-
               .form-group#HideSML(style='display:none')
                 .row
                   .col-md-6.col-md-offset-3
@@ -942,7 +940,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#1 .col-md-6").append("<div class='row'><div id='1Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='XS' type='text'></div></div>")
+            $("#1 .col-md-6").append("<div class='row'><div id='1Quantity' ><input class='form-control' placeholder='XS' type='text'></div></div>")
         } else {
             $("#1 #1Quantity").remove();
         }
@@ -1104,7 +1102,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#17 .col-md-6").append("<div class='row'><div id='17Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#17 .col-md-6").append("<div class='row'><div id='17Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#17 #17Quantity").remove();
         }
@@ -1114,7 +1112,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#18 .col-md-6").append("<div class='row'><div id='18Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#18 .col-md-6").append("<div class='row'><div id='18Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#18 #18Quantity").remove();
         }
@@ -1124,7 +1122,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#19 .col-md-6").append("<div class='row'><div id='19Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#19 .col-md-6").append("<div class='row'><div id='19Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#19 #19Quantity").remove();
         }
@@ -1134,7 +1132,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#20 .col-md-6").append("<div class='row'><div id='20Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#20 .col-md-6").append("<div class='row'><div id='20Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#20 #20Quantity").remove();
         }
@@ -1144,7 +1142,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#21 .col-md-6").append("<div class='row'><div id='21Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#21 .col-md-6").append("<div class='row'><div id='21Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#21 #21Quantity").remove();
         }
@@ -1154,7 +1152,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#22 .col-md-6").append("<div class='row'><div id='22Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#22 .col-md-6").append("<div class='row'><div id='22Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#22 #22Quantity").remove();
         }
@@ -1164,7 +1162,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#23 .col-md-6").append("<div class='row'><div id='23Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#23 .col-md-6").append("<div class='row'><div id='23Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#23 #23Quantity").remove();
         }
@@ -1174,7 +1172,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#24 .col-md-6").append("<div class='row'><div id='24Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $(this).parent().parent('.col-md-6').append("<div class='row'><div id='24Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#24 #24Quantity").remove();
         }
@@ -1184,7 +1182,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#25 .col-md-6").append("<div class='row'><div id='25Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#25 .col-md-6").append("<div class='row'><div id='25Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#25 #25Quantity").remove();
         }
@@ -1194,7 +1192,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#26 .col-md-6").append("<div class='row'><div id='26Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#26 .col-md-6").append("<div class='row'><div id='26Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#26 #26Quantity").remove();
         }
@@ -1204,7 +1202,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#27 .col-md-6").append("<div class='row'><div id='27Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#27 .col-md-6").append("<div class='row'><div id='27Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#27 #27Quantity").remove();
         }
@@ -1214,7 +1212,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#28 .col-md-6").append("<div class='row'><div id='28Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#28 .col-md-6").append("<div class='row'><div id='28Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#28 #28Quantity").remove();
         }
@@ -1224,7 +1222,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#29 .col-md-6").append("<div class='row'><div id='29Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#29 .col-md-6").append("<div class='row'><div id='29Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#29 #29Quantity").remove();
         }
@@ -1234,7 +1232,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#30 .col-md-6").append("<div class='row'><div id='30Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#30 .col-md-6").append("<div class='row'><div id='30Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#30 #30Quantity").remove();
         }
@@ -1244,7 +1242,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#31 .col-md-6").append("<div class='row'><div id='31Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#31 .col-md-6").append("<div class='row'><div id='31Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#31 #31Quantity").remove();
         }
@@ -1254,7 +1252,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#32 .col-md-6").append("<div class='row'><div id='32Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#32 .col-md-6").append("<div class='row'><div id='32Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#32 #32Quantity").remove();
         }
@@ -1264,7 +1262,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#33 .col-md-6").append("<div class='row'><div id='33Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#33 .col-md-6").append("<div class='row'><div id='33Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#33 #33Quantity").remove();
         }
@@ -1274,7 +1272,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#34 .col-md-6").append("<div class='row'><div id='34Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#34 .col-md-6").append("<div class='row'><div id='34Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#34 #34Quantity").remove();
         }
@@ -1284,7 +1282,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#35 .col-md-6").append("<div class='row'><div id='35Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#35 .col-md-6").append("<div class='row'><div id='35Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
         } else {
             $("#35 #35Quantity").remove();
         }
@@ -1294,7 +1292,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#36 .col-md-6").append("<div class='row'><div id='36Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#36 .col-md-6").append("<div class='row'><div id='36Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#36 #36Quantity").remove();
         }
@@ -1304,7 +1302,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#37 .col-md-6").append("<div class='row'><div id='37Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#37 .col-md-6").append("<div class='row'><div id='37Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#37 #37Quantity").remove();
         }
@@ -1314,7 +1312,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#38 .col-md-6").append("<div class='row'><div id='38Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#38 .col-md-6").append("<div class='row'><div id='38Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#38 #38Quantity").remove();
         }
@@ -1324,7 +1322,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#39 .col-md-6").append("<div class='row'><div id='39Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#39 .col-md-6").append("<div class='row'><div id='39Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#39 #39Quantity").remove();
         }
@@ -1334,7 +1332,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#40 .col-md-6").append("<div class='row'><div id='40Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#40 .col-md-6").append("<div class='row'><div id='40Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#40 #8XLQuantity").remove();
         }
@@ -1344,7 +1342,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#41 .col-md-6").append("<div class='row'><div id='41Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#41 .col-md-6").append("<div class='row'><div id='41Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#41 #41Quantity").remove();
         }
@@ -1354,7 +1352,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#42 .col-md-6").append("<div class='row'><div id='42Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#42 .col-md-6").append("<div class='row'><div id='42Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#42 #42Quantity").remove();
         }
@@ -1364,7 +1362,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#43 .col-md-6").append("<div class='row'><div id='43Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#43 .col-md-6").append("<div class='row'><div id='43Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#43 #43Quantity").remove();
         }
@@ -1374,7 +1372,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#44 .col-md-6").append("<div class='row'><div id='44Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#44 .col-md-6").append("<div class='row'><div id='44Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#44 #44Quantity").remove();
         }
@@ -1384,7 +1382,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#45 .col-md-6").append("<div class='row'><div id='45Quantity' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#45 .col-md-6").append("<div class='row'><div id='45Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#45 #45Quantity").remove();
         }
@@ -1394,7 +1392,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#46 .col-md-6").append("<div class='row'><div id='46Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#46 .col-md-6").append("<div class='row'><div id='46Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#46 #46Quantity").remove();
         }
@@ -1404,7 +1402,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#47 .col-md-6").append("<div class='row'><div id='47Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#47 .col-md-6").append("<div class='row'><div id='47Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#47 #47Quantity").remove();
         }
@@ -1414,7 +1412,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#48 .col-md-6").append("<div class='row'><div id='48Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#48 .col-md-6").append("<div class='row'><div id='48Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#48 #48Quantity").remove();
         }
@@ -1424,7 +1422,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#49 .col-md-6").append("<div class='row'><div id='49Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#49 .col-md-6").append("<div class='row'><div id='49Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#49 #49Quantity").remove();
         }
@@ -1434,7 +1432,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#50 .col-md-6").append("<div class='row'><div id='50Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#50 .col-md-6").append("<div class='row'><div id='50Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#50 #50Quantity").remove();
         }
@@ -1444,7 +1442,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#51 .col-md-6").append("<div class='row'><div id='51Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#51 .col-md-6").append("<div class='row'><div id='51Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#51 #51Quantity").remove();
         }
@@ -1454,7 +1452,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#52 .col-md-6").append("<div class='row'><div id='52Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#52 .col-md-6").append("<div class='row'><div id='52Quantity' ><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#52 #52Quantity").remove();
         }
@@ -1464,7 +1462,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#53 .col-md-6").append("<div class='row'><div id='53Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#53 .col-md-6").append("<div class='row'><div id='53Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#53 #53Quantity").remove();
         }
@@ -1474,7 +1472,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#54 .col-md-6").append("<div class='row'><div id='54Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#54 .col-md-6").append("<div class='row'><div id='54Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#54 #54Quantity").remove();
         }
@@ -1484,7 +1482,7 @@ block Dashboard
         var $this = $(this);
         // $this will contain a reference to the checkbox   
         if ($this.is(':checked')) {
-            $("#55 .col-md-6").append("<div class='row'><div id='55Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='8XL' type='text'></div></div>")
+            $("#55 .col-md-6").append("<div class='row'><div id='55Quantity' class='col-xs-6 col-xs-offset-2'><input class='form-control' placeholder='Quantity' type='text'></div></div>")
         } else {
             $("#55 #55Quantity").remove();
         }

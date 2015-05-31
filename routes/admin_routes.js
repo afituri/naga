@@ -10,6 +10,7 @@ var TobMgr=require('../app/tob').TobMgr;
 var userHelpers = require('../app/userHelpers');
 var AdminMgr=require('../app/admin').AdminMgr;
 var login = require('../app/admin_login')(router);
+var MeasureMgr = require('../app/measure').MeasureMgr;
 var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),
@@ -100,8 +101,8 @@ router.get('/viewItem', function(req, res) {
 });
 router.get('/newItem', function(req, res) {
   CompanyMgr.GetCompany(function(err,result){
-    TobMgr.GetTob(function(err,result1){
-      res.render('newItem', { title: 'New Item',companys:result,tobs:result1});
+    MeasureMgr.GetAllMeasure(function(err,result1){
+      res.render('newItem', { title: 'New Item',companys:result , measures:result1});
     });
   });
 });
@@ -116,6 +117,7 @@ router.post('/addAdmin',function(req,res){
       res.send(false);
   });
 });
+
 router.post('/checkEmail',function(req,res){
   AdminMgr.checkEmailAdmin(req.body.email, function(err,result){
     if(result[0]==undefined)

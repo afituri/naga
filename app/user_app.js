@@ -89,6 +89,18 @@ exports.userMgr = {
       });
     });
   },
+  getByEmail  : function(email,cb){
+    mysqlMgr.connect(function (conn) {
+      conn.query('select * from `customer`  where `email` = ?  and `status`=1',email,function(err, result) {
+        conn.release();
+        if(err) {
+          cb(err,null);
+        } else {
+          cb(null,result);
+        }       
+      });
+    });
+  },
   getAllById  : function(id,cb){
     mysqlMgr.connect(function (conn) {
       conn.query('select * from `customer`  where `idcustomer` = ?  and `status`=1',id,function(err, result) {

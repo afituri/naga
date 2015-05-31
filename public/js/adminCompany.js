@@ -35,13 +35,7 @@ $(document).ready(function(){
           required: "Please select level !"
         }
       }
-      // errorPlacement: function (error, element) {
-      //   if ($(element).is('select')) {
-      //       element.next().after(error);
-      //   } else {
-      //       error.insertAfter(element);
-      //   }
-      // },
+
   });
 
   $('body').on('click','#delete', function(){
@@ -67,10 +61,61 @@ $(document).ready(function(){
       window.location.href='/company/adminCompany/'+$(this).val()+'/adminSellerCompany';
   });
 
-  $('body').on('click', '#save', function () {
+  $('body').on('click', '#save', function (e) {
+    e.preventDefault();
     $('#formCompany').submit();
   });
 
+  $('body').on('click', '#cancel', function () {
+    $('#name').val("");
+    $('#name_en').val("");
+    $('.selectpicker').selectpicker('val', '');
+  });
+
+  $("#formCompany").submit(function(e) {
+    var isvalidate=$("#formCompany").valid();
+    if(isvalidate){
+      $.post("/company/addCompany", $("form").serializeObject(), function(data, error){
+        if(data.stat !=true){
+      
+        }
+        else{
+          $('#name').val("");
+          $('#name_en').val("");
+          $('.selectpicker').selectpicker('val', '');
+          if($("#tbody").children().length>=10){
+            $("#tbody tr:last-child").remove();
+          }
+          $("#tbody").prepend('  <tr><td>'+data.result[0].name+'</td><td>'+data.result[0].name_en+'</td><td class="text-right">'+ 
+            '<button id="View" value="'+data.result[0].idcompany+'" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td><td class="text-right">'+ 
+            '<button id="Addresses" value="'+data.result[0].idcompany+'" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-map-marker"></span></button></td><td class="text-right">'+ 
+            '<button id="seller" value="'+data.result[0].idcompany+'" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-user"></span></button></td><td class="text-right">'+ 
+            '<button id="delete" value="'+data.result[0].idcompany+'" href="#del" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></td></tr>');
+          $('#newCompany').modal('hide');
+       
+          $.notify({
+            title: "<strong>Successful:</strong> ",
+            message: "Add a new Company has successfully"
+          },{
+            type: 'success',
+            allow_dismiss: true,
+            showProgressbar: false,
+            placement: {
+              from: 'top',
+              align: 'center'
+            },
+            mouse_over: null,
+            newest_on_top: true,
+            animate: {
+              enter: 'animated flipInY',
+              exit: 'animated flipOutX'
+            },
+          });
+        }
+      });
+    }
+    return false;
+  });
 
 
 });

@@ -1,692 +1,353 @@
 extends layout
-block content
-  html
-  body
-    #logoArea.navbar
-      a#smallScreen.btn.btn-navbar(data-target='#topMenu', data-toggle='collapse')
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      .navbar-inner
-        a.brand(href='/seller/homePage')
-         img(src='/themes/images/Logoo.png', alt='Bootsshop', width='300 px ;')
-        form.form-inline.navbar-search(method='post', action='/seller/products')
-          input#srchFld.srchTxt(type='text')
-          select.srchTxt
-            option All
-            option CLOTHES 
-            option FOOD AND BEVERAGES 
-            option HEALTH & BEAUTY 
-            option SPORTS & LEISURE 
-            option BOOKS & ENTERTAINMENTS 
-          button#submitButton.btn.btn-primary(type='submit') Go
-        ul#topMenu.nav.pull-right
-          li
-            a(href='special_offer.html') Specials Offer
-          li
-            a(href='normal.html') Delivery
-          li
-            a(href='contact.html') Contact
-          li
-            a(href='#login', role='button', data-toggle='modal', style='padding-right:0')
-              span.btn.btn-large.btn-success Login
-            #login.modal.hide.fade.in(tabindex='-1', role='dialog', aria-labelledby='login', aria-hidden='false')
-              .modal-header
-                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                h3 Login Block
-              .modal-body
-                form.form-horizontal.loginFrm
-                  .control-group
-                    input#inputEmail(type='text', placeholder='Email')
-                  .control-group
-                    input#inputPassword(type='password', placeholder='Password')
-                  .control-group
-                    label.checkbox
-                      input(type='checkbox')
-                      |  Remember me
-                button.btn.btn-success(type='submit') Sign in
-                button.btn(data-dismiss='modal', aria-hidden='true') Close
-    // Header End======================================================================
-    #mainBody
-      .container
-        .row
-          // Sidebar ==================================================
-          #sidebar.span3
-            .well.well-small
-              a#myCart(href='/seller/product_summary')
-                img(src='/themes/images/ico-cart.png', alt='cart')
-                | 3 Items in your cart  
-                span.badge.badge-warning.pull-right $155.00
-            ul#sideManu.nav.nav-tabs.nav-stacked
-              li.subMenu.open
-                a  ELECTRONICS [230]
-                ul
-                  li
-                    a.active(href='/seller/products')
-                      i.icon-chevron-right
-                      | Cameras (100)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Computers, Tablets & laptop (30)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Mobile Phone (80)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Sound & Vision (15)
-              li.subMenu
-                a  CLOTHES [840] 
-                ul(style='display:none')
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Clothing (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Shoes (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Women's Hand Bags (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Men's Clothings  (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Men's Shoes (6)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Kids Clothing (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Kids Shoes (3)
-              li.subMenu
-                a FOOD AND BEVERAGES [1000]
-                ul(style='display:none')
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Angoves  (35)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Bouchard Aine & Fils (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | French Rabbit (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Louis Bernard  (45)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | BIB Wine (Bag in Box) (8)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Other Liquors & Wine (5)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Garden (3)
-                  li
-                    a(href='/seller/products')
-                      i.icon-chevron-right
-                      | Khao Shong (11)
-              li
-                a(href='/seller/products') HEALTH & BEAUTY [18]
-              li
-                a(href='/seller/products') SPORTS & LEISURE [58]
-              li
-                a(href='/seller/products') BOOKS & ENTERTAINMENTS [14]
-            br
-            .thumbnail
-              img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
-              .caption
-                h5 Panasonic
-                h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
-              .caption
-                h5 Kindle
-                h4(style='text-align:center')
-                  a.btn(href='/seller/product_details')
-                    i.icon-zoom-in
-                  a.btn(href='#')
-                    | Add to 
-                    i.icon-shopping-cart
-                  a.btn.btn-primary(href='#') $222.00
-            br
-            .thumbnail
-              img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
-              .caption
-                h5 Payment Methods
-          // Sidebar end===============================================
-          .span9
-            ul.breadcrumb
-              li
-                a(href='/seller/homePage') Home
-                span.divider /
-              li
-                a(href='/seller/products') Products
-                span.divider /
-              li.active product Details
-            .row
-              #gallery.span3
-                a(href='/themes/images/products/large/f1.jpg', title='Fujifilm FinePix S2950 Digital Camera')
-                  img(src='/themes/images/products/large/3.jpg', style='width:100%', alt='Fujifilm FinePix S2950 Digital Camera')
-                #differentview.moreOptopm.carousel.slide
-                  .carousel-inner
-                    .item.active
-                      a(href='/themes/images/products/large/f1.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f1.jpg', alt='')
-                      a(href='/themes/images/products/large/f2.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f2.jpg', alt='')
-                      a(href='/themes/images/products/large/f3.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f3.jpg', alt='')
-                    .item
-                      a(href='/themes/images/products/large/f3.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f3.jpg', alt='')
-                      a(href='/themes/images/products/large/f1.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f1.jpg', alt='')
-                      a(href='/themes/images/products/large/f2.jpg')
-                        img(style='width:29%', src='/themes/images/products/large/f2.jpg', alt='')
-                  //
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-                .btn-toolbar
-                  .btn-group
-                    span.btn
-                      i.icon-envelope
-                    span.btn
-                      i.icon-print
-                    span.btn
-                      i.icon-zoom-in
-                    span.btn
-                      i.icon-star
-                    span.btn
-                      i.icon-thumbs-up
-                    span.btn
-                      i.icon-thumbs-down
-              .span6
-                h3 Fujifilm FinePix S2950 Digital Camera  
-                small - (14MP, 18x Optical Zoom) 3-inch LCD
-                hr.soft
-                form.form-horizontal.qtyFrm
-                  .control-group
-                    label.control-label
-                      span $222.00
-                    .controls
-                      input.span1(type='number', placeholder='Qty.')
-                      button.btn.btn-large.btn-primary.pull-right(type='submit')
-                        | Add to cart 
-                        i.icon-shopping-cart
-                hr.soft
-                h4 100 items in stock
-                form.form-horizontal.qtyFrm.pull-right
-                  .control-group
-                    label.control-label
-                      span Color
-                    .controls
-                      select.span2
-                        option Black
-                        option Red
-                        option Blue
-                        option Brown
-                hr.soft.clr
-                p
-                  | 14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution.
-                  | Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm.
-                  | Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).
-                a.btn.btn-small.pull-right(href='#detail') More Details
-                br.clr
-                a(href='#', name='detail')
-                hr.soft
-              .span9
-                ul#productDetail.nav.nav-tabs
-                  li.active
-                    a(href='#home', data-toggle='tab') Product Details
-                  li
-                    a(href='#profile', data-toggle='tab') Related Products
-                #myTabContent.tab-content
-                  #home.tab-pane.fade.active.in
-                    h4 Product Information
-                    table.table.table-bordered
-                      tbody
-                        tr.techSpecRow
-                          th(colspan='2') Product Details
-                        tr.techSpecRow
-                          td.techSpecTD1 Brand: 
-                          td.techSpecTD2 Fujifilm
-                        tr.techSpecRow
-                          td.techSpecTD1 Model:
-                          td.techSpecTD2 FinePix S2950HD
-                        tr.techSpecRow
-                          td.techSpecTD1 Released on:
-                          td.techSpecTD2  2011-01-28
-                        tr.techSpecRow
-                          td.techSpecTD1 Dimensions:
-                          td.techSpecTD2  5.50" h x 5.50" w x 2.00" l, .75 pounds
-                        tr.techSpecRow
-                          td.techSpecTD1 Display size:
-                          td.techSpecTD2 3
-                    h5 Features
-                    p
-                      | 14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).
-                      br
-                      |         OND363338
-                    h4 Editorial Reviews
-                    h5 Manufacturer's Description 
-                    p
-                      | With a generous 18x Fujinon optical zoom lens, the S2950 really packs a punch, especially when matched with its 14 megapixel sensor, large 3.0" LCD screen and 720p HD (30fps) movie capture.
-                    h5 Electric powered Fujinon 18x zoom lens
-                    p
-                      | The S2950 sports an impressive 28mm – 504mm* high precision Fujinon optical zoom lens. Simple to operate with an electric powered zoom lever, the huge zoom range means that you can capture all the detail, even when you're at a considerable distance away. You can even operate the zoom during video shooting. Unlike a bulky D-SLR, bridge cameras allow you great versatility of zoom, without the hassle of carrying a bag of lenses.
-                    h5 Impressive panoramas
-                    p
-                      | With its easy to use Panoramic shooting mode you can get creative on the S2950, however basic your skills, and rest assured that you will not risk shooting uneven landscapes or shaky horizons. The camera enables you to take three successive shots with a helpful tool which automatically releases the shutter once the images are fully aligned to seamlessly stitch the shots together in-camera. It's so easy and the results are impressive.
-                    h5 Sharp, clear shots
-                    p
-                      | Even at the longest zoom settings or in the most challenging of lighting conditions, the S2950 is able to produce crisp, clean results. With its mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to reduce the blurring effects of both hand-shake and subject movement to provide superb pictures.
-                  #profile.tab-pane.fade
-                    #myTab.pull-right
-                      a(href='#listView', data-toggle='tab')
-                        span.btn.btn-large
-                          i.icon-list
-                      a(href='#blockView', data-toggle='tab')
-                        span.btn.btn-large.btn-primary
-                          i.icon-th-large
-                    br.clr
-                    hr.soft
-                    .tab-content
-                      #listView.tab-pane
-                        .row
-                          .span2
-                            img(src='/themes/images/products/4.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+block sellerPage
+block itemSlide
+block listOnLeft
+block home
+  #mainBody
+    .container
+      .row
+        // Sidebar ==================================================
+        #sidebar.col-lg-3.col-md-3.col-sm-3
+          .well.well-small
+            a#myCart(href='/user/product_summary')
+              img(src='/themes/images/ico-cart.png', alt='cart')
+              | 3 Items in your cart
+              span.badge.badge-warning.pull-right $155.00
+          ul#sideManu.nav.nav-tabs.nav-stacked
+            li.subMenu.open
+              a  ELECTRONICS [230]
+              ul
+                li
+                  a.active(href='/user/products')
+                    i.icon-chevron-right
+                    | Cameras (100)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Computers, Tablets & laptop (30)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Mobile Phone (80)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Sound & Vision (15)
+            li.subMenu
+              a  CLOTHES [840] 
+              ul(style='display:none')
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Clothing (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Shoes (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Women's Hand Bags (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Men's Clothings  (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Men's Shoes (6)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Kids Clothing (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Kids Shoes (3)
+            li.subMenu
+              a FOOD AND BEVERAGES [1000]
+              ul(style='display:none')
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Angoves  (35)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Bouchard Aine & Fils (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | French Rabbit (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Louis Bernard  (45)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | BIB Wine (Bag in Box) (8)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Other Liquors & Wine (5)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Garden (3)
+                li
+                  a(href='/user/products')
+                    i.icon-chevron-right
+                    | Khao Shong (11)
+            li
+              a(href='/user/products') HEALTH & BEAUTY [18]
+            li
+              a(href='/user/products') SPORTS & LEISURE [58]
+            li
+              a(href='/user/products') BOOKS & ENTERTAINMENTS [14]
+          br
+          .thumbnail
+            img(src='/themes/images/products/panasonic.jpg', alt='Bootshop panasonoc New camera')
+            .caption
+              h5 Panasonic
+              h4(style='text-align:center')
+                a.btn(href='/user/product_details')
+                  i.icon-zoom-in
+                a.btn(href='#')
+                  | Add to 
+                  i.icon-shopping-cart
+                a.btn.btn-primary(href='#') $222.00
+          br
+          .thumbnail
+            img(src='/themes/images/products/kindle.png', title='Bootshop New Kindel', alt='Bootshop Kindel')
+            .caption
+              h5 Kindle
+              h4(style='text-align:center')
+                a.btn(href='/user/product_details')
+                  i.icon-zoom-in
+                a.btn(href='#')
+                  | Add to 
+                  i.icon-shopping-cart
+                a.btn.btn-primary(href='#') $222.00
+          br
+          .thumbnail
+            img(src='/themes/images/payment_methods.png', title='Bootshop Payment Methods', alt='Payments Methods')
+            .caption
+              h5 Payment Methods
+        // Sidebar end===============================================
+        .col-lg-9.col-md-9.col-sm-9
+          ul.breadcrumb
+            li
+              a(href='/user/homePage') Home
+              span.divider
+            li
+              a(href='/user/products') Products
+              span.divider
+            li.active product Details
+          .row
+            #gallery.col-lg-3.col-md-3.col-sm-3
+              a(href='/themes/images/products/large/f1.jpg', title='Fujifilm FinePix S2950 Digital Camera')
+                img(src='/themes/images/products/large/3.jpg', style='width:100%', alt='Fujifilm FinePix S2950 Digital Camera')
+              #differentview.moreOptopm.carousel.slide
+                .carousel-inner
+                  .item.active
+                    a(href='/themes/images/products/large/f1.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f1.jpg', alt='')
+                    a(href='/themes/images/products/large/f2.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f2.jpg', alt='')
+                    a(href='/themes/images/products/large/f3.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f3.jpg', alt='')
+                  .item
+                    a(href='/themes/images/products/large/f3.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f3.jpg', alt='')
+                    a(href='/themes/images/products/large/f1.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f1.jpg', alt='')
+                    a(href='/themes/images/products/large/f2.jpg')
+                      img(style='width:29%', src='/themes/images/products/large/f2.jpg', alt='')
+                  //- 
+                    a.left.carousel-control(href='#myCarousel', data-slide='prev') ‹
+                    a.right.carousel-control(href='#myCarousel', data-slide='next') ›
+            .col-lg-9.col-md-9.col-sm-9
+              h3 Fujifilm FinePix S2950 Digital Camera  
+              small - (14MP, 18x Optical Zoom) 3-inch LCD
+              hr.soft
+              form.form-horizontal.qtyFrm
+                .control-group
+                  label.control-label
+                    span $222.00
+                  .controls
+                    input.span1(type='number', placeholder='Qty.')
+                    button.btn.btn-large.btn-primary.pull-right(type='submit')
+                      | Add to cart 
+                      i.icon-shopping-cart
+              hr.soft
+              h4 100 items in stock
+              form.form-horizontal.qtyFrm.pull-right
+                .control-group
+                  label.control-label
+                    span Color
+                  .controls
+                    select.col-lg-2.col-md-2.col-sm-2
+                      option Black
+                      option Red
+                      option Blue
+                      option Brown
+              hr.soft.clr
+              p
+                | 14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution.
+                | Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm.
+                | Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).
+              a.btn.btn-small.pull-right(href='#detail') More Details
+              br.clr
+              a(href='#', name='detail')
+              hr.soft
+            .col-lg-9.col-md-9.col-sm-9
+              ul#productDetail.nav.nav-tabs
+                li.active
+                  a(href='#home', data-toggle='tab') Product Details
+                li
+                  a(href='#profile', data-toggle='tab') Related Products
+              #myTabContent.tab-content
+                #home.tab-pane.fade.active.in
+                  h4 Product Information
+                  table.table.table-bordered
+                    tbody
+                      tr.techSpecRow
+                        th(colspan='2') Product Details
+                      tr.techSpecRow
+                        td.techSpecTD1 Brand: 
+                        td.techSpecTD2 Fujifilm
+                      tr.techSpecRow
+                        td.techSpecTD1 Model:
+                        td.techSpecTD2 FinePix S2950HD
+                      tr.techSpecRow
+                        td.techSpecTD1 Released on:
+                        td.techSpecTD2  2011-01-28
+                      tr.techSpecRow
+                        td.techSpecTD1 Dimensions:
+                        td.techSpecTD2  5.50" h x 5.50" w x 2.00" l, .75 pounds
+                      tr.techSpecRow
+                        td.techSpecTD1 Display size:
+                        td.techSpecTD2 3
+                  h5 Features
+                  p
+                    | 14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).
+                    br
+                    |         OND363338
+                  h4 Editorial Reviews
+                  h5 Manufacturer's Description 
+                  p
+                    | With a generous 18x Fujinon optical zoom lens, the S2950 really packs a punch, especially when matched with its 14 megapixel sensor, large 3.0" LCD screen and 720p HD (30fps) movie capture.
+                  h5 Electric powered Fujinon 18x zoom lens
+                  p
+                    | The S2950 sports an impressive 28mm – 504mm* high precision Fujinon optical zoom lens. Simple to operate with an electric powered zoom lever, the huge zoom range means that you can capture all the detail, even when you're at a considerable distance away. You can even operate the zoom during video shooting. Unlike a bulky D-SLR, bridge cameras allow you great versatility of zoom, without the hassle of carrying a bag of lenses.
+                  h5 Impressive panoramas
+                  p
+                    | With its easy to use Panoramic shooting mode you can get creative on the S2950, however basic your skills, and rest assured that you will not risk shooting uneven landscapes or shaky horizons. The camera enables you to take three successive shots with a helpful tool which automatically releases the shutter once the images are fully aligned to seamlessly stitch the shots together in-camera. It's so easy and the results are impressive.
+                  h5 Sharp, clear shots
+                  p
+                    | Even at the longest zoom settings or in the most challenging of lighting conditions, the S2950 is able to produce crisp, clean results. With its mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to reduce the blurring effects of both hand-shake and subject movement to provide superb pictures.
+                #profile.tab-pane.fade
+                  .tab-content
+                    #blockView.tab-pane.active
+                      ul.thumbnails
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/10.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
+                                  i.icon-zoom-in
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
+                                a.btn.btn-primary(href='#') €222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/11.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
                                   i.icon-zoom-in
-                        hr.soft
-                        .row
-                          .span2
-                            img(src='/themes/images/products/5.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
+                                a.btn.btn-primary(href='#') €222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/12.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
                                   i.icon-zoom-in
-                        hr.soft
-                        .row
-                          .span2
-                            img(src='/themes/images/products/6.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
+                                a.btn.btn-primary(href='#') €222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/13.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
                                   i.icon-zoom-in
-                        hr.soft
-                        .row
-                          .span2
-                            img(src='/themes/images/products/7.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
+                                a.btn.btn-primary(href='#') €222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/1.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
                                   i.icon-zoom-in
-                        hr.soft
-                        .row
-                          .span2
-                            img(src='/themes/images/products/8.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
+                                a.btn.btn-primary(href='#') €222.00
+                        li.col-lg-3.col-md-3.col-sm-3
+                          .thumbnail
+                            a(href='/seller/product_details')
+                              img(src='/themes/images/products/2.jpg', alt='')
+                            .caption
+                              h5 Manicure & Pedicure
+                              p
+                                | Lorem Ipsum is simply dummy text.
+                              h4(style='text-align:center')
+                                a.btn(href='/seller/product_details')
                                   i.icon-zoom-in
-                        hr.soft
-                        .row
-                          .span2
-                            img(src='/themes/images/products/9.jpg', alt='')
-                          .span4
-                            h3 New | Available
-                            hr.soft
-                            h5 Product Name 
-                            p
-                              | Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                              | that is why our goods are so popular..
-                            a.btn.btn-small.pull-right(href='/seller/product_details') View Details
-                            br.clr
-                          .span3.alignR
-                            form.form-horizontal.qtyFrm
-                              h3  $222.00
-                              label.checkbox
-                                input(type='checkbox')
-                                |   Adds product to compair
-                              br
-                              .btn-group
-                                a.btn.btn-large.btn-primary(href='/seller/product_details')
+                                a.btn(href='#')
                                   | Add to 
                                   i.icon-shopping-cart
-                                a.btn.btn-large(href='/seller/product_details')
-                                  i.icon-zoom-in
-                        hr.soft
-                      #blockView.tab-pane.active
-                        ul.thumbnails
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/10.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/11.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/12.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/13.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/1.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                          li.span3
-                            .thumbnail
-                              a(href='/seller/product_details')
-                                img(src='/themes/images/products/2.jpg', alt='')
-                              .caption
-                                h5 Manicure & Pedicure
-                                p
-                                  | Lorem Ipsum is simply dummy text.
-                                h4(style='text-align:center')
-                                  a.btn(href='/seller/product_details')
-                                    i.icon-zoom-in
-                                  a.btn(href='#')
-                                    | Add to 
-                                    i.icon-shopping-cart
-                                  a.btn.btn-primary(href='#') €222.00
-                        hr.soft
-                    br.clr
+                                a.btn.btn-primary(href='#') €222.00
+                      hr.soft
+                  br.clr
     // MainBody End =============================
-    // Footer ==================================================================
-    #footerSection
-      .container
-        .row
-          .span3
-            h5 ACCOUNT
-            a(href='login.html') YOUR ACCOUNT
-            a(href='login.html') PERSONAL INFORMATION
-            a(href='login.html') ADDRESSES
-            a(href='login.html') DISCOUNT
-            a(href='login.html') ORDER HISTORY
-          .span3
-            h5 INFORMATION
-            a(href='contact.html') CONTACT
-            a(href='/seller/register') REGISTRATION
-            a(href='legal_notice.html') LEGAL NOTICE
-            a(href='tac.html') TERMS AND CONDITIONS
-            a(href='faq.html') FAQ
-          .span3
-            h5 OUR OFFERS
-            a(href='#') NEW PRODUCTS
-            a(href='#') TOP SELLERS
-            a(href='special_offer.html') SPECIAL OFFERS
-            a(href='#') MANUFACTURERS
-            a(href='#') SUPPLIERS
-          #socialMedia.span3.pull-right
-            h5 SOCIAL MEDIA 
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/facebook.png', title='facebook', alt='facebook')
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/twitter.png', title='twitter', alt='twitter')
-            a(href='#')
-              img(width='60', height='60', src='/themes/images/youtube.png', title='youtube', alt='youtube')
-        p.pull-right © Bootshop
-      // Container End
-    // Placed at the end of the document so the pages load faster =============================================
+    
     script(src='/themes/js/jquery.js', type='text/javascript')
     script(src='/themes/js/bootstrap.min.js', type='text/javascript')
     script(src='/themes/js/google-code-prettify/prettify.js')
     script(src='/themes/js/bootshop.js')
     script(src='/themes/js/jquery.lightbox-0.5.js')
-    // /themes switcher section =============================================================================================
-    #secectionBox
-      link(rel='stylesheet', href='/themes/switch//themeswitch.css', type='text/css', media='screen')
-      script(src='/themes/switch/theamswitcher.js', type='text/javascript', charset='utf-8')
-      #themeContainer
-        #hideme.themeTitle Style Selector
-        .themeName Oregional Skin
-        .images.style
-          a(href='/themes/css/#', name='bootshop')
-            img.active(src='/themes/switch/images/clr/bootshop.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='businessltd')
-            img.active(src='/themes/switch/images/clr/businessltd.png', alt='bootstrap business templates')
-        .themeName Bootswatch Skins (11)
-        .images.style
-          a(href='/themes/css/#', name='amelia', title='Amelia')
-            img(src='/themes/switch/images/clr/amelia.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='spruce', title='Spruce')
-            img(src='/themes/switch/images/clr/spruce.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='superhero', title='Superhero')
-            img(src='/themes/switch/images/clr/superhero.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='cyborg')
-            img(src='/themes/switch/images/clr/cyborg.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='cerulean')
-            img(src='/themes/switch/images/clr/cerulean.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='journal')
-            img(src='/themes/switch/images/clr/journal.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='readable')
-            img(src='/themes/switch/images/clr/readable.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='simplex')
-            img(src='/themes/switch/images/clr/simplex.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='slate')
-            img(src='/themes/switch/images/clr/slate.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='spacelab')
-            img(src='/themes/switch/images/clr/spacelab.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='united')
-            img(src='/themes/switch/images/clr/united.png', alt='bootstrap business templates')
-          p(style='margin:0;line-height:normal;margin-left:-10px;display:none;')
-            small These are just examples and you can build your own color scheme in the backend.
-        .themeName Background Patterns 
-        .images.patterns
-          a(href='/themes/css/#', name='pattern1')
-            img.active(src='/themes/switch/images/pattern/pattern1.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern2')
-            img(src='/themes/switch/images/pattern/pattern2.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern3')
-            img(src='/themes/switch/images/pattern/pattern3.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern4')
-            img(src='/themes/switch/images/pattern/pattern4.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern5')
-            img(src='/themes/switch/images/pattern/pattern5.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern6')
-            img(src='/themes/switch/images/pattern/pattern6.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern7')
-            img(src='/themes/switch/images/pattern/pattern7.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern8')
-            img(src='/themes/switch/images/pattern/pattern8.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern9')
-            img(src='/themes/switch/images/pattern/pattern9.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern10')
-            img(src='/themes/switch/images/pattern/pattern10.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern11')
-            img(src='/themes/switch/images/pattern/pattern11.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern12')
-            img(src='/themes/switch/images/pattern/pattern12.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern13')
-            img(src='/themes/switch/images/pattern/pattern13.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern14')
-            img(src='/themes/switch/images/pattern/pattern14.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern15')
-            img(src='/themes/switch/images/pattern/pattern15.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern16')
-            img(src='/themes/switch/images/pattern/pattern16.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern17')
-            img(src='/themes/switch/images/pattern/pattern17.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern18')
-            img(src='/themes/switch/images/pattern/pattern18.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern19')
-            img(src='/themes/switch/images/pattern/pattern19.png', alt='bootstrap business templates')
-          a(href='/themes/css/#', name='pattern20')
-            img(src='/themes/switch/images/pattern/pattern20.png', alt='bootstrap business templates')
-    span#/themesBtn
+    

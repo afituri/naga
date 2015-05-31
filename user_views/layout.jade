@@ -2,427 +2,139 @@ doctype html
 html
   head
     title= title
-    
-    
-    link(rel='stylesheet', href='/css/listUser.css')
-    link(rel='stylesheet', href='/css/account.css')
-    link(rel='stylesheet', href='/css/itemsPhotoUser.css')
-    link(rel='stylesheet', href='/css/bootstrap.min.css')
-
-    link(href='/themes/css/base.css', rel='stylesheet', media='screen')
-    link(rel='stylesheet', href='/css/styleUser.css')
-    //- Bootstrap style responsive
-    link(href='/themes/css/bootstrap-responsive.min.css', rel='stylesheet')
-    link(href='/font-awesome/css/font-awesome.css', rel='stylesheet', type='text/css')
-    //- Google-code-prettify
-    link(href='/themes/js/google-code-prettify/prettify.css', rel='stylesheet')
-    //- fav and touch icons
-    link(rel='shortcut icon', href='/themes/images/ico/favicon.ico')
-    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/themes/images/ico/apple-touch-icon-144-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/themes/images/ico/apple-touch-icon-114-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/themes/images/ico/apple-touch-icon-72-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', href='/themes/images/ico/apple-touch-icon-57-precomposed.png')
-    style#enject(type='text/css')
-
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //- Meta
+    meta(charset='UTF-8')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
     meta(name='description', content='')
     meta(name='author', content='')
+    meta(name='keywords', content='MediaCenter, Template, eCommerce')
+    meta(name='robots', content='all')
+    //- Bootstrap Core CSS
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    //- Customizable CSS
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/green.css')
+    link(rel='stylesheet', href='/css/owl.carousel.css')
+    link(rel='stylesheet', href='/css/owl.transitions.css')
+    link(rel='stylesheet', href='/css/animate.min.css')
+    //- Demo Purpose Only. Should be removed in production
+    link(rel='stylesheet', href='/css/config.css')
+    link(href='/css/green.css', rel='alternate stylesheet', title='Green color')
+    link(href='/css/blue.css', rel='alternate stylesheet', title='Blue color')
+    link(href='/css/red.css', rel='alternate stylesheet', title='Red color')
+    link(href='/css/orange.css', rel='alternate stylesheet', title='Orange color')
+    link(href='/css/navy.css', rel='alternate stylesheet', title='Navy color')
+    link(href='/css/dark-green.css', rel='alternate stylesheet', title='Darkgreen color')
+    //- Demo Purpose Only. Should be removed in production : END
+    //- Fonts
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800', rel='stylesheet', type='text/css')
+    //- Icons/Glyphs
+    link(rel='stylesheet', href='/css/font-awesome.min-forUser.css')
+    //- Favicon
+    link(rel='shortcut icon', href='/images/favicon.ico')
+    //- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js
+    //-if lt IE 9
+      script(src='/js/html5shiv.js')
+      script(src='/js/respond.min.js')
   body
-    //block login  
-    block content
-      block navigation
-        nav.navbar#layoutNavbar(style='margin-bottom: 0;')
-          .container-fluid
-            // Brand and toggle get grouped for better mobile display
-            .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(href='#')
-            // Collect the nav links, forms, and other content for toggling
-            #bs-megadropdown-tabs.collapse.navbar-collapse
-              .mainmenu
-                ul.nav.navbar-nav.navbar-right
-                  li.dropdown
-                    a.dropdown-toggle(href='#', data-toggle='dropdown')
-                      span.glyphicon.glyphicon-user
-                      strong Nombre
-                      span.glyphicon.glyphicon-chevron-down
-                    ul.dropdown-menu
-                      li
-                        .navbar-login
-                          .row
-                            .col-md-4
-                              p.text-center
-                                span.glyphicon.glyphicon-user.icon-size
-                            .col-md-8
-                              p.text-left
-                                strong Nombre Apellido
-                              p.text-left.small correoElectronico@email.com
-                              p.text-left
-                                a.btn.btn-primary.btn-block.btn-sm(href='#') Actualizar Datos
-                      li.divider
-                      li
-                        .navbar-login.navbar-login-session
-                          .row
-                            .col-lg-12
-                              p
-                                a.btn.btn-danger.btn-block(href='#') Cerrar Sesion
-                   
-            
-        .panel.panel-warning(style='margin-bottom: 0;')
-          .panel-body
-            .row
-              .col-xs-3.col-sm-3.col-md-3.col-lg-3
-                .btn-group
-                    a(href='') 
-                    a(href='')
-                      span.glyphicon.glyphicon-shopping-cart#cartin
-                      span#cart my bag
-                      span#cart   (0)
-                      
-                .btn-group
-                  ul.nav.navbar-nav
-                    li.dropdown
-                      a.dropdown-toggle(href='#', data-toggle='dropdown')
-                        | My Account
-                        span.glyphicon.glyphicon-user.pull-left
-                      ul.dropdown-menu
-                        li
-                          a(href='#')
-                            | Account Settings 
-                            span.glyphicon.glyphicon-cog.pull-right
-                        li.divider
-                        li
-                          a(href='#')
-                            | User stats 
-                            span.glyphicon.glyphicon-stats.pull-right
-                        li.divider
-                        li
-                          a(href='#')
-                            | Messages 
-                            span.badge.pull-right  42 
-                        li.divider
-                        li
-                          a(href='#')
-                            | Favourites Snippets 
-                            span.glyphicon.glyphicon-heart.pull-right
-                        li.divider
-                        li
-                          a(href='#')
-                            | Sign Out 
-                            span.glyphicon.glyphicon-log-out.pull-right               
-
-               
-              .col-xs-10.col-sm-6.col-md-6.col-lg-6
-                form
-                  .mainmenu
-                    .input-group
-                      span.input-group-btn
-                        button.btn.btn-default(type='button') Go
-                      //- input.form-control(type='text') .input-lg .btn-lg
-                      input.form-control.text-left(type='text', placeholder='Searsh')  
-                      .input-group-btn
-                        button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                          | All
-                          span.caret
-                        ul.dropdown-menu.pull-right
-                          li
-                            a(href='#') Department one
-                          li
-                            a(href='#') Sony
-                          li
-                            a(href='#') Vaio
-                          li.divider
-                          li
-                            a(href='#') Department Two
-
-              //- .pull-right.basketImg
-      block sellerPage
-      block home 
-      block itemSlide
-      block listOnLeft
-        .row
-          .col-xs-3.col-xs-push-9.col-sm-3.col-sm-push-9.col-md-3.col-md-push-9.col-lg-3.col-lg-push-9
-            .alert.alert-warning.text-left(style='margin-bottom: 0;')
-              strong.text-danger CATEGORY
-            #accordion.panel-group
-              .panel.panel-warning
-                .panel-heading
-                  h4.panel-title.text-left
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
-                      | SPORTSWEAR
-                      span.glyphicon.glyphicon-asterisk
-                #collapseOne.text-left.panel-collapse.collapse.in
-                  ul.list-group
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') NIKE
-                      span.glyphicon.glyphicon-chevron-right
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') UNDER ARMOUR
-                      span.glyphicon.glyphicon-chevron-right
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') ADIDAS
-                      span.glyphicon.glyphicon-chevron-right
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') PUMA
-                      span.glyphicon.glyphicon-chevron-right
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') ASICS
-                      span.glyphicon.glyphicon-chevron-right
-                    li.list-group-item
-                      .pull-right
-                        span.badge 13
-                      a(href='http://fb.com/moinakbarali') Comments
-                      span.glyphicon.glyphicon-comment.text-success
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') News
-                      span.glyphicon.glyphicon-flash.text-success
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') Newsletters
-                      span.glyphicon.glyphicon-file.text-info
-                    li.list-group-item
-                      .pull-right
-                        span.badge 42
-                      a(href='http://fb.com/moinakbarali') Comments
-                      span.glyphicon.glyphicon-comment.text-success
-              .panel.panel-warning
-                .panel-heading
-                  h4.panel-title.text-left
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
-                      | MEN
-                      span.glyphicon.glyphicon-asterisk
-                #collapseTwo.text-left.panel-collapse.collapse.in
-                  ul.list-group
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') FENDI
-                      span.glyphicon.glyphicon-pencil.text-primary
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') GUESS
-                      span.glyphicon.glyphicon-pencil.text-primary
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') VALENTINO
-                      span.glyphicon.glyphicon-flash.text-success
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') DIOR
-                      span.glyphicon.glyphicon-file.text-info
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') VERSACE
-                      span.glyphicon.glyphicon-file.text-info 
-                    li.list-group-item
-                      .pull-right
-                        span.badge 13
-                      a(href='http://fb.com/moinakbarali') ARMANI
-                      span.glyphicon.glyphicon-comment.text-success
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') DOLCE AND GABBANA
-                      span.glyphicon.glyphicon-flash.text-success
-                    li.list-group-item
-                      a(href='http://fb.com/moinakbarali') Newsletters
-                      span.glyphicon.glyphicon-file.text-info
-                    li.list-group-item
-                      .pull-right
-                        span.badge 42
-                      a(href='http://fb.com/moinakbarali') Comments
-                      span.glyphicon.glyphicon-comment.text-success  
-              .panel.panel-warning
-                .panel-heading
-                  h4.panel-title.text-left
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
-                      | Reports
-                      span.glyphicon.glyphicon-asterisk
-                #collapseFour.text-left.panel-collapse.collapse
-                  .list-group
-                    a.list-group-item(href='#')
-                      | Cras justo odio
-                    .list-group
-                      a.list-group-item(href='#')
-                        | Cras justo odio
-                      a.list-group-item(href='#') Dapibus ac facilisis in
-                      a.list-group-item(href='#') Morbi leo risus
-                      a.list-group-item(href='#') Porta ac consectetur ac
-                      a.list-group-item(href='#') Vestibulum at eros
-                    a.list-group-item(href='#') Dapibus ac facilisis in
-                    a.list-group-item(href='#') Morbi leo risus
-                    a.list-group-item(href='#') Porta ac consectetur ac
-                    a.list-group-item(href='#') Vestibulum at eros
-              .panel.panel-warning
-                .panel-heading
-                  h4.panel-title.text-left
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseFive')
-                      | Reports
-                      span.glyphicon.glyphicon-asterisk
-                #collapseFive.panel-collapse.collapse.text-left
-                  .list-group
-                    a.list-group-item(href='#')
-                      h4.list-group-item-heading List group item heading
-                      p.list-group-item-text
-                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                  .list-group
-                    a.list-group-item.active(href='#')
-                      h4.list-group-item-heading List group item heading
-                      p.list-group-item-text
-                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                  .list-group
-                    a.list-group-item(href='#')
-                      h4.list-group-item-heading List group item heading
-                      p.list-group-item-text
-                        | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-
-            block hhh
-              .well.text-center
-                .slider.slider-horizontal(style='width: 180px;')
-                  .slider-track
-                    .slider-selection(style='left: 5.83333%; width: 60.8333%;')
-                    .slider-handle.round.left-round(style='left: 5.83333%;')
-                    .slider-handle.round(style='left: 66.6667%;')
-                  .tooltip.top(style='top: -30px; left: 35.25px;')
-                    .tooltip-arrow
-                    .tooltip-inner 35 : 485
-                  input#sl2.span2(style='', value='', data-slider-min='0', data-slider-max='600', data-slider-step='5', data-slider-value='[250,450]', type='text')
-                br
-                b.pull-left $ 0
-                b.pull-right $ 600
-                              
-
-          .col-xs-9.col-xs-pull-3.col-sm-9.col-sm-pull-3.col-md-9.col-md-pull-3.col-ls-9.col-ls-pull-3
-            block items   
-      block footer
-        footer#footer
-          // Footer
-          .footer-top
-            .container
-              .row
-                .col-sm-2
-                  .companyinfo
-                    h2
-                      span e
-                      | -shopper
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor
-                .col-sm-7
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe1.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe2.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe3.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe4.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                .col-sm-3
-                  .address
-                    img(src='/img/map.png', alt='')
-                    p 505 S Atlantic Ave Virginia Beach, VA(Virginia)
-          .footer-widget
-            .container
-              .row
-                .col-sm-2
-                  .single-widget
-                    h2 Service
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Online Help
-                      li
-                        a(href='') Contact Us
-                      li
-                        a(href='') Order Status
-                      li
-                        a(href='') Change Location
-                      li
-                        a(href='') FAQ’s
-                .col-md-2
-                  .single-widget
-                    h2 Quock Shop
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') T-Shirt
-                      li
-                        a(href='') Mens
-                      li
-                        a(href='') Womens
-                      li
-                        a(href='') Gift Cards
-                      li
-                        a(href='') Shoes
-                .col-md-2
-                  .single-widget
-                    h2 Policies
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Terms of Use
-                      li
-                        a(href='') Privecy Policy
-                      li
-                        a(href='') Refund Policy
-                      li
-                        a(href='') Billing System
-                      li
-                        a(href='') Ticket System
-                .col-md-2
-                  .single-widget
-                    h2 About Shopper
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Company Information
-                      li
-                        a(href='') Careers
-                      li
-                        a(href='') Store Location
-                      li
-                        a(href='') Affillate Program
-                      li
-                        a(href='') Copyright
-                .col-md-3.col-md-offset-1
-                  .single-widget
-                    h2 About Shopper
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Company Information
-                      li
-                        a(href='') Careers
-                      li
-                        a(href='') Store Location
-                      li
-                        a(href='') Affillate Program
-                      li
-                        a(href='') Copyright
-          .footer-bottom
-            .container
-              .row
-                p.pull-left Copyright © 2013 E-Shopper. All rights reserved.
-                p.pull-right
-                  | Designed by 
-                  span
-                    a(target='_blank', href='http://www.themeum.com') Themeum
-
+    .wrapper
+      //- ============================================================= TOP NAVIGATION =============================================================
+      nav.top-bar.animate-dropdown
+        .container
+          .col-xs-12.col-sm-6.no-margin
+            ul
+              li
+                a(href='index.html') Home
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#change-colors') Change Colors
+                ul.dropdown-menu(role='menu')
+                  li(role='presentation')
+                    a.changecolor.green-text(role='menuitem', tabindex='-1', href='#', title='Green color') Green
+                  li(role='presentation')
+                    a.changecolor.blue-text(role='menuitem', tabindex='-1', href='#', title='Blue color') Blue
+                  li(role='presentation')
+                    a.changecolor.red-text(role='menuitem', tabindex='-1', href='#', title='Red color') Red
+                  li(role='presentation')
+                    a.changecolor.orange-text(role='menuitem', tabindex='-1', href='#', title='Orange color') Orange
+                  li(role='presentation')
+                    a.changecolor.navy-text(role='menuitem', tabindex='-1', href='#', title='Navy color') Navy
+                  li(role='presentation')
+                    a.changecolor.dark-green-text(role='menuitem', tabindex='-1', href='#', title='Darkgreen color') Dark Green
+              li
+                a(href='blog.html') Blog
+              li
+                a(href='faq.html') FAQ
+              li
+                a(href='contact.html') Contact
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#pages') Pages
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='index.html') Home
+                  li
+                    a(href='index-2.html') Home Alt
+                  li
+                    a(href='category-grid.html') Category - Grid/List
+                  li
+                    a(href='category-grid-2.html') Category 2 - Grid/List
+                  li
+                    a(href='single-product.html') Single Product
+                  li
+                    a(href='single-product-sidebar.html') Single Product with Sidebar
+                  li
+                    a(href='cart.html') Shopping Cart
+                  li
+                    a(href='checkout.html') Checkout
+                  li
+                    a(href='about.html') About Us
+                  li
+                    a(href='contact.html') Contact Us
+                  li
+                    a(href='blog.html') Blog
+                  li
+                    a(href='blog-fullwidth.html') Blog Full Width
+                  li
+                    a(href='blog-post.html') Blog Post
+                  li
+                    a(href='faq.html') FAQ
+                  li
+                    a(href='terms.html') Terms & Conditions
+                  li
+                    a(href='authentication.html') Login/Register
+          //- /.col
+          .col-xs-12.col-sm-6.no-margin
+            ul.right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#change-language') English
+                ul.dropdown-menu(role='menu')
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Turkish
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Tamil
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') French
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Russian
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#change-currency') Dollar (US)
+                ul.dropdown-menu(role='menu')
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Euro (EU)
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Turkish Lira (TL)
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Indian Rupee (INR)
+                  li(role='presentation')
+                    a(role='menuitem', tabindex='-1', href='#') Dollar (US)
+              li
+                a(href='authentication.html') Register
+              li
+                a(href='authentication.html') Login
+          //- /.col
+        //- /.container
+      //- /.top-bar
+      //- ============================================================= TOP NAVIGATION : END =============================================================
+        block NAVIGATION
+      block content

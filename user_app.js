@@ -21,7 +21,7 @@ user.use(express.static(path.join(__dirname, 'public')));
 user.use(session({secret: 'NagaDev',resave: true,saveUninitialized: true}));
 // init i18n module for this loop
 user.use(i18n.init);
-user.use('/user',user_routes);
+user.use('/',user_routes);
 
 
 

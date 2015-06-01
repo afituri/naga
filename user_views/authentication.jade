@@ -1,6 +1,6 @@
 extends layout
 
-block content
+block navigation
   .wrapper
     // ============================================================= TOP NAVIGATION =============================================================
     nav.top-bar.animate-dropdown
@@ -105,8 +105,8 @@ block content
           // ============================================================= LOGO =============================================================
           .logo
             a(href='index.html')
-              // <img alt="logo" src="/images/logo.svg" width="233" height="54"/>
-              // <object id="sp" type="image/svg+xml" data="/images/logo.svg" width="233" height="54"></object>
+              // <img alt="logo" src="/userStyle/images/logo.svg" width="233" height="54"/>
+              // <object id="sp" type="/userStyleimage/svg+xml" data="/userStyle/images/logo.svg" width="233" height="54"></object>
               svg(width='233px', height='54px', viewbox='0 0 233 54', version='1.1', xmlns='http://www.w3.org/2000/svg')
                 path(fill='#ffffff', d=' M 0.00 0.00 L 233.00 0.00 L 233.00 54.00 L 0.00 54.00 L 0.00 0.00 Z')
                 path.logo-svg(d=' M 104.82 6.46 C 107.74 5.13 110.66 3.80 113.58 2.46 C 113.59 18.71 113.59 34.95 113.59 51.20 C 110.65 51.20 107.71 51.20 104.78 51.20 C 104.84 50.67 104.96 49.62 105.02 49.09 C 100.02 53.56 91.66 52.69 87.37 47.67 C 84.80 44.83 83.96 40.97 83.20 37.33 C 75.63 37.37 68.05 37.26 60.47 37.40 C 61.41 39.88 62.49 42.75 65.24 43.71 C 69.03 45.31 73.10 43.58 75.89 40.91 C 77.67 42.73 79.47 44.54 81.22 46.40 C 75.60 52.47 65.66 53.95 58.77 49.23 C 53.06 45.18 51.58 37.52 52.30 30.95 C 52.75 25.29 55.84 19.51 61.29 17.27 C 66.83 15.00 73.85 15.40 78.54 19.37 C 81.58 21.92 82.87 25.85 83.50 29.64 C 84.32 24.24 87.32 18.69 92.71 16.75 C 96.83 15.07 101.64 15.89 104.93 18.89 C 104.77 14.75 104.83 10.60 104.82 6.46 Z')
@@ -179,7 +179,7 @@ block content
                 a.dropdown-toggle(data-toggle='dropdown', href='#')
                   .basket-item-count
                     span.count 3
-                    img(src='/images/icon-cart.png', alt='')
+                    img(src='/userStyle/images/icon-cart.png', alt='')
                   .total-price-basket
                     span.lbl your cart:
                     span.total-price
@@ -191,7 +191,7 @@ block content
                       .row
                         .col-xs-4.col-sm-4.no-margin.text-center
                           .thumb
-                            img(alt='', src='/images/products/product-small-01.jpg')
+                            img(alt='', src='/userStyle/images/products/product-small-01.jpg')
                         .col-xs-8.col-sm-8.no-margin
                           .title Blueberry
                           .price $270.00
@@ -201,7 +201,7 @@ block content
                       .row
                         .col-xs-4.col-sm-4.no-margin.text-center
                           .thumb
-                            img(alt='', src='/images/products/product-small-01.jpg')
+                            img(alt='', src='/userStyle/images/products/product-small-01.jpg')
                         .col-xs-8.col-sm-8.no-margin
                           .title Blueberry
                           .price $270.00
@@ -211,7 +211,7 @@ block content
                       .row
                         .col-xs-4.col-sm-4.no-margin.text-center
                           .thumb
-                            img(alt='', src='/images/products/product-small-01.jpg')
+                            img(alt='', src='/userStyle/images/products/product-small-01.jpg')
                         .col-xs-8.col-sm-8.no-margin
                           .title Blueberry
                           .price $270.00
@@ -739,7 +739,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-01.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-01.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -749,7 +749,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-02.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-02.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -759,7 +759,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-03.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-03.jpg')
               // /.body
             // /.widget
             // ============================================================= FEATURED PRODUCTS : END =============================================================
@@ -779,7 +779,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-04.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-04.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -789,7 +789,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-05.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-05.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -799,7 +799,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-06.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-06.jpg')
               // /.body
             // /.widget
             // ============================================================= ON SALE PRODUCTS : END =============================================================
@@ -819,7 +819,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-07.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-07.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -829,7 +829,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-08.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-08.jpg')
                   li
                     .row
                       .col-xs-12.col-sm-9.no-margin
@@ -839,7 +839,7 @@ block content
                           .price-current $1873
                       .col-xs-12.col-sm-3.no-margin
                         a.thumb-holder(href='#')
-                          img(alt='', src='/images/blank.gif', data-echo='/images/products/product-small-09.jpg')
+                          img(alt='', src='/userStyle/images/blank.gif', data-echo='/userStyle/images/products/product-small-09.jpg')
               // /.body
             // /.widget
             // ============================================================= TOP RATED PRODUCTS : END =============================================================
@@ -986,13 +986,13 @@ block content
             .payment-methods
               ul
                 li
-                  img(alt='', src='/images/payments/payment-visa.png')
+                  img(alt='', src='/userStyle/images/payments/payment-visa.png')
                 li
-                  img(alt='', src='/images/payments/payment-master.png')
+                  img(alt='', src='/userStyle/images/payments/payment-master.png')
                 li
-                  img(alt='', src='/images/payments/payment-paypal.png')
+                  img(alt='', src='/userStyle/images/payments/payment-paypal.png')
                 li
-                  img(alt='', src='/images/payments/payment-skrill.png')
+                  img(alt='', src='/userStyle/images/payments/payment-skrill.png')
             // /.payment-methods
         // /.container
       // /.copyright-bar
@@ -1063,22 +1063,22 @@ block content
       i.fa.fa-wrench
   // For demo purposes – can be removed on production : End
   // JavaScripts placed at the end of the document so the pages load faster
-  script(src='/js/jquery-1.10.2.min.js')
-  script(src='/js/jquery-migrate-1.2.1.js')
-  script(src='/js/bootstrap.min.js')
+  script(src='/userStyle/js/jquery-1.10.2.min.js')
+  script(src='/userStyle/js/jquery-migrate-1.2.1.js')
+  script(src='/userStyle/js/bootstrap.min.js')
   script(src='http://maps.google.com/maps/api/js?sensor=false&language=en')
-  script(src='/js/gmap3.min.js')
-  script(src='/js/bootstrap-hover-dropdown.min.js')
-  script(src='/js/owl.carousel.min.js')
-  script(src='/js/css_browser_selector.min.js')
-  script(src='/js/echo.min.js')
-  script(src='/js/jquery.easing-1.3.min.js')
-  script(src='/js/bootstrap-slider.min.js')
-  script(src='/js/jquery.raty.min.js')
-  script(src='/js/jquery.prettyPhoto.min.js')
-  script(src='/js/jquery.customSelect.min.js')
-  script(src='/js/wow.min.js')
-  script(src='/js/scripts.js')
+  script(src='/userStyle/js/gmap3.min.js')
+  script(src='/userStyle/js/bootstrap-hover-dropdown.min.js')
+  script(src='/userStyle/js/owl.carousel.min.js')
+  script(src='/userStyle/js/css_browser_selector.min.js')
+  script(src='/userStyle/js/echo.min.js')
+  script(src='/userStyle/js/jquery.easing-1.3.min.js')
+  script(src='/userStyle/js/bootstrap-slider.min.js')
+  script(src='/userStyle/js/jquery.raty.min.js')
+  script(src='/userStyle/js/jquery.prettyPhoto.min.js')
+  script(src='/userStyle/js/jquery.customSelect.min.js')
+  script(src='/userStyle/js/wow.min.js')
+  script(src='/userStyle/js/scripts.js')
   // For demo purposes – can be removed on production
   script(src='switchstylesheet/switchstylesheet.js')
   script.

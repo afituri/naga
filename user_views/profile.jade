@@ -7,7 +7,7 @@ block content
       .col-xs-12.col-md-3.logo-holder
         // ============================================================= LOGO =============================================================
         .logo
-          a(href='/')
+          a(href='index.html')
             // <img alt="logo" src="/userStyle/images/logo.svg" width="233" height="54"/>
             // <object id="sp" type="/userStyleimage/svg+xml" data="/userStyle/images/logo.svg" width="233" height="54"></object>
             svg(width='233px', height='54px', viewbox='0 0 233 54', version='1.1', xmlns='http://www.w3.org/2000/svg')
@@ -548,80 +548,21 @@ block content
               li.breadcrumb-item
                 a(href='#') Home
               li.breadcrumb-item.current
-                a(href='#') Authentication
+                a(href='#') Profile
           // /.breadcrumb-nav-holder
         // /.container
       // /#breadcrumb-alt
       // ========================================= BREADCRUMB : END =========================================
   // ============================================================= HEADER : END =============================================================
   // ========================================= MAIN =========================================
-  main#authentication.inner-bottom-md
+  main#profile.inner-bottom-md
     .container
       .row
-        .col-md-6
-          section.section.sign-in.inner-right-xs
-            h2.bordered Sign In
-            p Hello, Welcome to your account
-            .social-auth-buttons
-              .row
-                .col-md-6
-                  button.btn-block.btn-lg.btn.btn-facebook
-                    i.fa.fa-facebook
-                    |  Sign In with Facebook
-                .col-md-6
-                  button.btn-block.btn-lg.btn.btn-twitter
-                    i.fa.fa-twitter
-                    |  Sign In with Twitter
-            form.login-form.cf-style-1(role='form')
-              .field-row
-                label Email
-                input.le-input(type='text')
-              // /.field-row
-              .field-row
-                label Password
-                input.le-input(type='text')
-              // /.field-row
-              .field-row.clearfix
-                span.pull-left
-                  label.content-color
-                    input.le-checbox.auto-width.inline(type='checkbox')
-                    span.bold Remember me
-                span.pull-right
-                  a.content-color.bold(href='#') Forgotten Password ?
-              .buttons-holder
-                button.le-button.huge(type='submit') Secure Sign In
-              // /.buttons-holder
-            // /.cf-style-1
-          // /.sign-in
-        // /.col
-        .col-md-6
-          section.section.register.inner-left-xs
-            h2.bordered Create New Account
-            p Create your own Media Center account
-            form.register-form.cf-style-1(role='form')
-              .field-row
-                label Email
-                input.le-input(type='text')
-              // /.field-row
-              .buttons-holder
-                button.le-button.huge(type='submit') Sign Up
-              // /.buttons-holder
-            h2.semi-bold Sign up today and you'll be able to :
-            ul.list-unstyled.list-benefits
-              li
-                i.fa.fa-check.primary-color
-                |  Speed your way through the checkout
-              li
-                i.fa.fa-check.primary-color
-                |  Track your orders easily
-              li
-                i.fa.fa-check.primary-color
-                |  Keep a record of all your purchases
-          // /.register
+        .col-md-12
         // /.col
       // /.row
     // /.container
-  // /.authentication
+  // /.profile
   // ========================================= MAIN : END =========================================
   // ============================================================= FOOTER =============================================================
   footer#footer.color-bg
@@ -903,67 +844,67 @@ block content
   // ============================================================= FOOTER : END =============================================================
   // /.wrapper
   // For demo purposes – can be removed on production
-  .config.open
-    .config-options
-      h4 Pages
-      ul.list-unstyled.animate-dropdown
-        li.dropdown
-          button.dropdown-toggle.btn.le-button.btn-block(data-toggle='dropdown') View Pages
-          ul.dropdown-menu
-            li
-              a(href='index.html') Home
-            li
-              a(href='index-2.html') Home Alt
-            li
-              a(href='category-grid.html') Category - Grid/List
-            li
-              a(href='category-grid-2.html') Category 2 - Grid/List
-            li
-              a(href='single-product.html') Single Product
-            li
-              a(href='single-product-sidebar.html') Single Product with Sidebar
-            li
-              a(href='cart.html') Shopping Cart
-            li
-              a(href='checkout.html') Checkout
-            li
-              a(href='about.html') About Us
-            li
-              a(href='contact.html') Contact Us
-            li
-              a(href='blog.html') Blog
-            li
-              a(href='blog-fullwidth.html') Blog Full Width
-            li
-              a(href='blog-post.html') Blog Post
-            li
-              a(href='faq.html') FAQ
-            li
-              a(href='terms.html') Terms & Conditions
-            li
-              a(href='authentication.html') Login/Register
-      h4 Header Styles
-      ul.list-unstyled
-        li
-          a(href='authentication.html1') Header 1
-        li
-          a(href='authentication.html') Header 2
-      h4 Colors
-      ul.list-unstyled
-        li
-          a.changecolor.green-text(href='#', title='Green color') Green
-        li
-          a.changecolor.blue-text(href='#', title='Blue color') Blue
-        li
-          a.changecolor.red-text(href='#', title='Red color') Red
-        li
-          a.changecolor.orange-text(href='#', title='Orange color') Orange
-        li
-          a.changecolor.navy-text(href='#', title='Navy color') Navy
-        li
-          a.changecolor.dark-green-text(href='#', title='Darkgreen color') Dark Green
-    a.show-theme-options(href='#')
-      i.fa.fa-wrench
+  //- .config.open
+  //-  .config-options
+  //-     h4 Pages
+  //-     ul.list-unstyled.animate-dropdown
+  //-       li.dropdown
+  //-         button.dropdown-toggle.btn.le-button.btn-block(data-toggle='dropdown') View Pages
+  //-         ul.dropdown-menu
+  //-           li
+  //-             a(href='index.html') Home
+  //-           li
+  //-             a(href='index-2.html') Home Alt
+  //-           li
+  //-             a(href='category-grid.html') Category - Grid/List
+  //-           li
+  //-             a(href='category-grid-2.html') Category 2 - Grid/List
+  //-           li
+  //-             a(href='single-product.html') Single Product
+  //-           li
+  //-             a(href='single-product-sidebar.html') Single Product with Sidebar
+  //-           li
+  //-             a(href='cart.html') Shopping Cart
+  //-           li
+  //-             a(href='checkout.html') Checkout
+  //-           li
+  //-             a(href='about.html') About Us
+  //-           li
+  //-             a(href='contact.html') Contact Us
+  //-           li
+  //-             a(href='blog.html') Blog
+  //-           li
+  //-             a(href='blog-fullwidth.html') Blog Full Width
+  //-           li
+  //-             a(href='blog-post.html') Blog Post
+  //-           li
+  //-             a(href='faq.html') FAQ
+  //-           li
+  //-             a(href='terms.html') Terms & Conditions
+  //-           li
+  //-             a(href='authentication.html') Login/Register
+  //-     h4 Header Styles
+  //-     ul.list-unstyled
+  //-       li
+  //-         a(href='authentication.html1') Header 1
+  //-       li
+  //-         a(href='authentication.html') Header 2
+  //-     h4 Colors
+  //-     ul.list-unstyled
+  //-       li
+  //-         a.changecolor.green-text(href='#', title='Green color') Green
+  //-       li
+  //-         a.changecolor.blue-text(href='#', title='Blue color') Blue
+  //-       li
+  //-         a.changecolor.red-text(href='#', title='Red color') Red
+  //-       li
+  //-         a.changecolor.orange-text(href='#', title='Orange color') Orange
+  //-       li
+  //-         a.changecolor.navy-text(href='#', title='Navy color') Navy
+  //-       li
+  //-         a.changecolor.dark-green-text(href='#', title='Darkgreen color') Dark Green
+  //-   a.show-theme-options(href='#')
+  //-     i.fa.fa-wrench
   // For demo purposes – can be removed on production : End
   // JavaScripts placed at the end of the document so the pages load faster
   script(src='/userStyle/js/jquery-1.10.2.min.js')

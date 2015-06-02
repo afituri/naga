@@ -7,6 +7,10 @@ var CompanySellerMgr=require('../../app/company_seller').CompanySellerMgr;
 var CompanyAddressMgr=require('../../app/company_address').CompanyAddressMgr;
 var TobMgr=require('../../app/tob').TobMgr;
 var CityMgr = require('../../app/city').CityMgr;
+var formidable = require('formidable'),
+    http = require('http'),
+    util = require('util'),
+    fs   = require('fs-extra');
 
 // Company ///
 router.post('/addCompany',function(req,res){
@@ -102,7 +106,7 @@ router.post('/savePhoto',function(req, res) {
           } else {
               CompanyMgr.addPhoto(idaCompanyView,file_name,function(err,result){  
             });
-              res.redirect('/adminCompany/'+idaCompanyView+'/adminCompanyView');  
+              res.redirect('/company/adminCompany/'+idaCompanyView+'/adminCompanyView');  
           }
       });     
     });
@@ -170,7 +174,7 @@ router.post('/editCompanySellerEmail', function(req, res) {
 router.get('/deleteCompanySeller/:id', function(req, res) {
   CompanyMgr.GetCompanyInfoById(req.params.id,function(err,resulttt){
     CompanySellerMgr.DeleteCompanySeller(req.params.id,function(err,result){
-      console.log(resulttt);
+     // console.log(resulttt);
       res.send(resulttt);
     });
   });

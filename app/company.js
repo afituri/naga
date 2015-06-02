@@ -57,6 +57,7 @@ addPhoto : function(id,path,cb){
         if(err) {
           cb(err,null);
         } else {
+          console.log(result);
           cb(null,result);
         }
       });

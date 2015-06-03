@@ -6,6 +6,7 @@ var validator = require('../app/validator_api');
 var rand= require('../app/serialnumber').rand;
 var user =require('../app/userHelpers');
 var CompanyMgr=require('../app/company').CompanyMgr;
+var SizeMgr=require('../app/size').SizeMgr;
 var TobMgr=require('../app/tob').TobMgr;
 var userHelpers = require('../app/userHelpers');
 var AdminMgr=require('../app/admin').AdminMgr;
@@ -96,6 +97,14 @@ router.get('/vendor', function(req, res) {
 router.get('/vendor/vendorHasPrepaid', function(req, res) {
   res.render('vendorHasPrepaid', { title: 'vendorHasPrepaid'});
 });
+
+router.get('/getSize/:id', function(req, res) {
+  SizeMgr.GetSizeByIdMeasur(req.params.id,function(result){
+    console.log(result);
+    res.send(result);
+  });
+});
+
 router.get('/viewItem', function(req, res) {
   res.render('viewItem', { title: 'View Item'});
 });

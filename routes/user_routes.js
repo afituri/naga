@@ -84,4 +84,8 @@ router.get('/wishlist', function(req, res) {
   res.render('wishlist', { title: 'Wishlist' });
 });
 
+router.get('/profile', function(req, res) {
+  res.render('profile', { title: 'Profile' });
+});
+
 module.exports = router;

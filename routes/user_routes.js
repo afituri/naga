@@ -2,111 +2,90 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
-var CityMgr = require('../app/city').CityMgr;
-
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('homeUser', { title: 'homeUser' });
+  res.render('index', { title: 'Media' });
 });
 
-
-router.get('/department', function(req, res) {
-  res.render('department', { title: ' department' });
+router.get('/about', function(req, res) {
+  res.render('about', { title: 'About' });
 });
 
-router.get('/myAcount', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('myAcount', { title: 'myAcount' });
-});
-router.get('/editProfile', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('editProfile', { title: 'editProfile' });
+router.get('/404', function(req, res) {
+  res.render('404', { title: '404' });
 });
 
-router.get('/forgotPassword', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('forgotPassword', { title: 'myAcount' });
+router.get('/authentication', function(req, res) {
+  res.render('authentication', { title: 'Authentication' });
 });
 
-
-router.get('/login', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('login', { title: 'login' });
+router.get('/blog', function(req, res) {
+  res.render('blog', { title: 'Blog' });
 });
 
-router.get('/account', function(req, res) {
-  res.render('account', { title: ' My Account' });
+router.get('/blog-fullwidth', function(req, res) {
+  res.render('blog-fullwidth', { title: 'Blog-fullwidth' });
 });
 
-router.get('/myOrder', function(req, res) {
-  res.render('myOrder', { title: 'myOrder' });
+router.get('/blog-post', function(req, res) {
+  res.render('blog-post', { title: 'Blog-post' });
 });
 
-
-
-router.get('/abdo', function(req,res){
-  userMgr.deleteById(1,function(result){
-     res.render('abdo',{title: 'abdo'});
-     });
-  });
-
-router.get('/homePage', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('homePage', { title: 'Seller' });
+router.get('/cart', function(req, res) {
+  res.render('cart', { title: 'Cart' });
 });
 
-router.get('/products', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('products', { title: 'Seller' });
+router.get('/category-grid', function(req, res) {
+  res.render('category-grid', { title: 'Category-grid' });
 });
 
-router.get('/location', function(req, res) {
-  res.render('location', { title: ' location' });
-}); 
-
-
-
-router.get('/special_offer', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('special_offer', { title: 'Seller' });
+router.get('/category-grid-2', function(req, res) {
+  res.render('category-grid-2', { title: 'Category-grid-2' });
 });
 
-router.get('/registration', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('registration', { title: 'Registration' });
+router.get('/checkout', function(req, res) {
+  res.render('checkout', { title: 'Checkout' });
 });
 
-router.get('/product_summary', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('product_summary', { title: 'Seller' });
+router.get('/compare', function(req, res) {
+  res.render('compare', { title: 'Compare' });
 });
 
-router.get('/product_details', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('product_details', { title: 'Seller' });
-});
-router.get('/addCity', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('addCity', { title: 'addCity' });
-});
-router.get('/addMahalla', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('addMahalla', { title: 'addMahalla' });
-});
-router.get('/addArea', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('addArea', { title: 'addArea' });
-});
-router.get('/addSchool', function(req, res) {
-  i18n.setlang(req,res);
-  res.render('addSchool', { title: 'addSchool' });
+router.get('/contact', function(req, res) {
+  res.render('contact', { title: 'Contact' });
 });
 
-// set a cookie to requested locale
-router.get('/:locale', function (req, res) {
-  res.redirect("/user");
+router.get('/faq', function(req, res) {
+  res.render('faq', { title: 'FAQ' });
+});
+
+router.get('/index-2', function(req, res) {
+  res.render('index-2', { title: 'Index-2' });
+});
+
+router.get('/single-product', function(req, res) {
+  res.render('single-product', { title: 'Single-product' });
+});
+
+router.get('/single-product-sidebar', function(req, res) {
+  res.render('single-product-sidebar', { title: 'Single-product-sidebar' });
+});
+
+router.get('/terms', function(req, res) {
+  res.render('terms', { title: 'Terms' });
+});
+
+router.get('/track-your-order', function(req, res) {
+  res.render('track-your-order', { title: 'Track-your-order' });
+});
+
+router.get('/wishlist', function(req, res) {
+  res.render('wishlist', { title: 'Wishlist' });
+});
+
+router.get('/profile', function(req, res) {
+  res.render('profile', { title: 'Profile' });
 });
 
 module.exports = router;

@@ -1,389 +1,6 @@
 extends layout
 block navList_And_photoSlide
 block content
-  // ========================================= NAVIGATION =========================================
-  nav#top-megamenu-nav.megamenu-vertical.animate-dropdown
-    .container
-      .yamm.navbar
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mc-horizontal-menu-collapse')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        // /.navbar-header
-        #mc-horizontal-menu-collapse.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.dropdown
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') TV & Audio
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-xs-12.col-sm-4
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Computers & Laptops
-                        ul
-                          li
-                            a(href='#') Computer Cases & Accessories
-                          li
-                            a(href='#') CPUs, Processors
-                          li
-                            a(href='#') Fans, Heatsinks & Cooling
-                          li
-                            a(href='#') Graphics, Video Cards
-                          li
-                            a(href='#') Interface, Add-On Cards
-                          li
-                            a(href='#') Laptop Replacement Parts
-                          li
-                            a(href='#') Memory (RAM)
-                          li
-                            a(href='#') Motherboards
-                          li
-                            a(href='#') Motherboard & CPU Combos
-                          li
-                            a(href='#') Motherboard Components & Accs
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Dekstop Parts
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                    // /.row
-                  // /.yamm-content
-            li.dropdown
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') RTV
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-xs-12.col-sm-4
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Computers & Laptops
-                        ul
-                          li
-                            a(href='#') Computer Cases & Accessories
-                          li
-                            a(href='#') CPUs, Processors
-                          li
-                            a(href='#') Fans, Heatsinks & Cooling
-                          li
-                            a(href='#') Graphics, Video Cards
-                          li
-                            a(href='#') Interface, Add-On Cards
-                          li
-                            a(href='#') Laptop Replacement Parts
-                          li
-                            a(href='#') Memory (RAM)
-                          li
-                            a(href='#') Motherboards
-                          li
-                            a(href='#') Motherboard & CPU Combos
-                          li
-                            a(href='#') Motherboard Components & Accs
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Dekstop Parts
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                    // /.row
-                  // /.yamm-content
-            li.dropdown
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') Computers
-              ul.dropdown-menu
-                li
-                  a(href='#') Computer Cases & Accessories
-                li
-                  a(href='#') CPUs, Processors
-                li
-                  a(href='#') Fans, Heatsinks & Cooling
-                li
-                  a(href='#') Graphics, Video Cards
-                li
-                  a(href='#') Interface, Add-On Cards
-                li
-                  a(href='#') Laptop Replacement Parts
-                li
-                  a(href='#') Memory (RAM)
-                li
-                  a(href='#') Motherboards
-                li
-                  a(href='#') Motherboard & CPU Combos
-            li.dropdown
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') Games & Consoles
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-xs-12.col-sm-4
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Computers & Laptops
-                        ul
-                          li
-                            a(href='#') Computer Cases & Accessories
-                          li
-                            a(href='#') CPUs, Processors
-                          li
-                            a(href='#') Fans, Heatsinks & Cooling
-                          li
-                            a(href='#') Graphics, Video Cards
-                          li
-                            a(href='#') Interface, Add-On Cards
-                          li
-                            a(href='#') Laptop Replacement Parts
-                          li
-                            a(href='#') Memory (RAM)
-                          li
-                            a(href='#') Motherboards
-                          li
-                            a(href='#') Motherboard & CPU Combos
-                          li
-                            a(href='#') Motherboard Components & Accs
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Dekstop Parts
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                    // /.row
-                  // /.yamm-content
-            li.dropdown.yamm-fw
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') Gadgets
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-xs-12.col-sm-3
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-3
-                        h2 Computers & Laptops
-                        ul
-                          li
-                            a(href='#') Computer Cases & Accessories
-                          li
-                            a(href='#') CPUs, Processors
-                          li
-                            a(href='#') Fans, Heatsinks & Cooling
-                          li
-                            a(href='#') Graphics, Video Cards
-                          li
-                            a(href='#') Interface, Add-On Cards
-                          li
-                            a(href='#') Laptop Replacement Parts
-                          li
-                            a(href='#') Memory (RAM)
-                          li
-                            a(href='#') Motherboards
-                          li
-                            a(href='#') Motherboard & CPU Combos
-                          li
-                            a(href='#') Motherboard Components & Accs
-                      // /.col
-                      .col-xs-12.col-sm-3
-                        h2 Desktop Parts
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-3
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                    // /.row
-                  // /.yamm-content
-            // /.yamm-fw
-            li.dropdown
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') Phones & Tablets
-              ul.dropdown-menu
-                li
-                  a(href='#') Motherboard Components & Accs
-                li
-                  a(href='#') Power Supplies Power
-                li
-                  a(href='#') Power Supply TestersSound 
-                li
-                  a(href='#') Sound Cards (Internal)
-                li
-                  a(href='#') Video Capture & TV Tuner Cards
-                li
-                  a(href='#') Other
-            li.dropdown.hidden-md
-              a.dropdown-toggle(href='#', data-hover='dropdown') GPS & Car Audio
-              ul.dropdown-menu
-                li
-                  a(href='#') Laptops & Notebooks
-                li
-                  a(href='#') RTV
-                li
-                  a(href='#') TV & Audio
-                li
-                  a(href='#') Gadgets
-                li
-                  a(href='#') Cameras
-            li.dropdown.navbar-right.hidden-md
-              a.dropdown-toggle(href='#', data-hover='dropdown', data-toggle='dropdown') Accessories
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-xs-12.col-sm-4
-                        h2 Laptops & Notebooks
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound 
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Computers & Laptops
-                        ul
-                          li
-                            a(href='#') Computer Cases & Accessories
-                          li
-                            a(href='#') CPUs, Processors
-                          li
-                            a(href='#') Fans, Heatsinks & Cooling
-                          li
-                            a(href='#') Graphics, Video Cards
-                          li
-                            a(href='#') Interface, Add-On Cards
-                          li
-                            a(href='#') Laptop Replacement Parts
-                          li
-                            a(href='#') Memory (RAM)
-                          li
-                            a(href='#') Motherboards
-                          li
-                            a(href='#') Motherboard & CPU Combos
-                          li
-                            a(href='#') Motherboard Components & Accs
-                      // /.col
-                      .col-xs-12.col-sm-4
-                        h2 Dekstop Parts
-                        ul
-                          li
-                            a(href='#') Power Supplies Power
-                          li
-                            a(href='#') Power Supply Testers Sound
-                          li
-                            a(href='#') Sound Cards (Internal)
-                          li
-                            a(href='#') Video Capture & TV Tuner Cards
-                          li
-                            a(href='#') Other
-                      // /.col
-                    // /.row
-                  // /.yamm-content
-          // /.navbar-nav
-        // /.navbar-collapse
-      // /.navbar
-    // /.container
-  // /.megamenu-vertical
-  // ========================================= NAVIGATION : END =========================================
   .animate-dropdown
     // ========================================= BREADCRUMB =========================================
     #breadcrumb-alt
@@ -772,67 +389,67 @@ block content
   // ============================================================= FOOTER : END =============================================================
   // /.wrapper
   // For demo purposes – can be removed on production
-  .config.open
-    .config-options
-      h4 Pages
-      ul.list-unstyled.animate-dropdown
-        li.dropdown
-          button.dropdown-toggle.btn.le-button.btn-block(data-toggle='dropdown') View Pages
-          ul.dropdown-menu
-            li
-              a(href='index') Home
-            li
-              a(href='index-2') Home Alt
-            li
-              a(href='category-grid') Category - Grid/List
-            li
-              a(href='category-grid-2') Category 2 - Grid/List
-            li
-              a(href='single-product') Single Product
-            li
-              a(href='single-product-sidebar') Single Product with Sidebar
-            li
-              a(href='cart') Shopping Cart
-            li
-              a(href='checkout') Checkout
-            li
-              a(href='about') About Us
-            li
-              a(href='contact') Contact Us
-            li
-              a(href='blog') Blog
-            li
-              a(href='blog-fullwidth') Blog Full Width
-            li
-              a(href='blog-post') Blog Post
-            li
-              a(href='faq') FAQ
-            li
-              a(href='terms') Terms & Conditions
-            li
-              a(href='authentication') Login/Register
-      h4 Header Styles
-      ul.list-unstyled
-        li
-          a(href='authentication1') Header 1
-        li
-          a(href='authentication') Header 2
-      h4 Colors
-      ul.list-unstyled
-        li
-          a.changecolor.green-text(href='#', title='Green color') Green
-        li
-          a.changecolor.blue-text(href='#', title='Blue color') Blue
-        li
-          a.changecolor.red-text(href='#', title='Red color') Red
-        li
-          a.changecolor.orange-text(href='#', title='Orange color') Orange
-        li
-          a.changecolor.navy-text(href='#', title='Navy color') Navy
-        li
-          a.changecolor.dark-green-text(href='#', title='Darkgreen color') Dark Green
-    a.show-theme-options(href='#')
-      i.fa.fa-wrench
+  //- .config.open
+  //-   .config-options
+  //-     h4 Pages
+  //-     ul.list-unstyled.animate-dropdown
+  //-       li.dropdown
+  //-         button.dropdown-toggle.btn.le-button.btn-block(data-toggle='dropdown') View Pages
+  //-         ul.dropdown-menu
+  //-           li
+  //-             a(href='index') Home
+  //-           li
+  //-             a(href='index-2') Home Alt
+  //-           li
+  //-             a(href='category-grid') Category - Grid/List
+  //-           li
+  //-             a(href='category-grid-2') Category 2 - Grid/List
+  //-           li
+  //-             a(href='single-product') Single Product
+  //-           li
+  //-             a(href='single-product-sidebar') Single Product with Sidebar
+  //-           li
+  //-             a(href='cart') Shopping Cart
+  //-           li
+  //-             a(href='checkout') Checkout
+  //-           li
+  //-             a(href='about') About Us
+  //-           li
+  //-             a(href='contact') Contact Us
+  //-           li
+  //-             a(href='blog') Blog
+  //-           li
+  //-             a(href='blog-fullwidth') Blog Full Width
+  //-           li
+  //-             a(href='blog-post') Blog Post
+  //-           li
+  //-             a(href='faq') FAQ
+  //-           li
+  //-             a(href='terms') Terms & Conditions
+  //-           li
+  //-             a(href='authentication') Login/Register
+  //-     h4 Header Styles
+  //-     ul.list-unstyled
+  //-       li
+  //-         a(href='authentication1') Header 1
+  //-       li
+  //-         a(href='authentication') Header 2
+  //-     h4 Colors
+  //-     ul.list-unstyled
+  //-       li
+  //-         a.changecolor.green-text(href='#', title='Green color') Green
+  //-       li
+  //-         a.changecolor.blue-text(href='#', title='Blue color') Blue
+  //-       li
+  //-         a.changecolor.red-text(href='#', title='Red color') Red
+  //-       li
+  //-         a.changecolor.orange-text(href='#', title='Orange color') Orange
+  //-       li
+  //-         a.changecolor.navy-text(href='#', title='Navy color') Navy
+  //-       li
+  //-         a.changecolor.dark-green-text(href='#', title='Darkgreen color') Dark Green
+  //-   a.show-theme-options(href='#')
+  //-     i.fa.fa-wrench
   // For demo purposes – can be removed on production : End
   // JavaScripts placed at the end of the document so the pages load faster
   script(src='/userStyle/js/jquery-1.10.2.min.js')

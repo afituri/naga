@@ -56,6 +56,14 @@ router.get('/contact', function(req, res) {
   res.render('contact', { title: 'Contact' });
 });
 
+router.get('/sendContact/:id',function(req,res){
+  console.log("Sss");
+  res.send(true);
+    
+});
+
+
+
 router.get('/faq', function(req, res) {
   res.render('faq', { title: 'FAQ' });
 });

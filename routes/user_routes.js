@@ -9,6 +9,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Media' });
 });
 
+router.get('/login', function(req, res) {
+  res.render('login', { title: 'login' });
+});
+
 router.get('/about', function(req, res) {
   res.render('about', { title: 'About' });
 });

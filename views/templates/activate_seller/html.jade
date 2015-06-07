@@ -14,10 +14,13 @@ html
         td
           hr
       tr
-        td(bgcolor='#FFFFFF', align='left') شركة ناقة ترحب بك، الرجاء قم بتفعيل حسابك:
+        td(bgcolor='#FFFFFF', align='left') رسالة من المتجر الألكتروني لشــركة ناقة للحلول التقنية
           p
             a(href='http://naga.ly') اضغط هنا لزيارة موقعنا
           p اسم المستخدم : #{user.name} 
+          p إيميل المستخدم : #{user.email} 
+          p الموضوع : #{user.subject} 
+          p الرسالة : #{user.text}
       tr
         td(bgcolor='#FFFFFF', align='center')
           hr

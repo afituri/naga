@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
+var mailMgr = require('../app/mailer').mailMgr ;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -56,9 +57,24 @@ router.get('/contact', function(req, res) {
   res.render('contact', { title: 'Contact' });
 });
 
-router.get('/sendContact/:id',function(req,res){
-  console.log("Sss");
-  res.send(true);
+router.post('/sendContact',function(req,res){
+  
+  var obj = {
+  template : "activate_seller",
+  locals : {
+    email : 'info@naga.ly',
+    user : {
+      name : req.body.name,
+      subject : req.body.sub,
+      text: req.body.msg,
+      email:req.body.email,
+      link : "http://naga.ly/activate/SDFSDKLJHDFSSLDKF23424N234L234H234"
+    }
+  }
+}
+
+  mailMgr.send(obj)
+  res.redirect('/contact');
     
 });
 

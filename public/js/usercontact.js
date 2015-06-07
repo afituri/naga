@@ -39,13 +39,13 @@ $(document).ready(function(){
 
 
 
- $('body').on('click', '#save', function (e) {
+/* $('body').on('click', '#save', function (e) {
     e.preventDefault();
     $('#contact-form').submit();
-  });
+  });*/
 
 
-
+/*
   $("#contact-form").submit(function(e) {
     var isvalidate=$("#contact-form").valid();
     if(isvalidate){
@@ -57,11 +57,11 @@ $(document).ready(function(){
     });
 
       // send the object to routes 
-    /*  $.post("/sendContact", $("#contact-form").serializeObject(), function(data, error){
+      $.post("/sendContact", $("#contact-form").serializeObject(), function(data, error){
         return false;
-      });*/
+      });
     }
-});
+});*/
 
 
 

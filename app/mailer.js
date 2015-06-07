@@ -3,8 +3,7 @@ var path           = require('path')
   , emailTemplates = require('email-templates')
   , nodemailer     = require('nodemailer')
   , config         = require('../config.json');
-
-module.exports = {
+exports.mailMgr = {
 
   send : function (obj,cb){
     emailTemplates(templatesDir, function(err, template) {
@@ -37,10 +36,10 @@ module.exports = {
             }, function(err, responseStatus) {
               if (err) {
                 console.log(err);
-                cb(true);
+                return true;
               } else {
-                //console.log(responseStatus.message);
-                cb(false);
+                // console.log(responseStatus.message);
+                return false;
               }
             });
           }

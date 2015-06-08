@@ -6,7 +6,7 @@ var mailMgr = require('../app/mailer').mailMgr ;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Media' });
+  res.render('index', { title: 'Naga' });
 });
 
 router.get('/login', function(req, res) {

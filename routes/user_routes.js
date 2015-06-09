@@ -12,6 +12,9 @@ router.get('/', function(req, res) {
 router.get('/login', function(req, res) {
   res.render('login', { title: 'login' });
 });
+router.get('/register', function(req, res) {
+  res.render('register', { title: 'register' });
+});
 
 router.get('/about', function(req, res) {
   res.render('about', { title: 'About' });

@@ -12,19 +12,18 @@ html
     meta(name='robots', content='all')
     //- Bootstrap Core CSS
     link(rel='stylesheet', href='/userStyle/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/userStyle/css/style.css')
     //- Customizable CSS
     link(rel='stylesheet', href='/userStyle/css/main.css')
-    link(rel='stylesheet', href='/userStyle/css/green.css')
+    link(rel='stylesheet', href='/userStyle/css/orange.css')
     link(rel='stylesheet', href='/userStyle/css/owl.carousel.css')
     link(rel='stylesheet', href='/userStyle/css/owl.transitions.css')
     link(rel='stylesheet', href='/userStyle/css/animate.min.css')
     //- Demo Purpose Only. Should be removed in production
     link(rel='stylesheet', href='/userStyle/css/config.css')
+    link(href='/userStyle/css/orange.css', rel='alternate stylesheet', title='Orange color')
     link(href='/userStyle/css/green.css', rel='alternate stylesheet', title='Green color')
     link(href='/userStyle/css/blue.css', rel='alternate stylesheet', title='Blue color')
     link(href='/userStyle/css/red.css', rel='alternate stylesheet', title='Red color')
-    link(href='/userStyle/css/orange.css', rel='alternate stylesheet', title='Orange color')
     link(href='/userStyle/css/navy.css', rel='alternate stylesheet', title='Navy color')
     link(href='/userStyle/css/dark-green.css', rel='alternate stylesheet', title='Darkgreen color')
     //- Demo Purpose Only. Should be removed in production : END
@@ -34,6 +33,8 @@ html
     link(rel='stylesheet', href='/userStyle/css/font-awesome.min.css')
     //- Favicon
     link(rel='shortcut icon', href='/userStyle/images/favicon.ico')
+    //- Custom Style
+    link(rel='stylesheet', href='/userStyle/css/style.css')
     //- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js
     //-if lt IE 9
       script(src='/js/html5shiv.js')
@@ -52,13 +53,13 @@ html
                   a.dropdown-toggle(data-toggle='dropdown', href='#change-colors') Change Colors
                   ul.dropdown-menu(role='menu')
                     li(role='presentation')
+                      a.changecolor.orange-text(role='menuitem', tabindex='-1', href='#', title='Orange color') Orange
+                    li(role='presentation')
                       a.changecolor.green-text(role='menuitem', tabindex='-1', href='#', title='Green color') Green
                     li(role='presentation')
                       a.changecolor.blue-text(role='menuitem', tabindex='-1', href='#', title='Blue color') Blue
                     li(role='presentation')
                       a.changecolor.red-text(role='menuitem', tabindex='-1', href='#', title='Red color') Red
-                    li(role='presentation')
-                      a.changecolor.orange-text(role='menuitem', tabindex='-1', href='#', title='Orange color') Orange
                     li(role='presentation')
                       a.changecolor.navy-text(role='menuitem', tabindex='-1', href='#', title='Navy color') Navy
                     li(role='presentation')
@@ -174,11 +175,11 @@ html
             .contact-row
               .phone.inline
                 i.fa.fa-phone
-                |  (+800) 123 456 7890
+                |  (+218) 21 373 1170
               .contact.inline
                 i.fa.fa-envelope
-                |  contact@
-                span.le-color oursupport.com
+                |  info@
+                span.le-color naga.ly
             //- /.contact-row
             //- ============================================================= SEARCH AREA =============================================================
             .search-area
@@ -1431,9 +1432,9 @@ html
           .container
             .col-xs-12.col-sm-6.no-margin
               .copyright
-                | © 
-                a(href='index') Media Center
-                |  - all rights reserved
+                | Copyright © 2015 
+                a(href='http://www.naga.ly', target='_blank') Naga Co.
+                |  all rights reserved.
               // /.copyright
             .col-xs-12.col-sm-6.no-margin
               .payment-methods

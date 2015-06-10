@@ -16,6 +16,7 @@ var formidable = require('formidable'),
     http = require('http'),
     util = require('util'),
     fs   = require('fs-extra');
+    console.log("im in admin");
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('adminLogin', { title: 'Login' });

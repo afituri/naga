@@ -1,8 +1,7 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     easyPbkdf2 = require("easy-pbkdf2")(),
-    AdminMgr = require('../app/admin').AdminMgr;
-var userMgr = require('../app/user_app').userMgr;
+    userMgr = require('../app/user_app').userMgr;
 
 
 //read the passport api docs if you wanna know what this does
@@ -34,11 +33,12 @@ passport.deserializeUser(function(id, done) {
 
 module.exports = function (router) {
   //login here we get the email and password and check if they're conrrect
-  router.post('/login', passport.authenticate('local', { failureRedirect: '/users/login' }), function(req, res) {
+  router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
     findById(req.session.passport.user, function (err, user) {
       req.session.email=user.email;
       req.session.iduser=user.idcustomer;
       req.session.level=user.level;
+      res.redirect('/');
       // if(user.level == 0){
       //   res.redirect('/cpanel');
       // }else{
@@ -62,7 +62,7 @@ module.exports = function (router) {
 }
 
 function findById(id, fn) {
-  userMgr.getAllById(id, function(err,user){
+  userMgr.getallById(id, function(err,user){
     if(user){
       fn(null, user);
     } else {
@@ -71,7 +71,7 @@ function findById(id, fn) {
   });
 }
 function findByEmail(email, fn) {
-  userMgr.getUserByEmail(email, function(err,user){
+  userMgr.getbyEmail(email, function(err,user){
     if(user) {
       return fn(null, user);
     } else {

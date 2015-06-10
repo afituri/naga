@@ -10,7 +10,7 @@ var vhost = require('vhost');
 var config = require('./config');
 var admin = require('./admin_app');
 var user =require('./user_app');
-var seller =require('./seller_app');
+//var seller =require('./seller_app');
 
 
 
@@ -18,9 +18,9 @@ var seller =require('./seller_app');
 
 var app = express();
 
-app.use(vhost(config.admin,admin));
 app.use(vhost(config.user,user));
-app.use(vhost(config.seller,seller));
+app.use(vhost(config.admin,admin));
+//app.use(vhost(config.seller,seller));
 
 
 // minimal config

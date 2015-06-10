@@ -8,11 +8,14 @@ var login = require('../app/userLogin')(router);
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Media' });
+  res.render('index', { title: 'Naga' });
 });
 
 router.get('/login', function(req, res) {
   res.render('login', { title: 'login' });
+});
+router.get('/register', function(req, res) {
+  res.render('register', { title: 'register' });
 });
 
 router.get('/about', function(req, res) {
@@ -64,27 +67,22 @@ router.get('/contact', function(req, res) {
 });
 
 router.post('/sendContact',function(req,res){
-  
   var obj = {
-  template : "activate_seller",
-  locals : {
-    email : 'info@naga.ly',
-    user : {
-      name : req.body.name,
-      subject : req.body.sub,
-      text: req.body.msg,
-      email:req.body.email,
-      link : "http://naga.ly/activate/SDFSDKLJHDFSSLDKF23424N234L234H234"
+    template : "activate_seller",
+    locals : {
+      email : 'info@naga.ly',
+      user : {
+        name : req.body.name,
+        subject : req.body.sub,
+        text : req.body.msg,
+        email : req.body.email,
+        link : "http://naga.ly/activate/SDFSDKLJHDFSSLDKF23424N234L234H234"
+      }
     }
   }
-}
-
   mailMgr.send(obj)
-  res.redirect('/contact');
-    
+  res.redirect('/contact');   
 });
-
-
 
 router.get('/faq', function(req, res) {
   res.render('faq', { title: 'FAQ' });

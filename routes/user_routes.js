@@ -3,6 +3,8 @@ var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
 var mailMgr = require('../app/mailer').mailMgr ;
+var login = require('../app/userLogin')(router);
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -11,6 +13,9 @@ router.get('/', function(req, res) {
 
 router.get('/login', function(req, res) {
   res.render('login', { title: 'login' });
+});
+router.get('/register', function(req, res) {
+  res.render('register', { title: 'register' });
 });
 
 router.get('/about', function(req, res) {

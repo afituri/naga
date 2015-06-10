@@ -7,8 +7,7 @@ var passport = require('passport'),
 //read the passport api docs if you wanna know what this does
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log("got ehre");
-    findByEmail(username, function (err, admin) {
+    findAdminByEmail(username, function (err, admin) {
       if (err) { return done(err); }
       if (!admin) { return done(null, false); }
       authenticate(admin,password, function(valid){
@@ -21,22 +20,23 @@ passport.use(new LocalStrategy(
     });
   }
 ));
+console.log("im in admin log in");
 //read the passport api docs if you wanna know what this does
 passport.serializeUser(function(admin, done) {
   done(null, admin.idadmin);
 });
 //read the passport api docs if you wanna know what this does
 passport.deserializeUser(function(id, done) {
-  findById(id, function (err, admin) {
+  findAdminById(id, function (err, admin) {
     done(err, admin);
   });
 });
 
 module.exports = function (router) {
   //login here we get the email and password and check if they're conrrect
-  router.post('/login', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+  router.post('/loginAdmin', passport.authenticate('local', { failureRedirect: '/admin' }), function(req, res) {
     console.log("login");
-    findById(req.session.passport.admin, function (err, admin) {
+    findAdminById(req.session.passport.admin, function (err, admin) {
       req.session.email=admin.email;
       req.session.idadmin=admin.idadmin;
       req.session.level=admin.level;
@@ -55,7 +55,7 @@ module.exports = function (router) {
   return router;
 }
 
-function findById(id, fn) {
+function findAdminById(id, fn) {
   adminMgr.GetAdminById(id, function(admin){
     if(admin){
       fn(null, admin);
@@ -64,7 +64,7 @@ function findById(id, fn) {
     }
   });
 }
-function findByEmail(email, fn) {
+function findAdminByEmail(email, fn) {
   adminMgr.getAdminByEmail(email, function(admin){
     if(admin) {
       return fn(null, admin);

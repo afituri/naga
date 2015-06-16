@@ -3,7 +3,7 @@ var router = express.Router();
 var i18n = require('../app/i18n');
 var userMgr= require('../app/user_app').userMgr;
 var mailMgr = require('../app/mailer').mailMgr ;
-var login = require('../app/userLogin')(router);
+var login = require('../app/user_login')(router);
 
 
 /* GET home page. */

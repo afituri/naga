@@ -5,7 +5,7 @@ var userMgr= require('../app/user_app').userMgr;
 var CityMgr = require('../app/city').CityMgr;
 
 /* GET home page. */ 
-
+console.log("aaaaa");
 router.get('/', function(req, res) {
   i18n.setlang(req,res);
   res.render('homeUser', { title: 'homeUser' });

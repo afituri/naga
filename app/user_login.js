@@ -10,8 +10,10 @@ passport.use(new LocalStrategy(
     findByEmail(username, function (err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
+        console.log(user);
       authenticate(user,password, function(valid){
         if(valid){
+          console.log("done");
           return done(null, user);
         } else {
           return done(null, false);
@@ -22,10 +24,12 @@ passport.use(new LocalStrategy(
 ));
 //read the passport api docs if you wanna know what this does
 passport.serializeUser(function(user, done) {
+
   done(null, user.idcustomer);
 });
 //read the passport api docs if you wanna know what this does
 passport.deserializeUser(function(id, done) {
+  
   findById(id, function (err, user) {
     done(err, user);
   });
@@ -34,6 +38,7 @@ passport.deserializeUser(function(id, done) {
 module.exports = function (router) {
   //login here we get the email and password and check if they're conrrect
   router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+    console.log(req.session.passport);
     findById(req.session.passport.user, function (err, user) {
       req.session.email=user.email;
       req.session.iduser=user.idcustomer;
@@ -63,6 +68,7 @@ module.exports = function (router) {
 
 function findById(id, fn) {
   userMgr.getallById(id, function(err,user){
+
     if(user){
       fn(null, user);
     } else {

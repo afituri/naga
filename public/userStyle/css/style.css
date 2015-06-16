@@ -4,10 +4,25 @@
 */
 
 header {
-  padding: 20px 0 5px 0;
+  padding: 20px 0 2px 0;
 }
 
 #top-megamenu-nav {
   margin: 0 0 0 0;
 }
 
+#img {
+  /*width:225px;*/
+  display:block;
+  margin:auto;
+}
+
+@media screen and (min-width: 992px) {
+  /* Styles go here */
+  #img {
+     /* width:225px;
+      display:block;
+      margin:auto;*/
+      margin-left: -2px;
+  }
+}
